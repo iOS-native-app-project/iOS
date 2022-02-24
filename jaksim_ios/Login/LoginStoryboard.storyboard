@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="jaksim_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
+                                <rect key="frame" x="188" y="346" width="39" height="30"/>
+                                <state key="normal" title="카카오"/>
+                                <connections>
+                                    <action selector="kakaoButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rxg-1b-elF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-yn-cpd">
+                                <rect key="frame" x="192" y="401" width="30" height="30"/>
+                                <state key="normal" title="애플"/>
+                                <connections>
+                                    <action selector="appleButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ua0-up-tIK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-81-xSy">
+                                <rect key="frame" x="188" y="454" width="39" height="30"/>
+                                <state key="normal" title="네이버"/>
+                                <connections>
+                                    <action selector="naverButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AEW-Hm-cbx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QYa-yn-cpd" firstAttribute="top" secondItem="CVi-7m-F4M" secondAttribute="bottom" constant="25" id="0GY-dq-B9Y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QYa-yn-cpd" secondAttribute="trailing" constant="192" id="20N-nl-A11"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CVi-7m-F4M" secondAttribute="trailing" constant="187" id="2TT-WW-Gao"/>
+                            <constraint firstItem="CVi-7m-F4M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="302" id="6It-xN-TJz"/>
+                            <constraint firstItem="ZUn-81-xSy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="188" id="fTb-ie-G0v"/>
+                            <constraint firstItem="CVi-7m-F4M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="188" id="hNl-J5-ssz"/>
+                            <constraint firstItem="QYa-yn-cpd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="192" id="oZo-DJ-A5a"/>
+                            <constraint firstItem="ZUn-81-xSy" firstAttribute="top" secondItem="QYa-yn-cpd" secondAttribute="bottom" constant="23" id="wlp-iN-Vtf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZUn-81-xSy" secondAttribute="trailing" constant="187" id="z1a-KQ-Fai"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appleLoginButton" destination="QYa-yn-cpd" id="Bju-1h-epD"/>
+                        <outlet property="kakaoLoginButton" destination="CVi-7m-F4M" id="yST-4g-tqM"/>
+                        <outlet property="naverLoginButton" destination="ZUn-81-xSy" id="U0l-VT-qmq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
