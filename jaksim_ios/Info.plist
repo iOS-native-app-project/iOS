@@ -21,9 +21,21 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>kakao</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao918a05388f609dd87572e0511befabf9</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>naver</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>naverlogin</string>
 			</array>
 		</dict>
 	</array>
@@ -33,6 +45,8 @@
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+		<string>naversearchapp</string>
+		<string>naversearchthirdlogin</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
