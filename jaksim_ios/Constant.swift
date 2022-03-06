@@ -7,6 +7,8 @@
 
 struct K {
     static let meetingListCellId = "MeetingListCollectionViewCell"
+    static let categoryListCellId = "CategoryListCollectionViewCell"
+    static let recommendedMeetingListCellId = "RecommendedMeetingListCollectionViewCell"
     
 //    static let cellNibName = "MessageCell"
 //    static let registerSegue = "RegisterToChat"

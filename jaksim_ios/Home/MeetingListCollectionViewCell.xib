@@ -34,7 +34,7 @@
             </constraints>
             <size key="customSize" width="376" height="221"/>
             <connections>
-                <outlet property="TextField" destination="lxb-hA-Tr7" id="ZlI-hd-FEi"/>
+                <outlet property="textField" destination="lxb-hA-Tr7" id="ZlI-hd-FEi"/>
             </connections>
             <point key="canvasLocation" x="-28" y="51"/>
         </collectionViewCell>

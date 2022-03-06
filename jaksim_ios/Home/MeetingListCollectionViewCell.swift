@@ -9,7 +9,7 @@ import UIKit
 
 class MeetingListCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var TextField: UITextField!
+    @IBOutlet weak var textField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

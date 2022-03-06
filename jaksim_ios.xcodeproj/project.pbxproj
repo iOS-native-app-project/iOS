@@ -14,8 +14,11 @@
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
-		18EB2AF327C8079D004ABE3A /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EB2AF227C8079D004ABE3A /* Meeting.storyboard */; };
-		18EB2AF527C80910004ABE3A /* MeetingHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AF427C80910004ABE3A /* MeetingHomeViewController.swift */; };
+		18A75E8527D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */; };
+		18A75E8727D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */; };
+		18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85C27D4A963006744DA /* Searching.storyboard */; };
+		18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85E27D4A96F006744DA /* Profile.storyboard */; };
+		18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E86027D4B250006744DA /* Meeting.storyboard */; };
 		18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */; };
 		18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */; };
 		18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AFB27CFCD9C004ABE3A /* Constant.swift */; };
@@ -32,8 +35,11 @@
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18EB2AF227C8079D004ABE3A /* Meeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
-		18EB2AF427C80910004ABE3A /* MeetingHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingHomeViewController.swift; sourceTree = "<group>"; };
+		18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18B0E85C27D4A963006744DA /* Searching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Searching.storyboard; sourceTree = "<group>"; };
+		18B0E85E27D4A96F006744DA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		18B0E86027D4B250006744DA /* Meeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
 		18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		18EB2AFB27CFCD9C004ABE3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -75,8 +81,10 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-				18EB2AF627C80928004ABE3A /* Home */,
 				18EB2AEE27C801D9004ABE3A /* Meeting */,
+				18B0E85B27D4A914006744DA /* Profile */,
+				18B0E85A27D4A902006744DA /* Searching */,
+				18EB2AF627C80928004ABE3A /* Home */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F5427C35EE40007C506 /* Assets.xcassets */,
@@ -88,37 +96,28 @@
 			path = jaksim_ios;
 			sourceTree = "<group>";
 		};
+		18B0E85A27D4A902006744DA /* Searching */ = {
+			isa = PBXGroup;
+			children = (
+				18B0E85C27D4A963006744DA /* Searching.storyboard */,
+			);
+			path = Searching;
+			sourceTree = "<group>";
+		};
+		18B0E85B27D4A914006744DA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				18B0E85E27D4A96F006744DA /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		18EB2AEE27C801D9004ABE3A /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
-				18EB2AF127C80777004ABE3A /* ViewModel */,
-				18EB2AF027C801EA004ABE3A /* View */,
-				18EB2AEF27C801E2004ABE3A /* Model */,
+				18B0E86027D4B250006744DA /* Meeting.storyboard */,
 			);
 			path = Meeting;
-			sourceTree = "<group>";
-		};
-		18EB2AEF27C801E2004ABE3A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		18EB2AF027C801EA004ABE3A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				18EB2AF427C80910004ABE3A /* MeetingHomeViewController.swift */,
-				18EB2AF227C8079D004ABE3A /* Meeting.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		18EB2AF127C80777004ABE3A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		18EB2AF627C80928004ABE3A /* Home */ = {
@@ -128,6 +127,8 @@
 				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 				18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */,
 				18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */,
+				18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */,
+				18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,8 +211,10 @@
 			files = (
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
-				18EB2AF327C8079D004ABE3A /* Meeting.storyboard in Resources */,
+				18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */,
+				18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */,
 				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,11 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A75E8727D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
 				18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */,
-				18EB2AF527C80910004ABE3A /* MeetingHomeViewController.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
+				18A75E8527D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 			);
