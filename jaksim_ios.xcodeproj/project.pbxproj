@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */; };
+		18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */; };
+		18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */; };
+		18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
 		186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* HomeViewController.swift */; };
@@ -14,8 +18,6 @@
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
-		18A75E8527D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */; };
-		18A75E8727D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */; };
 		18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85C27D4A963006744DA /* Searching.storyboard */; };
 		18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85E27D4A96F006744DA /* Profile.storyboard */; };
 		18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E86027D4B250006744DA /* Meeting.storyboard */; };
@@ -26,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
+		18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendedMeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B1F4A27C35EE10007C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,8 +41,6 @@
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
-		18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18B0E85C27D4A963006744DA /* Searching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Searching.storyboard; sourceTree = "<group>"; };
 		18B0E85E27D4A96F006744DA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		18B0E86027D4B250006744DA /* Meeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
@@ -60,10 +64,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18453A5227E087A800333D49 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
+				18453A5227E087A800333D49 /* Font */,
 				186B1F4627C35EE10007C506 /* Products */,
 				25F4D27B27D96585C56D6E4A /* Pods */,
 				CF52FEFEFBC80C97E40134D7 /* Frameworks */,
@@ -127,8 +139,10 @@
 				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 				18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */,
 				18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */,
-				18A75E8427D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift */,
-				18A75E8627D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift */,
+				18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */,
+				18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */,
+				18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */,
+				18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -214,6 +228,8 @@
 				18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */,
 				18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
+				18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */,
 				18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */,
 				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
 			);
@@ -268,12 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A75E8727D4E5EE0094DB23 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
+				18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */,
 				18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */,
+				18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
-				18A75E8527D4E5DF0094DB23 /* CategoryListCollectionViewCell.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 			);
