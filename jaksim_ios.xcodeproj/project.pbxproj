@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */; };
+		183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */; };
+		183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */; };
+		183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */; };
 		18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */; };
 		18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */; };
 		18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
+		183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-2ExtraLight.otf"; sourceTree = "<group>"; };
 		18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
 		18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +75,10 @@
 		18453A5227E087A800333D49 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */,
+				183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */,
+				183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */,
+				183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -75,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
-				18453A5227E087A800333D49 /* Font */,
 				186B1F4627C35EE10007C506 /* Products */,
 				25F4D27B27D96585C56D6E4A /* Pods */,
 				CF52FEFEFBC80C97E40134D7 /* Frameworks */,
@@ -93,6 +104,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+				18453A5227E087A800333D49 /* Font */,
 				18EB2AEE27C801D9004ABE3A /* Meeting */,
 				18B0E85B27D4A914006744DA /* Profile */,
 				18B0E85A27D4A902006744DA /* Searching */,
@@ -228,10 +240,14 @@
 				18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */,
 				18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
 				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
 				18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */,
 				18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */,
 				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
+				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,
+				183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */,
+				183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

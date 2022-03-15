@@ -25,8 +25,13 @@ class HomeViewController: UIViewController {
         ["참여모임1", "참여모임2", "참여모임3", "참여모임4", "참여모임5", "참여모임6"]
     var categoryList: [String] =
         ["미라클모닝", "공부", "시험", "글쓰기", "건강", "독서", "다이어트", "달리기"]
+    var categoryImage: [String] =
+    ["test_icon_miraclemorning", "test_icon_study", "test_icon_writing", "test_icon_book", "test_icon_diet", "test_icon_exam", "test_icon_health", "test_icon_running"]
     var recommendedMeetingList: [String] =
         ["추천모임1", "추천모임2", "추천모임3", "추천모임4", "추천모임5", "추천모임6"]
+    var recommendedMeetingImage: [String] =
+        ["test_recommendedMeetingimg1", "test_recommendedMeetingimg2", "test_recommendedMeetingimg3", "test_recommendedMeetingimg4", "test_recommendedMeetingimg5", "test_recommendedMeetingimg6" ]
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,19 +45,33 @@ class HomeViewController: UIViewController {
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: K.meetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.meetingListCollectionViewCellId)
         
+        sayingOfTodayLabel.textColor = UIColor(red: 33, green: 33, blue: 33, alpha: 1)
+        sayingOfTodayLabel.font = UIFont(name: K.font_Pretendard_SemiBold, size: 14)
+        
+        sayingOfToday.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
+        sayingOfToday.font = UIFont(name: K.font_SCDream_ExtraLight, size: 16)
+        
         categoryListCollectionView.dataSource = self
         categoryListCollectionView.delegate = self
         categoryListCollectionView.register(UINib(nibName: K.categoryListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.categoryListCollectionViewCellId)
+        
+        recommendedMeetingLabel.font = UIFont(name: K.font_Pretendard_SemiBold, size: 16)
+        recommendedMeetingLabel.textColor = UIColor(red: 33, green: 33, blue: 33, alpha: 1)
+        recommendedMeetingButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
+        recommendedMeetingButton.titleLabel!.textColor = UIColor(red: 117, green: 117, blue: 117, alpha: 1)
         
         recommendedMeetingListCollectionView.dataSource = self
         recommendedMeetingListCollectionView.delegate = self
         recommendedMeetingListCollectionView.register(UINib(nibName: K.recommendedMeetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.recommendedMeetingListCollectionViewCellId)
         
-        //introductionButton.
         introductionButton.layer.cornerRadius = 5
         introductionButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
+        introductionButton.titleLabel!.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
+        introductionButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
         
         faqButton.layer.cornerRadius = 5
+        faqButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
+        faqButton.titleLabel!.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
         faqButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
     }
 }
@@ -99,6 +118,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             cell.name.text = categoryList[indexPath.row]
+            cell.name.font = UIFont(name: K.font_Pretendard_Regular, size: 13)
+            cell.backgroundColor = .none
+            cell.imageView.image = UIImage(named: categoryImage[indexPath.row])
             
             return cell
         }
@@ -108,6 +130,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             cell.introduction.text = recommendedMeetingList[indexPath.row]
+            cell.introduction.font = UIFont(name: K.font_Pretendard_Regular, size: 15)
+            cell.introduction.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
+            cell.hashTag.font = UIFont(name: K.font_Pretendard_Regular, size: 13)
+            cell.hashTag.textColor = UIColor(red: 117, green: 117, blue: 117, alpha: 1)
+            cell.backgroundColor = .none
+            cell.imageView.image = UIImage(named: recommendedMeetingImage[indexPath.row])
             
             return cell
         }

@@ -9,6 +9,10 @@ struct K {
     static let meetingListCollectionViewCellId = "MeetingListCollectionViewCell"
     static let categoryListCollectionViewCellId = "CategoryListCollectionViewCell"
     static let recommendedMeetingListCollectionViewCellId = "RecommendedMeetingListCollectionViewCell"
+    static let font_SCDream_Regular = "S-CoreDream-4Regular"
+    static let font_Pretendard_SemiBold = "Pretendard-SemiBold"
+    static let font_Pretendard_Regular = "Pretendard-Regular"
+    static let font_SCDream_ExtraLight = "S-CoreDream-2ExtraLight"
     
 //    static let cellNibName = "MessageCell"
 //    static let registerSegue = "RegisterToChat"
