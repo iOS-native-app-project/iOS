@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,40 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
-                                <rect key="frame" x="188" y="346" width="39" height="30"/>
-                                <state key="normal" title="카카오"/>
-                                <connections>
-                                    <action selector="kakaoButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rxg-1b-elF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-yn-cpd">
-                                <rect key="frame" x="192" y="401" width="30" height="30"/>
-                                <state key="normal" title="애플"/>
-                                <connections>
-                                    <action selector="appleButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ua0-up-tIK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-81-xSy">
-                                <rect key="frame" x="188" y="454" width="39" height="30"/>
-                                <state key="normal" title="네이버"/>
-                                <connections>
-                                    <action selector="naverButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AEW-Hm-cbx"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="M83-sL-jD8">
+                                <rect key="frame" x="87" y="189" width="240" height="172.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Ks-eLc">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="다같이 작심삼일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkV-FQ-5Pc">
+                                        <rect key="frame" x="0.0" y="152" width="240" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-AO-XNX">
+                                <rect key="frame" x="20" y="476" width="374" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="카카오"/>
+                                        <connections>
+                                            <action selector="kakaoButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rxg-1b-elF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-81-xSy">
+                                        <rect key="frame" x="0.0" y="40" width="374" height="30"/>
+                                        <state key="normal" title="네이버"/>
+                                        <connections>
+                                            <action selector="naverButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AEW-Hm-cbx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-yn-cpd">
+                                        <rect key="frame" x="0.0" y="80" width="374" height="30"/>
+                                        <state key="normal" title="애플"/>
+                                        <connections>
+                                            <action selector="appleButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ua0-up-tIK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="간편로그인으로 이용해 보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIg-Bs-vlJ">
+                                <rect key="frame" x="104.5" y="435.5" width="205" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QYa-yn-cpd" firstAttribute="top" secondItem="CVi-7m-F4M" secondAttribute="bottom" constant="25" id="0GY-dq-B9Y"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QYa-yn-cpd" secondAttribute="trailing" constant="192" id="20N-nl-A11"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CVi-7m-F4M" secondAttribute="trailing" constant="187" id="2TT-WW-Gao"/>
-                            <constraint firstItem="CVi-7m-F4M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="302" id="6It-xN-TJz"/>
-                            <constraint firstItem="ZUn-81-xSy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="188" id="fTb-ie-G0v"/>
-                            <constraint firstItem="CVi-7m-F4M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="188" id="hNl-J5-ssz"/>
-                            <constraint firstItem="QYa-yn-cpd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="192" id="oZo-DJ-A5a"/>
-                            <constraint firstItem="ZUn-81-xSy" firstAttribute="top" secondItem="QYa-yn-cpd" secondAttribute="bottom" constant="23" id="wlp-iN-Vtf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZUn-81-xSy" secondAttribute="trailing" constant="187" id="z1a-KQ-Fai"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WZg-AO-XNX" secondAttribute="trailing" constant="20" id="6Li-80-PfV"/>
+                            <constraint firstItem="FIg-Bs-vlJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="FKp-br-NH6"/>
+                            <constraint firstItem="FIg-Bs-vlJ" firstAttribute="top" secondItem="M83-sL-jD8" secondAttribute="bottom" constant="74" id="GNN-nN-ydo"/>
+                            <constraint firstItem="WZg-AO-XNX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Q40-A9-L0T"/>
+                            <constraint firstItem="M83-sL-jD8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="qs1-ZD-X6O"/>
+                            <constraint firstItem="WZg-AO-XNX" firstAttribute="top" secondItem="FIg-Bs-vlJ" secondAttribute="bottom" constant="20" id="wF9-4v-sZ6"/>
+                            <constraint firstItem="M83-sL-jD8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="145" id="ycH-n5-FuX"/>
                         </constraints>
                     </view>
                     <connections>
