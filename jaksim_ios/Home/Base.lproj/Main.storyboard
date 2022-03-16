@@ -51,17 +51,28 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="실패란 넘어지는 것이 아니라, 넘어진 자리에 머무는 것이다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="55O-pH-fm3">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KX-EY-k8K">
                                                 <rect key="frame" x="0.0" y="44.5" width="374" height="76"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="실패란 넘어지는 것이 아니라, 넘어진 자리에 머무는 것이다." textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW1-kt-6Xd">
+                                                        <rect key="frame" x="16" y="0.0" width="342" height="76"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="76" id="Tky-w0-1v7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RW1-kt-6Xd" secondAttribute="trailing" constant="16" id="Hwp-li-GkZ"/>
+                                                    <constraint firstItem="RW1-kt-6Xd" firstAttribute="height" secondItem="6KX-EY-k8K" secondAttribute="height" id="JGk-i7-CE9"/>
+                                                    <constraint firstItem="RW1-kt-6Xd" firstAttribute="centerY" secondItem="6KX-EY-k8K" secondAttribute="centerY" id="MgS-Od-qT9"/>
+                                                    <constraint firstAttribute="height" constant="76" id="SNx-oR-BvK"/>
+                                                    <constraint firstItem="RW1-kt-6Xd" firstAttribute="leading" secondItem="6KX-EY-k8K" secondAttribute="leading" constant="16" id="xrp-xy-rBm"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rYy-d9-s4I" userLabel="CategoryList Collection View">
+                                            </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rYy-d9-s4I" userLabel="CategoryList Collection View">
                                                 <rect key="frame" x="0.0" y="144.5" width="374" height="210"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -103,7 +114,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="460" id="4xj-AT-Jio"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cmd-2n-8f3">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cmd-2n-8f3">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -136,10 +147,10 @@
                                             <constraint firstItem="jBJ-rE-CBb" firstAttribute="width" secondItem="4nb-qJ-XaV" secondAttribute="width" id="Jr1-TK-mDF"/>
                                             <constraint firstAttribute="trailing" secondItem="Guh-Dq-WIs" secondAttribute="trailing" id="KT6-UT-9Or"/>
                                             <constraint firstAttribute="trailing" secondItem="BOy-Bm-Cmd" secondAttribute="trailing" id="P9z-qk-fFB"/>
+                                            <constraint firstAttribute="trailing" secondItem="6KX-EY-k8K" secondAttribute="trailing" id="V04-yR-29E"/>
                                             <constraint firstItem="Guh-Dq-WIs" firstAttribute="leading" secondItem="4nb-qJ-XaV" secondAttribute="leading" id="c52-bT-wTr"/>
-                                            <constraint firstAttribute="trailing" secondItem="55O-pH-fm3" secondAttribute="trailing" id="cdN-rB-hpM"/>
                                             <constraint firstItem="iNZ-b7-0ev" firstAttribute="width" secondItem="4nb-qJ-XaV" secondAttribute="width" id="dWS-We-XHb"/>
-                                            <constraint firstItem="55O-pH-fm3" firstAttribute="leading" secondItem="4nb-qJ-XaV" secondAttribute="leading" id="rqh-TZ-Yiw"/>
+                                            <constraint firstItem="6KX-EY-k8K" firstAttribute="leading" secondItem="4nb-qJ-XaV" secondAttribute="leading" id="tOk-s2-4C0"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -177,13 +188,14 @@
                         <outlet property="recommendedMeetingButton" destination="ICu-mn-Rjn" id="lRa-FB-Mfr"/>
                         <outlet property="recommendedMeetingLabel" destination="zof-J8-TZJ" id="Bf1-ka-Btq"/>
                         <outlet property="recommendedMeetingListCollectionView" destination="iNZ-b7-0ev" id="V8U-CI-h8c"/>
-                        <outlet property="sayingOfToday" destination="55O-pH-fm3" id="dzC-kM-DvQ"/>
+                        <outlet property="sayingOfToday" destination="RW1-kt-6Xd" id="cnM-m5-Dzm"/>
                         <outlet property="sayingOfTodayLabel" destination="cIM-CW-fWb" id="dVa-OL-DIE"/>
+                        <outlet property="sayingOfTodayView" destination="6KX-EY-k8K" id="fgo-mo-k5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="94"/>
+            <point key="canvasLocation" x="1140.5797101449277" y="93.75"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="RWF-j6-DCC">
@@ -238,9 +250,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

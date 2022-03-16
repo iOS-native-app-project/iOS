@@ -19,8 +19,6 @@ class RecommendedMeetingListCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.layer.borderColor = UIColor.blue.cgColor
-//        self.layer.borderWidth = 1
         
         introduction.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 15)
         introduction.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)

@@ -13,8 +13,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var categoryListCollectionView: UICollectionView!
     @IBOutlet weak var recommendedMeetingListCollectionView: UICollectionView!
+    
     @IBOutlet weak var sayingOfTodayLabel: UILabel!
-    @IBOutlet weak var sayingOfToday: UITextView!
+    @IBOutlet weak var sayingOfToday: UILabel!
+    @IBOutlet weak var sayingOfTodayView: UIView!
     
     @IBOutlet weak var recommendedMeetingLabel: UILabel!
     @IBOutlet weak var recommendedMeetingButton: UIButton!
@@ -52,11 +54,14 @@ class HomeViewController: UIViewController {
         
         sayingOfToday.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
         sayingOfToday.font = UIFont(name: K.Font.font_SCDream_Regular, size: 16)
-        var topCorrection = (sayingOfToday.bounds.size.height - sayingOfToday.contentSize.height * sayingOfToday.zoomScale) / 2.0
-        topCorrection = max(0, topCorrection)
-        sayingOfToday.textContainerInset = UIEdgeInsets(top: topCorrection, left: 16, bottom: 0, right: 16)
-        sayingOfToday.isEditable = false
-        sayingOfToday.isSelectable = false
+        sayingOfToday.numberOfLines = 0
+        
+        sayingOfTodayView.layer.cornerRadius = 12
+        sayingOfTodayView.layer.shadowOpacity = 0.08
+        sayingOfTodayView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        sayingOfTodayView.layer.shadowRadius = 12
+        sayingOfTodayView.layer.masksToBounds = false
+
         
         categoryListCollectionView.dataSource = self
         categoryListCollectionView.delegate = self
@@ -161,20 +166,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == meetingListCollectionView{
-            let width: CGFloat = collectionView.bounds.width-30
-            let height: CGFloat = collectionView.bounds.height
+            let width: CGFloat = 335
+            let height: CGFloat = 180
             
             return CGSize(width: width, height: height)
         }
         else if collectionView == categoryListCollectionView{
-            let width: CGFloat = (collectionView.bounds.width/4)-10
-            let height: CGFloat = (collectionView.bounds.height/2)-8
+            let width: CGFloat = 69
+            let height: CGFloat = 97
             
             return CGSize(width: width, height: height)
         }
         else if collectionView == recommendedMeetingListCollectionView{
-            let width: CGFloat = (collectionView.bounds.width/3)-6
-            let height: CGFloat = (collectionView.bounds.height/2)-10
+            let width: CGFloat = 150
+            let height: CGFloat = 220
             
             return CGSize(width: width, height: height)
         }
@@ -187,7 +192,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // CollectionView Cell의 위아래 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == meetingListCollectionView{
-            return 20
+            return 6
         }
         else if collectionView == categoryListCollectionView{
             return 16/2
@@ -204,7 +209,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     // CollectionView Cell의 옆 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == meetingListCollectionView{
-            return 20
+            return 12/2
         }
         else if collectionView == categoryListCollectionView{
             return 20/2
