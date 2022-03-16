@@ -19,13 +19,36 @@ class LoginViewController: UIViewController {
     @IBOutlet var appleLoginButton: UIButton!
     @IBOutlet var naverLoginButton: UIButton!
     
+    @IBOutlet var logoTextLabel: UILabel!
+    
     let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
+    var logoText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginInstance?.delegate = self
-
+        
+        layoutSetup()
+        
+       
     }
+    
+    func layoutSetup() {
+        
+        logoTextLabel.text = "다같이 작심삼일 \n 동기부여 뿜뿜"
+        
+        let buttonList = [kakaoLoginButton, appleLoginButton, naverLoginButton]
+        
+        for button in buttonList {
+            //button!.bounds.size.width = 335
+            button!.bounds.size.height = 48
+        }
+        
+        
+    
+    }
+
     
     @IBAction func kakaoButtonDidTab(_ sender: UIButton) {
         

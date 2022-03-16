@@ -17,48 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="M83-sL-jD8">
-                                <rect key="frame" x="87" y="189" width="240" height="172.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="M83-sL-jD8">
+                                <rect key="frame" x="153.5" y="189" width="107.5" height="144.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Ks-eLc">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Ks-eLc">
+                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="100"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="다같이 작심삼일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkV-FQ-5Pc">
-                                        <rect key="frame" x="0.0" y="152" width="240" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다같이 작심삼일" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PkV-FQ-5Pc">
+                                        <rect key="frame" x="0.0" y="124" width="107.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-AO-XNX">
-                                <rect key="frame" x="20" y="476" width="374" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-AO-XNX">
+                                <rect key="frame" x="20" y="448" width="374" height="164"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                        <state key="normal" title="카카오"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                        <state key="normal" backgroundImage="btn_kakao"/>
                                         <connections>
                                             <action selector="kakaoButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rxg-1b-elF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-81-xSy">
-                                        <rect key="frame" x="0.0" y="40" width="374" height="30"/>
-                                        <state key="normal" title="네이버"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-81-xSy">
+                                        <rect key="frame" x="0.0" y="58" width="374" height="48"/>
+                                        <state key="normal" backgroundImage="btn_naver"/>
                                         <connections>
                                             <action selector="naverButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AEW-Hm-cbx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-yn-cpd">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="30"/>
-                                        <state key="normal" title="애플"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYa-yn-cpd">
+                                        <rect key="frame" x="0.0" y="116" width="374" height="48"/>
+                                        <state key="normal" backgroundImage="btn_apple"/>
                                         <connections>
                                             <action selector="appleButtonDidTab:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ua0-up-tIK"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="간편로그인으로 이용해 보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIg-Bs-vlJ">
-                                <rect key="frame" x="104.5" y="435.5" width="205" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간편로그인으로 이용해 보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIg-Bs-vlJ">
+                                <rect key="frame" x="104.5" y="407.5" width="205" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,6 +71,7 @@
                             <constraint firstItem="FIg-Bs-vlJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="FKp-br-NH6"/>
                             <constraint firstItem="FIg-Bs-vlJ" firstAttribute="top" secondItem="M83-sL-jD8" secondAttribute="bottom" constant="74" id="GNN-nN-ydo"/>
                             <constraint firstItem="WZg-AO-XNX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Q40-A9-L0T"/>
+                            <constraint firstItem="WZg-AO-XNX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="p79-PE-e1I"/>
                             <constraint firstItem="M83-sL-jD8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="qs1-ZD-X6O"/>
                             <constraint firstItem="WZg-AO-XNX" firstAttribute="top" secondItem="FIg-Bs-vlJ" secondAttribute="bottom" constant="20" id="wF9-4v-sZ6"/>
                             <constraint firstItem="M83-sL-jD8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="145" id="ycH-n5-FuX"/>
@@ -79,6 +80,7 @@
                     <connections>
                         <outlet property="appleLoginButton" destination="QYa-yn-cpd" id="Bju-1h-epD"/>
                         <outlet property="kakaoLoginButton" destination="CVi-7m-F4M" id="yST-4g-tqM"/>
+                        <outlet property="logoTextLabel" destination="PkV-FQ-5Pc" id="ea0-Rv-t5O"/>
                         <outlet property="naverLoginButton" destination="ZUn-81-xSy" id="U0l-VT-qmq"/>
                     </connections>
                 </viewController>
@@ -88,6 +90,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_apple" width="335" height="48"/>
+        <image name="btn_kakao" width="335" height="48"/>
+        <image name="btn_naver" width="335" height="48"/>
+        <image name="logo" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
