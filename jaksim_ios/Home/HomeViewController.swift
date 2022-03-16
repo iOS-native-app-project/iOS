@@ -14,7 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var categoryListCollectionView: UICollectionView!
     @IBOutlet weak var recommendedMeetingListCollectionView: UICollectionView!
     @IBOutlet weak var sayingOfTodayLabel: UILabel!
-    @IBOutlet weak var sayingOfToday: UITextField!
+    @IBOutlet weak var sayingOfToday: UITextView!
+    
     @IBOutlet weak var recommendedMeetingLabel: UILabel!
     @IBOutlet weak var recommendedMeetingButton: UIButton!
     
@@ -43,35 +44,43 @@ class HomeViewController: UIViewController {
         
         meetingListCollectionView.dataSource = self
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: K.meetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.meetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: K.Id.meetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.meetingListCollectionViewCellId)
         
-        sayingOfTodayLabel.textColor = UIColor(red: 33, green: 33, blue: 33, alpha: 1)
-        sayingOfTodayLabel.font = UIFont(name: K.font_Pretendard_SemiBold, size: 14)
+        sayingOfTodayLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+        sayingOfTodayLabel.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 14)
+    
         
-        sayingOfToday.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
-        sayingOfToday.font = UIFont(name: K.font_SCDream_ExtraLight, size: 16)
+        sayingOfToday.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
+        sayingOfToday.font = UIFont(name: K.Font.font_SCDream_Regular, size: 16)
+        var topCorrection = (sayingOfToday.bounds.size.height - sayingOfToday.contentSize.height * sayingOfToday.zoomScale) / 2.0
+        topCorrection = max(0, topCorrection)
+        sayingOfToday.textContainerInset = UIEdgeInsets(top: topCorrection, left: 16, bottom: 0, right: 16)
+        sayingOfToday.isEditable = false
+        sayingOfToday.isSelectable = false
         
         categoryListCollectionView.dataSource = self
         categoryListCollectionView.delegate = self
-        categoryListCollectionView.register(UINib(nibName: K.categoryListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.categoryListCollectionViewCellId)
+        categoryListCollectionView.register(UINib(nibName: K.Id.categoryListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.categoryListCollectionViewCellId)
         
-        recommendedMeetingLabel.font = UIFont(name: K.font_Pretendard_SemiBold, size: 16)
-        recommendedMeetingLabel.textColor = UIColor(red: 33, green: 33, blue: 33, alpha: 1)
-        recommendedMeetingButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
-        recommendedMeetingButton.titleLabel!.textColor = UIColor(red: 117, green: 117, blue: 117, alpha: 1)
+        recommendedMeetingLabel.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 16)
+        recommendedMeetingLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+        recommendedMeetingButton.titleLabel!.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
+        recommendedMeetingButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal) 
         
         recommendedMeetingListCollectionView.dataSource = self
         recommendedMeetingListCollectionView.delegate = self
-        recommendedMeetingListCollectionView.register(UINib(nibName: K.recommendedMeetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.recommendedMeetingListCollectionViewCellId)
+        recommendedMeetingListCollectionView.register(UINib(nibName: K.Id.recommendedMeetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.recommendedMeetingListCollectionViewCellId)
         
+        introductionButton.setTitle("작심 소개", for: .normal)
         introductionButton.layer.cornerRadius = 5
         introductionButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
-        introductionButton.titleLabel!.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
-        introductionButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
+        introductionButton.setTitleColor(UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1), for: .normal)
+        introductionButton.titleLabel!.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
         
+        faqButton.setTitle("자주 묻는 질문", for: .normal)
         faqButton.layer.cornerRadius = 5
-        faqButton.titleLabel!.font = UIFont(name: K.font_Pretendard_Regular, size: 14)
-        faqButton.titleLabel!.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
+        faqButton.titleLabel?.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
+        faqButton.setTitleColor(UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1), for: .normal)
         faqButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
     }
 }
@@ -102,40 +111,32 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == meetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.meetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.meetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
             cell.goal.text = meetingList[indexPath.row]
             
-            //let item = trackManager.track(at: indexPath.item)
-            //cell.updateUI(item: item)
             return cell
         }
         else if collectionView == categoryListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.categoryListCollectionViewCellId, for: indexPath) as? CategoryListCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.categoryListCollectionViewCellId, for: indexPath) as? CategoryListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
             cell.name.text = categoryList[indexPath.row]
-            cell.name.font = UIFont(name: K.font_Pretendard_Regular, size: 13)
-            cell.backgroundColor = .none
             cell.imageView.image = UIImage(named: categoryImage[indexPath.row])
             
             return cell
         }
         else if collectionView == recommendedMeetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.recommendedMeetingListCollectionViewCellId, for: indexPath) as? RecommendedMeetingListCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.recommendedMeetingListCollectionViewCellId, for: indexPath) as? RecommendedMeetingListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
             cell.introduction.text = recommendedMeetingList[indexPath.row]
-            cell.introduction.font = UIFont(name: K.font_Pretendard_Regular, size: 15)
-            cell.introduction.textColor = UIColor(red: 66, green: 66, blue: 66, alpha: 1)
-            cell.hashTag.font = UIFont(name: K.font_Pretendard_Regular, size: 13)
-            cell.hashTag.textColor = UIColor(red: 117, green: 117, blue: 117, alpha: 1)
-            cell.backgroundColor = .none
             cell.imageView.image = UIImage(named: recommendedMeetingImage[indexPath.row])
+            cell.personNumber.text = "11"
             
             return cell
         }
@@ -166,13 +167,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return CGSize(width: width, height: height)
         }
         else if collectionView == categoryListCollectionView{
-            let width: CGFloat = (collectionView.bounds.width/4)-20
-            let height: CGFloat = (collectionView.bounds.height/2)-20
+            let width: CGFloat = (collectionView.bounds.width/4)-10
+            let height: CGFloat = (collectionView.bounds.height/2)-8
             
             return CGSize(width: width, height: height)
         }
         else if collectionView == recommendedMeetingListCollectionView{
-            let width: CGFloat = (collectionView.bounds.width/3)-10
+            let width: CGFloat = (collectionView.bounds.width/3)-6
             let height: CGFloat = (collectionView.bounds.height/2)-10
             
             return CGSize(width: width, height: height)
@@ -189,10 +190,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return 20
         }
         else if collectionView == categoryListCollectionView{
-            return 10
+            return 16/2
         }
         else if collectionView == recommendedMeetingListCollectionView{
-            return 5
+            return 20/2
         }
         else {
             print("CollectionView Delegate error - 셀 상하 간격")
@@ -206,10 +207,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return 20
         }
         else if collectionView == categoryListCollectionView{
-            return 10
+            return 20/2
         }
         else if collectionView == recommendedMeetingListCollectionView{
-            return 5
+            return 12/2
         }
         else {
             print("CollectionCiew Delegate error - 셀 좌우 간격  ")

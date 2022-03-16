@@ -22,6 +22,7 @@
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
+		189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */; };
 		18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85C27D4A963006744DA /* Searching.storyboard */; };
 		18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85E27D4A96F006744DA /* Profile.storyboard */; };
 		18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E86027D4B250006744DA /* Meeting.storyboard */; };
@@ -49,6 +50,7 @@
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		18B0E85C27D4A963006744DA /* Searching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Searching.storyboard; sourceTree = "<group>"; };
 		18B0E85E27D4A96F006744DA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		18B0E86027D4B250006744DA /* Meeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */,
 				183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */,
 				183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */,
+				189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */,
 				183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */,
 			);
 			path = Font;
@@ -237,6 +240,7 @@
 			files = (
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
+				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
 				18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */,
 				18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
