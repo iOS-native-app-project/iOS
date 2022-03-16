@@ -15,6 +15,7 @@
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
+		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
 		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */,
 				A55A71ED27C76854007A0DDC /* LoginViewController.swift */,
+				A54C572027E218DA00FAF4DE /* SignupViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
