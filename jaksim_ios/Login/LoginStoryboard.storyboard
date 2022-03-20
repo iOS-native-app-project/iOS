@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tN3-Kb-tDS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,21 +135,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="J43-fu-3Yl">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p60-UD-HAH">
-                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="Dom-7O-JUC"/>
-                                                </constraints>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p60-UD-HAH">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" image="no_check"/>
+                                                <state key="normal" title="약관 전체동의" image="no_check">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
                                                 <state key="selected" image="check"/>
+                                                <connections>
+                                                    <action selector="allCheckButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="NLY-uZ-mRQ"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="약관 전체동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENE-go-RAN">
-                                                <rect key="frame" x="24" y="0.0" width="350" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="h8b-yk-qbj"/>
@@ -167,43 +165,43 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="P6r-cZ-JVu">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emU-oq-FF9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="IFC-eX-ML2"/>
-                                                        </constraints>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emU-oq-FF9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="no_check"/>
+                                                        <state key="normal" title="만 14세 이상입니다" image="no_check">
+                                                            <color key="titleColor" name="AccentColor"/>
+                                                        </state>
                                                         <state key="selected" image="check"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yme-ZQ-ouK">
-                                                        <rect key="frame" x="24" y="0.0" width="350" height="20"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="만 14세 이상입니다.">
-                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="ageCheckButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="o0P-Da-74C"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="n97-RG-azU"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uQ4-xx-b8H">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uQ4-xx-b8H">
                                                 <rect key="frame" x="0.0" y="42" width="374" height="20"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm6-lN-qvQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="16Q-el-yvo"/>
-                                                        </constraints>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm6-lN-qvQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="354.5" height="20"/>
+                                                        <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="no_check"/>
+                                                        <state key="normal" title="(필수) 서비스 이용약관" image="no_check">
+                                                            <color key="titleColor" name="AccentColor"/>
+                                                        </state>
                                                         <state key="selected" image="check"/>
+                                                        <connections>
+                                                            <action selector="termsCheckButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="e6A-W6-k9f"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uy-y1-p03">
-                                                        <rect key="frame" x="24" y="0.0" width="350" height="20"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uy-y1-p03">
+                                                        <rect key="frame" x="358.5" y="0.0" width="15.5" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title="(필수) 서비스 이용약관">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -212,22 +210,25 @@
                                                     <constraint firstAttribute="height" constant="20" id="vhF-Hs-6cV"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z3X-f2-Cdt">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z3X-f2-Cdt">
                                                 <rect key="frame" x="0.0" y="84" width="374" height="20"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-75-8Cv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="sw5-cZ-4iT"/>
-                                                        </constraints>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-75-8Cv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="20"/>
+                                                        <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="no_check"/>
+                                                        <state key="normal" title="(필수) 개인정보 처리방침" image="no_check">
+                                                            <color key="titleColor" name="AccentColor"/>
+                                                        </state>
                                                         <state key="selected" image="check"/>
+                                                        <connections>
+                                                            <action selector="individualCheckButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="oXh-0g-k6u"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-OT-cwP">
-                                                        <rect key="frame" x="24" y="0.0" width="350" height="20"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-OT-cwP">
+                                                        <rect key="frame" x="360" y="0.0" width="14" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title="(필수) 개인정보 처리방침">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -236,22 +237,25 @@
                                                     <constraint firstAttribute="height" constant="20" id="DhQ-aq-MvV"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="met-zJ-bcK">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="met-zJ-bcK">
                                                 <rect key="frame" x="0.0" y="126" width="374" height="20"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wc-D1-ntH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="n86-VB-r5Z"/>
-                                                        </constraints>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wc-D1-ntH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="357.5" height="20"/>
+                                                        <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="no_check"/>
+                                                        <state key="normal" title="(선택) 마케팅 정보 수신동의" image="no_check">
+                                                            <color key="titleColor" name="AccentColor"/>
+                                                        </state>
                                                         <state key="selected" image="check"/>
+                                                        <connections>
+                                                            <action selector="adCheckButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="tAp-5Q-QAo"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-H6-VaI">
-                                                        <rect key="frame" x="24" y="0.0" width="350" height="20"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-H6-VaI">
+                                                        <rect key="frame" x="361.5" y="0.0" width="12.5" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title="(선택) 마케팅 정보 수신동의">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -271,6 +275,7 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="no_signup"/>
+                                <state key="selected" image="signup"/>
                                 <connections>
                                     <action selector="signupButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="UXE-cI-yCK"/>
                                 </connections>
@@ -279,8 +284,10 @@
                         <viewLayoutGuide key="safeArea" id="Vz4-zL-8pY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Vz4-zL-8pY" firstAttribute="trailing" secondItem="lnP-1K-p4x" secondAttribute="trailing" constant="20" id="5K1-6O-B0a"/>
                             <constraint firstItem="akn-hy-U7z" firstAttribute="leading" secondItem="Vz4-zL-8pY" secondAttribute="leading" constant="20" id="6WR-UI-PXn"/>
                             <constraint firstItem="lnP-1K-p4x" firstAttribute="top" secondItem="wG8-U2-5GT" secondAttribute="bottom" constant="19.670000000000002" id="Brs-VU-afA"/>
+                            <constraint firstItem="lnP-1K-p4x" firstAttribute="leading" secondItem="Vz4-zL-8pY" secondAttribute="leading" constant="20" id="JvL-yh-tzU"/>
                             <constraint firstItem="akn-hy-U7z" firstAttribute="top" secondItem="lnP-1K-p4x" secondAttribute="bottom" constant="72" id="Muy-Oq-afr"/>
                             <constraint firstItem="5mO-vn-VAU" firstAttribute="top" secondItem="AmD-AF-wt8" secondAttribute="bottom" constant="48" id="TMa-3T-OU3"/>
                             <constraint firstItem="Vz4-zL-8pY" firstAttribute="trailing" secondItem="5mO-vn-VAU" secondAttribute="trailing" constant="20" id="Trz-mY-wEJ"/>
@@ -288,17 +295,23 @@
                             <constraint firstItem="5mO-vn-VAU" firstAttribute="leading" secondItem="Vz4-zL-8pY" secondAttribute="leading" constant="20" id="amP-MF-ykk"/>
                             <constraint firstItem="5mO-vn-VAU" firstAttribute="centerX" secondItem="NMD-r8-KgE" secondAttribute="centerX" id="d0N-XA-DFZ"/>
                             <constraint firstItem="AmD-AF-wt8" firstAttribute="top" secondItem="Vz4-zL-8pY" secondAttribute="top" constant="114" id="lYJ-jU-Jzw"/>
-                            <constraint firstItem="lnP-1K-p4x" firstAttribute="leading" secondItem="5mO-vn-VAU" secondAttribute="leading" id="pzO-oh-qy6"/>
                             <constraint firstItem="AmD-AF-wt8" firstAttribute="centerX" secondItem="Vz4-zL-8pY" secondAttribute="centerX" id="q1d-uK-DfP"/>
                             <constraint firstItem="wG8-U2-5GT" firstAttribute="top" secondItem="5mO-vn-VAU" secondAttribute="bottom" constant="72" id="uJN-2Q-hE0"/>
                             <constraint firstItem="wG8-U2-5GT" firstAttribute="leading" secondItem="5mO-vn-VAU" secondAttribute="leading" id="zaq-rw-hiN"/>
-                            <constraint firstItem="lnP-1K-p4x" firstAttribute="trailing" secondItem="5mO-vn-VAU" secondAttribute="trailing" id="zqD-Bs-pAC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adButton" destination="HMi-H6-VaI" id="E5I-Fo-7tG"/>
+                        <outlet property="adCheckButton" destination="1wc-D1-ntH" id="Sbh-Uf-VyJ"/>
+                        <outlet property="ageCheckButton" destination="emU-oq-FF9" id="qtX-mQ-2I3"/>
+                        <outlet property="allCheckButton" destination="p60-UD-HAH" id="b06-FZ-D4V"/>
+                        <outlet property="individualButton" destination="dCX-OT-cwP" id="kq8-cw-zaB"/>
+                        <outlet property="individualCheckButton" destination="7YG-75-8Cv" id="iBf-f1-BZG"/>
                         <outlet property="nickNameTextField" destination="oTP-a5-dqy" id="DFe-KR-ono"/>
                         <outlet property="profileImageView" destination="AmD-AF-wt8" id="4Ro-MS-Vjg"/>
                         <outlet property="signupButton" destination="akn-hy-U7z" id="gzV-lE-U58"/>
+                        <outlet property="termsButton" destination="1uy-y1-p03" id="00g-Pn-4Ku"/>
+                        <outlet property="termsCheckButton" destination="Hm6-lN-qvQ" id="Pd9-bQ-OD3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTr-Jx-tAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -315,7 +328,11 @@
         <image name="no_check" width="20" height="20"/>
         <image name="no_signup" width="335" height="48"/>
         <image name="profile" width="84" height="84"/>
+        <image name="signup" width="335" height="48"/>
         <image name="terms" width="6" height="8"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
