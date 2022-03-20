@@ -18,6 +18,10 @@
 		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
 		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
+		A55C140527E765710053F81F /* NaverLoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140427E765710053F81F /* NaverLoginInput.swift */; };
+		A55C140727E765D30053F81F /* NaverLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140627E765D30053F81F /* NaverLoginResponse.swift */; };
+		A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140927E767A50053F81F /* LoginDataManager.swift */; };
+		A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140D27E770C80053F81F /* SignUpInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A55C140427E765710053F81F /* NaverLoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverLoginInput.swift; sourceTree = "<group>"; };
+		A55C140627E765D30053F81F /* NaverLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverLoginResponse.swift; sourceTree = "<group>"; };
+		A55C140927E767A50053F81F /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
+		A55C140D27E770C80053F81F /* SignUpInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInput.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,11 +106,31 @@
 		A55A71EA27C766EC007A0DDC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A55C140827E766CF0053F81F /* DataManager */,
+				A55C140327E765070053F81F /* Entity */,
 				A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */,
 				A55A71ED27C76854007A0DDC /* LoginViewController.swift */,
 				A54C572027E218DA00FAF4DE /* SignupViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		A55C140327E765070053F81F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A55C140427E765710053F81F /* NaverLoginInput.swift */,
+				A55C140627E765D30053F81F /* NaverLoginResponse.swift */,
+				A55C140D27E770C80053F81F /* SignUpInput.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A55C140827E766CF0053F81F /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				A55C140927E767A50053F81F /* LoginDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
@@ -229,11 +257,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
+				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
+				A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
+				A55C140527E765710053F81F /* NaverLoginInput.swift in Sources */,
+				A55C140727E765D30053F81F /* NaverLoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

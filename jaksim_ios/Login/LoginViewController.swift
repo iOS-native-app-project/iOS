@@ -21,16 +21,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var logoTextLabel: UILabel!
     
+    lazy var dataManager = LoginDataManager()
+    
+    var token = ""
+    
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     var logoText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        naverLoginInstance?.delegate = self
         
         layoutSetup()
-        
         
     }
     
@@ -81,8 +83,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func naverButtonDidTab(_ sender: UIButton) {
+        naverLoginInstance?.delegate = self
         naverLoginInstance?.requestThirdPartyLogin()
+        
     }
+    
+}
+
+
+extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthorizationControllerDelegate {
     
     func kakaoWebLogin() {
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
@@ -98,10 +107,100 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: - NAVER LOGIN
     
-}
-
-extension LoginViewController: ASAuthorizationControllerDelegate {
+    func getNaverInfo() {
+        
+        guard let accessToken = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+        
+        if !accessToken { return }
+        
+        guard let tokenType = naverLoginInstance?.tokenType else { return }
+        guard let accessToken = naverLoginInstance?.accessToken else { return }
+        let requestUrl = "https://openapi.naver.com/v1/nid/me"
+        let url = URL(string: requestUrl)!
+        
+        let authorization = "\(tokenType) \(accessToken)"
+        
+        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+        
+        
+        req.responseJSON { [self] response in
+            guard let body = response.value as? [String: Any] else { return }
+            
+            if let resultCode = body["message"] as? String{
+                if resultCode.trimmingCharacters(in: .whitespaces) == "success"{
+                    let resultJson = body["response"] as! [String: Any]
+                    
+                    let name = resultJson["name"] as? String ?? ""
+                    let id = resultJson["id"] as? String ?? ""
+                    let phone = resultJson["mobile"] as? String ?? ""
+                    let gender = resultJson["gender"] as? String ?? ""
+                    let birthyear = resultJson["birthyear"] as? String ?? ""
+                    let birthday = resultJson["birthday"] as? String ?? ""
+                    let profile = resultJson["profile_image"] as? String ?? ""
+                    let email = resultJson["email"] as? String ?? ""
+                    let nickName = resultJson["nickname"] as? String ?? ""
+                    
+                    print("네이버 로그인 이름 ",name)
+                    print("네이버 로그인 아이디 ",id)
+                    print("네이버 로그인 핸드폰 ",phone)
+                    print("네이버 로그인 성별 ",gender)
+                    print("네이버 로그인 생년 ",birthyear)
+                    print("네이버 로그인 생일 ",birthday)
+                    print("네이버 로그인 프로필사진 ",profile)
+                    print("네이버 로그인 이메일 ",email)
+                    print("네이버 로그인 닉네임 ",nickName)
+                    
+                    self.token = self.naverLoginInstance!.accessToken!
+                    
+                    let input: NaverLoginInput = NaverLoginInput(authType: "NAVER", token: self.token)
+                    let signupInput: SignUpInput = SignUpInput(authType: "NAVER", nickName: nickName, token: token)
+                    
+                    if self.token == "" {
+                        self.dataManager.naverSignuUp(parameters: signupInput, viewController: self)
+                    } else {
+                        dataManager.naverLogin(parameters: input, viewController: self)
+                    }
+                    
+                } else {
+                    print("정보가져오기 실패")
+                    
+                }
+                
+            }
+            
+        }
+    }
+    
+    // 로그인 버튼을 눌렀을 경우 열게 될 브라우저
+    func oauth20ConnectionDidOpenInAppBrowser(forOAuth request: URLRequest!) {
+        
+    }
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("네이버 로그인 성공")
+        getNaverInfo()
+        
+    }
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        print("네이버 토큰\(naverLoginInstance!.accessToken!)")
+        
+        getNaverInfo()
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        naverLoginInstance?.requestDeleteToken()
+        print("네이버 로그아웃")
+        
+    }
+    
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        print("에러 = \(error.localizedDescription)")
+        
+    }
+    
+    //MARK: - APPLE LOGIN
     
     // Apple ID 연동 성공 시
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
@@ -127,91 +226,16 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error.localizedDescription)
     }
-}
-
-extension LoginViewController: NaverThirdPartyLoginConnectionDelegate {
-    
-    func getNaverInfo() {
-        
-        guard let accessToken = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-        
-        if !accessToken { return }
-        
-        guard let tokenType = naverLoginInstance?.tokenType else { return }
-        guard let accessToken = naverLoginInstance?.accessToken else { return }
-        let requestUrl = "https://openapi.naver.com/v1/nid/me"
-        let url = URL(string: requestUrl)!
-        
-        let authorization = "\(tokenType) \(accessToken)"
-        
-        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-
-        
-        req.responseJSON { response in
-            guard let body = response.value as? [String: Any] else { return }
-
-            if let resultCode = body["message"] as? String{
-                if resultCode.trimmingCharacters(in: .whitespaces) == "success"{
-                    let resultJson = body["response"] as! [String: Any]
-
-                    let name = resultJson["name"] as? String ?? ""
-                    let id = resultJson["id"] as? String ?? ""
-                    let phone = resultJson["mobile"] as? String ?? ""
-                    let gender = resultJson["gender"] as? String ?? ""
-                    let birthyear = resultJson["birthyear"] as? String ?? ""
-                    let birthday = resultJson["birthday"] as? String ?? ""
-                    let profile = resultJson["profile_image"] as? String ?? ""
-                    let email = resultJson["email"] as? String ?? ""
-                    let nickName = resultJson["nickname"] as? String ?? ""
-
-                    print("네이버 로그인 이름 ",name)
-                    print("네이버 로그인 아이디 ",id)
-                    print("네이버 로그인 핸드폰 ",phone)
-                    print("네이버 로그인 성별 ",gender)
-                    print("네이버 로그인 생년 ",birthyear)
-                    print("네이버 로그인 생일 ",birthday)
-                    print("네이버 로그인 프로필사진 ",profile)
-                    print("네이버 로그인 이메일 ",email)
-                    print("네이버 로그인 닉네임 ",nickName)
-
-                } else {
-                    print("정보가져오기 실패")
-
-                }
-
-            }
-
-        }
-    }
-    
-    // 로그인 버튼을 눌렀을 경우 열게 될 브라우저
-      func oauth20ConnectionDidOpenInAppBrowser(forOAuth request: URLRequest!) {
-    //     let naverSignInVC = NLoginThirdPartyOAuth20InAppBrowserViewController(request: request)!
-    //     naverSignInVC.parentOrientation = UIInterfaceOrientation(rawValue: UIDevice.current.orientation.rawValue)!
-    //     present(naverSignInVC, animated: false, completion: nil)
-      }
-    
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        print("네이버 로그인 성공")
-        //getNaverInfo()
-        
-    }
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        print("네이버 토큰\(naverLoginInstance?.accessToken)")
-        getNaverInfo()
-    }
-    
-    func oauth20ConnectionDidFinishDeleteToken() {
-        naverLoginInstance?.requestDeleteToken()
-        print("네이버 로그아웃")
-
-    }
-    
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        print("에러 = \(error.localizedDescription)")
-        
-    }
     
     
 }
 
+//MARK: - API
+extension LoginViewController {
+    
+    func loginSuccess() {
+        print("다음 화면으로")
+    }
+
+    
+}
