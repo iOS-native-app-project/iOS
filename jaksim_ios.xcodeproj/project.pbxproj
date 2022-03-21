@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180C4F7A27E34BB400168B04 /* MyRecord.storyboard */; };
+		180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
 		186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180C4F7A27E34BB400168B04 /* MyRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyRecord.storyboard; sourceTree = "<group>"; };
+		180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordViewController.swift; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B1F4A27C35EE10007C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,9 +48,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180C4F7927E34B9D00168B04 /* MyRecord */ = {
+			isa = PBXGroup;
+			children = (
+				180C4F7A27E34BB400168B04 /* MyRecord.storyboard */,
+				180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */,
+			);
+			path = MyRecord;
+			sourceTree = "<group>";
+		};
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
+				180C4F7927E34B9D00168B04 /* MyRecord */,
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
 				186B1F4627C35EE10007C506 /* Products */,
 				25F4D27B27D96585C56D6E4A /* Pods */,
@@ -83,7 +97,6 @@
 				87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */,
 				4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -157,6 +170,7 @@
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +225,7 @@
 			files = (
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
+				180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 			);
