@@ -275,7 +275,6 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="no_signup"/>
-                                <state key="selected" image="signup"/>
                                 <connections>
                                     <action selector="signupButtonDidTap:" destination="tN3-Kb-tDS" eventType="touchUpInside" id="UXE-cI-yCK"/>
                                 </connections>
@@ -328,7 +327,6 @@
         <image name="no_check" width="20" height="20"/>
         <image name="no_signup" width="335" height="48"/>
         <image name="profile" width="84" height="84"/>
-        <image name="signup" width="335" height="48"/>
         <image name="terms" width="6" height="8"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

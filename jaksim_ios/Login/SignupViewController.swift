@@ -31,10 +31,17 @@ class SignupViewController: UIViewController {
     let textColor = UIColor.darkGray
     var checkButtonList: [UIButton] = []
     
+    var nickName = ""
+    var signupToken = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nickNameTextField.delegate = self
+        
         layoutSetup()
+        
+        print(signupToken)
 
     }
     
@@ -47,18 +54,44 @@ class SignupViewController: UIViewController {
         checkButtonList.append(individualCheckButton)
         checkButtonList.append(adCheckButton)
         
-
+    }
+    
+    func canSignup() {
+        nickName = nickNameTextField.text!
+        
+        if (nickName != "") && (termsCheckButton.isSelected == true) && (individualCheckButton.isSelected == true) {
+            signupButton.setImage(UIImage(named: "signup"), for: .normal)
+            print(true)
+        } else {
+            signupButton.setImage(UIImage(named: "no_signup"), for: .normal)
+            print(false)
+        }
+        
     }
 
     @IBAction func signupButtonDidTap(_ sender: UIButton) {
         signupButton.isSelected = !signupButton.isSelected
+        
+        nickName = nickNameTextField.text!
+        
+        let signupInput: SignUpInput = SignUpInput(authType: "NAVER", nickName: nickName, token: signupToken)
+        
+        print(signupInput)
+        //dataManager.naverSignuUp(parameters: signupInput, viewController: self)
+        
     }
     @IBAction func allCheckButtonDidTap(_ sender: UIButton) {
         allCheckButton.isSelected = !allCheckButton.isSelected
         
         for button in checkButtonList {
-            button.isSelected = allCheckButton.isSelected
+            if allCheckButton.isSelected == true {
+                button.isSelected = true
+            } else {
+                button.isSelected = false
+            }
         }
+        
+        canSignup()
     
     }
     @IBAction func ageCheckButtonDidTap(_ sender: UIButton) {
@@ -66,12 +99,25 @@ class SignupViewController: UIViewController {
     }
     @IBAction func termsCheckButtonDidTap(_ sender: UIButton) {
         termsCheckButton.isSelected = !termsCheckButton.isSelected
+        
+        canSignup()
     }
     @IBAction func individualCheckButtonDidTap(_ sender: UIButton) {
         individualCheckButton.isSelected = !individualCheckButton.isSelected
+        canSignup()
     }
     @IBAction func adCheckButtonDidTap(_ sender: UIButton) {
         adCheckButton.isSelected = !adCheckButton.isSelected
     }
+
+    
+}
+
+extension SignupViewController: UITextFieldDelegate {    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        nickName = nickNameTextField.text!
+        canSignup()
+    }
+    
     
 }

@@ -18,11 +18,12 @@ class LoginDataManager {
                     if response.success {
                         print(response.statusCode)
                         if response.statusCode == 201 {
-                            print("로그인 성공")
                             viewController.loginSuccess()
+                            viewController.goToSignup()
                         } else if response.statusCode == 401 {
                             print("토큰이 잘못되었습니다.")
                         } else if response.statusCode == 404 {
+                            viewController.goToSignup()
                             print("가입정보가 없습니다.")
                         }
                     }
@@ -34,7 +35,7 @@ class LoginDataManager {
             }
     }
     
-    func naverSignuUp(parameters: SignUpInput, viewController: LoginViewController) {
+    func naverSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
         AF.request("http://54.180.190.99:3000/api/users", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: NaverLoginResponse.self) {response in
@@ -44,7 +45,6 @@ class LoginDataManager {
                         print(response.statusCode)
                         if response.statusCode == 201 {
                             print("회원가입 성공")
-                            viewController.loginSuccess()
                         } else {
                             print("회원가입 오류")
                         }

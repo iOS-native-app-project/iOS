@@ -12,6 +12,7 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 import NaverThirdPartyLogin
+import Kingfisher
 
 class LoginViewController: UIViewController {
     
@@ -24,10 +25,9 @@ class LoginViewController: UIViewController {
     lazy var dataManager = LoginDataManager()
     
     var token = ""
+    var logoText = ""
     
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-    
-    var logoText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,6 @@ class LoginViewController: UIViewController {
     @IBAction func naverButtonDidTab(_ sender: UIButton) {
         naverLoginInstance?.delegate = self
         naverLoginInstance?.requestThirdPartyLogin()
-        
     }
     
 }
@@ -155,12 +154,12 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                     self.token = self.naverLoginInstance!.accessToken!
                     
                     let input: NaverLoginInput = NaverLoginInput(authType: "NAVER", token: self.token)
-                    let signupInput: SignUpInput = SignUpInput(authType: "NAVER", nickName: nickName, token: token)
                     
-                    if self.token == "" {
-                        self.dataManager.naverSignuUp(parameters: signupInput, viewController: self)
+                    if self.token != "" {
+                        self.dataManager.naverLogin(parameters: input, viewController: self)
                     } else {
-                        dataManager.naverLogin(parameters: input, viewController: self)
+                        goToSignup()
+                        
                     }
                     
                 } else {
@@ -234,7 +233,15 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
 extension LoginViewController {
     
     func loginSuccess() {
-        print("다음 화면으로")
+        print("로그인 성공")
+    }
+    
+    func goToSignup() {
+        print(token)
+        let signupVC = self.storyboard?.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
+        signupVC.signupToken = token
+        signupVC.modalPresentationStyle = .fullScreen
+        self.present(signupVC, animated: true, completion: nil)
     }
 
     
