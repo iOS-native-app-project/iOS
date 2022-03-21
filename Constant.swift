@@ -10,6 +10,7 @@ import Foundation
 struct K {
     
     struct Id{
+        static let meetingListCollectionViewCellId = "MeetingListCollectionViewCell"
         static let calendarViewCellId = "CalendarViewCell"
     }
 }
