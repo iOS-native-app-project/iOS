@@ -31,9 +31,12 @@ class SignupViewController: UIViewController {
     
     @IBOutlet var signupButton: UIButton!
     
+    lazy var dataManager = LoginDataManager()
+    
     var checkButtonList: [UIButton] = []
     var buttonList: [UIButton] = []
     
+    var loginAuthType = ""
     var nickName = ""
     var signupToken = ""
     
@@ -84,10 +87,10 @@ class SignupViewController: UIViewController {
         
         nickName = nickNameTextField.text!
         
-        let signupInput: SignUpInput = SignUpInput(authType: "NAVER", nickName: nickName, token: signupToken)
+        let signupInput: SignUpInput = SignUpInput(authType: loginAuthType, nickName: nickName, token: signupToken)
         
         print(signupInput)
-        //dataManager.naverSignuUp(parameters: signupInput, viewController: self)
+        dataManager.postSignuUp(parameters: signupInput, viewController: self)
         
     }
     @IBAction func allCheckButtonDidTap(_ sender: UIButton) {

@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     
     var token = ""
     var logoText = ""
+    var loginAuthType = ""
     
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
@@ -62,12 +63,26 @@ class LoginViewController: UIViewController {
                 else {
                     print("loginWithKakaoTalk() success.")
                     
+                    self.token = oauthToken!.accessToken
+                    self.loginAuthType = "KAKAO"
+                    
+                    let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
+                    
+                    if self.token != "" {
+                        self.dataManager.postLogin(parameters: input, viewController: self)
+                    } else {
+                        self.goToSignup()
+                    }
+                    
                     //do something
                     _ = oauthToken
+                    
+                   
                 }
             }
         } else {
             kakaoWebLogin()
+            
         }
         
     }
@@ -99,6 +114,17 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
             }
             else {
                 print("loginWithKakaoAccount() success.")
+                
+                self.token = oauthToken!.accessToken
+                self.loginAuthType = "KAKAO"
+                
+                let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
+                
+                if self.token != "" {
+                    self.dataManager.postLogin(parameters: input, viewController: self)
+                } else {
+                    self.goToSignup()
+                }
                 
                 //do something
                 _ = oauthToken
@@ -152,14 +178,14 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                     print("네이버 로그인 닉네임 ",nickName)
                     
                     self.token = self.naverLoginInstance!.accessToken!
+                    self.loginAuthType = "NAVER"
                     
-                    let input: NaverLoginInput = NaverLoginInput(authType: "NAVER", token: self.token)
+                    let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
                     
                     if self.token != "" {
-                        self.dataManager.naverLogin(parameters: input, viewController: self)
+                        self.dataManager.postLogin(parameters: input, viewController: self)
                     } else {
                         goToSignup()
-                        
                     }
                     
                 } else {
@@ -233,13 +259,14 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
 extension LoginViewController {
     
     func loginSuccess() {
-        print("로그인 성공")
+        print("로그인 성공, 홈 화면으로")
     }
     
     func goToSignup() {
         print(token)
         let signupVC = self.storyboard?.instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
         signupVC.signupToken = token
+        signupVC.loginAuthType = loginAuthType
         signupVC.modalPresentationStyle = .fullScreen
         self.present(signupVC, animated: true, completion: nil)
     }

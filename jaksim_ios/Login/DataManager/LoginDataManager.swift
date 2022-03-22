@@ -9,17 +9,16 @@ import Alamofire
 
 class LoginDataManager {
     
-    func naverLogin(parameters: NaverLoginInput, viewController: LoginViewController) {
+    func postLogin(parameters: LoginInput, viewController: LoginViewController) {
         AF.request("http://54.180.190.99:3000/api/auth/login", method: .post, parameters: parameters)
             .validate()
-            .responseDecodable(of: NaverLoginResponse.self) {response in
+            .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {
                 case .success(let response):
                     if response.success {
                         print(response.statusCode)
                         if response.statusCode == 201 {
                             viewController.loginSuccess()
-                            viewController.goToSignup()
                         } else if response.statusCode == 401 {
                             print("토큰이 잘못되었습니다.")
                         } else if response.statusCode == 404 {
@@ -35,10 +34,10 @@ class LoginDataManager {
             }
     }
     
-    func naverSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
+    func postSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
         AF.request("http://54.180.190.99:3000/api/users", method: .post, parameters: parameters)
             .validate()
-            .responseDecodable(of: NaverLoginResponse.self) {response in
+            .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {
                 case .success(let response):
                     if response.success {

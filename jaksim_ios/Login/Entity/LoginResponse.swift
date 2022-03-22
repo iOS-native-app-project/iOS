@@ -5,7 +5,7 @@
 //  Created by 소영 on 2022/03/20.
 //
 
-struct NaverLoginResponse: Decodable {
+struct LoginResponse: Decodable {
     var success: Bool
     var statusCode: Int
     var data: Result
