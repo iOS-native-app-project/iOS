@@ -11,6 +11,9 @@ import Kingfisher
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet var nickNameLabel: UILabel!
+    @IBOutlet var agreeLabel: UILabel!
+    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var nickNameTextField: UITextField!
     
@@ -20,16 +23,16 @@ class SignupViewController: UIViewController {
     @IBOutlet var individualCheckButton: UIButton!
     @IBOutlet var adCheckButton: UIButton!
     
-    
+    @IBOutlet var allButton: UIButton!
+    @IBOutlet var ageButton: UIButton!
     @IBOutlet var termsButton: UIButton!
     @IBOutlet var individualButton: UIButton!
     @IBOutlet var adButton: UIButton!
     
     @IBOutlet var signupButton: UIButton!
     
-    let titleColor = UIColor.black
-    let textColor = UIColor.darkGray
     var checkButtonList: [UIButton] = []
+    var buttonList: [UIButton] = []
     
     var nickName = ""
     var signupToken = ""
@@ -53,6 +56,13 @@ class SignupViewController: UIViewController {
         checkButtonList.append(termsCheckButton)
         checkButtonList.append(individualCheckButton)
         checkButtonList.append(adCheckButton)
+        
+        buttonList.append(ageButton)
+        buttonList.append(termsButton)
+        buttonList.append(adButton)
+        buttonList.append(signupButton)
+        buttonList.append(individualButton)
+        
         
     }
     
@@ -113,7 +123,7 @@ class SignupViewController: UIViewController {
     
 }
 
-extension SignupViewController: UITextFieldDelegate {    
+extension SignupViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         nickName = nickNameTextField.text!
         canSignup()

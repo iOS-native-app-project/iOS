@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tN3-Kb-tDS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -110,7 +109,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-8f-0Kp">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   닉네임을 설정하세요. (최대 10자)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTP-a5-dqy">
@@ -126,7 +125,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스 이용동의" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG8-U2-5GT">
                                 <rect key="frame" x="20" y="442.5" width="107.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="lnP-1K-p4x">
@@ -140,7 +139,7 @@
                                                 <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="약관 전체동의" image="no_check">
-                                                    <color key="titleColor" name="AccentColor"/>
+                                                    <color key="titleColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <state key="selected" image="check"/>
                                                 <connections>
@@ -171,7 +170,7 @@
                                                         <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="만 14세 이상입니다" image="no_check">
-                                                            <color key="titleColor" name="AccentColor"/>
+                                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <state key="selected" image="check"/>
                                                         <connections>
@@ -187,11 +186,11 @@
                                                 <rect key="frame" x="0.0" y="42" width="374" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hm6-lN-qvQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="347.5" height="20"/>
                                                         <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="(필수) 서비스 이용약관" image="no_check">
-                                                            <color key="titleColor" name="AccentColor"/>
+                                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <state key="selected" image="check"/>
                                                         <connections>
@@ -199,9 +198,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uy-y1-p03">
-                                                        <rect key="frame" x="358.5" y="0.0" width="15.5" height="20"/>
+                                                        <rect key="frame" x="351.5" y="0.0" width="22.5" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title=" ">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -214,11 +213,11 @@
                                                 <rect key="frame" x="0.0" y="84" width="374" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-75-8Cv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="349.5" height="20"/>
                                                         <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="(필수) 개인정보 처리방침" image="no_check">
-                                                            <color key="titleColor" name="AccentColor"/>
+                                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <state key="selected" image="check"/>
                                                         <connections>
@@ -226,9 +225,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-OT-cwP">
-                                                        <rect key="frame" x="360" y="0.0" width="14" height="20"/>
+                                                        <rect key="frame" x="353.5" y="0.0" width="20.5" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title=" ">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -241,11 +240,11 @@
                                                 <rect key="frame" x="0.0" y="126" width="374" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wc-D1-ntH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="357.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="351.5" height="20"/>
                                                         <inset key="titleEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="(선택) 마케팅 정보 수신동의" image="no_check">
-                                                            <color key="titleColor" name="AccentColor"/>
+                                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <state key="selected" image="check"/>
                                                         <connections>
@@ -253,9 +252,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMi-H6-VaI">
-                                                        <rect key="frame" x="361.5" y="0.0" width="12.5" height="20"/>
+                                                        <rect key="frame" x="355.5" y="0.0" width="18.5" height="20"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="terms">
+                                                        <buttonConfiguration key="configuration" style="plain" image="terms" title=" ">
                                                             <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                         </buttonConfiguration>
                                                     </button>
@@ -302,10 +301,14 @@
                     <connections>
                         <outlet property="adButton" destination="HMi-H6-VaI" id="E5I-Fo-7tG"/>
                         <outlet property="adCheckButton" destination="1wc-D1-ntH" id="Sbh-Uf-VyJ"/>
+                        <outlet property="ageButton" destination="emU-oq-FF9" id="dKH-g4-T3A"/>
                         <outlet property="ageCheckButton" destination="emU-oq-FF9" id="qtX-mQ-2I3"/>
+                        <outlet property="agreeLabel" destination="wG8-U2-5GT" id="XCo-wl-uqr"/>
+                        <outlet property="allButton" destination="p60-UD-HAH" id="xoL-qz-cCQ"/>
                         <outlet property="allCheckButton" destination="p60-UD-HAH" id="b06-FZ-D4V"/>
                         <outlet property="individualButton" destination="dCX-OT-cwP" id="kq8-cw-zaB"/>
                         <outlet property="individualCheckButton" destination="7YG-75-8Cv" id="iBf-f1-BZG"/>
+                        <outlet property="nickNameLabel" destination="wJ8-8f-0Kp" id="1pg-Ap-khR"/>
                         <outlet property="nickNameTextField" destination="oTP-a5-dqy" id="DFe-KR-ono"/>
                         <outlet property="profileImageView" destination="AmD-AF-wt8" id="4Ro-MS-Vjg"/>
                         <outlet property="signupButton" destination="akn-hy-U7z" id="gzV-lE-U58"/>
@@ -328,9 +331,6 @@
         <image name="no_signup" width="335" height="48"/>
         <image name="profile" width="84" height="84"/>
         <image name="terms" width="6" height="8"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
