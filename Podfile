@@ -12,4 +12,5 @@ target 'jaksim_ios' do
     pod 'Kingfisher', '~> 7.0'
     pod 'SwiftKeychainWrapper'
     pod 'Firebase/Messaging'
+    pod 'FSCalendar'
 end

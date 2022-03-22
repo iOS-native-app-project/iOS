@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+				A55F2B0427EA0DC800EE27EF /* RecordInput */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F4C27C35EE10007C506 /* ViewController.swift */,
@@ -83,8 +84,14 @@
 				87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */,
 				4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A55F2B0427EA0DC800EE27EF /* RecordInput */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecordInput;
 			sourceTree = "<group>";
 		};
 		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
