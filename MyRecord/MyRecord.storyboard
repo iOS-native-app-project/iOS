@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eva-cs-tLV" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="213" width="414" height="600"/>
+                                <rect key="frame" x="0.0" y="313" width="414" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="mCC-UV-dTO"/>
+                                    <constraint firstAttribute="height" constant="500" id="mCC-UV-dTO"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderDefaultColor">
