@@ -10,23 +10,21 @@ import Alamofire
 class LoginDataManager {
     
     func postLogin(parameters: LoginInput, viewController: LoginViewController) {
-        AF.request("http://54.180.190.99:3000/api/auth/login", method: .post, parameters: parameters)
+        AF.request("https://jaksim.app/api/auth/login", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {
                 case .success(let response):
                     if response.success {
-                        print(response.statusCode)
-                        if response.statusCode == 201 {
-                            viewController.loginSuccess()
-                        } else if response.statusCode == 401 {
-                            print("토큰이 잘못되었습니다.")
-                        } else if response.statusCode == 404 {
-                            viewController.goToSignup()
-                            print("가입정보가 없습니다.")
-                        }
+                        viewController.loginSuccess()
                     }
                 case .failure(let error):
+                    if response.response?.statusCode == 401 {
+                        print("토큰이 잘못되었습니다.")
+                    } else if response.response?.statusCode == 404 {
+                        viewController.goToSignup()
+                        print("가입정보가 없습니다.")
+                    }
                     print("서버연결x")
                     print(error.localizedDescription)
                 }
@@ -35,7 +33,7 @@ class LoginDataManager {
     }
     
     func postSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
-        AF.request("http://54.180.190.99:3000/api/users", method: .post, parameters: parameters)
+        AF.request("https://jaksim.app/api/users", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {

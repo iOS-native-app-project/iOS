@@ -121,6 +121,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                 let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
                 
                 if self.token != "" {
+                    print("token: \(self.token)")
                     self.dataManager.postLogin(parameters: input, viewController: self)
                 } else {
                     self.goToSignup()
@@ -184,6 +185,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                     
                     if self.token != "" {
                         self.dataManager.postLogin(parameters: input, viewController: self)
+                        print(token)
                     } else {
                         goToSignup()
                     }
