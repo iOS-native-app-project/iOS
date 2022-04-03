@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import FSCalendar
 
 class RecordInputViewController: UIViewController {
 
+    @IBOutlet var calendarView: FSCalendar!
+    @IBOutlet var imageStackView: UIStackView!
+    @IBOutlet var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imageStackView.isHidden = true
+        imageView.layer.cornerRadius = 20
     }
     
 
