@@ -17,7 +17,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         containerView.layer.cornerRadius = 12
-        containerView.layer.backgroundColor = UIColor.gray.cgColor
+        containerView.layer.backgroundColor = K.Color.Gray245.cgColor
+        
+        label.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        label.textColor = K.Color.Black33
     }
 
 }

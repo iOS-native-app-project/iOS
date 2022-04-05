@@ -14,11 +14,24 @@
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
+		18AE754A27FB4E3700FF28BA /* MeetingCreationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */; };
+		18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */; };
+		18AE754E27FB5BC800FF28BA /* CreationSecondSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */; };
+		18AE755027FC314B00FF28BA /* CreationThirdSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE754F27FC314B00FF28BA /* CreationThirdSection.swift */; };
+		18AE755227FC317800FF28BA /* CreationThirdSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AE755127FC317800FF28BA /* CreationThirdSection.xib */; };
+		18AE755427FC381200FF28BA /* CreationFourthSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE755327FC381200FF28BA /* CreationFourthSection.swift */; };
+		18AE755627FC381F00FF28BA /* CreationFourthSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AE755527FC381F00FF28BA /* CreationFourthSection.xib */; };
+		18AE755827FC460C00FF28BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE755727FC460C00FF28BA /* Constant.swift */; };
+		18AE758027FC4AA800FF28BA /* S-CoreDream-6Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757427FC4AA700FF28BA /* S-CoreDream-6Bold.otf */; };
+		18AE758227FC4AA800FF28BA /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757627FC4AA700FF28BA /* S-CoreDream-4Regular.otf */; };
+		18AE758327FC4AA800FF28BA /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757727FC4AA700FF28BA /* Pretendard-ExtraBold.otf */; };
+		18AE758427FC4AA800FF28BA /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757827FC4AA700FF28BA /* Pretendard-Regular.otf */; };
+		18AE758627FC4AA800FF28BA /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757A27FC4AA800FF28BA /* S-CoreDream-5Medium.otf */; };
+		18AE758C27FC4D4D00FF28BA /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE758B27FC4D4D00FF28BA /* Pretendard-SemiBold.otf */; };
 		18F1D94227F44AC800E51BDB /* MeetingCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */; };
 		18F1D94427F44ADB00E51BDB /* MeetingCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */; };
 		18F1D94727F4535900E51BDB /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */; };
 		18F1D94827F4535900E51BDB /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F1D94627F4535900E51BDB /* CategoryCollectionViewCell.xib */; };
-		18F1D94E27F5BE7100E51BDB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94D27F5BE7100E51BDB /* Constant.swift */; };
 		18F1D95027F5C3BB00E51BDB /* CreationFirstSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */; };
 		18F1D95227F5C42000E51BDB /* CreationFirstSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
@@ -34,11 +47,24 @@
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationDetailViewController.swift; sourceTree = "<group>"; };
+		18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSecondSection.swift; sourceTree = "<group>"; };
+		18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationSecondSection.xib; sourceTree = "<group>"; };
+		18AE754F27FC314B00FF28BA /* CreationThirdSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationThirdSection.swift; sourceTree = "<group>"; };
+		18AE755127FC317800FF28BA /* CreationThirdSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationThirdSection.xib; sourceTree = "<group>"; };
+		18AE755327FC381200FF28BA /* CreationFourthSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFourthSection.swift; sourceTree = "<group>"; };
+		18AE755527FC381F00FF28BA /* CreationFourthSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationFourthSection.xib; sourceTree = "<group>"; };
+		18AE755727FC460C00FF28BA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		18AE757427FC4AA700FF28BA /* S-CoreDream-6Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-6Bold.otf"; sourceTree = "<group>"; };
+		18AE757627FC4AA700FF28BA /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
+		18AE757727FC4AA700FF28BA /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		18AE757827FC4AA700FF28BA /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		18AE757A27FC4AA800FF28BA /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
+		18AE758B27FC4D4D00FF28BA /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeetingCreation.storyboard; sourceTree = "<group>"; };
 		18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationViewController.swift; sourceTree = "<group>"; };
 		18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		18F1D94627F4535900E51BDB /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		18F1D94D27F5BE7100E51BDB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFirstSection.swift; sourceTree = "<group>"; };
 		18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationFirstSection.xib; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,9 +114,47 @@
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
-				18F1D94D27F5BE7100E51BDB /* Constant.swift */,
+				18AE755927FC474E00FF28BA /* Common */,
 			);
 			path = jaksim_ios;
+			sourceTree = "<group>";
+		};
+		18AE755927FC474E00FF28BA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				18AE755A27FC476A00FF28BA /* Font */,
+				18AE755727FC460C00FF28BA /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		18AE755A27FC476A00FF28BA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				18AE758B27FC4D4D00FF28BA /* Pretendard-SemiBold.otf */,
+				18AE757727FC4AA700FF28BA /* Pretendard-ExtraBold.otf */,
+				18AE757827FC4AA700FF28BA /* Pretendard-Regular.otf */,
+				18AE757627FC4AA700FF28BA /* S-CoreDream-4Regular.otf */,
+				18AE757A27FC4AA800FF28BA /* S-CoreDream-5Medium.otf */,
+				18AE757427FC4AA700FF28BA /* S-CoreDream-6Bold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */,
+				18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */,
+				18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */,
+				18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */,
+				18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */,
+				18AE754F27FC314B00FF28BA /* CreationThirdSection.swift */,
+				18AE755127FC317800FF28BA /* CreationThirdSection.xib */,
+				18AE755327FC381200FF28BA /* CreationFourthSection.swift */,
+				18AE755527FC381F00FF28BA /* CreationFourthSection.xib */,
+			);
+			path = MeetingCreationDetail;
 			sourceTree = "<group>";
 		};
 		18F1D94027F44AAE00E51BDB /* MeetingCreation */ = {
@@ -100,8 +164,7 @@
 				18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */,
 				18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */,
 				18F1D94627F4535900E51BDB /* CategoryCollectionViewCell.xib */,
-				18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */,
-				18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */,
+				18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */,
 			);
 			path = MeetingCreation;
 			sourceTree = "<group>";
@@ -184,10 +247,19 @@
 			files = (
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				18F1D95227F5C42000E51BDB /* CreationFirstSection.xib in Resources */,
+				18AE758627FC4AA800FF28BA /* S-CoreDream-5Medium.otf in Resources */,
+				18AE758327FC4AA800FF28BA /* Pretendard-ExtraBold.otf in Resources */,
 				18F1D94827F4535900E51BDB /* CategoryCollectionViewCell.xib in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
+				18AE758227FC4AA800FF28BA /* S-CoreDream-4Regular.otf in Resources */,
+				18AE758427FC4AA800FF28BA /* Pretendard-Regular.otf in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				18AE755627FC381F00FF28BA /* CreationFourthSection.xib in Resources */,
 				18F1D94227F44AC800E51BDB /* MeetingCreation.storyboard in Resources */,
+				18AE755227FC317800FF28BA /* CreationThirdSection.xib in Resources */,
+				18AE758C27FC4D4D00FF28BA /* Pretendard-SemiBold.otf in Resources */,
+				18AE754E27FB5BC800FF28BA /* CreationSecondSection.xib in Resources */,
+				18AE758027FC4AA800FF28BA /* S-CoreDream-6Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,14 +312,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F1D94E27F5BE7100E51BDB /* Constant.swift in Sources */,
+				18AE755427FC381200FF28BA /* CreationFourthSection.swift in Sources */,
+				18AE755027FC314B00FF28BA /* CreationThirdSection.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				18F1D95027F5C3BB00E51BDB /* CreationFirstSection.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
+				18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */,
+				18AE755827FC460C00FF28BA /* Constant.swift in Sources */,
 				18F1D94727F4535900E51BDB /* CategoryCollectionViewCell.swift in Sources */,
 				18F1D94427F44ADB00E51BDB /* MeetingCreationViewController.swift in Sources */,
+				18AE754A27FB4E3700FF28BA /* MeetingCreationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

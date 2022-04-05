@@ -11,12 +11,17 @@ class MeetingCreationViewController: UIViewController {
     
     let category = K.MeetingCreation.Text.Category
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
+        titleLabel.textColor = K.Color.Black66
+        titleLabel.text = K.MeetingCreation.Text.Title
+        
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
-        categoryCollectionView.register(UINib(nibName: K.MeetingCreation.Name.CategoryCVCell, bundle: nil), forCellWithReuseIdentifier: K.MeetingCreation.Name.CategoryCVCell)
+        categoryCollectionView.register(UINib(nibName: K.MeetingCreation.Name.CategoryCollectionViewCellName, bundle: nil), forCellWithReuseIdentifier: K.MeetingCreation.Name.CategoryCollectionViewCellName)
     }
 }
 
@@ -32,12 +37,12 @@ extension MeetingCreationViewController: UICollectionViewDelegate, UICollectionV
     // 셀 뷰
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MeetingCreation.Name.CategoryCVCell, for: indexPath) as? CategoryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MeetingCreation.Name.CategoryCollectionViewCellName, for: indexPath) as? CategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        cell.label.text = category[indexPath.row]
-        // cell.imageView.image = UIImage(named: categoryImage[indexPath.row])
+        cell.label.text = category[indexPath.row].0
+        cell.imageView.image = UIImage(named: category[indexPath.row].1)
         
         return cell
     }

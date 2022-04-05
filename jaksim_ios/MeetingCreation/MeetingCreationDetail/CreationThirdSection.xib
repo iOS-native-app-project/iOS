@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreationThirdSection" customModule="jaksim_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="dayButton" destination="Kqk-IL-bpp" id="Bgq-x6-qkm"/>
+                <outlet property="monthButton" destination="4Tp-H4-NtV" id="ds0-Xe-LA6"/>
+                <outlet property="titleLabel" destination="Wcg-Kn-lG4" id="deM-yn-bzM"/>
+                <outlet property="weekButton" destination="gMS-t7-O3C" id="LQx-Bc-C9i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="81"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcg-Kn-lG4">
+                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="czd-fs-kkx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R03-Le-oQX">
+                    <rect key="frame" x="0.0" y="37" width="223" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqk-IL-bpp">
+                            <rect key="frame" x="0.0" y="0.0" width="65" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="CYB-xV-zIJ"/>
+                                <constraint firstAttribute="width" constant="65" id="DpX-Vo-nel"/>
+                            </constraints>
+                            <state key="normal" title="하루"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMS-t7-O3C">
+                            <rect key="frame" x="73" y="0.0" width="77" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="77" id="D8W-5N-Xxd"/>
+                                <constraint firstAttribute="height" constant="44" id="W9J-VT-eoz"/>
+                            </constraints>
+                            <state key="normal" title="일주일"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tp-H4-NtV">
+                            <rect key="frame" x="158" y="0.0" width="65" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="65" id="2la-bv-zXO"/>
+                                <constraint firstAttribute="height" constant="44" id="cBx-23-i7L"/>
+                            </constraints>
+                            <state key="normal" title="한달"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sjj-Ob-8qa"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="R03-Le-oQX" secondAttribute="bottom" id="9b8-Ms-swI"/>
+                <constraint firstItem="Wcg-Kn-lG4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DxZ-yf-xF7"/>
+                <constraint firstItem="R03-Le-oQX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="P2b-g0-0rv"/>
+                <constraint firstItem="Wcg-Kn-lG4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Wmh-rf-65D"/>
+                <constraint firstItem="R03-Le-oQX" firstAttribute="top" secondItem="Wcg-Kn-lG4" secondAttribute="bottom" constant="16" id="lXH-xx-CfZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-11.594202898550726" y="-205.91517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
