@@ -87,7 +87,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="categoryImageView" destination="EAx-L8-Pon" id="xn3-wb-Umk"/>
-                <outlet property="entranceButton" destination="4H7-vl-Iz2" id="Sdh-w7-iGa"/>
+                <outlet property="entranceButton" destination="4H7-vl-Iz2" id="3fa-dj-CAf"/>
                 <outlet property="lockImageView" destination="MCp-QV-9J1" id="16B-sn-tdt"/>
                 <outlet property="meetingNameLabel" destination="aOU-Se-6Ov" id="k2a-eI-lM5"/>
                 <outlet property="numberOfPeopleLabel" destination="dCU-Qi-Qco" id="I35-kX-aiU"/>

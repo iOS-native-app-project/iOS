@@ -8,7 +8,7 @@
 import UIKit
 
 class MeetingListTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var meetingNameLabel: UILabel!
     @IBOutlet weak var lockImageView: UIImageView!
@@ -35,14 +35,14 @@ class MeetingListTableViewCell: UITableViewCell {
         entranceButton.backgroundColor = K.Color.Gray245
         entranceButton.layer.cornerRadius = entranceButton.bounds.height/2
         entranceButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        entranceButton.setTitleColor(UIColor(red: 85.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1), for: .normal)
+        entranceButton.setTitleColor(K.Color.MainPuple, for: .normal)
         
         lockImageView.image = K.Image.lockIcon
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 }

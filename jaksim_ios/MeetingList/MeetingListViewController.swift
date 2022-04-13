@@ -8,7 +8,7 @@
 import UIKit
 
 class MeetingListViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTermsCollectionView: UICollectionView!
     @IBOutlet weak var meetingListTableView: UITableView!
@@ -19,7 +19,7 @@ class MeetingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height/2 - 10
         searchBar.searchTextField.layer.masksToBounds = true
         
@@ -65,7 +65,6 @@ extension MeetingListViewController: UICollectionViewDelegate, UICollectionViewD
         
         cell.searchTermButton.setTitle("공부", for: .normal)
         
-
         return cell
     }
     
@@ -74,14 +73,14 @@ extension MeetingListViewController: UICollectionViewDelegate, UICollectionViewD
     //
     //        }
     
-//
-//    // CollectionView Cell의 위아래 간격
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//
-//        return 16/2
-//    }
-//
-
+    //
+    //    // CollectionView Cell의 위아래 간격
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    //
+    //        return 16/2
+    //    }
+    //
+    
     
     // CollectionView Cell의 옆 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -92,7 +91,7 @@ extension MeetingListViewController: UICollectionViewDelegate, UICollectionViewD
 
 //MARK:- TableView Delegate
 extension MeetingListViewController: UITableViewDelegate, UITableViewDataSource  {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 20
     }
@@ -109,10 +108,25 @@ extension MeetingListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:K.MeetingList.Id.MeetingListTableViewCellId, for: indexPath) as! MeetingListTableViewCell
+        
+        cell.entranceButton.addTarget(self, action: #selector(entranceButtonDidTap(_:)), for: .touchUpInside)
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 48
     }
+    
+    @objc func entranceButtonDidTap(_ sender: UIButton) {
+        
+        guard let meetingEntranceVC = self.storyboard?.instantiateViewController(identifier: K.MeetingList.Id.MeetingEntranceViewControllerId) else { return }
+        
+        meetingEntranceVC.modalTransitionStyle = .coverVertical
+        meetingEntranceVC.modalPresentationStyle = .fullScreen
+        
+        self.present(meetingEntranceVC, animated: true)
+    }
 }
+
+
