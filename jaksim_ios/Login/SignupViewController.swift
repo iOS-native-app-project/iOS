@@ -21,13 +21,11 @@ class SignupViewController: UIViewController {
     @IBOutlet var ageCheckButton: UIButton!
     @IBOutlet var termsCheckButton: UIButton!
     @IBOutlet var individualCheckButton: UIButton!
-    @IBOutlet var adCheckButton: UIButton!
     
     @IBOutlet var allButton: UIButton!
     @IBOutlet var ageButton: UIButton!
     @IBOutlet var termsButton: UIButton!
     @IBOutlet var individualButton: UIButton!
-    @IBOutlet var adButton: UIButton!
     
     @IBOutlet var signupButton: UIButton!
     
@@ -54,15 +52,14 @@ class SignupViewController: UIViewController {
     func layoutSetup () {
         
         nickNameTextField.backgroundColor = .systemGray6
+        nickNameTextField.layer.cornerRadius = 8
         
         checkButtonList.append(ageCheckButton)
         checkButtonList.append(termsCheckButton)
         checkButtonList.append(individualCheckButton)
-        checkButtonList.append(adCheckButton)
         
         buttonList.append(ageButton)
         buttonList.append(termsButton)
-        buttonList.append(adButton)
         buttonList.append(signupButton)
         buttonList.append(individualButton)
         
@@ -118,9 +115,6 @@ class SignupViewController: UIViewController {
     @IBAction func individualCheckButtonDidTap(_ sender: UIButton) {
         individualCheckButton.isSelected = !individualCheckButton.isSelected
         canSignup()
-    }
-    @IBAction func adCheckButtonDidTap(_ sender: UIButton) {
-        adCheckButton.isSelected = !adCheckButton.isSelected
     }
 
     
