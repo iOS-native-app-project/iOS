@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MeetingListViewController: UIViewController {
     
@@ -17,6 +19,11 @@ class MeetingListViewController: UIViewController {
     @IBOutlet weak var collectionViewTitleLabel: UILabel!
     @IBOutlet weak var tableViewTitleLabel: UILabel!
     
+    let meetingListViewModel = MeetingListViewModel()
+    var tableViewSectionCount = 0
+    
+    var disposeBag = DisposeBag()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +34,25 @@ class MeetingListViewController: UIViewController {
         searchTermsCollectionView.delegate = self
         searchTermsCollectionView.register(UINib(nibName: K.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.MeetingList.Id.SearchTermsCollectionViewCellId)
         
-        meetingListTableView.dataSource = self
+        //meetingListTableView.dataSource = self
         meetingListTableView.delegate = self
         meetingListTableView.register(UINib(nibName: K.MeetingList.Name.MeetingListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: K.MeetingList.Id.MeetingListTableViewCellId)
         
         collectionViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
         tableViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+
+    
+        // 이 bind로 인해 tableView의 dataSource는 필요없어진다.
+        meetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+
+                cell.meetingNameLabel.text = item.name
+                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
+                cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
+
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -90,32 +110,32 @@ extension MeetingListViewController: UICollectionViewDelegate, UICollectionViewD
 }
 
 //MARK:- TableView Delegate
-extension MeetingListViewController: UITableViewDelegate, UITableViewDataSource  {
+extension MeetingListViewController: UITableViewDelegate { //}, UITableViewDataSource  {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 20
-    }
-    // There is just one row in every section
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return tableViewSectionCount
+//    }
+//    // There is just one row in every section
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
     
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:K.MeetingList.Id.MeetingListTableViewCellId, for: indexPath) as! MeetingListTableViewCell
-        
-        cell.entranceButton.addTarget(self, action: #selector(entranceButtonDidTap(_:)), for: .touchUpInside)
-
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier:K.MeetingList.Id.MeetingListTableViewCellId, for: indexPath) as! MeetingListTableViewCell
+//
+//        cell.entranceButton.addTarget(self, action: #selector(entranceButtonDidTap(_:)), for: .touchUpInside)
+//
+//        return cell
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 48
+        return 68
     }
     
     @objc func entranceButtonDidTap(_ sender: UIButton) {
