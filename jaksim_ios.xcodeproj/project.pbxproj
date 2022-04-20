@@ -30,6 +30,7 @@
 		186CD27F2805C3C500B150A3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD2792805C3C400B150A3 /* Pretendard-SemiBold.otf */; };
 		186CD2802805C3C500B150A3 /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD27A2805C3C500B150A3 /* S-CoreDream-4Regular.otf */; };
 		186CD2812805C3C500B150A3 /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD27B2805C3C500B150A3 /* S-CoreDream-5Medium.otf */; };
+		18A1639028104506001668D9 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1638F28104506001668D9 /* MeetingListViewModel.swift */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		186CD2792805C3C400B150A3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		186CD27A2805C3C500B150A3 /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
 		186CD27B2805C3C500B150A3 /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
+		18A1638F28104506001668D9 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,12 +90,9 @@
 		1841A4FD28056039009CD78E /* MeetingList */ = {
 			isa = PBXGroup;
 			children = (
-				1841A4FE2805604E009CD78E /* MeetingList.storyboard */,
-				1841A5002805605B009CD78E /* MeetingListViewController.swift */,
-				1825B2B12806AFDB00272397 /* MeetingEntranceViewController.swift */,
-				1825B2AE2806A2C200272397 /* EntranceInfoView */,
-				186CD2832805CEC500B150A3 /* SearchTermsCollectionViewCell */,
-				186CD2822805CEB900B150A3 /* MeetingListTableViewCell */,
+				18A1638E281044D7001668D9 /* MeetingListModel */,
+				18A1638D281044C9001668D9 /* MeetingListView */,
+				18A1638C2810449D001668D9 /* MeetingListViewModel */,
 			);
 			path = MeetingList;
 			sourceTree = "<group>";
@@ -171,6 +170,34 @@
 				1841A5032805675D009CD78E /* SearchTermsCollectionViewCell.xib */,
 			);
 			path = SearchTermsCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		18A1638C2810449D001668D9 /* MeetingListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18A1638F28104506001668D9 /* MeetingListViewModel.swift */,
+			);
+			path = MeetingListViewModel;
+			sourceTree = "<group>";
+		};
+		18A1638D281044C9001668D9 /* MeetingListView */ = {
+			isa = PBXGroup;
+			children = (
+				1841A4FE2805604E009CD78E /* MeetingList.storyboard */,
+				1841A5002805605B009CD78E /* MeetingListViewController.swift */,
+				1825B2B12806AFDB00272397 /* MeetingEntranceViewController.swift */,
+				186CD2822805CEB900B150A3 /* MeetingListTableViewCell */,
+				1825B2AE2806A2C200272397 /* EntranceInfoView */,
+				186CD2832805CEC500B150A3 /* SearchTermsCollectionViewCell */,
+			);
+			path = MeetingListView;
+			sourceTree = "<group>";
+		};
+		18A1638E281044D7001668D9 /* MeetingListModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MeetingListModel;
 			sourceTree = "<group>";
 		};
 		25F4D27B27D96585C56D6E4A /* Pods */ = {
@@ -319,6 +346,7 @@
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				1841A5042805675D009CD78E /* SearchTermsCollectionViewCell.swift in Sources */,
 				1825B2AD2806A2B200272397 /* EntranceInfoView.swift in Sources */,
+				18A1639028104506001668D9 /* MeetingListViewModel.swift in Sources */,
 				1841A50C2805BB75009CD78E /* Constant.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				1841A5012805605B009CD78E /* MeetingListViewController.swift in Sources */,
