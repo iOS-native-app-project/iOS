@@ -114,7 +114,7 @@
                                                 <rect key="frame" x="20" y="379" width="374" height="621"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="49" id="1FP-AI-q3s">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberTableViewCell" rowHeight="49" id="1FP-AI-q3s" customClass="MemberTableViewCell" customModule="jaksim_ios" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="44.5" width="374" height="49"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1FP-AI-q3s" id="b4A-NQ-qpk">
@@ -164,6 +164,9 @@
                                                                                 <constraint firstAttribute="width" constant="39" id="7vW-hR-d5a"/>
                                                                             </constraints>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" title="99">
+                                                                                <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-qD-9oc">
                                                                             <rect key="frame" x="43" y="0.0" width="39" height="20"/>
@@ -172,6 +175,9 @@
                                                                                 <constraint firstAttribute="width" constant="39" id="rD1-QN-Uiz"/>
                                                                             </constraints>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <state key="normal" title="99">
+                                                                                <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
                                                                         </button>
                                                                     </subviews>
                                                                     <constraints>
@@ -205,7 +211,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EGR-gI-8Sj">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCollectionViewCell" id="EGR-gI-8Sj" customClass="TagCollectionViewCell" customModule="jaksim_ios" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="24"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uor-ge-qFd">
@@ -277,6 +283,11 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="X2p-Xa-nYk" secondAttribute="bottom" id="tjE-sg-gVv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memberTableView" destination="lVz-mw-fFt" id="1Ht-zQ-3ai"/>
+                        <outlet property="tagCollectionView" destination="GdF-ZI-B6f" id="Jpg-sh-OWB"/>
+                        <outlet property="topImageView" destination="nQ9-dC-jAf" id="ziE-3y-hU4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
