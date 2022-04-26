@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				18A1638E281044D7001668D9 /* Model */,
-				18A1638D281044C9001668D9 /* View */,
 				18A1638C2810449D001668D9 /* ViewModel */,
+				18A1638D281044C9001668D9 /* View */,
 			);
 			path = MeetingList;
 			sourceTree = "<group>";
