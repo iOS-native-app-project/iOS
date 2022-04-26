@@ -23,9 +23,6 @@
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
 		189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */; };
-		18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85C27D4A963006744DA /* Searching.storyboard */; };
-		18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E85E27D4A96F006744DA /* Profile.storyboard */; };
-		18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B0E86027D4B250006744DA /* Meeting.storyboard */; };
 		18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */; };
 		18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */; };
 		18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AFB27CFCD9C004ABE3A /* Constant.swift */; };
@@ -51,9 +48,6 @@
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
-		18B0E85C27D4A963006744DA /* Searching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Searching.storyboard; sourceTree = "<group>"; };
-		18B0E85E27D4A96F006744DA /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		18B0E86027D4B250006744DA /* Meeting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meeting.storyboard; sourceTree = "<group>"; };
 		18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		18EB2AFB27CFCD9C004ABE3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -74,6 +68,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1802AE2028185E80001AD85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1802AE2628185F60001AD85B /* RecommendedMeetingListCollectionViewCell */,
+				1802AE2528185F50001AD85B /* CategoryListCollectionViewCell */,
+				1802AE2428185F2A001AD85B /* MeetingListCollectionViewCell */,
+				186B1F4C27C35EE10007C506 /* HomeViewController.swift */,
+				186B1F4E27C35EE10007C506 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1802AE2128185E86001AD85B /* ViewMoel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewMoel;
+			sourceTree = "<group>";
+		};
+		1802AE2228185E8D001AD85B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1802AE2428185F2A001AD85B /* MeetingListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */,
+				18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */,
+			);
+			path = MeetingListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1802AE2528185F50001AD85B /* CategoryListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */,
+				18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */,
+			);
+			path = CategoryListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1802AE2628185F60001AD85B /* RecommendedMeetingListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */,
+				18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */,
+			);
+			path = RecommendedMeetingListCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		18453A5227E087A800333D49 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +154,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-				18453A5227E087A800333D49 /* Font */,
-				18EB2AEE27C801D9004ABE3A /* Meeting */,
-				18B0E85B27D4A914006744DA /* Profile */,
-				18B0E85A27D4A902006744DA /* Searching */,
+				189B2FC028185FF400F66C31 /* Common */,
 				18EB2AF627C80928004ABE3A /* Home */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
@@ -118,46 +162,25 @@
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
-				18EB2AFB27CFCD9C004ABE3A /* Constant.swift */,
 			);
 			path = jaksim_ios;
 			sourceTree = "<group>";
 		};
-		18B0E85A27D4A902006744DA /* Searching */ = {
+		189B2FC028185FF400F66C31 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				18B0E85C27D4A963006744DA /* Searching.storyboard */,
+				18EB2AFB27CFCD9C004ABE3A /* Constant.swift */,
+				18453A5227E087A800333D49 /* Font */,
 			);
-			path = Searching;
-			sourceTree = "<group>";
-		};
-		18B0E85B27D4A914006744DA /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				18B0E85E27D4A96F006744DA /* Profile.storyboard */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		18EB2AEE27C801D9004ABE3A /* Meeting */ = {
-			isa = PBXGroup;
-			children = (
-				18B0E86027D4B250006744DA /* Meeting.storyboard */,
-			);
-			path = Meeting;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		18EB2AF627C80928004ABE3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				186B1F4C27C35EE10007C506 /* HomeViewController.swift */,
-				186B1F4E27C35EE10007C506 /* Main.storyboard */,
-				18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */,
-				18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */,
-				18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */,
-				18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */,
-				18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */,
-				18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */,
+				1802AE2228185E8D001AD85B /* Model */,
+				1802AE2128185E86001AD85B /* ViewMoel */,
+				1802AE2028185E80001AD85B /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -241,13 +264,10 @@
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
-				18B0E85D27D4A963006744DA /* Searching.storyboard in Resources */,
-				18B0E86127D4B250006744DA /* Meeting.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
 				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
 				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
 				18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */,
-				18B0E85F27D4A96F006744DA /* Profile.storyboard in Resources */,
 				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
 				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,
 				183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */,
