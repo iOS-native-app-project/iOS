@@ -10,11 +10,11 @@ import UIKit
 class MeetingListCollectionViewCell: UICollectionViewCell {
 
     
-    @IBOutlet weak var dDay: UILabel!
-    @IBOutlet weak var goal: UILabel!
-    @IBOutlet weak var progress: UILabel!
-    @IBOutlet weak var progressValue: UILabel!
-    @IBOutlet weak var meetingCount: UILabel!
+    @IBOutlet weak var dDayLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var progressValueLabel: UILabel!
+    @IBOutlet weak var numberOfpeopleLabel: UILabel!
     
     @IBOutlet weak var firstProgressBar: UIView!
     @IBOutlet weak var secondProgressBar: UIView!
@@ -27,7 +27,23 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 12
         
-        // progressBar
+        //MARK:- 디데이
+        dDayLabel.clipsToBounds = true
+        dDayLabel.layer.cornerRadius = 2
+        dDayLabel.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        dDayLabel.textColor = UIColor(red: (85/255.0), green: (120/255.0), blue: (255/255.0), alpha: 1.0)
+        dDayLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        dDayLabel.textAlignment = .center
+        
+        //MARK:- 모임 이름
+        nameLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        nameLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 18)
+        
+        //MARK:- 진행률
+        progressLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        progressLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 12)
+        
+        //MARK:- 진행률 바
         progressBar.append(firstProgressBar)
         progressBar.append(secondProgressBar)
         progressBar.append(thirdProgressBar)
@@ -37,33 +53,16 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
             bar.layer.cornerRadius = bar.frame.height/2
             bar.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
         }
+        progressValueLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        progressValueLabel.font = UIFont(name: K.FontName.PretendardExtraBold, size: 32)
         
-        // dDay label
-        dDay.clipsToBounds = true
-        dDay.layer.cornerRadius = 2
-        dDay.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        dDay.textColor = UIColor(red: (85/255.0), green: (120/255.0), blue: (255/255.0), alpha: 1.0)
-        dDay.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 13)
-        dDay.textAlignment = .center
-        
-        // goal label
-        goal.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        goal.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 18)
-        
-        // progress label
-        progress.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        progress.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 12)
-        
-        progressValue.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        progressValue.font = UIFont(name: K.Font.font_Pretendard_ExtraBold, size: 32)
-        
-        // meetingCount label
-        meetingCount.clipsToBounds = true
-        meetingCount.layer.cornerRadius = meetingCount.frame.height/2
-        meetingCount.backgroundColor = UIColor(red: (0/255.0), green: (0/255.0), blue: (0/255.0), alpha: 0.5)
-        meetingCount.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        meetingCount.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 12)
-        meetingCount.textAlignment = .center
+        //MARK:- 인원수
+        numberOfpeopleLabel.clipsToBounds = true
+        numberOfpeopleLabel.layer.cornerRadius = numberOfpeopleLabel.frame.height/2
+        numberOfpeopleLabel.backgroundColor = UIColor(red: (0/255.0), green: (0/255.0), blue: (0/255.0), alpha: 0.5)
+        numberOfpeopleLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+        numberOfpeopleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 12)
+        numberOfpeopleLabel.textAlignment = .center
         
         
         

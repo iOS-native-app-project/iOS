@@ -119,13 +119,13 @@
             </constraints>
             <size key="customSize" width="381" height="260"/>
             <connections>
-                <outlet property="dDay" destination="lhW-at-Upa" id="oEg-pI-JJe"/>
+                <outlet property="dDayLabel" destination="lhW-at-Upa" id="oEg-pI-JJe"/>
                 <outlet property="firstProgressBar" destination="TMw-bs-LqU" id="Lil-Qh-I5T"/>
                 <outlet property="fourthProgressBar" destination="alz-Ax-a3C" id="t4r-bS-Qhr"/>
-                <outlet property="goal" destination="YHb-uw-7yo" id="rin-2W-pBc"/>
-                <outlet property="meetingCount" destination="xAB-3X-EJ9" id="xix-oY-zVK"/>
-                <outlet property="progress" destination="t62-cN-mqp" id="D3z-oC-Rc0"/>
-                <outlet property="progressValue" destination="VZr-8Q-nAl" id="Iof-Fk-1k3"/>
+                <outlet property="nameLabel" destination="YHb-uw-7yo" id="rin-2W-pBc"/>
+                <outlet property="numberOfpeopleLabel" destination="xAB-3X-EJ9" id="xix-oY-zVK"/>
+                <outlet property="progressLabel" destination="t62-cN-mqp" id="D3z-oC-Rc0"/>
+                <outlet property="progressValueLabel" destination="VZr-8Q-nAl" id="Iof-Fk-1k3"/>
                 <outlet property="secondProgressBar" destination="opY-Pe-BbB" id="NGb-jn-iwa"/>
                 <outlet property="thirdProgressBar" destination="CbW-wb-eyu" id="oai-5p-AuN"/>
             </connections>

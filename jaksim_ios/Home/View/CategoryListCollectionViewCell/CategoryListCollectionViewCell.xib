@@ -55,9 +55,9 @@
             </constraints>
             <size key="customSize" width="69" height="97"/>
             <connections>
-                <outlet property="imageView" destination="cvh-QX-9Ix" id="Yug-Wy-Ous"/>
-                <outlet property="name" destination="3B5-m2-usT" id="pJ1-9V-eqT"/>
-                <outlet property="view" destination="cBZ-f0-aRT" id="e6F-eb-46i"/>
+                <outlet property="categoryImageView" destination="cvh-QX-9Ix" id="Yug-Wy-Ous"/>
+                <outlet property="cateoryNameLabel" destination="3B5-m2-usT" id="pJ1-9V-eqT"/>
+                <outlet property="containerView" destination="cBZ-f0-aRT" id="e6F-eb-46i"/>
             </connections>
             <point key="canvasLocation" x="41.304347826086961" y="124.21875"/>
         </collectionViewCell>

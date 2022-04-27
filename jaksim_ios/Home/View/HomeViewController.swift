@@ -6,104 +6,130 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
     
     //***개수 고정하고 스크롤 잠궈야함
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var categoryListCollectionView: UICollectionView!
     @IBOutlet weak var recommendedMeetingListCollectionView: UICollectionView!
     
+    @IBOutlet weak var sayingOfTodayTitleLabel: UILabel!
     @IBOutlet weak var sayingOfTodayLabel: UILabel!
-    @IBOutlet weak var sayingOfToday: UILabel!
-    @IBOutlet weak var sayingOfTodayView: UIView!
+    @IBOutlet weak var sayingOfTodayContaierView: UIView!
     
-    @IBOutlet weak var recommendedMeetingLabel: UILabel!
-    @IBOutlet weak var recommendedMeetingButton: UIButton!
+    @IBOutlet weak var recommendedMeetingTitleLabel: UILabel!
+    @IBOutlet weak var recommendedMeetingShollAllButton: UIButton!
     
-    @IBOutlet weak var introductionButton: UIButton!
-    @IBOutlet weak var faqButton: UIButton!
+    private let meetingListViewModel = MeetingListViewModel()
+    private var meetingListCount = 0
     
-    var meetingList: [String] =
-        ["참여모임1", "참여모임2", "참여모임3", "참여모임4", "참여모임5", "참여모임6"]
-    var categoryList: [String] =
-        ["미라클모닝", "공부", "시험", "글쓰기", "건강", "독서", "다이어트", "달리기"]
-    var categoryImage: [String] =
-    ["test_icon_miraclemorning", "test_icon_study", "test_icon_writing", "test_icon_book", "test_icon_diet", "test_icon_exam", "test_icon_health", "test_icon_running"]
-    var recommendedMeetingList: [String] =
-        ["추천모임1", "추천모임2", "추천모임3", "추천모임4", "추천모임5", "추천모임6"]
-    var recommendedMeetingImage: [String] =
-        ["test_recommendedMeetingimg1", "test_recommendedMeetingimg2", "test_recommendedMeetingimg3", "test_recommendedMeetingimg4", "test_recommendedMeetingimg5", "test_recommendedMeetingimg6" ]
-        
+    private let recommandedMeetingListViewModel = RecommandedMeetingListViewModel()
     
+    private let sayingOfTodayViewModel = SayingOfTodayViewModel()
+    
+    private var disposeBag = DisposeBag()
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sayingOfToday.layer.shadowColor = UIColor.black.cgColor
-        sayingOfToday.layer.shadowRadius = 5
-        sayingOfToday.layer.masksToBounds = false
-        sayingOfToday.layer.shadowOpacity = 0.1
+        //MARK:- 로고
+        logoImageView.image = K.Image.Logo
         
-        meetingListCollectionView.dataSource = self
+        //MARK:- 알림
+        notificationButton.layer.cornerRadius = notificationButton.bounds.height/2
+        notificationButton.backgroundColor = K.Color.Gray245
+        notificationButton.setImage(K.Image.NoficationIcon, for: .normal)
+        notificationButton.tintColor = K.Color.Black66
+        
+        //MARK:- 참여중인 모임 리스트
+        meetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.meetingListCount = list.count
+            })
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+                
+                cell.nameLabel.text = item.name
+                cell.dDayLabel.text = "D-\(item.dDay)"
+                cell.progressValueLabel.text = "\(item.progess)%"
+                cell.numberOfpeopleLabel.text = "참여중인 방 \(item.numberOfpeople)/\(self.meetingListCount)"
+                
+            }
+            .disposed(by: disposeBag)
+        
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: K.Id.meetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.meetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: K.Home.Name.MeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.Home.Id.MeetingListCollectionViewCellId)
         
-        sayingOfTodayLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
-        sayingOfTodayLabel.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 14)
-    
+        //MARK:- 오늘의 한마디
+        sayingOfTodayLabel.layer.shadowColor = UIColor.black.cgColor
+        sayingOfTodayLabel.layer.shadowRadius = 5
+        sayingOfTodayLabel.layer.masksToBounds = false
+        sayingOfTodayLabel.layer.shadowOpacity = 0.1
         
-        sayingOfToday.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
-        sayingOfToday.font = UIFont(name: K.Font.font_SCDream_Regular, size: 16)
-        sayingOfToday.numberOfLines = 0
+        sayingOfTodayTitleLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+        sayingOfTodayTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
         
-        sayingOfTodayView.layer.cornerRadius = 12
-        sayingOfTodayView.layer.shadowOpacity = 0.08
-        sayingOfTodayView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        sayingOfTodayView.layer.shadowRadius = 12
-        sayingOfTodayView.layer.masksToBounds = false
-
+        sayingOfTodayLabel.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
+        sayingOfTodayLabel.font = UIFont(name: K.FontName.SCDreamRegular, size: 16)
+        sayingOfTodayLabel.numberOfLines = 0
         
+        sayingOfTodayContaierView.layer.cornerRadius = 12
+        sayingOfTodayContaierView.layer.shadowOpacity = 0.08
+        sayingOfTodayContaierView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        sayingOfTodayContaierView.layer.shadowRadius = 12
+        sayingOfTodayContaierView.layer.masksToBounds = false
+        
+        sayingOfTodayViewModel.sayingOfTodaySubject
+            .subscribe(onNext: { item in
+                self.sayingOfTodayLabel.text = item.sayingOfToday
+            })
+            .disposed(by: disposeBag)
+        
+        //MARK:- 카테고리 리스트
         categoryListCollectionView.dataSource = self
         categoryListCollectionView.delegate = self
-        categoryListCollectionView.register(UINib(nibName: K.Id.categoryListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.categoryListCollectionViewCellId)
+        categoryListCollectionView.register(UINib(nibName: K.Home.Name.CategoryListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.Home.Id.CategoryListCollectionViewCellId)
         
-        recommendedMeetingLabel.font = UIFont(name: K.Font.font_Pretendard_SemiBold, size: 16)
-        recommendedMeetingLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
-        recommendedMeetingButton.titleLabel!.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
-        recommendedMeetingButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal) 
+        //MARK:- 추천모임 리스트
+        recommandedMeetingListViewModel.recommandedMeetingListSubject
+            .observe(on: MainScheduler.instance)
+            .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
+                
+                cell.meetingNameLabel.text = item.name
+                cell.introductionLabel.text = item.introduction
+                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
+                
+            }
+            .disposed(by: disposeBag)
         
-        recommendedMeetingListCollectionView.dataSource = self
+        recommendedMeetingTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 16)
+        recommendedMeetingTitleLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+        recommendedMeetingShollAllButton.titleLabel!.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        recommendedMeetingShollAllButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal)
+       
         recommendedMeetingListCollectionView.delegate = self
-        recommendedMeetingListCollectionView.register(UINib(nibName: K.Id.recommendedMeetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.recommendedMeetingListCollectionViewCellId)
-        
-        introductionButton.setTitle("작심 소개", for: .normal)
-        introductionButton.layer.cornerRadius = 5
-        introductionButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
-        introductionButton.setTitleColor(UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1), for: .normal)
-        introductionButton.titleLabel!.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
-        
-        faqButton.setTitle("자주 묻는 질문", for: .normal)
-        faqButton.layer.cornerRadius = 5
-        faqButton.titleLabel?.font = UIFont(name: K.Font.font_Pretendard_Regular, size: 14)
-        faqButton.setTitleColor(UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1), for: .normal)
-        faqButton.backgroundColor = UIColor(red: (242/255.0), green: (245/255.0), blue: (255/255.0), alpha: 1.0)
+        recommendedMeetingListCollectionView.register(UINib(nibName: K.Home.Name.RecommendedMeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.Home.Id.RecommendedMeetingListCollectionViewCellId)
     }
 }
 
 //MARK:- CollectionView Delegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    // 셀 개수
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == meetingListCollectionView{
-            return meetingList.count
-        }
-        else if collectionView == categoryListCollectionView{
-            return categoryList.count
-        }
-        else if collectionView == recommendedMeetingListCollectionView{
-            return recommendedMeetingList.count
+
+        if collectionView == categoryListCollectionView{
+            return K.Home.Text.CategoryList.count
         }
         else {
             print("CollectionView Delegate error - 셀 개수")
@@ -111,37 +137,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
     }
-    
-    // 셀 뷰
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == meetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.meetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
+        if collectionView == categoryListCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Home.Id.CategoryListCollectionViewCellId, for: indexPath) as? CategoryListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
-            cell.goal.text = meetingList[indexPath.row]
-            
-            return cell
-        }
-        else if collectionView == categoryListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.categoryListCollectionViewCellId, for: indexPath) as? CategoryListCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            
-            cell.name.text = categoryList[indexPath.row]
-            cell.imageView.image = UIImage(named: categoryImage[indexPath.row])
-            
-            return cell
-        }
-        else if collectionView == recommendedMeetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.recommendedMeetingListCollectionViewCellId, for: indexPath) as? RecommendedMeetingListCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            
-            cell.introduction.text = recommendedMeetingList[indexPath.row]
-            cell.imageView.image = UIImage(named: recommendedMeetingImage[indexPath.row])
-            cell.personNumber.text = "11"
+            cell.cateoryNameLabel.text = K.Home.Text.CategoryList[indexPath.row]
+            cell.categoryImageView.image = K.Image.CategoryImageList[indexPath.row]
             
             return cell
         }
