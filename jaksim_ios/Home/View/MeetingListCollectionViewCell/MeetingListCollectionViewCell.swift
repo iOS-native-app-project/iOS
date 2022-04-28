@@ -10,6 +10,7 @@ import UIKit
 class MeetingListCollectionViewCell: UICollectionViewCell {
 
     
+    @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var dDayLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
@@ -51,8 +52,10 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         
         for bar in progressBar{
             bar.layer.cornerRadius = bar.frame.height/2
-            bar.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
+            bar.backgroundColor = K.Color.Black33
         }
+        firstProgressBar.backgroundColor = .white
+        
         progressValueLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
         progressValueLabel.font = UIFont(name: K.FontName.PretendardExtraBold, size: 32)
         
@@ -63,9 +66,6 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         numberOfpeopleLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
         numberOfpeopleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 12)
         numberOfpeopleLabel.textAlignment = .center
-        
-        
-        
     }
 
 }

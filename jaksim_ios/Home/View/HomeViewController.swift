@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     //***개수 고정하고 스크롤 잠궈야함
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var notificationButton: UIButton!
+    @IBOutlet weak var notiVisitedMarkView: UIView!
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var categoryListCollectionView: UICollectionView!
     @IBOutlet weak var recommendedMeetingListCollectionView: UICollectionView!
@@ -52,6 +53,9 @@ class HomeViewController: UIViewController {
         notificationButton.setImage(K.Image.NoficationIcon, for: .normal)
         notificationButton.tintColor = K.Color.Black66
         
+        notiVisitedMarkView.layer.cornerRadius = notiVisitedMarkView.bounds.height/2
+        notiVisitedMarkView.backgroundColor = K.Color.MainPuple
+        
         //MARK:- 참여중인 모임 리스트
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
@@ -64,6 +68,29 @@ class HomeViewController: UIViewController {
                 cell.dDayLabel.text = "D-\(item.dDay)"
                 cell.progressValueLabel.text = "\(item.progess)%"
                 cell.numberOfpeopleLabel.text = "참여중인 방 \(item.numberOfpeople)/\(self.meetingListCount)"
+                
+                //0~25%
+                if (0...25).contains(item.progess) {
+                    cell.bannerImageView.image = K.Image.bannerImageList[0]
+                }
+                //26~50%
+                else if (26...50).contains(item.progess) {
+                    cell.bannerImageView.image = K.Image.bannerImageList[1]
+                    cell.secondProgressBar.backgroundColor = .white
+                }
+                //51~75%
+                else if (51...75).contains(item.progess) {
+                    cell.bannerImageView.image = K.Image.bannerImageList[2]
+                    cell.secondProgressBar.backgroundColor = .white
+                    cell.thirdProgressBar.backgroundColor = .white
+                }
+                //76~100%
+                else {
+                    cell.bannerImageView.image = K.Image.bannerImageList[3]
+                    cell.secondProgressBar.backgroundColor = .white
+                    cell.thirdProgressBar.backgroundColor = .white
+                    cell.fourthProgressBar.backgroundColor = .white
+                }
                 
             }
             .disposed(by: disposeBag)

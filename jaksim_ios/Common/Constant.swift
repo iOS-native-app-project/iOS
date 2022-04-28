@@ -48,6 +48,11 @@ struct K {
         static let SirenIcon = UIImage(named: "siren.png")
         static let ThumbsUpIcon = UIImage(named: "thumbsUp.png")
         static let backButtonIcon = UIImage(named: "backButton.png")
+        static let bannerImageList: [UIImage?] =
+            [UIImage(named: "banner1.png"),
+             UIImage(named: "banner2.png"),
+             UIImage(named: "banner3.png"),
+             UIImage(named: "banner4.png")]
         static let CategoryImageList: [UIImage?] =
             [ UIImage(named: "miracleMorning.png"),
               UIImage(named: "study.png"),

@@ -29,6 +29,14 @@
                                             <segue destination="Evq-fh-Hpy" kind="show" id="ik3-J0-oCb"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYV-PA-gbf">
+                                        <rect key="frame" x="382" y="24" width="4" height="4"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="7ep-HV-4J3"/>
+                                            <constraint firstAttribute="width" constant="4" id="QaK-mL-Cgp"/>
+                                        </constraints>
+                                    </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-Io-ykU">
                                         <rect key="frame" x="163" y="24" width="88" height="24"/>
                                         <constraints>
@@ -162,6 +170,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="MYV-PA-gbf" firstAttribute="top" secondItem="T2U-FA-QiS" secondAttribute="top" constant="8" id="8C7-Gr-eW0"/>
                                     <constraint firstAttribute="trailing" secondItem="T2U-FA-QiS" secondAttribute="trailing" constant="20" id="AOi-v4-11e"/>
                                     <constraint firstItem="Q6s-Io-ykU" firstAttribute="centerX" secondItem="KkB-7c-DH0" secondAttribute="centerX" id="FsN-68-RsV"/>
                                     <constraint firstItem="dRc-g8-bux" firstAttribute="centerX" secondItem="KkB-7c-DH0" secondAttribute="centerX" id="LYI-GZ-mwC"/>
@@ -171,6 +180,7 @@
                                     <constraint firstItem="4nb-qJ-XaV" firstAttribute="leading" secondItem="KkB-7c-DH0" secondAttribute="leading" constant="20" id="dh7-wh-rtm"/>
                                     <constraint firstItem="Q6s-Io-ykU" firstAttribute="top" secondItem="KkB-7c-DH0" secondAttribute="top" constant="24" id="gsa-JH-tiQ"/>
                                     <constraint firstItem="dRc-g8-bux" firstAttribute="width" secondItem="KkB-7c-DH0" secondAttribute="width" id="llt-uM-ZS7"/>
+                                    <constraint firstItem="MYV-PA-gbf" firstAttribute="trailing" secondItem="T2U-FA-QiS" secondAttribute="trailing" constant="-8" id="ocV-Wr-9qR"/>
                                     <constraint firstItem="4nb-qJ-XaV" firstAttribute="top" secondItem="dRc-g8-bux" secondAttribute="bottom" constant="24" id="qTo-Xk-Y46"/>
                                     <constraint firstItem="4nb-qJ-XaV" firstAttribute="centerX" secondItem="KkB-7c-DH0" secondAttribute="centerX" id="raY-Ss-yTV"/>
                                     <constraint firstItem="T2U-FA-QiS" firstAttribute="centerY" secondItem="Q6s-Io-ykU" secondAttribute="centerY" id="yhJ-h1-ZhI"/>
@@ -193,6 +203,7 @@
                         <outlet property="categoryListCollectionView" destination="rYy-d9-s4I" id="THj-eO-1Fi"/>
                         <outlet property="logoImageView" destination="Q6s-Io-ykU" id="yqA-WM-wb2"/>
                         <outlet property="meetingListCollectionView" destination="dRc-g8-bux" id="1fm-e6-isv"/>
+                        <outlet property="notiVisitedMarkView" destination="MYV-PA-gbf" id="fP1-IY-fMK"/>
                         <outlet property="notificationButton" destination="T2U-FA-QiS" id="Cxn-Ua-5xy"/>
                         <outlet property="recommendedMeetingListCollectionView" destination="iNZ-b7-0ev" id="V8U-CI-h8c"/>
                         <outlet property="recommendedMeetingShollAllButton" destination="ICu-mn-Rjn" id="lRa-FB-Mfr"/>

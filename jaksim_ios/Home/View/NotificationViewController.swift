@@ -38,11 +38,11 @@ class NotificationViewController: UIViewController {
                 cell.notificationDateLabel.text = item.date
         
                 if item.noti == 0 { // siren
-                    cell.notificationImageView.image = K.Image.ThumbsUpIcon
+                    cell.notificationImageView.image = K.Image.SirenIcon
                     cell.notificationImageView.tintColor = UIColor(red: 255.0/255.0, green: 55.0/255.0, blue: 43.0/255.0, alpha: 1.0)
                 }
                 else { // thumbs up
-                    cell.notificationImageView.image = K.Image.SirenIcon
+                    cell.notificationImageView.image = K.Image.ThumbsUpIcon
                     cell.notificationImageView.tintColor = UIColor(red: 55.0/255.0, green: 141.0/255.0, blue: 240.0/255.0, alpha: 1.0)
                 }
                 cell.notificationImageView.image = cell.notificationImageView.image?.withRenderingMode(.alwaysTemplate)
