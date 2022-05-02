@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemberAlertViewController: UIViewController {
+class MemberGoodAlertViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
