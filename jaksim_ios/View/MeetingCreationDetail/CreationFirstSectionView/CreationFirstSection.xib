@@ -13,13 +13,13 @@
                 <outlet property="cameraImageContainerView" destination="DZn-0g-13G" id="vCq-a8-19n"/>
                 <outlet property="cameraImageView" destination="Gnm-If-XER" id="LCI-Qk-yOl"/>
                 <outlet property="categoryImageView" destination="afQ-SR-wi8" id="R3K-Sy-0fg"/>
-                <outlet property="firstContainerView" destination="CG6-Jd-1Nd" id="Yog-FV-mcD"/>
                 <outlet property="firstCountLabel" destination="pn7-7t-sIC" id="Mw9-kD-Zes"/>
-                <outlet property="firstTextField" destination="rO7-xi-U5L" id="6FD-0I-yVK"/>
+                <outlet property="firstTextView" destination="0FX-P1-1wT" id="ljh-Ur-2Rb"/>
+                <outlet property="firstTextViewContainerView" destination="CG6-Jd-1Nd" id="Yog-FV-mcD"/>
                 <outlet property="firstTitleLabel" destination="d9o-MK-Apb" id="qIl-ES-KXQ"/>
-                <outlet property="secondContainerView" destination="QHI-Ts-ssx" id="5vI-CO-vw1"/>
                 <outlet property="secondCountLabel" destination="erk-rI-DbY" id="5tJ-03-2Ce"/>
-                <outlet property="secondTextField" destination="Qef-t3-5O1" id="xUX-KK-XHo"/>
+                <outlet property="secondTextView" destination="fbH-0a-BYS" id="TAp-Me-YsQ"/>
+                <outlet property="secondTextViewContainerView" destination="QHI-Ts-ssx" id="5vI-CO-vw1"/>
                 <outlet property="secondTitleLabel" destination="LmG-vq-f50" id="K6h-5I-FWU"/>
             </connections>
         </placeholder>
@@ -80,21 +80,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-Jd-1Nd">
                     <rect key="frame" x="0.0" y="219" width="414" height="74"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="운동할 사람?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rO7-xi-U5L">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0FX-P1-1wT">
                             <rect key="frame" x="16" y="16" width="382" height="42"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="42" id="GX2-Wa-ZDY"/>
-                            </constraints>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="74" id="5th-2o-Gmd"/>
-                        <constraint firstItem="rO7-xi-U5L" firstAttribute="leading" secondItem="CG6-Jd-1Nd" secondAttribute="leading" constant="16" id="83m-rI-eMw"/>
-                        <constraint firstAttribute="trailing" secondItem="rO7-xi-U5L" secondAttribute="trailing" constant="16" id="d5b-kv-uXu"/>
-                        <constraint firstItem="rO7-xi-U5L" firstAttribute="centerY" secondItem="CG6-Jd-1Nd" secondAttribute="centerY" id="mKB-RK-BrZ"/>
+                        <constraint firstAttribute="trailing" secondItem="0FX-P1-1wT" secondAttribute="trailing" constant="16" id="CMV-L0-aEy"/>
+                        <constraint firstAttribute="bottom" secondItem="0FX-P1-1wT" secondAttribute="bottom" constant="16" id="Snd-y1-kgB"/>
+                        <constraint firstItem="0FX-P1-1wT" firstAttribute="leading" secondItem="CG6-Jd-1Nd" secondAttribute="leading" constant="16" id="tW7-YR-7Lp"/>
+                        <constraint firstItem="0FX-P1-1wT" firstAttribute="top" secondItem="CG6-Jd-1Nd" secondAttribute="top" constant="16" id="wdH-YM-2J5"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1L-R3-D5O">
@@ -123,21 +124,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHI-Ts-ssx">
                     <rect key="frame" x="0.0" y="354" width="414" height="74"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="다같이 운동합시다." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qef-t3-5O1">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fbH-0a-BYS">
                             <rect key="frame" x="16" y="16" width="382" height="42"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="42" id="USZ-iD-uXd"/>
-                            </constraints>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="74" id="19u-B3-POD"/>
-                        <constraint firstItem="Qef-t3-5O1" firstAttribute="centerY" secondItem="QHI-Ts-ssx" secondAttribute="centerY" id="EUt-mT-ha8"/>
-                        <constraint firstItem="Qef-t3-5O1" firstAttribute="leading" secondItem="QHI-Ts-ssx" secondAttribute="leading" constant="16" id="jmy-XH-WoL"/>
-                        <constraint firstAttribute="trailing" secondItem="Qef-t3-5O1" secondAttribute="trailing" constant="16" id="nrB-OY-fjg"/>
+                        <constraint firstAttribute="bottom" secondItem="fbH-0a-BYS" secondAttribute="bottom" constant="16" id="9BB-Np-hyf"/>
+                        <constraint firstAttribute="trailing" secondItem="fbH-0a-BYS" secondAttribute="trailing" constant="16" id="EgY-KT-KkD"/>
+                        <constraint firstItem="fbH-0a-BYS" firstAttribute="leading" secondItem="QHI-Ts-ssx" secondAttribute="leading" constant="16" id="NLF-pl-Xg1"/>
+                        <constraint firstItem="fbH-0a-BYS" firstAttribute="top" secondItem="QHI-Ts-ssx" secondAttribute="top" constant="16" id="ffy-Xr-0Ux"/>
                     </constraints>
                 </view>
             </subviews>
@@ -167,6 +169,9 @@
     <resources>
         <image name="icon_camera" width="24" height="24"/>
         <image name="testImage" width="400" height="300"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

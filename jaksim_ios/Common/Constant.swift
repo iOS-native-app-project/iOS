@@ -11,6 +11,10 @@ import UIKit
 struct K {
     
     struct MeetingCreation {
+        struct Id {
+            static let MeetingCreationDetailViewControllerId = "MeetingCreationDetailViewController"
+            static let CategoryCollectionViewCellId = "CategoryCollectionViewCell"
+        }
         struct Name {
             static let CategoryCollectionViewCellName = "CategoryCollectionViewCell"
             static let CreationFirstSectionXibName = "CreationFirstSection"
@@ -29,12 +33,13 @@ struct K {
                 ("다이어트", "diet"),
                 ("달리기", "running")]
             
-            
             static let Title = "모임 카테고리를 선택해주세요."
             
             struct CreationFirstSection {
                 static let FirstTitle = "모임명을 입력해주세요."
                 static let SecondTitle = "간단하게 모임을 소개해주세요."
+                static let FirstTextViewPlaceHolder = "운동할 사람?"
+                static let SecondTextViewPlaceHolder = "다같이 운동합시다."
             }
             struct CreationSecondSection {
                 static let Title = "인원수와 비밀번호를 설정해주세요."
@@ -56,11 +61,18 @@ struct K {
         static let Gray189 = UIColor(red: 189.0/255.0, green: 189.0/255.0, blue: 189.0/255.0, alpha: 1.0)
         static let Gray224 = UIColor(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1.0)
         static let Gray245 = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1.0)
-        
+        static let MainPuple = UIColor(red: 85.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1)
     }
     
     struct FontName {
         static let PretendardSemiBold = "Pretendard-SemiBold"
         static let PretendardRegular = "Pretendard-Regular"
+    }
+    
+    struct Image {
+        static let CloseIcon = UIImage(named: "close.png")
+        static let BackIcon = UIImage(named: "back.png")
+        static let UpIcon = UIImage(named: "up.png")?.withRenderingMode(.alwaysTemplate)
+        static let DownIcon = UIImage(named: "down.png")?.withRenderingMode(.alwaysTemplate)
     }
 }

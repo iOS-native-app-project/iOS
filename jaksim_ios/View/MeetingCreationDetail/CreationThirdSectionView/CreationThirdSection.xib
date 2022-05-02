@@ -40,6 +40,9 @@
                                 <constraint firstAttribute="width" constant="65" id="DpX-Vo-nel"/>
                             </constraints>
                             <state key="normal" title="하루"/>
+                            <connections>
+                                <action selector="dayButtonDidTap:" destination="-1" eventType="touchUpInside" id="E0i-ee-9og"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMS-t7-O3C">
                             <rect key="frame" x="73" y="0.0" width="77" height="44"/>
@@ -48,6 +51,9 @@
                                 <constraint firstAttribute="height" constant="44" id="W9J-VT-eoz"/>
                             </constraints>
                             <state key="normal" title="일주일"/>
+                            <connections>
+                                <action selector="weekButtonDidTap:" destination="-1" eventType="touchUpInside" id="Lm0-Eg-3xX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tp-H4-NtV">
                             <rect key="frame" x="158" y="0.0" width="65" height="44"/>
@@ -56,6 +62,9 @@
                                 <constraint firstAttribute="height" constant="44" id="cBx-23-i7L"/>
                             </constraints>
                             <state key="normal" title="한달"/>
+                            <connections>
+                                <action selector="monthButtonDidTap:" destination="-1" eventType="touchUpInside" id="dTm-91-HhH"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

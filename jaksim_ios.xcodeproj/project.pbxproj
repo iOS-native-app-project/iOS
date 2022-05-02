@@ -84,6 +84,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1800AFE5281AB560004480AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */,
+				18F1D94027F44AAE00E51BDB /* MeetingCreation */,
+				18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1800AFE6281AB57F004480AE /* CreationFirstSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */,
+				18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */,
+			);
+			path = CreationFirstSectionView;
+			sourceTree = "<group>";
+		};
+		1800AFE7281AB58D004480AE /* CreationSecondSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */,
+				18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */,
+			);
+			path = CreationSecondSectionView;
+			sourceTree = "<group>";
+		};
+		1800AFE8281AB59A004480AE /* CreationThirdSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18AE754F27FC314B00FF28BA /* CreationThirdSection.swift */,
+				18AE755127FC317800FF28BA /* CreationThirdSection.xib */,
+			);
+			path = CreationThirdSectionView;
+			sourceTree = "<group>";
+		};
+		1800AFE9281AB5AF004480AE /* CreationFourthSectionView */ = {
+			isa = PBXGroup;
+			children = (
+				18AE755327FC381200FF28BA /* CreationFourthSection.swift */,
+				18AE755527FC381F00FF28BA /* CreationFourthSection.xib */,
+			);
+			path = CreationFourthSectionView;
+			sourceTree = "<group>";
+		};
+		1800AFEA281AB5BE004480AE /* CategoryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */,
+				18F1D94627F4535900E51BDB /* CategoryCollectionViewCell.xib */,
+			);
+			path = CategoryCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +160,8 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-				18F1D94027F44AAE00E51BDB /* MeetingCreation */,
+				18AE755927FC474E00FF28BA /* Common */,
+				1800AFE5281AB560004480AE /* View */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F4C27C35EE10007C506 /* ViewController.swift */,
@@ -114,7 +170,6 @@
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
-				18AE755927FC474E00FF28BA /* Common */,
 			);
 			path = jaksim_ios;
 			sourceTree = "<group>";
@@ -144,15 +199,11 @@
 		18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */ = {
 			isa = PBXGroup;
 			children = (
+				1800AFE6281AB57F004480AE /* CreationFirstSectionView */,
+				1800AFE7281AB58D004480AE /* CreationSecondSectionView */,
+				1800AFE8281AB59A004480AE /* CreationThirdSectionView */,
+				1800AFE9281AB5AF004480AE /* CreationFourthSectionView */,
 				18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */,
-				18F1D94F27F5C3BB00E51BDB /* CreationFirstSection.swift */,
-				18F1D95127F5C42000E51BDB /* CreationFirstSection.xib */,
-				18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */,
-				18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */,
-				18AE754F27FC314B00FF28BA /* CreationThirdSection.swift */,
-				18AE755127FC317800FF28BA /* CreationThirdSection.xib */,
-				18AE755327FC381200FF28BA /* CreationFourthSection.swift */,
-				18AE755527FC381F00FF28BA /* CreationFourthSection.xib */,
 			);
 			path = MeetingCreationDetail;
 			sourceTree = "<group>";
@@ -160,11 +211,8 @@
 		18F1D94027F44AAE00E51BDB /* MeetingCreation */ = {
 			isa = PBXGroup;
 			children = (
-				18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */,
+				1800AFEA281AB5BE004480AE /* CategoryCollectionViewCell */,
 				18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */,
-				18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */,
-				18F1D94627F4535900E51BDB /* CategoryCollectionViewCell.xib */,
-				18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */,
 			);
 			path = MeetingCreation;
 			sourceTree = "<group>";

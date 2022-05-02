@@ -9,19 +9,40 @@ import UIKit
 
 class MeetingCreationViewController: UIViewController {
     
-    let category = K.MeetingCreation.Text.Category
+    @IBOutlet weak var navigationTitleLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    let category = K.MeetingCreation.Text.Category
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK:- 네비게이션바 타이틀 라벨
+        navigationTitleLabel.text = "모임 개설 (1/2)"
+        navigationTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 18)
+        navigationTitleLabel.textColor = K.Color.Black33
+        
+        //MARK:- 닫기 버튼
+        closeButton.setImage(K.Image.CloseIcon, for: .normal)
+        closeButton.tintColor = K.Color.Black33
+        
+        //MARK:- '모임 카테고리를 선택해주세요' 라벨
         titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
         titleLabel.textColor = K.Color.Black66
         titleLabel.text = K.MeetingCreation.Text.Title
         
+        //MARK:- 카테고리 컬렉션뷰
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
-        categoryCollectionView.register(UINib(nibName: K.MeetingCreation.Name.CategoryCollectionViewCellName, bundle: nil), forCellWithReuseIdentifier: K.MeetingCreation.Name.CategoryCollectionViewCellName)
+        categoryCollectionView.register(UINib(nibName: K.MeetingCreation.Name.CategoryCollectionViewCellName, bundle: nil), forCellWithReuseIdentifier: K.MeetingCreation.Id.CategoryCollectionViewCellId)
     }
 }
 
@@ -37,7 +58,7 @@ extension MeetingCreationViewController: UICollectionViewDelegate, UICollectionV
     // 셀 뷰
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MeetingCreation.Name.CategoryCollectionViewCellName, for: indexPath) as? CategoryCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MeetingCreation.Id.CategoryCollectionViewCellId, for: indexPath) as? CategoryCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -47,13 +68,15 @@ extension MeetingCreationViewController: UICollectionViewDelegate, UICollectionV
         return cell
     }
     
-    // 터치업 액션
-    //        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //
-    //        }
+    //터치업 액션
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let MeetingCreationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: K.MeetingCreation.Id.MeetingCreationDetailViewControllerId)
+        self.navigationController?.pushViewController(MeetingCreationDetailVC!, animated: true)
+    }
     
     // 셀 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width: CGFloat = 160
         let height: CGFloat = 110
         

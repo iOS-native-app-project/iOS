@@ -16,6 +16,7 @@ class CreationSecondSection: UIView {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
+    var numberOfPeople = 3
     
     @IBOutlet weak var secondContainerView: UIView!
     @IBOutlet weak var secondContainerTitleLabel: UILabel!
@@ -36,10 +37,12 @@ class CreationSecondSection: UIView {
         let view = Bundle.main.loadNibNamed(K.MeetingCreation.Name.CreationSecondSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
+        //MARK:- '인원수와 비밀번호를 설정해주세요.' 라벨
         titleLabel.text = K.MeetingCreation.Text.CreationSecondSection.Title
         titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
         titleLabel.textColor = K.Color.Black66
         
+        //MARK:- 인원수 지정
         firstContainerView.layer.borderWidth = 1
         firstContainerView.layer.borderColor = K.Color.Gray224.cgColor
         firstContainerView.layer.cornerRadius = 8
@@ -50,7 +53,9 @@ class CreationSecondSection: UIView {
         
         numberLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
         numberLabel.textColor = K.Color.Black66
+        numberLabel.text = "\(numberOfPeople)명"
         
+        //MARK:- 비밀번호 지정
         secondContainerView.layer.borderWidth = 1
         secondContainerView.layer.borderColor = K.Color.Gray224.cgColor
         secondContainerView.layer.cornerRadius = 8
@@ -68,4 +73,19 @@ class CreationSecondSection: UIView {
         self.addSubview(view)
     }
 
+    //MARK:- 인원수 조정 버튼 클릭 시 액션
+    @IBAction func upButtonDidTap(_ sender: UIButton) {
+        if numberOfPeople != 10 {
+            numberOfPeople += 1
+            numberLabel.text = "\(numberOfPeople)명"
+        }
+        print(numberOfPeople)
+    }
+    @IBAction func downButtonDidTap(_ sender: Any) {
+        if numberOfPeople != 1 {
+            numberOfPeople -= 1
+            numberLabel.text = "\(numberOfPeople)명"
+        }
+        print(numberOfPeople)
+    }
 }

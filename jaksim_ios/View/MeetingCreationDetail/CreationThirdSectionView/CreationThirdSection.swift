@@ -14,6 +14,7 @@ class CreationThirdSection: UIView {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var weekButton: UIButton!
     @IBOutlet weak var monthButton: UIButton!
+    lazy private var buttonList: [UIButton] = [dayButton, weekButton, monthButton]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,15 +29,18 @@ class CreationThirdSection: UIView {
         let view = Bundle.main.loadNibNamed(K.MeetingCreation.Name.CreationThirdSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
+        //MARK:- '주기를 선택해주세요.' 라벨
         titleLabel.text = K.MeetingCreation.Text.CreationThirdSection.Title
         titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
         titleLabel.textColor = K.Color.Black66
         
+        //MARK:- 주기 버튼(하루, 일주일, 한달)
         dayButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        dayButton.setTitleColor(K.Color.Black66, for: .normal)
+        dayButton.setTitleColor(K.Color.MainPuple, for: .normal)
         dayButton.layer.borderWidth = 1
-        dayButton.layer.borderColor = K.Color.Gray224.cgColor
+        dayButton.layer.borderColor = K.Color.MainPuple.cgColor
         dayButton.layer.cornerRadius = 8
+        dayButton.backgroundColor = UIColor(red: 238.0/255.0, green: 241.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         weekButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
         weekButton.setTitleColor(K.Color.Black66, for: .normal)
@@ -52,5 +56,30 @@ class CreationThirdSection: UIView {
         
         self.addSubview(view)
     }
-
+    
+    //MARK:- 주기 버튼 클릭 시 액션
+    @IBAction func dayButtonDidTap(_ sender: UIButton) {
+        setButtonColor(sender)
+    }
+    @IBAction func weekButtonDidTap(_ sender: UIButton) {
+        setButtonColor(sender)
+    }
+    @IBAction func monthButtonDidTap(_ sender: UIButton) {
+        setButtonColor(sender)
+    }
+    
+    func setButtonColor (_ sender: UIButton) {
+        for button in buttonList {
+            if sender == button {
+                button.setTitleColor(K.Color.MainPuple, for: .normal)
+                button.layer.borderColor = K.Color.MainPuple.cgColor
+                button.backgroundColor = UIColor(red: 238.0/255.0, green: 241.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            }
+            else {
+                button.setTitleColor(K.Color.Black66, for: .normal)
+                button.layer.borderColor = K.Color.Gray224.cgColor
+                button.backgroundColor = .white
+            }
+        }
+    }
 }
