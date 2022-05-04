@@ -18,18 +18,24 @@ class CreationFourthSection: UIView {
     @IBOutlet weak var timeButton: UIButton!
     
     @IBOutlet weak var secondSubtitleLabel: UILabel!
-    @IBOutlet weak var numberInsertTextField: UITextField!
+    @IBOutlet weak var detailFigureTextField: UITextField!
     
     @IBOutlet weak var unitDropDownView: UIView!
     @IBOutlet weak var unitDropDownButton: UIButton!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var updownImageView: UIImageView!
     
-    let dropDown = DropDown()
+    private let dropDown = DropDown()
     
-    let countUnitList = ["회"]
-    let timeUnitList = ["분", "시간"]
-    let distanceUnitList = ["m", "km"]
+    private let countUnitList = ["회"]
+    private let timeUnitList = ["분", "시간"]
+    private let distanceUnitList = ["m", "km"]
+    
+    var detailFigureFlag = false
+    var detailFigure = "0"
+    var unit = "회"
+    
+    var delegate: CreationSectionDelegate?
     
     lazy private var buttonList: [UIButton] = [countButton, distanceButton, timeButton]
     
@@ -80,11 +86,11 @@ class CreationFourthSection: UIView {
         secondSubtitleLabel.textColor = K.Color.Black97
         
         //MARK:- 수치 입력 텍스트 필드
-        numberInsertTextField.layer.borderWidth = 1
-        numberInsertTextField.layer.borderColor = K.Color.Gray224.cgColor
-        numberInsertTextField.layer.cornerRadius = 8
-        numberInsertTextField.setPadding(left: 20, right: 0)
-        numberInsertTextField.delegate = self
+        detailFigureTextField.layer.borderWidth = 1
+        detailFigureTextField.layer.borderColor = K.Color.Gray224.cgColor
+        detailFigureTextField.layer.cornerRadius = 8
+        detailFigureTextField.setPadding(left: 20, right: 0)
+        detailFigureTextField.delegate = self
         
         //MARK:- 단위 선택 박스
         
@@ -112,6 +118,7 @@ class CreationFourthSection: UIView {
         dropDown.selectionAction = { [weak self] (index, item) in
             self!.unitLabel.text = item
             self!.updownImageView.image = K.Image.DownIcon
+            self!.unit = item
         }
         
         dropDown.cancelAction = { [weak self] in
@@ -126,6 +133,7 @@ class CreationFourthSection: UIView {
     func setDropBox(_ unitList: [String]){
         dropDown.dataSource = unitList
         unitLabel.text = unitList[0]
+        unit = unitList[0]
         dropDown.selectRow(at: 0)
     }
     
@@ -183,14 +191,30 @@ extension UITextField {
     }
 }
 
-//MARK:- '상세 수치'칸에 숫자만 입력 가능하게 만들기
+//MARK:- UITextFieldDelegate
 extension CreationFourthSection: UITextFieldDelegate {
+    //MARK:- '상세 수치'칸에 숫자만 입력 가능하게 만들기
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == self.numberInsertTextField {
+        if textField == self.detailFigureTextField {
             let allowedCharacters = CharacterSet.decimalDigits
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
         }
         else { return true }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == self.detailFigureTextField {
+            if textField.text == "" {
+                detailFigureFlag = false
+                delegate?.checkData()
+            }
+            else {
+                guard let textFiledText = textField.text else { return }
+                detailFigure = textFiledText
+                detailFigureFlag = true
+                delegate?.checkData()
+            }
+        }
     }
 }

@@ -74,5 +74,7 @@ struct K {
         static let BackIcon = UIImage(named: "back.png")
         static let UpIcon = UIImage(named: "up.png")?.withRenderingMode(.alwaysTemplate)
         static let DownIcon = UIImage(named: "down.png")?.withRenderingMode(.alwaysTemplate)
+        static let UncheckedIcon = UIImage(named: "unchecked.png")?.withRenderingMode(.alwaysTemplate)
+        static let CheckedIcon = UIImage(named: "checked.png")?.withRenderingMode(.alwaysTemplate)
     }
 }

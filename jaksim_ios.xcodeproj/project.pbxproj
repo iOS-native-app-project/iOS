@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1815136C2822748200997328 /* CreationSectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1815136B2822748200997328 /* CreationSectionDelegate.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
 		186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1815136B2822748200997328 /* CreationSectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSectionDelegate.swift; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B1F4A27C35EE10007C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */,
+				1815136B2822748200997328 /* CreationSectionDelegate.swift */,
 				18F1D94027F44AAE00E51BDB /* MeetingCreation */,
 				18B4CFAE27FCA3FA000875CE /* MeetingCreationDetail */,
 			);
@@ -370,6 +373,7 @@
 				18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */,
 				18AE755827FC460C00FF28BA /* Constant.swift in Sources */,
 				18F1D94727F4535900E51BDB /* CategoryCollectionViewCell.swift in Sources */,
+				1815136C2822748200997328 /* CreationSectionDelegate.swift in Sources */,
 				18F1D94427F44ADB00E51BDB /* MeetingCreationViewController.swift in Sources */,
 				18AE754A27FB4E3700FF28BA /* MeetingCreationDetailViewController.swift in Sources */,
 			);

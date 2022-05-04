@@ -14,7 +14,11 @@ class CreationThirdSection: UIView {
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var weekButton: UIButton!
     @IBOutlet weak var monthButton: UIButton!
+    
     lazy private var buttonList: [UIButton] = [dayButton, weekButton, monthButton]
+    var period = "하루"
+    
+    var delegate: CreationSectionDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,12 +64,21 @@ class CreationThirdSection: UIView {
     //MARK:- 주기 버튼 클릭 시 액션
     @IBAction func dayButtonDidTap(_ sender: UIButton) {
         setButtonColor(sender)
+        period = "하루"
+        delegate?.checkData()
+        
     }
     @IBAction func weekButtonDidTap(_ sender: UIButton) {
         setButtonColor(sender)
+        period = "일주일"
+        delegate?.checkData()
+        
     }
     @IBAction func monthButtonDidTap(_ sender: UIButton) {
         setButtonColor(sender)
+        period = "한달"
+        delegate?.checkData()
+        
     }
     
     func setButtonColor (_ sender: UIButton) {

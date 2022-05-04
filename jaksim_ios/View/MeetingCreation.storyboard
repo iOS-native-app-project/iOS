@@ -140,6 +140,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8by-P1-hn3">
                                 <rect key="frame" x="20" y="103.5" width="374" height="758.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과 라벨 2번째" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iX-m4-IoN">
+                                        <rect key="frame" x="133.5" y="1181.5" width="107" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmE-3i-ezS">
                                         <rect key="frame" x="0.0" y="28" width="374" height="1044"/>
                                         <subviews>
@@ -220,8 +226,15 @@
                                         </constraints>
                                         <state key="normal" title="개설하기"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과 라벨 1번째" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Df-vo-PmU">
+                                        <rect key="frame" x="135" y="1153" width="104.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="8Df-vo-PmU" firstAttribute="centerX" secondItem="8by-P1-hn3" secondAttribute="centerX" id="8Af-Bb-ZZ1"/>
                                     <constraint firstItem="gHb-4n-Qhc" firstAttribute="bottom" secondItem="He4-2i-E0u" secondAttribute="bottom" constant="28" id="9Sx-uf-GH4"/>
                                     <constraint firstItem="He4-2i-E0u" firstAttribute="leading" secondItem="gHb-4n-Qhc" secondAttribute="leading" id="Ej4-VD-yr6"/>
                                     <constraint firstItem="bmE-3i-ezS" firstAttribute="width" secondItem="LJE-ec-U9I" secondAttribute="width" id="G1b-Yc-PKv"/>
@@ -229,8 +242,11 @@
                                     <constraint firstItem="He4-2i-E0u" firstAttribute="top" secondItem="bmE-3i-ezS" secondAttribute="bottom" constant="158" id="NLe-Gl-k0Z"/>
                                     <constraint firstItem="gHb-4n-Qhc" firstAttribute="trailing" secondItem="He4-2i-E0u" secondAttribute="trailing" id="Ox2-bW-waa"/>
                                     <constraint firstItem="bmE-3i-ezS" firstAttribute="leading" secondItem="gHb-4n-Qhc" secondAttribute="leading" id="QUU-be-bMG"/>
+                                    <constraint firstItem="5iX-m4-IoN" firstAttribute="centerX" secondItem="8by-P1-hn3" secondAttribute="centerX" id="Ta7-kw-iaQ"/>
                                     <constraint firstItem="bmE-3i-ezS" firstAttribute="trailing" secondItem="gHb-4n-Qhc" secondAttribute="trailing" id="Wwb-9l-t5P"/>
+                                    <constraint firstItem="He4-2i-E0u" firstAttribute="top" secondItem="5iX-m4-IoN" secondAttribute="bottom" constant="28" id="YJY-3j-2ja"/>
                                     <constraint firstItem="bmE-3i-ezS" firstAttribute="top" secondItem="gHb-4n-Qhc" secondAttribute="top" constant="28" id="iaD-pY-ynM"/>
+                                    <constraint firstItem="5iX-m4-IoN" firstAttribute="top" secondItem="8Df-vo-PmU" secondAttribute="bottom" constant="8" id="ppv-u5-gVE"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="gHb-4n-Qhc"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="LJE-ec-U9I"/>
@@ -277,7 +293,12 @@
                         <outlet property="closeButton" destination="e5I-WN-l0f" id="3H1-dp-ENT"/>
                         <outlet property="creationButton" destination="He4-2i-E0u" id="T8U-vQ-gpg"/>
                         <outlet property="creationFirstSection" destination="5Aw-1K-Goa" id="SSs-be-uId"/>
+                        <outlet property="creationFourthSection" destination="MyJ-w9-c0V" id="JBl-ux-nVg"/>
+                        <outlet property="creationSecondSection" destination="WwK-Jq-YQ4" id="UBb-IQ-y4x"/>
+                        <outlet property="creationThirdSection" destination="fod-bF-e38" id="PfH-OW-3y5"/>
+                        <outlet property="firstResultLabel" destination="8Df-vo-PmU" id="bwX-pz-n01"/>
                         <outlet property="navigationTitleLabel" destination="qXw-WK-yLI" id="jRK-iC-Fo6"/>
+                        <outlet property="secondResultLabel" destination="5iX-m4-IoN" id="uwO-oe-6OI"/>
                         <outlet property="stackView" destination="bmE-3i-ezS" id="3aq-wn-KlH"/>
                     </connections>
                 </viewController>

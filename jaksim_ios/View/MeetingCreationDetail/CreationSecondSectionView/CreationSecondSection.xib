@@ -10,13 +10,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreationSecondSection" customModule="jaksim_ios" customModuleProvider="target">
             <connections>
-                <outlet property="checkboxImageView" destination="FvB-BI-91C" id="vCK-EH-3EK"/>
                 <outlet property="downButton" destination="P9D-JG-xRy" id="5gi-DH-5Hc"/>
                 <outlet property="firstContainerTitleLabel" destination="7Ek-jd-Cxe" id="xlG-S0-rWK"/>
                 <outlet property="firstContainerView" destination="TJZ-rU-jqw" id="Fut-ME-sw3"/>
                 <outlet property="noneLabel" destination="tKl-oY-e5t" id="RXc-2j-1ry"/>
                 <outlet property="numberLabel" destination="Pka-ug-yvz" id="TZ3-Ra-Z8T"/>
-                <outlet property="passwordTextField" destination="3U7-6G-VlD" id="Tad-Fb-A1B"/>
+                <outlet property="passwordButton" destination="419-ZZ-FsL" id="hSs-bf-ilL"/>
+                <outlet property="passwordTextField" destination="ZT1-CF-iNl" id="G5O-a0-Yff"/>
                 <outlet property="secondContainerTitleLabel" destination="mm2-4G-Lz2" id="C2D-TB-G2d"/>
                 <outlet property="secondContainerView" destination="4NW-GR-q0m" id="esB-wY-H3Y"/>
                 <outlet property="titleLabel" destination="ImC-Zz-eud" id="TZt-sc-PQn"/>
@@ -116,14 +116,6 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="4자리 ~ 6자리 숫자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3U7-6G-VlD">
-                            <rect key="frame" x="91" y="13.5" width="110.5" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="21" id="grn-9r-4gc"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="없음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKl-oY-e5t">
                             <rect key="frame" x="355.5" y="13.5" width="29.5" height="21"/>
                             <constraints>
@@ -133,26 +125,33 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="FvB-BI-91C">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="419-ZZ-FsL">
                             <rect key="frame" x="331.5" y="14" width="20" height="20"/>
-                            <color key="tintColor" red="0.33333333333333331" green="0.47058823529411764" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="20" id="PJf-V1-a2H"/>
-                                <constraint firstAttribute="height" constant="20" id="ZSj-IJ-EnG"/>
+                                <constraint firstAttribute="width" constant="20" id="2gN-jM-hOv"/>
+                                <constraint firstAttribute="height" constant="20" id="DZb-Hu-Zrz"/>
                             </constraints>
-                        </imageView>
+                            <connections>
+                                <action selector="passwordButtonDidTap:" destination="-1" eventType="touchUpInside" id="CVx-ff-5R8"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="4자리 ~ 6자리 숫자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZT1-CF-iNl">
+                            <rect key="frame" x="91" y="15" width="110.5" height="18.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="4he-hA-ex5"/>
-                        <constraint firstItem="FvB-BI-91C" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="6JA-Ne-GMU"/>
-                        <constraint firstItem="tKl-oY-e5t" firstAttribute="leading" secondItem="FvB-BI-91C" secondAttribute="trailing" constant="4" id="J36-Mo-ASg"/>
+                        <constraint firstItem="ZT1-CF-iNl" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="GwE-Xm-kSC"/>
                         <constraint firstAttribute="trailing" secondItem="tKl-oY-e5t" secondAttribute="trailing" constant="20" id="LBt-qw-4IY"/>
                         <constraint firstItem="tKl-oY-e5t" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="MLf-0s-Rqc"/>
-                        <constraint firstItem="3U7-6G-VlD" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="dfT-4P-dUh"/>
+                        <constraint firstItem="419-ZZ-FsL" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="aaM-oM-5YI"/>
                         <constraint firstItem="mm2-4G-Lz2" firstAttribute="leading" secondItem="4NW-GR-q0m" secondAttribute="leading" constant="20" id="gDE-lk-RrV"/>
-                        <constraint firstItem="3U7-6G-VlD" firstAttribute="leading" secondItem="mm2-4G-Lz2" secondAttribute="trailing" constant="12" id="i7o-zI-SbZ"/>
                         <constraint firstItem="mm2-4G-Lz2" firstAttribute="centerY" secondItem="4NW-GR-q0m" secondAttribute="centerY" id="naG-t2-iUs"/>
+                        <constraint firstItem="tKl-oY-e5t" firstAttribute="leading" secondItem="419-ZZ-FsL" secondAttribute="trailing" constant="4" id="nfD-VR-PMI"/>
+                        <constraint firstItem="ZT1-CF-iNl" firstAttribute="leading" secondItem="mm2-4G-Lz2" secondAttribute="trailing" constant="12" id="uHu-YA-mci"/>
                     </constraints>
                 </view>
             </subviews>
@@ -172,7 +171,6 @@
         </view>
     </objects>
     <resources>
-        <image name="checkmark" width="24" height="24"/>
         <image name="down" width="24" height="24"/>
         <image name="up" width="24" height="24"/>
         <systemColor name="systemIndigoColor">

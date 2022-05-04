@@ -24,6 +24,11 @@ class CreationFirstSection: UIView {
     @IBOutlet weak var secondTextView: UITextView!
     @IBOutlet weak var secondTextViewContainerView: UIView!
     
+    var meetingNameFlag = false
+    var meetingDescriptionFlag = false
+    
+    var delegate: CreationSectionDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
@@ -101,14 +106,29 @@ extension CreationFirstSection: UITextViewDelegate {
         
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            if textView == firstTextView {
+        if textView == firstTextView {
+            if textView.text.isEmpty {
+                meetingNameFlag = false
                 textView.text = K.MeetingCreation.Text.CreationFirstSection.FirstTextViewPlaceHolder
+                textView.textColor = K.Color.Gray158
+                delegate?.checkData()
             }
-            else if textView == secondTextView {
+            else {
+                meetingNameFlag = true
+                delegate?.checkData()
+            }
+        }
+        else if textView == secondTextView {
+            if textView.text.isEmpty {
+                meetingDescriptionFlag = false
                 textView.text = K.MeetingCreation.Text.CreationFirstSection.SecondTextViewPlaceHolder
+                textView.textColor = K.Color.Gray158
+                delegate?.checkData()
             }
-            textView.textColor = K.Color.Gray158
+            else {
+                meetingDescriptionFlag = true
+                delegate?.checkData()
+            }
         }
     }
     

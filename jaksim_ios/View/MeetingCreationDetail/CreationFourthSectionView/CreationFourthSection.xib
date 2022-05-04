@@ -11,9 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreationFourthSection" customModule="jaksim_ios" customModuleProvider="target">
             <connections>
                 <outlet property="countButton" destination="Ipp-Sr-ef5" id="Eom-Jr-Cd3"/>
+                <outlet property="detailFigureTextField" destination="vPB-0d-qx2" id="Q78-S0-7s0"/>
                 <outlet property="distanceButton" destination="jFg-pQ-RLa" id="JLe-Cc-hpV"/>
                 <outlet property="firstSubtitleLabel" destination="8fn-DN-2Lj" id="VYB-M0-LhR"/>
-                <outlet property="numberInsertTextField" destination="vPB-0d-qx2" id="Q78-S0-7s0"/>
                 <outlet property="secondSubtitleLabel" destination="4dS-WL-I3i" id="Qkm-7l-aLH"/>
                 <outlet property="timeButton" destination="ep9-xm-Zhm" id="RDm-m0-mt2"/>
                 <outlet property="titleLabel" destination="sKS-rz-KqU" id="WjZ-xx-avO"/>
