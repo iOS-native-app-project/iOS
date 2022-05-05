@@ -13,4 +13,7 @@ target 'jaksim_ios' do
     pod 'SwiftKeychainWrapper'
     pod 'Firebase/Messaging'
     pod 'FSCalendar'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'DropDown'
 end

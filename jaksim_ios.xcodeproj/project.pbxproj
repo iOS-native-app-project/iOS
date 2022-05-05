@@ -17,8 +17,10 @@
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
-		1878A50D27E8D8360015A63E /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1878A50B27E8D8360015A63E /* MeetingListCollectionViewCell.xib */; };
 		1878A50E27E8D8360015A63E /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */; };
+		18EEAEA82823B5B200EC0786 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEAEA62823B5B200EC0786 /* CalendarCollectionViewCell.swift */; };
+		18EEAEA92823B5B200EC0786 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EEAEA72823B5B200EC0786 /* CalendarCollectionViewCell.xib */; };
+		18EEAEAF2823C98900EC0786 /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EEAEAE2823C98900EC0786 /* MeetingListCollectionViewCell.xib */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +37,10 @@
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1878A50B27E8D8360015A63E /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18EEAEA62823B5B200EC0786 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		18EEAEA72823B5B200EC0786 /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
+		18EEAEAE2823C98900EC0786 /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		7C2A7153C8826045F56777FF /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,10 +63,10 @@
 		180C4F7927E34B9D00168B04 /* MyRecord */ = {
 			isa = PBXGroup;
 			children = (
+				18EEAEAC2823BCDA00EC0786 /* MeetingListCollectionViewCell */,
+				18EEAEAB2823BCCA00EC0786 /* CalendarCollectionViewCell */,
 				180C4F7A27E34BB400168B04 /* MyRecord.storyboard */,
 				180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */,
-				1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */,
-				1878A50B27E8D8360015A63E /* MeetingListCollectionViewCell.xib */,
 			);
 			path = MyRecord;
 			sourceTree = "<group>";
@@ -70,7 +74,7 @@
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
-				1816B66B27E8B41700FBDFA8 /* Constant.swift */,
+				18EEAEAA2823BC9200EC0786 /* Common */,
 				180C4F7927E34B9D00168B04 /* MyRecord */,
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
 				186B1F4627C35EE10007C506 /* Products */,
@@ -100,6 +104,32 @@
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
 			);
 			path = jaksim_ios;
+			sourceTree = "<group>";
+		};
+		18EEAEAA2823BC9200EC0786 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1816B66B27E8B41700FBDFA8 /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		18EEAEAB2823BCCA00EC0786 /* CalendarCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EEAEA62823B5B200EC0786 /* CalendarCollectionViewCell.swift */,
+				18EEAEA72823B5B200EC0786 /* CalendarCollectionViewCell.xib */,
+			);
+			path = CalendarCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		18EEAEAC2823BCDA00EC0786 /* MeetingListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EEAEAE2823C98900EC0786 /* MeetingListCollectionViewCell.xib */,
+				1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */,
+			);
+			path = MeetingListCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		25F4D27B27D96585C56D6E4A /* Pods */ = {
@@ -133,7 +163,6 @@
 				186B1F4227C35EE10007C506 /* Frameworks */,
 				186B1F4327C35EE10007C506 /* Resources */,
 				3C03027F73D3A1A0D77FA7FC /* [CP] Embed Pods Frameworks */,
-				64CA245FF882FECDA8C1BDDD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,10 +210,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EEAEA92823B5B200EC0786 /* CalendarCollectionViewCell.xib in Resources */,
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
+				18EEAEAF2823C98900EC0786 /* MeetingListCollectionViewCell.xib in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
-				1878A50D27E8D8360015A63E /* MeetingListCollectionViewCell.xib in Resources */,
 				180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,79 +230,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKLink/KakaoSDKLink.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKNavi/KakaoSDKNavi.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKStory/KakaoSDKStory.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKTalk/KakaoSDKTalk.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKTemplate/KakaoSDKTemplate.framework",
-				"${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKCommon.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKLink.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKNavi.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKStory.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKTalk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKTemplate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KakaoSDKUser.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NaverThirdPartyLogin.framework",
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64CA245FF882FECDA8C1BDDD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7E696D7BBD255A491443592 /* [CP] Check Pods Manifest.lock */ = {
@@ -304,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EEAEA82823B5B200EC0786 /* CalendarCollectionViewCell.swift in Sources */,
 				1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
@@ -454,7 +419,7 @@
 		};
 		186B1F5D27C35EE40007C506 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9956E579F80784CAC249C02D /* Pods-jaksim_ios.debug.xcconfig */;
+			baseConfigurationReference = 87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -473,7 +438,7 @@
 		};
 		186B1F5E27C35EE40007C506 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C2A7153C8826045F56777FF /* Pods-jaksim_ios.release.xcconfig */;
+			baseConfigurationReference = 4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

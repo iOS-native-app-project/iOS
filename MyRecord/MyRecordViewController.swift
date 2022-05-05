@@ -9,8 +9,27 @@ import UIKit
 import FSCalendar
 
 class MyRecordViewController: UIViewController {
+    
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
-    @IBOutlet weak var calendarView: FSCalendar!
+    @IBOutlet weak var yearMonthLabel: UILabel!
+    @IBOutlet weak var prevMonthButton: UIButton!
+    @IBOutlet weak var nextMonthButton: UIButton!
+    @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var progressInfoView: UIView!
+    
+    @IBOutlet weak var circle1View: UIView!
+    @IBOutlet weak var circle2View: UIView!
+    @IBOutlet weak var circle3View: UIView!
+    @IBOutlet weak var circle4View: UIView!
+    //MARK:- 캘린더을 위한 변수
+    let now = Date()
+    var cal = Calendar.current
+    let dateFormatter = DateFormatter()
+    var components = DateComponents()
+    var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    var days: [String] = []
+    var daysCountInMonth = 0
+    var weekdayAdding = 0
     
     var meetingList: [String] =
         ["참여모임1", "참여모임2", "참여모임3", "참여모임4", "참여모임5", "참여모임6"]
@@ -18,71 +37,160 @@ class MyRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK:- 참여중인 모임 컬렉션 뷰
         meetingListCollectionView.dataSource = self
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: K.Id.meetingListCollectionViewCellId, bundle: nil), forCellWithReuseIdentifier: K.Id.meetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: K.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId)
+        let backgroundImageView : UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = K.Image.Background
+            imageView.contentMode = .scaleAspectFill
+            return imageView
+        }()
+        meetingListCollectionView.backgroundView = backgroundImageView
         
-//        calendarView.delegate = self
-//        calendarView.dataSource = self
         
-        calendarView.appearance.headerDateFormat = "YYYY년 MM월"
-        // M, T, W ...
-        calendarView.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesSingleUpperCase
-        // 년월에 흐릿하게 보이는 애들 없애기
-        calendarView.appearance.headerMinimumDissolvedAlpha = 0
+        //MARK:- 캘린더 컬렉션 뷰
+        self.calendarCollectionView.delegate = self
+        self.calendarCollectionView.dataSource = self
+        self.calendarCollectionView.register(UINib(nibName: K.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId)
+        self.initView()
         
-        // day 숫자 위치 조정
-        let dayFontSize = calendarView.appearance.titleFont.pointSize
-        calendarView.appearance.titleOffset = CGPoint.init(
-            x: dayFontSize - calendarView.frame.width/7/2,
-            y: -calendarView.rowHeight/2)
+        //MARK:- 이전 달, 다음 달 버튼
+        prevMonthButton.setImage(K.Image.PrevIcon, for: .normal)
+        prevMonthButton.tintColor = K.Color.Black66
         
-        //calendarView.register(CalendarViewCell.self, forCellReuseIdentifier: K.Id.calendarViewCellId)
+        nextMonthButton.setImage(K.Image.NextIcon, for: .normal)
+        nextMonthButton.tintColor = K.Color.Black66
+        
+        //MARK:- 진행률 정보 뷰
+        progressInfoView.backgroundColor = K.Color.Gray250
+        progressInfoView.layer.cornerRadius = 4
+        
+        circle1View.layer.cornerRadius = circle1View.bounds.height/2
+        circle2View.layer.cornerRadius = circle2View.bounds.height/2
+        circle3View.layer.cornerRadius = circle3View.bounds.height/2
+        circle4View.layer.cornerRadius = circle4View.bounds.height/2
+        
+        circle1View.backgroundColor = K.Color.Puple1
+        circle2View.backgroundColor = K.Color.Puple2
+        circle3View.backgroundColor = K.Color.Puple3
+        circle4View.backgroundColor = K.Color.MainPuple
         
     }
     
+    //MARK:- 캘린더 컬렉션 뷰 초기 세팅
+    private func initView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        calendarCollectionView.setCollectionViewLayout(layout, animated: true)
+        
+        dateFormatter.dateFormat = "yyyy년 M월"
+        components.year = cal.component(.year, from: now)
+        components.month = cal.component(.month, from: now)
+        components.day = 1
+        self.calculation()
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //MARK:- 캘린더 계산 함수
+    private func calculation() {
+        let firstDayOfMonth = cal.date(from: components)
+        let firstWeekday = cal.component(.weekday, from: firstDayOfMonth!)
+        daysCountInMonth = cal.range(of: .day, in: .month, for: firstDayOfMonth!)!.count
+        weekdayAdding = 2 - firstWeekday
+        
+        self.yearMonthLabel.text = dateFormatter.string(from: firstDayOfMonth!)
+        
+        self.days.removeAll()
+        for day in weekdayAdding...daysCountInMonth {
+            if day < 1 {
+                self.days.append("")
+            } else {
+                self.days.append(String(day))
+            }
+        }
+    }
     
+    //MARK:- 달력 이전 달 버튼 클릭 시 액션
+    @IBAction func prevMonthButtonDidTap(_ sender: UIButton) {
+        
+        components.month = components.month! - 1
+        self.calculation()
+        self.calendarCollectionView.reloadData()
+    }
+    //MARK:- 달력 다음 달 버튼 클릭 시 액션
+    @IBAction func nextMonthButtonDidTap(_ sender: UIButton) {
+        
+        components.month = components.month! + 1
+        self.calculation()
+        self.calendarCollectionView.reloadData()
+    }
+
 }
 
 //MARK:- CollectionView Delegate
 extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    // 셀 개수
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == calendarCollectionView {
+            return 2
+        }
+        else { return 1 }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == meetingListCollectionView{
             return meetingList.count
         }
+        else if collectionView == calendarCollectionView {
+            switch section {
+            case 0:
+                return 7
+            default:
+                return self.days.count
+            }
+        }
         else {
             print("CollectionView Delegate error - 셀 개수")
             return 0
         }
-        
     }
     
-    // 셀 뷰
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == meetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.Id.meetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
-            cell.goal.text = meetingList[indexPath.row]
+            cell.meetingNameLabel.text = meetingList[indexPath.row]
             
             return cell
         }
-    
+        else if collectionView == calendarCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
+            
+            switch indexPath.section {
+            case 0:
+                cell.dateLabel.text = weeks[indexPath.row]
+                cell.progressView.backgroundColor = .none
+                cell.imageView = .none
+            default:
+                cell.dateLabel.text = days[indexPath.row]
+                cell.progressView.backgroundColor = .systemPink
+                cell.year = components.year
+                cell.month = components.month
+                if days[indexPath.row] == "" {
+                    cell.day = -1
+                }
+                else {
+                    cell.day = Int(days[indexPath.row])!
+                }
+            }
+            
+            return cell
+        }
         else {
             print("CollectionView Delegate error - 셀 뷰")
             return UICollectionViewCell()
@@ -91,23 +199,17 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    // 터치업 액션
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
-    //        guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
-    //        let item = trackManager.tracks[indexPath.item]
-    //        playerVC.simplePlayer.replaceCurrentItem(with: item)
-    //        present(playerVC, animated: true, completion: nil)
-    //    }
-    
-    // 셀 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == meetingListCollectionView{
             let width: CGFloat = 335
-            let height: CGFloat = 180
+            let height: CGFloat = 98
             
             return CGSize(width: width, height: height)
+        }
+        else if collectionView == calendarCollectionView {
+            let cellSize : CGFloat = collectionView.bounds.width/7
+            return CGSize(width: cellSize, height: cellSize)
         }
         else {
             print("CollectionView Delegate error - 셀 사이즈")
@@ -115,25 +217,27 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    // CollectionView Cell의 위아래 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == meetingListCollectionView{
-            return 6
+            return 12
         }
         else {
-            print("CollectionView Delegate error - 셀 상하 간격")
             return 0
         }
     }
     
-    // CollectionView Cell의 옆 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == meetingListCollectionView{
-            return 12/2
-        }
-        else {
-            print("CollectionCiew Delegate error - 셀 좌우 간격  ")
-            return 0
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == calendarCollectionView {
+            print(components.year)
+            print(components.month)
+            print(days[indexPath.row])
+            
         }
     }
+
+    
 }
