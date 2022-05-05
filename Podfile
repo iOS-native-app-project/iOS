@@ -14,4 +14,5 @@ target 'jaksim_ios' do
     pod 'Firebase/Messaging'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod 'DropDown'
 end
