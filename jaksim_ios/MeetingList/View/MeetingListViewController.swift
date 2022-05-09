@@ -37,6 +37,7 @@ class MeetingListViewController: UIViewController {
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height/2 - 10
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.delegate = self
+        searchBar.searchTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 16)
         
         //MARK:- 추천검색어 컬렉션뷰
         collectionViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
@@ -73,7 +74,6 @@ class MeetingListViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 
-                print(self.isSearchMode)
                 cell.meetingNameLabel.text = item.name
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                 cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
@@ -141,16 +141,13 @@ extension MeetingListViewController: UISearchBarDelegate {
             .map { list in
                 list.filter { meeting in
                     if self.isSearchMode{
-                        print(self.isSearchMode)
-                        return meeting.name.contains(self.searchText)
+                        return meeting.name.lowercased().contains(self.searchText.lowercased())
                     }
-                    print(self.isSearchMode)
                     return true
                 }
             }
             .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 
-                print(self.isSearchMode)
                 cell.meetingNameLabel.text = item.name
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                 cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
@@ -170,7 +167,6 @@ extension MeetingListViewController: UISearchBarDelegate {
                 .observe(on: MainScheduler.instance)
                 .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                     
-                    print(self.isSearchMode)
                     cell.meetingNameLabel.text = item.name
                     cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                     cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)

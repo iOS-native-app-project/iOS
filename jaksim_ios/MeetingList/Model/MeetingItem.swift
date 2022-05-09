@@ -7,8 +7,25 @@
 
 import Foundation
 
+struct MeetingDataItem: Decodable {
+    var success: Bool
+    var statusCode: Int
+    var data: [MeetingItem]
+}
+
 struct MeetingItem: Decodable {
+    var id: Int
     var name: String
-    var numberOfpeople: Int
-    var isLocked: Bool
+    var image: String
+    var categoryId: Int
+    var descript: String
+    var limit: Int
+    var ownerId: Int
+    var password: Bool
+    var cycle: Int
+    var unit: String
+    var targetAmount: Int
+    var round: Int
+    var memberCount: Int
+    var join: Bool
 }

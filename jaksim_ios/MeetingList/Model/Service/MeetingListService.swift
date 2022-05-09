@@ -11,12 +11,10 @@ import RxSwift
 
 struct MeetingListService {
     
-    var url = ""
+    var url = "https://jaksim.app/api/meeting"
     
-    static func tmpService(from url: String) -> Observable<[MeetingItem]> {
+    static func getMeetingList(from url: String) -> Observable<[MeetingItem]> {
         return Observable.create { emitter in
-            
-            
             
             let urlString = url
             let header: HTTPHeaders = ["Content-Type": "application/json"]
@@ -31,9 +29,9 @@ struct MeetingListService {
                 case .success:
                     if let data = response.data {
                         do {
-                            let responseDecoded = try JSONDecoder().decode([MeetingItem].self, from: data)
+                            let responseDecoded = try JSONDecoder().decode(MeetingDataItem.self, from: data).data
                             emitter.onNext(responseDecoded)
-                        }catch let error as NSError{
+                        } catch let error as NSError{
                             emitter.onError(error)
                             return
                         }
@@ -45,12 +43,8 @@ struct MeetingListService {
                 }
             }
             
-            
-            
             return Disposables.create()
         }
     }
-    
-    
 }
 
