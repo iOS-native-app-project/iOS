@@ -32,7 +32,7 @@ class CreationFourthSection: UIView {
     private let distanceUnitList = ["m", "km"]
     
     var detailFigureFlag = false
-    var detailFigure = "0"
+    var detailFigure = 0
     var unit = "회"
     
     var delegate: CreationSectionDelegate?
@@ -211,7 +211,7 @@ extension CreationFourthSection: UITextFieldDelegate {
             }
             else {
                 guard let textFiledText = textField.text else { return }
-                detailFigure = textFiledText
+                detailFigure = Int(textFiledText) ?? 0
                 detailFigureFlag = true
                 delegate?.checkData()
             }

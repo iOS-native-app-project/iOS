@@ -225,6 +225,9 @@
                                             <constraint firstAttribute="height" constant="48" id="uo7-29-nY0"/>
                                         </constraints>
                                         <state key="normal" title="개설하기"/>
+                                        <connections>
+                                            <action selector="creationButtonDidTap:" destination="3Xy-vS-QN5" eventType="touchUpInside" id="idq-rA-5b9"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과 라벨 1번째" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Df-vo-PmU">
                                         <rect key="frame" x="135" y="1153" width="104.5" height="20.5"/>

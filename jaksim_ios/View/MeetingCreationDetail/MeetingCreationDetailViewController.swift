@@ -59,11 +59,30 @@ class MeetingCreationDetailViewController: UIViewController {
         
         secondResultLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 16)
         secondResultLabel.textColor = K.Color.Black97
+        
+        checkData()
     }
     
     //MARK:- 뒤로가기 버튼 action
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    //MARK:- 개설하기 버튼 action
+    @IBAction func creationButtonDidTap(_ sender: UIButton) {
+        let meetingViewModel = MeetingCreationViewModel(
+            name: creationFirstSection.firstTextView.text,
+            image: "",
+            categoryId: 1,
+            descript: creationFirstSection.secondTextView.text,
+            limit: creationSecondSection.numberOfPeople,
+            password: creationSecondSection.passwordTextField.text ?? "",
+            cycle: 1,
+            unit: creationFourthSection.unit,
+            targetAmount: creationFourthSection.detailFigure)
+        
+        meetingViewModel.createMeeting()
     }
 }
 
@@ -91,9 +110,9 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
                     let attributeString = NSMutableAttributedString(string: text)
 
                     attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: creationThirdSection.period))
-                    attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: creationFourthSection.detailFigure))
+                    attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: String(creationFourthSection.detailFigure)))
                     attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: creationFourthSection.unit))
-                    attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: \(self.category)))
+                    attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: self.category))
                     
                     self.firstResultLabel.attributedText = attributeString
 
@@ -128,8 +147,8 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
                 let attributeString = NSMutableAttributedString(string: text)
 
                 attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: creationThirdSection.period))
-                attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: creationFourthSection.detailFigure))
-                attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: \(self.category)))
+                attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: String(creationFourthSection.detailFigure)))
+                attributeString.addAttribute(.foregroundColor, value: K.Color.MainPuple, range: (text as NSString).range(of: self.category))
                 
                 self.firstResultLabel.attributedText = attributeString
 

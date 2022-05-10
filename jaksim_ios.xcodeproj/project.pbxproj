@@ -29,6 +29,9 @@
 		18AE758427FC4AA800FF28BA /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757827FC4AA700FF28BA /* Pretendard-Regular.otf */; };
 		18AE758627FC4AA800FF28BA /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE757A27FC4AA800FF28BA /* S-CoreDream-5Medium.otf */; };
 		18AE758C27FC4D4D00FF28BA /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18AE758B27FC4D4D00FF28BA /* Pretendard-SemiBold.otf */; };
+		18EEAEB5282AA08900EC0786 /* MeetingCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEAEB4282AA08900EC0786 /* MeetingCreationViewModel.swift */; };
+		18EEAEB7282AA2FC00EC0786 /* MeetingCreationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEAEB6282AA2FC00EC0786 /* MeetingCreationItem.swift */; };
+		18EEAEB9282AA30700EC0786 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEAEB8282AA30700EC0786 /* Service.swift */; };
 		18F1D94227F44AC800E51BDB /* MeetingCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */; };
 		18F1D94427F44ADB00E51BDB /* MeetingCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */; };
 		18F1D94727F4535900E51BDB /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */; };
@@ -63,6 +66,9 @@
 		18AE757827FC4AA700FF28BA /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		18AE757A27FC4AA800FF28BA /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
 		18AE758B27FC4D4D00FF28BA /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		18EEAEB4282AA08900EC0786 /* MeetingCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationViewModel.swift; sourceTree = "<group>"; };
+		18EEAEB6282AA2FC00EC0786 /* MeetingCreationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationItem.swift; sourceTree = "<group>"; };
+		18EEAEB8282AA30700EC0786 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		18F1D94127F44AC800E51BDB /* MeetingCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeetingCreation.storyboard; sourceTree = "<group>"; };
 		18F1D94327F44ADB00E51BDB /* MeetingCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationViewController.swift; sourceTree = "<group>"; };
 		18F1D94527F4535900E51BDB /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				18AE755927FC474E00FF28BA /* Common */,
+				18EEAEB3282A9FAF00EC0786 /* Model */,
+				18EEAEB2282A9F9600EC0786 /* ViewModel */,
 				1800AFE5281AB560004480AE /* View */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
@@ -209,6 +217,23 @@
 				18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */,
 			);
 			path = MeetingCreationDetail;
+			sourceTree = "<group>";
+		};
+		18EEAEB2282A9F9600EC0786 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18EEAEB4282AA08900EC0786 /* MeetingCreationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18EEAEB3282A9FAF00EC0786 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18EEAEB6282AA2FC00EC0786 /* MeetingCreationItem.swift */,
+				18EEAEB8282AA30700EC0786 /* Service.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		18F1D94027F44AAE00E51BDB /* MeetingCreation */ = {
@@ -369,9 +394,12 @@
 				18F1D95027F5C3BB00E51BDB /* CreationFirstSection.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
+				18EEAEB5282AA08900EC0786 /* MeetingCreationViewModel.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 				18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */,
+				18EEAEB9282AA30700EC0786 /* Service.swift in Sources */,
 				18AE755827FC460C00FF28BA /* Constant.swift in Sources */,
+				18EEAEB7282AA2FC00EC0786 /* MeetingCreationItem.swift in Sources */,
 				18F1D94727F4535900E51BDB /* CategoryCollectionViewCell.swift in Sources */,
 				1815136C2822748200997328 /* CreationSectionDelegate.swift in Sources */,
 				18F1D94427F44ADB00E51BDB /* MeetingCreationViewController.swift in Sources */,
