@@ -11,13 +11,11 @@ import RxSwift
 
 struct MeetingListService {
     
-    var url = "https://jaksim.app/api/meeting"
-    
     static func getMeetingList(from url: String) -> Observable<[MeetingItem]> {
         return Observable.create { emitter in
-            
             let urlString = url
-            let header: HTTPHeaders = ["Content-Type": "application/json"]
+            let header: HTTPHeaders = [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibmlja25hbWUiOiLspJHqt5wiLCJpYXQiOjE2NTIxODc2MDYsImV4cCI6MTY1MjE4OTQwNn0.jOFdUeXA5XdSMOqJofKVEbhuy-Hk-YXDU8Dz46jduhk")]
+                
             
             let request = AF.request(urlString,
                                      method: .get,
@@ -33,11 +31,13 @@ struct MeetingListService {
                             emitter.onNext(responseDecoded)
                         } catch let error as NSError{
                             emitter.onError(error)
+                            print("catch error: \(error)")
                             return
                         }
                     }
                     
                 case .failure(let error):
+                    print("failure error: \(error)")
                     emitter.onError(error)
                     return
                 }

@@ -75,7 +75,7 @@ class MeetingListViewController: UIViewController {
             .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
-                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
+                //cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                 cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
         
                 
@@ -149,7 +149,7 @@ extension MeetingListViewController: UISearchBarDelegate {
             .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
-                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
+                //cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                 cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
         
                 
@@ -168,7 +168,7 @@ extension MeetingListViewController: UISearchBarDelegate {
                 .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                     
                     cell.meetingNameLabel.text = item.name
-                    cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
+                    //cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)/16"
                     cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
             
                     

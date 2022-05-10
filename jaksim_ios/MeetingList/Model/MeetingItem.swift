@@ -21,11 +21,11 @@ struct MeetingItem: Decodable {
     var descript: String
     var limit: Int
     var ownerId: Int
-    var password: Bool
+    var password: String
     var cycle: Int
     var unit: String
     var targetAmount: Int
-    var round: Int
-    var memberCount: Int
+//    var round: Int
+//    var memberCount: Int
     var join: Bool
 }

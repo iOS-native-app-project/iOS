@@ -9,16 +9,17 @@ import Foundation
 
 struct Meeting {
     var name: String
-    var numberOfpeople: Int
+    //var numberOfpeople: Int
     var maximumNumber: Int
-    var isLocked: Bool
+    //var isLocked: Bool
+    var password: String
     var description: String
     
     init(_ item: MeetingItem) {
         name = item.name
-        numberOfpeople = item.memberCount
+        //numberOfpeople = item.memberCount
         maximumNumber = item.limit
-        isLocked = item.password
+        password = item.password
         description = item.descript
     }
 }
