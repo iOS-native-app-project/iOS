@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import FSCalendar
+import RxSwift
+import RxCocoa
 
 class MyRecordViewController: UIViewController {
     
@@ -21,6 +22,7 @@ class MyRecordViewController: UIViewController {
     @IBOutlet weak var circle2View: UIView!
     @IBOutlet weak var circle3View: UIView!
     @IBOutlet weak var circle4View: UIView!
+    
     //MARK:- 캘린더을 위한 변수
     let now = Date()
     var cal = Calendar.current
@@ -31,14 +33,15 @@ class MyRecordViewController: UIViewController {
     var daysCountInMonth = 0
     var weekdayAdding = 0
     
-    var meetingList: [String] =
-        ["참여모임1", "참여모임2", "참여모임3", "참여모임4", "참여모임5", "참여모임6"]
+    let meetingListViewModel = MeetingListViewModel()
+    let recordListViewModel = RecordListViewModel()
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK:- 참여중인 모임 컬렉션 뷰
-        meetingListCollectionView.dataSource = self
+        //meetingListCollectionView.dataSource = self
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: K.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
@@ -49,12 +52,32 @@ class MyRecordViewController: UIViewController {
         }()
         meetingListCollectionView.backgroundView = backgroundImageView
         
+        meetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+            
+                cell.meetingNameLabel.text = item.name
+                cell.progressValue = Double(item.progress)
+                cell.updateProgress()
+            }
+            .disposed(by: disposeBag)
+        
         
         //MARK:- 캘린더 컬렉션 뷰
+        //self.calendarCollectionView.dataSource = self
         self.calendarCollectionView.delegate = self
-        self.calendarCollectionView.dataSource = self
         self.calendarCollectionView.register(UINib(nibName: K.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId)
         self.initView()
+        
+        recordListViewModel.recordListSubject
+            .observe(on: MainScheduler.instance)
+            .bind(to: calendarCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, cellType: CalendarCollectionViewCell.self)) { index, item, cell in
+            
+//                cell.meetingNameLabel.text = item.name
+//                cell.progressValue = Double(item.progress)
+//                cell.updateProgress()
+            }
+            .disposed(by: disposeBag)
         
         //MARK:- 이전 달, 다음 달 버튼
         prevMonthButton.setImage(K.Image.PrevIcon, for: .normal)
@@ -140,10 +163,10 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == meetingListCollectionView{
-            return meetingList.count
-        }
-        else if collectionView == calendarCollectionView {
+//        if collectionView == meetingListCollectionView{
+//            return meetingList.count
+//        }
+        if collectionView == calendarCollectionView {
             switch section {
             case 0:
                 return 7
@@ -159,16 +182,16 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == meetingListCollectionView{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            
-            cell.meetingNameLabel.text = meetingList[indexPath.row]
-            
-            return cell
-        }
-        else if collectionView == calendarCollectionView {
+//        if collectionView == meetingListCollectionView{
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
+//                return UICollectionViewCell()
+//            }
+//            
+//            cell.meetingNameLabel.text = meetingList[indexPath.row]
+//            
+//            return cell
+//        }
+        if collectionView == calendarCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
             
             switch indexPath.section {
@@ -232,8 +255,8 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == calendarCollectionView {
-            print(components.year)
-            print(components.month)
+            print(components.year ?? "year 출력 오류")
+            print(components.month ?? "month 출력 오류")
             print(days[indexPath.row])
             
         }

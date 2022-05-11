@@ -44,4 +44,11 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         
     }
 
+    func updateProgress() {
+        let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
+        progressBarView.widthAnchor.constraint(equalToConstant: progressGage)
+            .isActive = true
+        
+        progressValueLabel.text = "\(String(Int(progressValue)))%"
+    }
 }
