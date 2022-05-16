@@ -36,6 +36,7 @@
 		B89C822428321ADF00D07202 /* RecordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822228321ADD00D07202 /* RecordInputViewController.swift */; };
 		B89C822828321C3500D07202 /* MyRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822728321C3500D07202 /* MyRecordResponse.swift */; };
 		B89C822C28321D1900D07202 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822B28321D1900D07202 /* Date.swift */; };
+		B89C822E2832218300D07202 /* MyRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822D2832218300D07202 /* MyRecordRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		B89C822228321ADD00D07202 /* RecordInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInputViewController.swift; sourceTree = "<group>"; };
 		B89C822728321C3500D07202 /* MyRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordResponse.swift; sourceTree = "<group>"; };
 		B89C822B28321D1900D07202 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B89C822D2832218300D07202 /* MyRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B89C822728321C3500D07202 /* MyRecordResponse.swift */,
+				B89C822D2832218300D07202 /* MyRecordRequest.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				B89C822828321C3500D07202 /* MyRecordResponse.swift in Sources */,
 				B89C821828320E8D00D07202 /* MemberAlertViewController.swift in Sources */,
+				B89C822E2832218300D07202 /* MyRecordRequest.swift in Sources */,
 				B89C821328320E8D00D07202 /* MemberDataManager.swift in Sources */,
 				A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */,
 				B89C821A28320E8D00D07202 /* MemberTableViewCell.swift in Sources */,
