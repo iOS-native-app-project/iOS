@@ -13,6 +13,10 @@ class MemberAlertViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
+    lazy var dataManager = MemberDataManager()
+    
+    var userGoodBadInput = UserGoodBadRequest(userId: 0, type: 0)
+    
     var good: Bool?
     var mainTitle = ""
     var content = ""
@@ -27,7 +31,7 @@ class MemberAlertViewController: UIViewController {
             content = "응원을 보낼까요?"
         } else {
             mainTitle = "경고하기"
-            content = "경고를 보낼까요? /n10회 이상 누적 경고받은 경우 /n자동강퇴입니다"
+            content = "경고를 보낼까요? \n10회 이상 누적 경고받은 경우 \n자동강퇴입니다"
         }
         
         titleLabel.text = mainTitle
@@ -36,4 +40,19 @@ class MemberAlertViewController: UIViewController {
     }
     
 
+}
+
+//MARK: - API
+extension MemberAlertViewController {
+    func successMemberGoodBad(_ result: UserGoodBadResponse) {
+        
+    }
+    
+    func failedToResponse(message: String) {
+        print(message)
+    }
+    
+    func failedToRequest(message: String) {
+        print(message)
+    }
 }

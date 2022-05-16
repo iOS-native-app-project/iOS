@@ -9,7 +9,7 @@ import Alamofire
 
 class MemberDataManager {
     
-    func postUserGoodBad(parameters: UserGoodBadRequest, delegate: MemberViewController) {
+    func postUserGoodBad(parameters: UserGoodBadRequest, delegate: MemberAlertViewController) {
         AF.request("", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: [:])
             .validate()
             .responseDecodable(of: UserGoodBadResponse.self) { response in

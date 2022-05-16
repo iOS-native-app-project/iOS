@@ -8,7 +8,16 @@
 import UIKit
 
 class MemberTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var goodButton: UIButton!
+    @IBOutlet weak var badButton: UIButton!
+    
+    var goToAlert: (()->())?
+    var isGood: Bool?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +28,16 @@ class MemberTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func goodButtonAction(_ sender: UIButton) {
+        isGood = true
+        goToAlert?()
+    }
+    
+    @IBAction func badButtonAction(_ sender: UIButton) {
+        isGood = false
+        goToAlert?()
+    }
+    
 
 }

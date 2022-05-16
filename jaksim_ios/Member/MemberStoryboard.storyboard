@@ -167,6 +167,9 @@
                                                                             <state key="normal" title="99">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="goodButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="a9m-ok-YB7"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-qD-9oc">
                                                                             <rect key="frame" x="43" y="0.0" width="39" height="20"/>
@@ -178,6 +181,9 @@
                                                                             <state key="normal" title="99">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="badButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="b4s-0i-MHh"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <constraints>
@@ -198,6 +204,13 @@
                                                                 <constraint firstItem="zua-Os-VDk" firstAttribute="top" secondItem="b4A-NQ-qpk" secondAttribute="top" id="yBU-5Q-iX6"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="badButton" destination="ziL-qD-9oc" id="Hvn-dU-6AV"/>
+                                                            <outlet property="goodButton" destination="XJg-Z5-ubF" id="JlJ-lp-B0g"/>
+                                                            <outlet property="percentLabel" destination="1Da-eT-vyv" id="5oZ-oL-ecg"/>
+                                                            <outlet property="userImageView" destination="nue-z0-4Gq" id="hZK-OC-Wbx"/>
+                                                            <outlet property="userNameLabel" destination="WJX-vE-2iI" id="VkJ-hN-roD"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
@@ -313,7 +326,7 @@
                                                 <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="응원을 보낼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhP-7g-DzC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="응원을 보낼까요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhP-7g-DzC">
                                                 <rect key="frame" x="81.5" y="28.5" width="116" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

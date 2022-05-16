@@ -12,17 +12,13 @@ class MemberViewController: UIViewController {
     @IBOutlet var topImageView: UIImageView!
     @IBOutlet var tagCollectionView: UICollectionView!
     @IBOutlet var memberTableView: UITableView!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollecitonView()
         setupTableView()
     }
-    
-
-  
 
 }
 //MARK: - CollectionView
@@ -33,6 +29,7 @@ extension MemberViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as! TagCollectionViewCell
+        
         
         return cell
     }
@@ -57,8 +54,21 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberTaleViewCell", for: indexPath) as! MemberTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberTableViewCell", for: indexPath) as! MemberTableViewCell
         
+        cell.goToAlert = {
+            let alertVC = self.storyboard?.instantiateViewController(withIdentifier: "MemberAlertViewController") as! MemberAlertViewController
+            
+            alertVC.modalPresentationStyle = .fullScreen
+            
+            if cell.isGood == true {
+                alertVC.good = true
+            } else {
+                alertVC.good = false
+            }
+            self.present(alertVC, animated: false, completion: nil)
+        }
+       
         return cell
     }
     
@@ -67,16 +77,14 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         memberTableView.dataSource = self
     }
     
+
     
     
 }
 
 //MARK: - API
 extension MemberViewController {
-    func successMemberGoodBad(_ result: UserGoodBadResponse) {
-        
-    }
-    
+   
     func failedToResponse(message: String) {
         print(message)
     }
