@@ -9,21 +9,21 @@ import UIKit
 
 class MemberGoodAlertViewController: UIViewController {
 
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    var mainTitle = ""
+    var content = "경고를 보낼까요? /n 10회 이상 누적 경고받은 경우 /n 자동강퇴입니다"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        contentView.layer.cornerRadius = 12
+        titleLabel.text = mainTitle
+        contentLabel.text = content
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
