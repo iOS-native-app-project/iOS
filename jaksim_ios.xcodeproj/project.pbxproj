@@ -35,6 +35,7 @@
 		B89C822328321ADF00D07202 /* RecordInputStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */; };
 		B89C822428321ADF00D07202 /* RecordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822228321ADD00D07202 /* RecordInputViewController.swift */; };
 		B89C822828321C3500D07202 /* MyRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822728321C3500D07202 /* MyRecordResponse.swift */; };
+		B89C822C28321D1900D07202 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822B28321D1900D07202 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecordInputStoryboard.storyboard; sourceTree = "<group>"; };
 		B89C822228321ADD00D07202 /* RecordInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInputViewController.swift; sourceTree = "<group>"; };
 		B89C822728321C3500D07202 /* MyRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordResponse.swift; sourceTree = "<group>"; };
+		B89C822B28321D1900D07202 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +108,8 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B89C822928321CED00D07202 /* Configuration */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
-				B89C821B28320F8200D07202 /* Constant.swift */,
-				B89C820628320DB500D07202 /* KeyCenter.swift */,
 				A55A71EA27C766EC007A0DDC /* Login */,
 				B89C820828320E8D00D07202 /* Member */,
 				B89C822028321ADD00D07202 /* RecordInput */,
@@ -219,6 +220,24 @@
 				B89C822728321C3500D07202 /* MyRecordResponse.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		B89C822928321CED00D07202 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B89C822A28321D0C00D07202 /* Extension */,
+				B89C821B28320F8200D07202 /* Constant.swift */,
+				B89C820628320DB500D07202 /* KeyCenter.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		B89C822A28321D0C00D07202 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B89C822B28321D1900D07202 /* Date.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
@@ -365,6 +384,7 @@
 				B89C821A28320E8D00D07202 /* MemberTableViewCell.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 				B89C821728320E8D00D07202 /* TagCollectionViewCell.swift in Sources */,
+				B89C822C28321D1900D07202 /* Date.swift in Sources */,
 				A55C140527E765710053F81F /* LoginInput.swift in Sources */,
 				A55C140727E765D30053F81F /* LoginResponse.swift in Sources */,
 			);
