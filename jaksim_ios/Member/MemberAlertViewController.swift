@@ -16,6 +16,7 @@ class MemberAlertViewController: UIViewController {
     lazy var dataManager = MemberDataManager()
     
     var userGoodBadInput = UserGoodBadRequest(userId: 0, type: 0)
+    var meetingId = 0
     var type = 0
     
     var good: Bool?
@@ -52,7 +53,7 @@ class MemberAlertViewController: UIViewController {
         }
         
         userGoodBadInput = UserGoodBadRequest(userId: 1, type: type)
-        dataManager.postUserGoodBad(parameters: userGoodBadInput, delegate: self)
+        dataManager.postUserGoodBad(parameters: userGoodBadInput, meetingId: meetingId, delegate: self)
     }
 }
 

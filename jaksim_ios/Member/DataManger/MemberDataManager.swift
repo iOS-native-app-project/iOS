@@ -9,8 +9,10 @@ import Alamofire
 
 class MemberDataManager {
     
-    func postUserGoodBad(parameters: UserGoodBadRequest, delegate: MemberAlertViewController) {
-        AF.request("", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: [:])
+    func postUserGoodBad(parameters: UserGoodBadRequest, meetingId: Int, delegate: MemberAlertViewController) {
+        let headers: HTTPHeaders = [.authorization(bearerToken: "")]
+       
+        AF.request("https://jaksim.app/api/meeting-user/\(meetingId)/report", method: .post, parameters: parameters, encoder: JSONParameterEncoder.default, headers: headers)
             .validate()
             .responseDecodable(of: UserGoodBadResponse.self) { response in
                 switch response.result {

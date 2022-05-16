@@ -12,7 +12,11 @@ class MemberViewController: UIViewController {
     @IBOutlet var topImageView: UIImageView!
     @IBOutlet var tagCollectionView: UICollectionView!
     @IBOutlet var memberTableView: UITableView!
-
+    
+    lazy var dataManager = MemberDataManager()
+    
+    var meetingId = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,6 +70,7 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 alertVC.good = false
             }
+            alertVC.meetingId = self.meetingId
             self.present(alertVC, animated: false, completion: nil)
         }
        
