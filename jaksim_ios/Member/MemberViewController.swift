@@ -70,3 +70,18 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+//MARK: - API
+extension MemberViewController {
+    func successMemberGoodBad(_ result: UserGoodBadResponse) {
+        
+    }
+    
+    func failedToResponse(message: String) {
+        print(message)
+    }
+    
+    func failedToRequest(message: String) {
+        print(message)
+    }
+}

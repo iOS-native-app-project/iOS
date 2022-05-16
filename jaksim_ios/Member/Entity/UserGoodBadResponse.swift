@@ -8,7 +8,7 @@
 struct UserGoodBadResponse: Decodable {
     var success: Bool
     var statusCode: Int
-    var data: UserGoodBadResult
+    var data: UserGoodBadResult?
 }
 
 struct UserGoodBadResult: Decodable {

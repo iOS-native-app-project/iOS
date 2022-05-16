@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="77.678571428571431"/>
         </scene>
-        <!--Member Good Alert View Controller-->
+        <!--Member Alert View Controller-->
         <scene sceneID="Te4-Wh-FyM">
             <objects>
-                <viewController storyboardIdentifier="MemberAlertViewController" id="Xq8-ZH-yfv" customClass="MemberGoodAlertViewController" customModule="jaksim_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberAlertViewController" id="Xq8-ZH-yfv" customClass="MemberAlertViewController" customModule="jaksim_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rhn-ML-nXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
