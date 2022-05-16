@@ -15,8 +15,6 @@
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
-		A55F2B0627EA0F3300EE27EF /* RecordInputStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55F2B0527EA0F3300EE27EF /* RecordInputStoryboard.storyboard */; };
-		A55F2B0827EA0F4A00EE27EF /* RecordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F2B0727EA0F4A00EE27EF /* RecordInputViewController.swift */; };
 		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
 		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
@@ -34,6 +32,8 @@
 		B89C821928320E8D00D07202 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C821128320E8D00D07202 /* MemberViewController.swift */; };
 		B89C821A28320E8D00D07202 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C821228320E8D00D07202 /* MemberTableViewCell.swift */; };
 		B89C821C28320F8200D07202 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C821B28320F8200D07202 /* Constant.swift */; };
+		B89C822328321ADF00D07202 /* RecordInputStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */; };
+		B89C822428321ADF00D07202 /* RecordInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C822228321ADD00D07202 /* RecordInputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +48,6 @@
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
-		A55F2B0527EA0F3300EE27EF /* RecordInputStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecordInputStoryboard.storyboard; sourceTree = "<group>"; };
-		A55F2B0727EA0F4A00EE27EF /* RecordInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInputViewController.swift; sourceTree = "<group>"; };
 		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +67,8 @@
 		B89C821128320E8D00D07202 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		B89C821228320E8D00D07202 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		B89C821B28320F8200D07202 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RecordInputStoryboard.storyboard; sourceTree = "<group>"; };
+		B89C822228321ADD00D07202 /* RecordInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +104,12 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-				A55F2B0427EA0DC800EE27EF /* RecordInput */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				B89C821B28320F8200D07202 /* Constant.swift */,
 				B89C820628320DB500D07202 /* KeyCenter.swift */,
 				A55A71EA27C766EC007A0DDC /* Login */,
 				B89C820828320E8D00D07202 /* Member */,
+				B89C822028321ADD00D07202 /* RecordInput */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F4C27C35EE10007C506 /* ViewController.swift */,
@@ -191,11 +191,13 @@
 				B89C820E28320E8D00D07202 /* UserGoodBadRequest.swift */,
 			);
 			path = Entity;
-		A55F2B0427EA0DC800EE27EF /* RecordInput */ = {
+			sourceTree = "<group>";
+		};
+		B89C822028321ADD00D07202 /* RecordInput */ = {
 			isa = PBXGroup;
 			children = (
-				A55F2B0527EA0F3300EE27EF /* RecordInputStoryboard.storyboard */,
-				A55F2B0727EA0F4A00EE27EF /* RecordInputViewController.swift */,
+				B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */,
+				B89C822228321ADD00D07202 /* RecordInputViewController.swift */,
 			);
 			path = RecordInput;
 			sourceTree = "<group>";
@@ -267,10 +269,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89C822328321ADF00D07202 /* RecordInputStoryboard.storyboard in Resources */,
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				B89C821428320E8D00D07202 /* MemberStoryboard.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
-				A55F2B0627EA0F3300EE27EF /* RecordInputStoryboard.storyboard in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
 			);
@@ -329,6 +331,7 @@
 				B89C821628320E8D00D07202 /* UserGoodBadRequest.swift in Sources */,
 				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
 				B89C820728320DB500D07202 /* KeyCenter.swift in Sources */,
+				B89C822428321ADF00D07202 /* RecordInputViewController.swift in Sources */,
 				B89C821528320E8D00D07202 /* UserGoodBadResponse.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
@@ -341,7 +344,6 @@
 				A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */,
 				B89C821A28320E8D00D07202 /* MemberTableViewCell.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
-				A55F2B0827EA0F4A00EE27EF /* RecordInputViewController.swift in Sources */,
 				B89C821728320E8D00D07202 /* TagCollectionViewCell.swift in Sources */,
 				A55C140527E765710053F81F /* LoginInput.swift in Sources */,
 				A55C140727E765D30053F81F /* LoginResponse.swift in Sources */,
