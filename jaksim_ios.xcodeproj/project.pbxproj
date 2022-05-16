@@ -21,6 +21,8 @@
 		A59F4A9828084F8200E5A11E /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */; };
 		A59F4A9A28084FB300E5A11E /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F4A9928084FB300E5A11E /* MemberViewController.swift */; };
 		A59F4A9C28085C9000E5A11E /* MemberGoodAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F4A9B28085C9000E5A11E /* MemberGoodAlertViewController.swift */; };
+		B89C82032831D36D00D07202 /* UserGoodBadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */; };
+		B89C82052831D3C900D07202 /* UserGoodBadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		A59F4A9928084FB300E5A11E /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		A59F4A9B28085C9000E5A11E /* MemberGoodAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGoodAlertViewController.swift; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadRequest.swift; sourceTree = "<group>"; };
+		B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,26 +111,11 @@
 			path = DataManger;
 			sourceTree = "<group>";
 		};
-		A5527FD72818068E00F5E5DC /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		A5527FD8281806A100F5E5DC /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		A59F4A9628084F6C00E5A11E /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				A5527FD8281806A100F5E5DC /* Protocol */,
+				B89C82012831D32A00D07202 /* Entity */,
 				A5527FD62818068200F5E5DC /* DataManger */,
-				A5527FD72818068E00F5E5DC /* Entity */,
 				A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */,
 				A59F4A9928084FB300E5A11E /* MemberViewController.swift */,
 				A59F4A9B28085C9000E5A11E /* MemberGoodAlertViewController.swift */,
@@ -134,6 +123,15 @@
 				A5527FD22818056600F5E5DC /* MemberTableViewCell.swift */,
 			);
 			path = Member;
+			sourceTree = "<group>";
+		};
+		B89C82012831D32A00D07202 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */,
+				B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
@@ -262,7 +260,9 @@
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				A5527FDA281806E600F5E5DC /* MemberDataManager.swift in Sources */,
 				A5527FD52818059800F5E5DC /* TagCollectionViewCell.swift in Sources */,
+				B89C82032831D36D00D07202 /* UserGoodBadRequest.swift in Sources */,
 				A59F4A9C28085C9000E5A11E /* MemberGoodAlertViewController.swift in Sources */,
+				B89C82052831D3C900D07202 /* UserGoodBadResponse.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				A5527FD32818056600F5E5DC /* MemberTableViewCell.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
