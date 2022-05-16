@@ -7,9 +7,31 @@
 
 import Alamofire
 
-class LoginDataManager {
+class LoginDataManager: LoginDataManagerDelegate {
     
-    func postLogin(parameters: LoginInput, viewController: LoginViewController) {
+    func tokenRefresh(delegate: TokenRefreshDelegate) {
+        let parameters:Parameters = ["refreshToken":KeyCenter.LOGIN_TOKEN]
+        
+        AF.request("\(Constant.shared.BASE_URL)auth/token", method: .post, parameters: parameters)
+            .validate()
+            .responseDecodable(of: TokenResponse.self) {response in
+                switch response.result {
+                case .success(let response):
+                    if response.success, let result = response.data {
+                        delegate.successTokenRefresh(response)
+                        KeyCenter.LOGIN_TOKEN = response.data!.accessToken
+                    } else {
+                        delegate.failedToRequest(message: "불러오기 실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest(message: "서버 연결 실패")
+                }
+                
+            }
+    }
+    
+    func postLogin(parameters: LoginRequest, viewController: LoginViewController) {
         AF.request("\(Constant.shared.BASE_URL)auth/login", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in
@@ -32,7 +54,7 @@ class LoginDataManager {
             }
     }
     
-    func postSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
+    func postSignuUp(parameters: SignUpRequest, viewController: SignupViewController) {
         AF.request("\(Constant.shared.BASE_URL)users", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in

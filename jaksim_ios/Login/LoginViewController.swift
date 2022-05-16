@@ -15,7 +15,6 @@ import NaverThirdPartyLogin
 import Kingfisher
 
 class LoginViewController: UIViewController {
-    
     @IBOutlet var kakaoLoginButton: UIButton!
     @IBOutlet var appleLoginButton: UIButton!
     @IBOutlet var naverLoginButton: UIButton!
@@ -33,6 +32,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        autoLogin()
         layoutSetup()
         
     }
@@ -48,6 +48,16 @@ class LoginViewController: UIViewController {
             button!.bounds.size.height = 48
         }
         
+    }
+    
+    func autoLogin() {
+        if UserDefaults.standard.string(forKey: "Token") != nil {
+            print("자동로그인")
+//            let memberVC = UIStoryboard(name: "MemberStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+//
+//            memberVC.modalPresentationStyle = .fullScreen
+//            self.present(memberVC, animated: false, completion: nil)
+        }
     }
     
     
@@ -66,7 +76,7 @@ class LoginViewController: UIViewController {
                     self.token = oauthToken!.accessToken
                     self.loginAuthType = "KAKAO"
                     
-                    let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
+                    let input: LoginRequest = LoginRequest(authType: self.loginAuthType, token: self.token)
                     
                     if self.token != "" {
                         self.dataManager.postLogin(parameters: input, viewController: self)
@@ -118,7 +128,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                 self.token = oauthToken!.accessToken
                 self.loginAuthType = "KAKAO"
                 
-                let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
+                let input: LoginRequest = LoginRequest(authType: self.loginAuthType, token: self.token)
                 
                 if self.token != "" {
                     print("token: \(self.token)")
@@ -181,7 +191,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
                     self.token = self.naverLoginInstance!.accessToken!
                     self.loginAuthType = "NAVER"
                     
-                    let input: LoginInput = LoginInput(authType: self.loginAuthType, token: self.token)
+                    let input: LoginRequest = LoginRequest(authType: self.loginAuthType, token: self.token)
                     
                     if self.token != "" {
                         self.dataManager.postLogin(parameters: input, viewController: self)
@@ -261,6 +271,7 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
 extension LoginViewController {
     func loginSuccess(_ result: LoginResponse) {
         KeyCenter.LOGIN_TOKEN = result.data.accessToken
+        UserDefaults.standard.set(KeyCenter.LOGIN_TOKEN, forKey: "Token")
         
         let memberVC = UIStoryboard(name: "MemberStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
         
@@ -276,6 +287,6 @@ extension LoginViewController {
         signupVC.modalPresentationStyle = .fullScreen
         self.present(signupVC, animated: true, completion: nil)
     }
-
+    
     
 }

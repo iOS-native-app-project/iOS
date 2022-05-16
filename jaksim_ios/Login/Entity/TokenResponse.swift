@@ -1,17 +1,17 @@
 //
-//  NaverLoginResponse.swift
+//  TokenResponse.swift
 //  jaksim_ios
 //
-//  Created by 소영 on 2022/03/20.
+//  Created by Acryl on 2022/05/16.
 //
 
-struct LoginResponse: Decodable {
+struct TokenResponse: Decodable {
     var success: Bool
     var statusCode: Int
-    var data: Result
+    var data: TokenResult?
 }
 
-struct Result: Decodable {
+struct TokenResult: Decodable {
     var tokenType: String
     var accessToken: String
     var refreshToken: String

@@ -83,7 +83,7 @@ class SignupViewController: UIViewController {
         
         nickName = nickNameTextField.text!
         
-        let signupInput: SignUpInput = SignUpInput(authType: loginAuthType, nickName: nickName, token: signupToken)
+        let signupInput: SignUpRequest = SignUpRequest(authType: loginAuthType, nickName: nickName, token: signupToken)
         
         print(signupInput)
         dataManager.postSignuUp(parameters: signupInput, viewController: self)

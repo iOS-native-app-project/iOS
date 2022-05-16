@@ -17,6 +17,6 @@ struct MyRecordResult: Decodable {
     var meetingId: Int
     var date: String // 모임 기록 날짜
     var value: Int // 상세달성수치
-    //var image: "img.png", // 이미지
+    var image: String // 이미지
     var descript: String // 설명
 }
