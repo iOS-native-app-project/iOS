@@ -259,9 +259,13 @@ extension LoginViewController: NaverThirdPartyLoginConnectionDelegate, ASAuthori
 
 //MARK: - API
 extension LoginViewController {
-    
-    func loginSuccess() {
-        print("로그인 성공, 홈 화면으로")
+    func loginSuccess(_ result: LoginResponse) {
+        KeyCenter.LOGIN_TOKEN = result.data.accessToken
+        
+        let memberVC = UIStoryboard(name: "MemberStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+        
+        memberVC.modalPresentationStyle = .fullScreen
+        self.present(memberVC, animated: false, completion: nil)
     }
     
     func goToSignup() {

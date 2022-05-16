@@ -15,13 +15,14 @@ class MemberViewController: UIViewController {
     
     lazy var dataManager = MemberDataManager()
     
-    var meetingId = 0
+    var meetingId = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollecitonView()
         setupTableView()
+        
     }
 
 }
@@ -81,9 +82,6 @@ extension MemberViewController: UITableViewDelegate, UITableViewDataSource {
         memberTableView.delegate = self
         memberTableView.dataSource = self
     }
-    
-
-    
     
 }
 

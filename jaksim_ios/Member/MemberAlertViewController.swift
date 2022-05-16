@@ -61,6 +61,7 @@ class MemberAlertViewController: UIViewController {
 extension MemberAlertViewController {
     func successMemberGoodBad(_ result: UserGoodBadResponse) {
         print(userGoodBadInput)
+        dismiss(animated: false, completion: nil)
     }
     
     func failedToResponse(message: String) {

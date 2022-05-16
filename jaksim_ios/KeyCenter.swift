@@ -8,6 +8,6 @@
 import Alamofire
 
 struct KeyCenter {
-    static var LOGIN_TOKEN = ""
-    static let HEADERS: HTTPHeaders = ["session": KeyCenter.LOGIN_TOKEN]
+    static var LOGIN_TOKEN = "jJVZEK8ZKJTcTRrtxH7CMb5iFpCQWZ_96x_huQo9c5sAAAGAyzL7jw"
+
 }

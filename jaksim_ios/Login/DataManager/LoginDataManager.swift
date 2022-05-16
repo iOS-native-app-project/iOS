@@ -10,13 +10,13 @@ import Alamofire
 class LoginDataManager {
     
     func postLogin(parameters: LoginInput, viewController: LoginViewController) {
-        AF.request("https://jaksim.app/api/auth/login", method: .post, parameters: parameters)
+        AF.request("\(Constant.shared.BASE_URL)auth/login", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {
                 case .success(let response):
                     if response.success {
-                        viewController.loginSuccess()
+                        viewController.loginSuccess(response)
                     }
                 case .failure(let error):
                     if response.response?.statusCode == 401 {
@@ -33,7 +33,7 @@ class LoginDataManager {
     }
     
     func postSignuUp(parameters: SignUpInput, viewController: SignupViewController) {
-        AF.request("https://jaksim.app/api/users", method: .post, parameters: parameters)
+        AF.request("\(Constant.shared.BASE_URL)users", method: .post, parameters: parameters)
             .validate()
             .responseDecodable(of: LoginResponse.self) {response in
                 switch response.result {
