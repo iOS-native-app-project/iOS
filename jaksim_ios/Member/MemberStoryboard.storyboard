@@ -348,6 +348,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="139.5" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="취소"/>
+                                                <connections>
+                                                    <action selector="cancleButtonAction:" destination="Xq8-ZH-yfv" eventType="touchUpInside" id="MfW-mQ-jdO"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtr-3J-bU8">
                                                 <rect key="frame" x="139.5" y="0.0" width="1" height="50"/>
@@ -360,6 +363,9 @@
                                                 <rect key="frame" x="140.5" y="0.0" width="138.5" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="확인"/>
+                                                <connections>
+                                                    <action selector="okButtonAction:" destination="Xq8-ZH-yfv" eventType="touchUpInside" id="E5t-8l-6sR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

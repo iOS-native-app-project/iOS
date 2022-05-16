@@ -16,6 +16,7 @@ class MemberAlertViewController: UIViewController {
     lazy var dataManager = MemberDataManager()
     
     var userGoodBadInput = UserGoodBadRequest(userId: 0, type: 0)
+    var type = 0
     
     var good: Bool?
     var mainTitle = ""
@@ -39,13 +40,26 @@ class MemberAlertViewController: UIViewController {
        
     }
     
-
+    @IBAction func cancleButtonAction(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func okButtonAction(_ sender: UIButton) {
+        if good == true {
+            type = 0
+        } else {
+            type = 1
+        }
+        
+        userGoodBadInput = UserGoodBadRequest(userId: 1, type: type)
+        dataManager.postUserGoodBad(parameters: userGoodBadInput, delegate: self)
+    }
 }
 
 //MARK: - API
 extension MemberAlertViewController {
     func successMemberGoodBad(_ result: UserGoodBadResponse) {
-        
+        print(userGoodBadInput)
     }
     
     func failedToResponse(message: String) {
