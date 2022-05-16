@@ -23,6 +23,13 @@
 		A59F4A9C28085C9000E5A11E /* MemberAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F4A9B28085C9000E5A11E /* MemberAlertViewController.swift */; };
 		B89C82032831D36D00D07202 /* UserGoodBadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */; };
 		B89C82052831D3C900D07202 /* UserGoodBadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */; };
+		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
+		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
+		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
+		A55C140527E765710053F81F /* LoginInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140427E765710053F81F /* LoginInput.swift */; };
+		A55C140727E765D30053F81F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140627E765D30053F81F /* LoginResponse.swift */; };
+		A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140927E767A50053F81F /* LoginDataManager.swift */; };
+		A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140D27E770C80053F81F /* SignUpInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,14 @@
 		A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberStoryboard.storyboard; sourceTree = "<group>"; };
 		A59F4A9928084FB300E5A11E /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		A59F4A9B28085C9000E5A11E /* MemberAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAlertViewController.swift; sourceTree = "<group>"; };
+		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A55C140427E765710053F81F /* LoginInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInput.swift; sourceTree = "<group>"; };
+		A55C140627E765D30053F81F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		A55C140927E767A50053F81F /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
+		A55C140D27E770C80053F81F /* SignUpInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInput.swift; sourceTree = "<group>"; };
+		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadRequest.swift; sourceTree = "<group>"; };
 		B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadResponse.swift; sourceTree = "<group>"; };
@@ -82,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				A59F4A9628084F6C00E5A11E /* Member */,
+				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
+				A55A71EA27C766EC007A0DDC /* Login */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F4C27C35EE10007C506 /* ViewController.swift */,
@@ -132,6 +149,34 @@
 				B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */,
 			);
 			path = Entity;
+		A55A71EA27C766EC007A0DDC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A55C140827E766CF0053F81F /* DataManager */,
+				A55C140327E765070053F81F /* Entity */,
+				A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */,
+				A55A71ED27C76854007A0DDC /* LoginViewController.swift */,
+				A54C572027E218DA00FAF4DE /* SignupViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A55C140327E765070053F81F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A55C140427E765710053F81F /* LoginInput.swift */,
+				A55C140627E765D30053F81F /* LoginResponse.swift */,
+				A55C140D27E770C80053F81F /* SignUpInput.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A55C140827E766CF0053F81F /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				A55C140927E767A50053F81F /* LoginDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
@@ -205,6 +250,7 @@
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
 				A59F4A9828084F8200E5A11E /* MemberStoryboard.storyboard in Resources */,
+				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
+				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				A5527FDA281806E600F5E5DC /* MemberDataManager.swift in Sources */,
 				A5527FD52818059800F5E5DC /* TagCollectionViewCell.swift in Sources */,
@@ -267,7 +315,12 @@
 				A5527FD32818056600F5E5DC /* MemberTableViewCell.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				A59F4A9A28084FB300E5A11E /* MemberViewController.swift in Sources */,
+				A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */,
+				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
+				A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
+				A55C140527E765710053F81F /* LoginInput.swift in Sources */,
+				A55C140727E765D30053F81F /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -415,7 +468,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = jaksim_ios/jaksim_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = jaksim_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -434,7 +489,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = jaksim_ios/jaksim_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = jaksim_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,4 +1,4 @@
-updated date :  22.02.24
+updated date :  22.03.21
 
 ## 개발 환경
 
@@ -13,6 +13,7 @@ updated date :  22.02.24
 - Kingfisher
 - SwiftKeychainWrapper
 - Firebase/Messaging
+- FSCalendar
 
 ## 코딩 컨벤션
 > 코드 레이아웃
