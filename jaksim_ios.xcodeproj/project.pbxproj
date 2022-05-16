@@ -22,6 +22,7 @@
 		A55C140727E765D30053F81F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140627E765D30053F81F /* LoginResponse.swift */; };
 		A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140927E767A50053F81F /* LoginDataManager.swift */; };
 		A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140D27E770C80053F81F /* SignUpInput.swift */; };
+		B89C820728320DB500D07202 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C820628320DB500D07202 /* KeyCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		A55C140D27E770C80053F81F /* SignUpInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInput.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B89C820628320DB500D07202 /* KeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
+				B89C820628320DB500D07202 /* KeyCenter.swift */,
 			);
 			path = jaksim_ios;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
 				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
+				B89C820728320DB500D07202 /* KeyCenter.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */,
