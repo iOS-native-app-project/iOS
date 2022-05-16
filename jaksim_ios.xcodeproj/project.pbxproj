@@ -15,6 +15,14 @@
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
+		A5527FD32818056600F5E5DC /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5527FD22818056600F5E5DC /* MemberTableViewCell.swift */; };
+		A5527FD52818059800F5E5DC /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5527FD42818059800F5E5DC /* TagCollectionViewCell.swift */; };
+		A5527FDA281806E600F5E5DC /* MemberDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5527FD9281806E600F5E5DC /* MemberDataManager.swift */; };
+		A59F4A9828084F8200E5A11E /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */; };
+		A59F4A9A28084FB300E5A11E /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F4A9928084FB300E5A11E /* MemberViewController.swift */; };
+		A59F4A9C28085C9000E5A11E /* MemberAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F4A9B28085C9000E5A11E /* MemberAlertViewController.swift */; };
+		B89C82032831D36D00D07202 /* UserGoodBadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */; };
+		B89C82052831D3C900D07202 /* UserGoodBadResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */; };
 		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
 		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
@@ -36,6 +44,12 @@
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A5527FD22818056600F5E5DC /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		A5527FD42818059800F5E5DC /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5527FD9281806E600F5E5DC /* MemberDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDataManager.swift; sourceTree = "<group>"; };
+		A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberStoryboard.storyboard; sourceTree = "<group>"; };
+		A59F4A9928084FB300E5A11E /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		A59F4A9B28085C9000E5A11E /* MemberAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberAlertViewController.swift; sourceTree = "<group>"; };
 		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +59,8 @@
 		A55C140D27E770C80053F81F /* SignUpInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInput.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadRequest.swift; sourceTree = "<group>"; };
+		B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoodBadResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +96,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+				A59F4A9628084F6C00E5A11E /* Member */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				A55A71EA27C766EC007A0DDC /* Login */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
@@ -103,6 +120,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A5527FD62818068200F5E5DC /* DataManger */ = {
+			isa = PBXGroup;
+			children = (
+				A5527FD9281806E600F5E5DC /* MemberDataManager.swift */,
+			);
+			path = DataManger;
+			sourceTree = "<group>";
+		};
+		A59F4A9628084F6C00E5A11E /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				B89C82012831D32A00D07202 /* Entity */,
+				A5527FD62818068200F5E5DC /* DataManger */,
+				A59F4A9728084F8200E5A11E /* MemberStoryboard.storyboard */,
+				A59F4A9928084FB300E5A11E /* MemberViewController.swift */,
+				A59F4A9B28085C9000E5A11E /* MemberAlertViewController.swift */,
+				A5527FD42818059800F5E5DC /* TagCollectionViewCell.swift */,
+				A5527FD22818056600F5E5DC /* MemberTableViewCell.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		B89C82012831D32A00D07202 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B89C82022831D36D00D07202 /* UserGoodBadRequest.swift */,
+				B89C82042831D3C900D07202 /* UserGoodBadResponse.swift */,
+			);
+			path = Entity;
 		A55A71EA27C766EC007A0DDC /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +249,7 @@
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+				A59F4A9828084F8200E5A11E /* MemberStoryboard.storyboard in Resources */,
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +306,15 @@
 				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
 				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
+				A5527FDA281806E600F5E5DC /* MemberDataManager.swift in Sources */,
+				A5527FD52818059800F5E5DC /* TagCollectionViewCell.swift in Sources */,
+				B89C82032831D36D00D07202 /* UserGoodBadRequest.swift in Sources */,
+				A59F4A9C28085C9000E5A11E /* MemberAlertViewController.swift in Sources */,
+				B89C82052831D3C900D07202 /* UserGoodBadResponse.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
+				A5527FD32818056600F5E5DC /* MemberTableViewCell.swift in Sources */,
+				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
+				A59F4A9A28084FB300E5A11E /* MemberViewController.swift in Sources */,
 				A55C140E27E770C80053F81F /* SignUpInput.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */,
