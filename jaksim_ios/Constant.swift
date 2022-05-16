@@ -13,5 +13,6 @@ struct Constant {
     private init() {}
     
     let BASE_URL = "https://jaksim.app/api/"
+    //let
 
 }
