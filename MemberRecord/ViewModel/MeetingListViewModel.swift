@@ -14,7 +14,7 @@ class MeetingListViewModel {
     var url = ""
     
     init() {
-        MyRecordService.getMeetingList(from: url)
+        MemberRecordService.getMeetingList(from: url)
             .map { meetingList in
                 meetingList.map {
                     Meeting($0)

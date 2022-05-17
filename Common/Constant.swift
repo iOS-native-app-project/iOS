@@ -10,7 +10,7 @@ import Foundation
 
 struct K {
     
-    struct MyRecord {
+    struct MemberRecord {
         struct Id{
             static let MeetingListCollectionViewCellId = "MeetingListCollectionViewCell"
             static let CalendarCollectionViewCellId = "CalendarCollectionViewCell"
@@ -18,6 +18,7 @@ struct K {
         struct Name {
             static let MeetingListCollectionViewCelNibName = "MeetingListCollectionViewCell"
             static let CalendarCollectionViewCellNibName = "CalendarCollectionViewCell"
+            static let RecordDetailViewControllerNibName = "RecordDetailViewController"
         }
     }
     
@@ -42,7 +43,8 @@ struct K {
     struct Image {
         static let PrevIcon = UIImage(named: "prev.png")?.withRenderingMode(.alwaysTemplate)
         static let NextIcon = UIImage(named: "next.png")?.withRenderingMode(.alwaysTemplate)
-        static let Background = UIImage(named: "background.png")
+        static let Close = UIImage(named: "close.png")?.withRenderingMode(.alwaysTemplate)
+        static let Background = UIImage(named: "background.png")!
     }
     struct FontName {
         static let PretendardSemiBold = "Pretendard-SemiBold"

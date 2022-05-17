@@ -14,8 +14,10 @@
 		18074600282C1427001299C7 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FF282C1427001299C7 /* Record.swift */; };
 		18074603282C1445001299C7 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074602282C1445001299C7 /* MeetingListViewModel.swift */; };
 		18074605282C144E001299C7 /* RecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074604282C144E001299C7 /* RecordListViewModel.swift */; };
-		180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180C4F7A27E34BB400168B04 /* MyRecord.storyboard */; };
-		180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */; };
+		1807460A283394C4001299C7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074608283394C4001299C7 /* RecordDetailViewController.swift */; };
+		1807460B283394C4001299C7 /* RecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18074609283394C4001299C7 /* RecordDetailViewController.xib */; };
+		180C4F7B27E34BB400168B04 /* MemberRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180C4F7A27E34BB400168B04 /* MemberRecord.storyboard */; };
+		180C4F7D27E34BD300168B04 /* MemberRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C4F7C27E34BD300168B04 /* MemberRecordViewController.swift */; };
 		1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816B66B27E8B41700FBDFA8 /* Constant.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
@@ -39,8 +41,10 @@
 		180745FF282C1427001299C7 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		18074602282C1445001299C7 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
 		18074604282C144E001299C7 /* RecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModel.swift; sourceTree = "<group>"; };
-		180C4F7A27E34BB400168B04 /* MyRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyRecord.storyboard; sourceTree = "<group>"; };
-		180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordViewController.swift; sourceTree = "<group>"; };
+		18074608283394C4001299C7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
+		18074609283394C4001299C7 /* RecordDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordDetailViewController.xib; sourceTree = "<group>"; };
+		180C4F7A27E34BB400168B04 /* MemberRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberRecord.storyboard; sourceTree = "<group>"; };
+		180C4F7C27E34BD300168B04 /* MemberRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRecordViewController.swift; sourceTree = "<group>"; };
 		1816B66B27E8B41700FBDFA8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,8 +83,10 @@
 			children = (
 				18EEAEAC2823BCDA00EC0786 /* MeetingListCollectionViewCell */,
 				18EEAEAB2823BCCA00EC0786 /* CalendarCollectionViewCell */,
-				180C4F7A27E34BB400168B04 /* MyRecord.storyboard */,
-				180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */,
+				180C4F7A27E34BB400168B04 /* MemberRecord.storyboard */,
+				180C4F7C27E34BD300168B04 /* MemberRecordViewController.swift */,
+				18074608283394C4001299C7 /* RecordDetailViewController.swift */,
+				18074609283394C4001299C7 /* RecordDetailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,21 +112,21 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		180C4F7927E34B9D00168B04 /* MyRecord */ = {
+		180C4F7927E34B9D00168B04 /* MemberRecord */ = {
 			isa = PBXGroup;
 			children = (
 				180745F6282C04DE001299C7 /* ViewModel */,
 				180745F5282C04D9001299C7 /* Model */,
 				180745F4282C04D1001299C7 /* View */,
 			);
-			path = MyRecord;
+			path = MemberRecord;
 			sourceTree = "<group>";
 		};
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
 				18EEAEAA2823BC9200EC0786 /* Common */,
-				180C4F7927E34B9D00168B04 /* MyRecord */,
+				180C4F7927E34B9D00168B04 /* MemberRecord */,
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
 				186B1F4627C35EE10007C506 /* Products */,
 				25F4D27B27D96585C56D6E4A /* Pods */,
@@ -260,7 +266,8 @@
 				18EEAEAF2823C98900EC0786 /* MeetingListCollectionViewCell.xib in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
-				180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */,
+				1807460B283394C4001299C7 /* RecordDetailViewController.xib in Resources */,
+				180C4F7B27E34BB400168B04 /* MemberRecord.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +326,9 @@
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				180745FA282C1367001299C7 /* MeetingItem.swift in Sources */,
-				180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */,
+				180C4F7D27E34BD300168B04 /* MemberRecordViewController.swift in Sources */,
 				18074600282C1427001299C7 /* Record.swift in Sources */,
+				1807460A283394C4001299C7 /* RecordDetailViewController.swift in Sources */,
 				180745FC282C1373001299C7 /* RecordItem.swift in Sources */,
 				180745F8282C1357001299C7 /* Service.swift in Sources */,
 				18074605282C144E001299C7 /* RecordListViewModel.swift in Sources */,

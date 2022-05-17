@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import RxSwift
 
-struct MyRecordService {
+struct MemberRecordService {
     
     static func getMeetingList(from url: String) -> Observable<[MeetingItem]> {
         return Observable.create { emitter in

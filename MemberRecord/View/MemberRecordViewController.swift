@@ -9,19 +9,21 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MyRecordViewController: UIViewController {
+class MemberRecordViewController: UIViewController {
     
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var yearMonthLabel: UILabel!
     @IBOutlet weak var prevMonthButton: UIButton!
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var calendarCollectionView: UICollectionView!
-    @IBOutlet weak var progressInfoView: UIView!
+    @IBOutlet weak var cheerButtonView: UIView!
     
-    @IBOutlet weak var circle1View: UIView!
-    @IBOutlet weak var circle2View: UIView!
-    @IBOutlet weak var circle3View: UIView!
-    @IBOutlet weak var circle4View: UIView!
+    @IBOutlet weak var cheerImageView: UIImageView!
+    @IBOutlet weak var cheerLabel: UILabel!
+    @IBOutlet weak var reportButtonView: UIView!
+    @IBOutlet weak var reportImageView: UIImageView!
+    @IBOutlet weak var reportLabel: UILabel!
+    var coverView :UIView?
     
     //MARK:- 캘린더을 위한 변수
     let now = Date()
@@ -40,10 +42,15 @@ class MyRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK:- 날짜 클릭 시 나타나게될 어두운 배경 뷰
+        coverView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        coverView?.backgroundColor = UIColor.clear
+        
+        
         //MARK:- 참여중인 모임 컬렉션 뷰
         //meetingListCollectionView.dataSource = self
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: K.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: K.MemberRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MemberRecord.Id.MeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
             let imageView = UIImageView()
             imageView.image = K.Image.Background
@@ -52,32 +59,32 @@ class MyRecordViewController: UIViewController {
         }()
         meetingListCollectionView.backgroundView = backgroundImageView
         
-        meetingListViewModel.meetingListSubject
-            .observe(on: MainScheduler.instance)
-            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-            
-                cell.meetingNameLabel.text = item.name
-                cell.progressValue = Double(item.progress)
-                cell.updateProgress()
-            }
-            .disposed(by: disposeBag)
-        
-        
-        //MARK:- 캘린더 컬렉션 뷰
-        //self.calendarCollectionView.dataSource = self
-        self.calendarCollectionView.delegate = self
-        self.calendarCollectionView.register(UINib(nibName: K.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId)
-        self.initView()
-        
-        recordListViewModel.recordListSubject
-            .observe(on: MainScheduler.instance)
-            .bind(to: calendarCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, cellType: CalendarCollectionViewCell.self)) { index, item, cell in
-            
+//        meetingListViewModel.meetingListSubject
+//            .observe(on: MainScheduler.instance)
+//            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.MemberRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+//
 //                cell.meetingNameLabel.text = item.name
 //                cell.progressValue = Double(item.progress)
 //                cell.updateProgress()
-            }
-            .disposed(by: disposeBag)
+//            }
+//            .disposed(by: disposeBag)
+        
+        
+        //MARK:- 캘린더 컬렉션 뷰
+        self.calendarCollectionView.dataSource = self
+        self.calendarCollectionView.delegate = self
+        self.calendarCollectionView.register(UINib(nibName: K.MemberRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MemberRecord.Id.CalendarCollectionViewCellId)
+        self.initView()
+        
+//        recordListViewModel.recordListSubject
+//            .observe(on: MainScheduler.instance)
+//            .bind(to: calendarCollectionView.rx.items(cellIdentifier: K.MemberRecord.Id.CalendarCollectionViewCellId, cellType: CalendarCollectionViewCell.self)) { index, item, cell in
+//
+////                cell.meetingNameLabel.text = item.name
+////                cell.progressValue = Double(item.progress)
+////                cell.updateProgress()
+//            }
+//            .disposed(by: disposeBag)
         
         //MARK:- 이전 달, 다음 달 버튼
         prevMonthButton.setImage(K.Image.PrevIcon, for: .normal)
@@ -85,21 +92,17 @@ class MyRecordViewController: UIViewController {
         
         nextMonthButton.setImage(K.Image.NextIcon, for: .normal)
         nextMonthButton.tintColor = K.Color.Black66
+
+        //MARK:- 응원하기 버튼
         
-        //MARK:- 진행률 정보 뷰
-        progressInfoView.backgroundColor = K.Color.Gray250
-        progressInfoView.layer.cornerRadius = 4
+        //MARK:- 신고하기 버튼
         
-        circle1View.layer.cornerRadius = circle1View.bounds.height/2
-        circle2View.layer.cornerRadius = circle2View.bounds.height/2
-        circle3View.layer.cornerRadius = circle3View.bounds.height/2
-        circle4View.layer.cornerRadius = circle4View.bounds.height/2
-        
-        circle1View.backgroundColor = K.Color.Puple1
-        circle2View.backgroundColor = K.Color.Puple2
-        circle3View.backgroundColor = K.Color.Puple3
-        circle4View.backgroundColor = K.Color.MainPuple
-        
+    }
+    //MARK:- 날짜 클릭 시 배경 어둡게 만들기
+    func addCoverView() {
+        UIView.transition(with: self.coverView!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.coverView?.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+        }, completion: nil)
     }
     
     //MARK:- 캘린더 컬렉션 뷰 초기 세팅
@@ -148,11 +151,18 @@ class MyRecordViewController: UIViewController {
         self.calculation()
         self.calendarCollectionView.reloadData()
     }
-
+    
+    //MARK:- 응원하기 버튼 클릭 시 액션
+    @IBAction func cheerButtonDidTap(_ sender: UIButton) {
+    }
+    //MARK:- 신고하기 버튼 클릭 시 액션
+    @IBAction func reportButtonDidTap(_ sender: UIButton) {
+    }
+    
 }
 
 //MARK:- CollectionView Delegate
-extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MemberRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == calendarCollectionView {
@@ -192,7 +202,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
 //            return cell
 //        }
         if collectionView == calendarCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MemberRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
             
             switch indexPath.section {
             case 0:
@@ -255,10 +265,26 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == calendarCollectionView {
-            print(components.year ?? "year 출력 오류")
-            print(components.month ?? "month 출력 오류")
-            print(days[indexPath.row])
             
+            switch indexPath.section {
+            case 0:
+                return
+            default:
+                if days[indexPath.row] == "" {
+                    return
+                }
+                else {
+                    print(components.year ?? "year 출력 오류")
+                    print(components.month ?? "month 출력 오류")
+                    print(days[indexPath.row])
+                    let recordDetailVC = RecordDetailViewController(nibName: K.MemberRecord.Name.RecordDetailViewControllerNibName, bundle: nil)
+                    recordDetailVC.modalPresentationStyle = .overCurrentContext
+                    
+                    addCoverView()
+                    self.view.addSubview(self.coverView!)
+                    self.present(recordDetailVC, animated: true, completion: nil)
+                }
+            }
         }
     }
 

@@ -14,7 +14,7 @@ class RecordListViewModel {
     var url = ""
     
     init() {
-        MyRecordService.getRecordList(from: url)
+        MemberRecordService.getRecordList(from: url)
             .map { recordList in
                 recordList.map {
                     Record($0)
