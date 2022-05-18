@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
     private let meetingListViewModel = MeetingListViewModel()
     private var meetingListCount = 0
     
-    private let recommandedMeetingListViewModel = RecommandedMeetingListViewModel()
+    private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
     
     private let sayingOfTodayViewModel = SayingOfTodayViewModel()
     
@@ -65,9 +65,9 @@ class HomeViewController: UIViewController {
             .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.nameLabel.text = item.name
-                cell.dDayLabel.text = "D-\(item.dDay)"
+                cell.dDayLabel.text = "디데이 업데이트 필요"
                 cell.progressValueLabel.text = "\(item.progess)%"
-                cell.numberOfpeopleLabel.text = "참여중인 방 \(item.numberOfpeople)/\(self.meetingListCount)"
+                cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
                 
                 //0~25%
                 if (0...25).contains(item.progess) {
@@ -129,12 +129,12 @@ class HomeViewController: UIViewController {
         categoryListCollectionView.register(UINib(nibName: K.Home.Name.CategoryListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.Home.Id.CategoryListCollectionViewCellId)
         
         //MARK:- 추천모임 리스트
-        recommandedMeetingListViewModel.recommandedMeetingListSubject
+        recommendedMeetingListViewModel.recommendedMeetingListSubject
             .observe(on: MainScheduler.instance)
             .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
-                cell.introductionLabel.text = item.introduction
+                cell.descriptLabel.text = item.descript
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
                 
             }

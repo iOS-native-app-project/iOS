@@ -11,7 +11,7 @@ class RecommendedMeetingListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var meetingImageView: UIImageView!
     @IBOutlet weak var meetingNameLabel: UILabel!
-    @IBOutlet weak var introductionLabel: UILabel!
+    @IBOutlet weak var descriptLabel: UILabel!
     
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var personImageView: UIImageView!
@@ -27,8 +27,8 @@ class RecommendedMeetingListCollectionViewCell: UICollectionViewCell {
         meetingNameLabel.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
         
         //MARK:- 한줄 소개
-        introductionLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
-        introductionLabel.textColor = UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1)
+        descriptLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
+        descriptLabel.textColor = UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1)
         
         //MARK:- 모임 이미지
         meetingImageView.layer.cornerRadius = 12

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -82,7 +81,7 @@
             </constraints>
             <size key="customSize" width="333" height="244"/>
             <connections>
-                <outlet property="introductionLabel" destination="iLx-6b-Mns" id="PJd-7c-yTX"/>
+                <outlet property="descriptLabel" destination="iLx-6b-Mns" id="PJd-7c-yTX"/>
                 <outlet property="meetingImageView" destination="bT0-8G-SMc" id="Dsf-V1-5Zp"/>
                 <outlet property="meetingNameLabel" destination="IXJ-PN-PEn" id="6eT-oL-wj9"/>
                 <outlet property="numberOfPeopleLabel" destination="GFz-wt-3ZD" id="PbI-9f-D1c"/>
