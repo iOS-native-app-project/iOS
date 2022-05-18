@@ -25,7 +25,21 @@ struct MeetingItem: Decodable {
     var cycle: Int
     var unit: String
     var targetAmount: Int
-//    var round: Int
-//    var memberCount: Int
+    var round: Int
+    var users: UserItem
+    var category: CategoryItem
+    var memberCount: Int
     var join: Bool
+}
+
+struct UserItem: Decodable {
+    var id: Int
+    var uid: String
+    var nickname: String
+    var imagePath: String?
+}
+
+struct CategoryItem: Decodable {
+    var id: Int
+    var name: String
 }

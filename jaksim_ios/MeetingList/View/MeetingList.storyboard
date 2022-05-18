@@ -71,7 +71,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cr5-dy-hA6">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cr5-dy-hA6">
                                                 <rect key="frame" x="0.0" y="122" width="374" height="628"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
@@ -156,32 +156,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-iw-syG">
-                                <rect key="frame" x="20" y="60" width="24" height="24"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxF-8D-Xi4">
+                                <rect key="frame" x="20" y="786" width="374" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="BPG-rE-bgM"/>
-                                    <constraint firstAttribute="height" constant="24" id="i72-ZV-RA5"/>
+                                    <constraint firstAttribute="height" constant="48" id="oGZ-OM-K7z"/>
                                 </constraints>
-                                <state key="normal" image="close"/>
-                                <connections>
-                                    <action selector="backButtonDidTap:" destination="qMs-NE-9E8" eventType="touchUpInside" id="0R8-On-ROi"/>
-                                </connections>
-                            </button>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB6-E8-tgr" customClass="EntranceInfoView" customModule="jaksim_ios" customModuleProvider="target">
                                 <rect key="frame" x="20" y="557" width="374" height="167"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="167" id="04R-jP-X5E"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-22-B6D">
-                                <rect key="frame" x="20" y="786" width="374" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="xs0-DV-hbF"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="entrancButtonDidTap:" destination="qMs-NE-9E8" eventType="touchUpInside" id="OxJ-H4-ffE"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mvm-Q5-N92">
                                 <rect key="frame" x="166.5" y="800" width="81" height="20"/>
                                 <subviews>
@@ -203,6 +189,26 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-iw-syG">
+                                <rect key="frame" x="20" y="60" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="BPG-rE-bgM"/>
+                                    <constraint firstAttribute="height" constant="24" id="i72-ZV-RA5"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonDidTap:" destination="qMs-NE-9E8" eventType="touchUpInside" id="0R8-On-ROi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-22-B6D">
+                                <rect key="frame" x="20" y="786" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="xs0-DV-hbF"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="entrancButtonDidTap:" destination="qMs-NE-9E8" eventType="touchUpInside" id="OxJ-H4-ffE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LMz-ck-rJS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,23 +220,29 @@
                             <constraint firstItem="9jX-22-B6D" firstAttribute="top" secondItem="eB6-E8-tgr" secondAttribute="bottom" constant="62" id="E59-aP-gPT"/>
                             <constraint firstItem="yPb-ro-xpy" firstAttribute="leading" secondItem="CSv-WL-MSH" secondAttribute="leading" id="FsK-PH-kxB"/>
                             <constraint firstItem="yPb-ro-xpy" firstAttribute="top" secondItem="CSv-WL-MSH" secondAttribute="top" id="Jgb-Em-Zwq"/>
+                            <constraint firstItem="OxF-8D-Xi4" firstAttribute="leading" secondItem="LMz-ck-rJS" secondAttribute="leading" constant="20" id="Lo7-wv-Qfb"/>
                             <constraint firstAttribute="bottom" secondItem="Hdv-oF-FzA" secondAttribute="bottom" id="OZW-3y-db7"/>
                             <constraint firstItem="Hdv-oF-FzA" firstAttribute="top" secondItem="CSv-WL-MSH" secondAttribute="top" id="PW8-Fx-T3Z"/>
                             <constraint firstItem="LMz-ck-rJS" firstAttribute="trailing" secondItem="eB6-E8-tgr" secondAttribute="trailing" constant="20" id="SGa-ym-8dp"/>
                             <constraint firstItem="WAg-iw-syG" firstAttribute="leading" secondItem="LMz-ck-rJS" secondAttribute="leading" constant="20" id="WLp-ML-lXa"/>
                             <constraint firstAttribute="trailing" secondItem="Hdv-oF-FzA" secondAttribute="trailing" id="XaL-do-Ma7"/>
+                            <constraint firstItem="OxF-8D-Xi4" firstAttribute="centerY" secondItem="9jX-22-B6D" secondAttribute="centerY" id="Xxb-b5-h7G"/>
                             <constraint firstAttribute="bottom" secondItem="yPb-ro-xpy" secondAttribute="bottom" id="Zi0-hr-B8W"/>
                             <constraint firstItem="Hdv-oF-FzA" firstAttribute="leading" secondItem="CSv-WL-MSH" secondAttribute="leading" id="eOl-1z-7Ov"/>
+                            <constraint firstItem="OxF-8D-Xi4" firstAttribute="centerX" secondItem="9jX-22-B6D" secondAttribute="centerX" id="ffM-EZ-YnT"/>
                             <constraint firstItem="mvm-Q5-N92" firstAttribute="centerX" secondItem="9jX-22-B6D" secondAttribute="centerX" id="hpa-T9-BJq"/>
                             <constraint firstItem="mvm-Q5-N92" firstAttribute="centerY" secondItem="9jX-22-B6D" secondAttribute="centerY" id="nna-C2-0D2"/>
+                            <constraint firstItem="LMz-ck-rJS" firstAttribute="trailing" secondItem="OxF-8D-Xi4" secondAttribute="trailing" constant="20" id="pEs-92-SSA"/>
                             <constraint firstItem="WAg-iw-syG" firstAttribute="top" secondItem="LMz-ck-rJS" secondAttribute="top" constant="16" id="pIN-oI-HbO"/>
                             <constraint firstItem="9jX-22-B6D" firstAttribute="leading" secondItem="LMz-ck-rJS" secondAttribute="leading" constant="20" id="vso-vf-Fes"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="WAg-iw-syG" id="OVp-kK-tjE"/>
                         <outlet property="backgroundImageView" destination="Hdv-oF-FzA" id="j2K-lk-sdg"/>
+                        <outlet property="closeButton" destination="WAg-iw-syG" id="OVp-kK-tjE"/>
                         <outlet property="entranceButton" destination="9jX-22-B6D" id="qbl-iU-HYl"/>
+                        <outlet property="entranceButtonView" destination="OxF-8D-Xi4" id="M5w-Vw-nfe"/>
+                        <outlet property="entranceInfoView" destination="eB6-E8-tgr" id="awR-iO-o9O"/>
                         <outlet property="entranceLabel" destination="7hn-gr-xmj" id="rKX-Cv-yvT"/>
                         <outlet property="lockImageView" destination="M7B-yl-sGL" id="2TB-Ie-HX3"/>
                     </connections>

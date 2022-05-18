@@ -8,18 +8,31 @@
 import Foundation
 
 struct Meeting {
+    var meetingId: String
     var name: String
-    //var numberOfpeople: Int
     var maximumNumber: Int
-    //var isLocked: Bool
-    var password: String
-    var description: String
+    var isLocked: Bool
+    var descript: String
+    var period: Int
+    var unit: String
+    var figure: Int
+    var category: String
+    var nickname: String
+    var userImage: String
+    var numberOfPeople: Int
     
     init(_ item: MeetingItem) {
+        meetingId = String(item.id)
         name = item.name
-        //numberOfpeople = item.memberCount
         maximumNumber = item.limit
-        password = item.password
-        description = item.descript
+        isLocked = item.password == "true" ? true : false
+        descript = item.descript
+        period = item.cycle
+        unit = item.unit
+        figure = item.targetAmount
+        category = item.category.name
+        nickname = item.users.nickname
+        userImage = item.users.imagePath ?? ""
+        numberOfPeople = item.memberCount
     }
 }
