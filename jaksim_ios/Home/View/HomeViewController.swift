@@ -27,7 +27,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recommendedMeetingShollAllButton: UIButton!
     
     private let meetingListViewModel = MeetingListViewModel()
+    private var meetingList = [Meeting]()
     private var meetingListCount = 0
+    
+    private var rateViewModel = RateViewModel()
+    private var progressList = [Int]()
+    private var reloadFlag = true
     
     private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
     
@@ -60,26 +65,28 @@ class HomeViewController: UIViewController {
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
             .do(onNext: { list in
+                self.meetingList = list
                 self.meetingListCount = list.count
+                self.progressList = Array(repeating: 100, count: self.meetingListCount)
             })
             .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.nameLabel.text = item.name
                 cell.dDayLabel.text = "디데이 업데이트 필요"
-                cell.progressValueLabel.text = "\(item.progess)%"
+                cell.progressValueLabel.text = "\(self.progressList[index])%"
                 cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
                 
                 //0~25%
-                if (0...25).contains(item.progess) {
+                if (0...25).contains(self.progressList[index]) {
                     cell.bannerImageView.image = K.Image.bannerImageList[0]
                 }
                 //26~50%
-                else if (26...50).contains(item.progess) {
+                else if (26...50).contains(self.progressList[index]) {
                     cell.bannerImageView.image = K.Image.bannerImageList[1]
                     cell.secondProgressBar.backgroundColor = .white
                 }
                 //51~75%
-                else if (51...75).contains(item.progess) {
+                else if (51...75).contains(self.progressList[index]) {
                     cell.bannerImageView.image = K.Image.bannerImageList[2]
                     cell.secondProgressBar.backgroundColor = .white
                     cell.thirdProgressBar.backgroundColor = .white
@@ -92,6 +99,10 @@ class HomeViewController: UIViewController {
                     cell.fourthProgressBar.backgroundColor = .white
                 }
                 
+                if self.reloadFlag {
+                    self.reloadFlag = false
+                    self.getProgress()
+                }
             }
             .disposed(by: disposeBag)
         
@@ -152,6 +163,24 @@ class HomeViewController: UIViewController {
 
 //MARK:- CollectionView Delegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    //MARK:- 참여중인 모임 리스트의 달성률 업데이트
+    private func getProgress() {
+        for (index, meeting) in meetingList.enumerated() {
+            let meetingId = meeting.meetingId
+            rateViewModel.updateMeetingId(meetingId: String(meetingId))
+            rateViewModel.updateProgress()
+            rateViewModel.rateSubject
+                .subscribe(onNext: { rate in
+                    self.progressList[index] = rate.progess
+                    
+                    if index == self.meetingList.count-1 {
+                        self.meetingListCollectionView.reloadData()
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 

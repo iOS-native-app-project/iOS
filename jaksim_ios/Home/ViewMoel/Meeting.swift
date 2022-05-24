@@ -11,9 +11,11 @@ struct Meeting {
     var name: String
     //var dDay: Int
     var progess: Int
+    var meetingId: Int
     
     init(_ item: MeetingItem) {
         name = item.name
-        progess = 73
+        progess = 100
+        meetingId = item.id
     }
 }
