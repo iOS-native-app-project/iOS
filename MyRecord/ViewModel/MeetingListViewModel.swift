@@ -11,8 +11,12 @@ import RxSwift
 class MeetingListViewModel {
     let disposeBag = DisposeBag()
     var meetingListSubject = BehaviorSubject<[Meeting]>(value: [])
-    var url = ""
+    var url = "https://jaksim.app/api/meeting/main"
     
+    
+    func fetchMeetingList() {
+        
+    }
     init() {
         MyRecordService.getMeetingList(from: url)
             .map { meetingList in
@@ -27,7 +31,6 @@ class MeetingListViewModel {
                 print(error)
             })
             .disposed(by: disposeBag)
-
-        //meetingListSubject.onNext(meetingList)
+        
     }
 }

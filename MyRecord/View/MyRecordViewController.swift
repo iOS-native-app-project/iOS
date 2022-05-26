@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class MyRecordViewController: UIViewController {
-    
+
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var yearMonthLabel: UILabel!
     @IBOutlet weak var prevMonthButton: UIButton!
@@ -23,25 +23,35 @@ class MyRecordViewController: UIViewController {
     @IBOutlet weak var circle3View: UIView!
     @IBOutlet weak var circle4View: UIView!
     
-    //MARK:- 캘린더을 위한 변수
-    let now = Date()
-    var cal = Calendar.current
-    let dateFormatter = DateFormatter()
-    var components = DateComponents()
-    var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
-    var days: [String] = []
-    var daysCountInMonth = 0
-    var weekdayAdding = 0
     
-    let meetingListViewModel = MeetingListViewModel()
-    let recordListViewModel = RecordListViewModel()
+    //MARK:- 캘린더을 위한 변수
+    private let now = Date()
+    private var cal = Calendar.current
+    private let dateFormatter = DateFormatter()
+    private var components = DateComponents()
+    private var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    private var days: [String] = []
+    private var daysCountInMonth = 0
+    private var weekdayAdding = 0
+    
+    private let meetingListViewModel = MeetingListViewModel()
+    private var meetingList = [Meeting]()
+    private var meetingIndex = 0
+    private var meetingLoadCount = 0
+    
+    private let recordListViewModel = RecordListViewModel()
+    private var recordList = [Record]()
+    private var recordIndex = 0
+    
+    private var progressList = [Int]()
+    private var reloadFlag = true
+    
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK:- 참여중인 모임 컬렉션 뷰
-        //meetingListCollectionView.dataSource = self
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: K.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
@@ -52,31 +62,63 @@ class MyRecordViewController: UIViewController {
         }()
         meetingListCollectionView.backgroundView = backgroundImageView
         
+        //paging 스크롤을 위한 레이아웃 세팅
+        meetingListCollectionView.decelerationRate = .fast
+        meetingListCollectionView.isPagingEnabled = false
+        let meetingCollectionViewLayout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 335, height: 98)
+            layout.minimumLineSpacing = (self.view.bounds.width - 335.0) / 2.0 - 5
+            layout.sectionInset = UIEdgeInsets(top: 0, left: (self.view.bounds.width - 335.0) / 2.0, bottom: 0, right: (self.view.bounds.width - 335.0) / 2.0)
+            layout.scrollDirection = .horizontal
+            return layout
+        }()
+        meetingListCollectionView.setCollectionViewLayout(meetingCollectionViewLayout, animated: true)
+        
+        //참여중인 모임 api binding
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.meetingList = list
+                self.progressList = Array(repeating: 0, count: self.meetingList.count)
+                self.calculation()
+            })
             .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-            
+                
                 cell.meetingNameLabel.text = item.name
-                cell.progressValue = Double(item.progress)
-                cell.updateProgress()
+                
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValue = Double(self.progressList[index])
+                
+                //달성률 데이터를 다 가져오면 progressBar view 업데이트
+                if !self.reloadFlag{
+                    cell.setProgressBar()
+                }
+                
+                //참여중인 모임을 가져온 후 달성률 api 호출
+                if self.reloadFlag {
+                    self.reloadFlag = false
+                    self.getProgress()
+                }
             }
             .disposed(by: disposeBag)
         
         
         //MARK:- 캘린더 컬렉션 뷰
-        //self.calendarCollectionView.dataSource = self
+        self.calendarCollectionView.dataSource = self
         self.calendarCollectionView.delegate = self
         self.calendarCollectionView.register(UINib(nibName: K.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId)
         self.initView()
         
+        //MARK:- 나의 기록(1달 단위) api binding
         recordListViewModel.recordListSubject
             .observe(on: MainScheduler.instance)
-            .bind(to: calendarCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, cellType: CalendarCollectionViewCell.self)) { index, item, cell in
-            
-//                cell.meetingNameLabel.text = item.name
-//                cell.progressValue = Double(item.progress)
-//                cell.updateProgress()
-            }
+            .subscribe(onNext: { recordList in
+                self.recordList = recordList
+                
+                //기록 가져온 후 progress View 세팅을 위한 reloadData
+                self.calendarCollectionView.reloadData()
+            })
             .disposed(by: disposeBag)
         
         //MARK:- 이전 달, 다음 달 버튼
@@ -112,11 +154,10 @@ class MyRecordViewController: UIViewController {
         components.year = cal.component(.year, from: now)
         components.month = cal.component(.month, from: now)
         components.day = 1
-        self.calculation()
     }
     
     //MARK:- 캘린더 계산 함수
-    private func calculation() {
+    private func calculation(){
         let firstDayOfMonth = cal.date(from: components)
         let firstWeekday = cal.component(.weekday, from: firstDayOfMonth!)
         daysCountInMonth = cal.range(of: .day, in: .month, for: firstDayOfMonth!)!.count
@@ -131,6 +172,13 @@ class MyRecordViewController: UIViewController {
             } else {
                 self.days.append(String(day))
             }
+        }
+    
+        //캘린더 세팅 후 meeting id를 통해 나의 기록 api 요청
+        if meetingList.count > 0 {
+            self.recordList.removeAll()
+            self.recordIndex = 0
+            self.getRecord(meetingId: meetingIndex+1, year: components.year!, month: components.month!)
         }
     }
     
@@ -148,12 +196,40 @@ class MyRecordViewController: UIViewController {
         self.calculation()
         self.calendarCollectionView.reloadData()
     }
-
+    
+    
+    //MARK:- 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
+    private func getProgress() {
+        //달성률 api를 참여중인 모임 개수만큼 호출
+        for (index, meeting) in meetingList.enumerated() {
+            let rateViewModel = RateViewModel()
+            let meetingId = meeting.meetingId
+            rateViewModel.updateMeetingId(meetingId: String(meetingId))
+            rateViewModel.fetchProgress()
+            rateViewModel.rateSubject
+                .subscribe(onNext: { rate in
+                    self.meetingLoadCount += 1
+                    self.progressList[index] = rate.progress
+                    
+                    //참여중인 '마지막' 모임에 대한 달성률 가져왔을 때 reloadData
+                    if self.meetingLoadCount == self.meetingList.count {
+                        self.meetingListCollectionView.reloadData()
+                    }
+                })
+                .disposed(by: disposeBag)
+        }
+    }
+    
+    //MARK:- api를 통해 기록 요청
+    private func getRecord(meetingId: Int, year: Int, month: Int){
+        recordListViewModel.fetchRecord(meetingId: meetingId, year: year, month: month)
+    }
 }
 
 //MARK:- CollectionView Delegate
 extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    //MARK:- 컬렉션뷰 섹션 수
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == calendarCollectionView {
             return 2
@@ -161,11 +237,9 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         else { return 1 }
     }
     
+    //MARK:- 컬렉션뷰 섹션 당 셀개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-//        if collectionView == meetingListCollectionView{
-//            return meetingList.count
-//        }
         if collectionView == calendarCollectionView {
             switch section {
             case 0:
@@ -182,26 +256,18 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        if collectionView == meetingListCollectionView{
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, for: indexPath) as? MeetingListCollectionViewCell else {
-//                return UICollectionViewCell()
-//            }
-//            
-//            cell.meetingNameLabel.text = meetingList[indexPath.row]
-//            
-//            return cell
-//        }
+        //MARK:- 캘린더 컬렉션뷰 셀 dataSoruce
         if collectionView == calendarCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
             
             switch indexPath.section {
             case 0:
                 cell.dateLabel.text = weeks[indexPath.row]
-                cell.progressView.backgroundColor = .none
                 cell.imageView = .none
+                cell.progressView.backgroundColor = .none
             default:
+                cell.progressView.backgroundColor = .none
                 cell.dateLabel.text = days[indexPath.row]
-                cell.progressView.backgroundColor = .systemPink
                 cell.year = components.year
                 cell.month = components.month
                 if days[indexPath.row] == "" {
@@ -209,6 +275,25 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                 }
                 else {
                     cell.day = Int(days[indexPath.row])!
+                    cell.backgroundColor = .none
+                    
+                    //기록데이터가 있으면 진행률에 따라 progress view 색칠하기
+                    if self.recordIndex < self.recordList.count {
+                        let record = self.recordList[recordIndex]
+                        if record.day == Int(days[indexPath.row])! {
+                            cell.progressView.backgroundColor = .systemPink
+                            recordIndex += 1
+                        }
+                    }
+                    //오늘 날짜에 점선 테두리 그리기
+                    if cell.year == cal.component(.year, from: now)
+                    && cell.month == cal.component(.month, from: now)
+                    && cell.day == cal.component(.day, from: now) {
+                        cell.borderLayer.strokeColor = UIColor.black.cgColor
+                    }
+                    else {
+                        cell.borderLayer.strokeColor = .none
+                    }
                 }
             }
             
@@ -222,6 +307,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
     
+    //MARK:- 컬렉션뷰 셀 크기
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == meetingListCollectionView{
@@ -240,27 +326,51 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        if collectionView == meetingListCollectionView{
-            return 12
-        }
-        else {
-            return 0
-        }
-    }
-    
+    //MARK:- 컬렉션뷰 셀 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    
+    //MARK:- 캘린더 컬렉션뷰 셀 클릭 시 액션
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == calendarCollectionView {
             print(components.year ?? "year 출력 오류")
             print(components.month ?? "month 출력 오류")
             print(days[indexPath.row])
-            
         }
     }
-
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == meetingListCollectionView {
+            let cell = cell as! MeetingListCollectionViewCell
+            cell.setProgressBar()
+        }
+    }
+}
+
+//MARK:- 참여중인 모임 리스트 페이징 세팅(한 장 넘길 때마다 가운데 오도록)
+extension MyRecordViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        guard let layout = self.meetingListCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        let estimatedIndex = scrollView.contentOffset.x / cellWidthIncludingSpacing
+        var index: Int
+        if velocity.x > 0 {
+            index = Int(ceil(estimatedIndex))
+        } else if velocity.x < 0 {
+            index = Int(floor(estimatedIndex))
+        } else {
+            index = Int(round(estimatedIndex))
+        }
+        if index < 0 { index = 0}
+        if index >= meetingList.count { index = meetingList.count-1}
+        
+        targetContentOffset.pointee = CGPoint(x: CGFloat(index) * cellWidthIncludingSpacing, y: 0)
+        
+        self.meetingIndex = index
+        self.calculation()
+    }
 }

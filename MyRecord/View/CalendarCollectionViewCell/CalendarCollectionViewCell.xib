@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +15,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="137" height="128"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-d1-wgE">
+                        <rect key="frame" x="0.0" y="0.0" width="137" height="128"/>
+                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Rn-Xg-VZw">
                         <rect key="frame" x="0.0" y="0.0" width="137" height="128"/>
                         <subviews>
@@ -30,7 +32,6 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="0R3-t4-Y9q"/>
                                     <constraint firstAttribute="width" constant="36" id="FCq-mo-CNh"/>
@@ -52,16 +53,13 @@
                             <constraint firstItem="ALc-uc-4mz" firstAttribute="centerX" secondItem="8Rn-Xg-VZw" secondAttribute="centerX" id="wSE-bo-lIT"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-d1-wgE">
-                        <rect key="frame" x="0.0" y="0.0" width="137" height="76"/>
-                    </button>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="eCW-d1-wgE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Ts-e2-vAL"/>
                 <constraint firstItem="eCW-d1-wgE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Bsw-2u-Rqb"/>
                 <constraint firstAttribute="trailing" secondItem="8Rn-Xg-VZw" secondAttribute="trailing" id="TjV-Vt-C7i"/>
-                <constraint firstAttribute="bottom" secondItem="eCW-d1-wgE" secondAttribute="bottom" constant="52" id="cve-wk-Fzf"/>
+                <constraint firstAttribute="bottom" secondItem="eCW-d1-wgE" secondAttribute="bottom" id="cve-wk-Fzf"/>
                 <constraint firstItem="8Rn-Xg-VZw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ewW-Br-D7O"/>
                 <constraint firstAttribute="trailing" secondItem="eCW-d1-wgE" secondAttribute="trailing" id="nbj-j5-TDN"/>
                 <constraint firstAttribute="bottom" secondItem="8Rn-Xg-VZw" secondAttribute="bottom" id="qiJ-Sb-1yf"/>
@@ -77,9 +75,4 @@
             <point key="canvasLocation" x="136.95652173913044" y="107.8125"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

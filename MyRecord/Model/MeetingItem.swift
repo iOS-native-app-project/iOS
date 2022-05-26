@@ -15,17 +15,17 @@ struct MeetingDataItem: Decodable {
 
 struct MeetingItem: Decodable {
     var id: Int
+    var created_at: String
+    var updated_at: String
     var name: String
     var image: String
-    var categoryId: Int
+    var category_id: Int
     var descript: String
     var limit: Int
-    var ownerId: Int
+    var owner_id: Int
     var password: String
     var cycle: Int
     var unit: String
-    var targetAmount: Int
-//    var round: Int
-//    var memberCount: Int
-    var join: Bool
+    var target_amount: Int
+    var round: Int
 }
