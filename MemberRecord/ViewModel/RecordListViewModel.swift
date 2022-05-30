@@ -13,8 +13,10 @@ class RecordListViewModel {
     var recordListSubject = BehaviorSubject<[Record]>(value: [])
     var url = ""
     
-    init() {
-        MemberRecordService.getRecordList(from: url)
+    func fetchRecord(meetingId: Int, year: Int, month: Int) {
+        url = "https://jaksim.app/api/meeting/\(String(meetingId))/record?year=\(String(year))&month=\(String(month))"
+        
+        MemberRecordService.getRecordList(from: url, meetingId: meetingId, year: year, month: month)
             .map { recordList in
                 recordList.map {
                     Record($0)
@@ -27,11 +29,5 @@ class RecordListViewModel {
                 print(error)
             })
             .disposed(by: disposeBag)
-        
-        let recordList: [Record] = [
-
-        ]
-
-        recordListSubject.onNext(recordList)
     }
 }

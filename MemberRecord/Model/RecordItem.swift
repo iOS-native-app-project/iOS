@@ -10,13 +10,15 @@ import Foundation
 struct RecordDataItem: Decodable {
     var success: Bool
     var statusCode: Int
-    var data: [RecordItem]
+    var data: [RecordItem]?
 }
 
 struct RecordItem: Decodable {
-    var year: Int
-    var month: Int
-    var day: Int
-    var progress: Int
-    var image: String
+    var id: Int
+    var meetingUserId: Int
+    var meetingId: Int
+    var date: String
+    var value: Int
+    var image: String?
+    var descript: String?
 }

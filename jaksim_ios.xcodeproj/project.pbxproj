@@ -18,6 +18,9 @@
 		1807460B283394C4001299C7 /* RecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18074609283394C4001299C7 /* RecordDetailViewController.xib */; };
 		180C4F7B27E34BB400168B04 /* MemberRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180C4F7A27E34BB400168B04 /* MemberRecord.storyboard */; };
 		180C4F7D27E34BD300168B04 /* MemberRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C4F7C27E34BD300168B04 /* MemberRecordViewController.swift */; };
+		1810AAD72844A3300025BBAE /* RateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810AAD62844A3300025BBAE /* RateItem.swift */; };
+		1810AAD92844A3430025BBAE /* RateViewModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810AAD82844A3430025BBAE /* RateViewModelList.swift */; };
+		1810AADB2844A3750025BBAE /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1810AADA2844A3750025BBAE /* Rate.swift */; };
 		1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816B66B27E8B41700FBDFA8 /* Constant.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
@@ -45,6 +48,9 @@
 		18074609283394C4001299C7 /* RecordDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordDetailViewController.xib; sourceTree = "<group>"; };
 		180C4F7A27E34BB400168B04 /* MemberRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberRecord.storyboard; sourceTree = "<group>"; };
 		180C4F7C27E34BD300168B04 /* MemberRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRecordViewController.swift; sourceTree = "<group>"; };
+		1810AAD62844A3300025BBAE /* RateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItem.swift; sourceTree = "<group>"; };
+		1810AAD82844A3430025BBAE /* RateViewModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModelList.swift; sourceTree = "<group>"; };
+		1810AADA2844A3750025BBAE /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		1816B66B27E8B41700FBDFA8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 				180745F7282C1357001299C7 /* Service.swift */,
 				180745F9282C1367001299C7 /* MeetingItem.swift */,
 				180745FB282C1373001299C7 /* RecordItem.swift */,
+				1810AAD62844A3300025BBAE /* RateItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +115,8 @@
 				18074602282C1445001299C7 /* MeetingListViewModel.swift */,
 				180745FF282C1427001299C7 /* Record.swift */,
 				18074604282C144E001299C7 /* RecordListViewModel.swift */,
+				1810AAD82844A3430025BBAE /* RateViewModelList.swift */,
+				1810AADA2844A3750025BBAE /* Rate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -320,16 +329,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1810AADB2844A3750025BBAE /* Rate.swift in Sources */,
 				18EEAEA82823B5B200EC0786 /* CalendarCollectionViewCell.swift in Sources */,
 				180745FE282C141E001299C7 /* Meeting.swift in Sources */,
 				1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				180745FA282C1367001299C7 /* MeetingItem.swift in Sources */,
+				1810AAD92844A3430025BBAE /* RateViewModelList.swift in Sources */,
 				180C4F7D27E34BD300168B04 /* MemberRecordViewController.swift in Sources */,
 				18074600282C1427001299C7 /* Record.swift in Sources */,
 				1807460A283394C4001299C7 /* RecordDetailViewController.swift in Sources */,
 				180745FC282C1373001299C7 /* RecordItem.swift in Sources */,
+				1810AAD72844A3300025BBAE /* RateItem.swift in Sources */,
 				180745F8282C1357001299C7 /* Service.swift in Sources */,
 				18074605282C144E001299C7 /* RecordListViewModel.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,

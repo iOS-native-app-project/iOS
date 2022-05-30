@@ -52,24 +52,16 @@
                             <constraint firstItem="ALc-uc-4mz" firstAttribute="centerX" secondItem="8Rn-Xg-VZw" secondAttribute="centerX" id="wSE-bo-lIT"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCW-d1-wgE">
-                        <rect key="frame" x="0.0" y="0.0" width="137" height="76"/>
-                    </button>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="eCW-d1-wgE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9Ts-e2-vAL"/>
-                <constraint firstItem="eCW-d1-wgE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Bsw-2u-Rqb"/>
                 <constraint firstAttribute="trailing" secondItem="8Rn-Xg-VZw" secondAttribute="trailing" id="TjV-Vt-C7i"/>
-                <constraint firstAttribute="bottom" secondItem="eCW-d1-wgE" secondAttribute="bottom" constant="52" id="cve-wk-Fzf"/>
                 <constraint firstItem="8Rn-Xg-VZw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ewW-Br-D7O"/>
-                <constraint firstAttribute="trailing" secondItem="eCW-d1-wgE" secondAttribute="trailing" id="nbj-j5-TDN"/>
                 <constraint firstAttribute="bottom" secondItem="8Rn-Xg-VZw" secondAttribute="bottom" id="qiJ-Sb-1yf"/>
                 <constraint firstItem="8Rn-Xg-VZw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="z7J-Wf-7ek"/>
             </constraints>
             <size key="customSize" width="137" height="128"/>
             <connections>
-                <outlet property="actionButton" destination="eCW-d1-wgE" id="5wB-bn-xyb"/>
                 <outlet property="dateLabel" destination="ALc-uc-4mz" id="oNi-lz-gH8"/>
                 <outlet property="imageView" destination="Yoc-F8-Aek" id="xAG-Yq-gan"/>
                 <outlet property="progressView" destination="dl6-bp-kv6" id="50e-C6-D76"/>

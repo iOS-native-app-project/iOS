@@ -15,24 +15,31 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressBackBarView: UIView!
     
     let progressBarView = UIView()
-    var progressValue = 50.0
+    var progressValue = 0.0
+    var progreesBarConstraint: NSLayoutConstraint?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 12
         
         //MARK:- 진행률 바 뷰
-        progressBackBarView.addSubview(progressBarView)
+        
+        self.progressBackBarView.addSubview(progressBarView)
+
+        let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
+
         progressBarView.backgroundColor = K.Color.MainPuple
+
         progressBarView.translatesAutoresizingMaskIntoConstraints = false
         progressBarView.leadingAnchor.constraint(equalTo: progressBackBarView.leadingAnchor).isActive = true
         progressBarView.centerYAnchor.constraint(equalTo:progressBackBarView.centerYAnchor)
             .isActive = true
         progressBarView.heightAnchor.constraint(equalToConstant: progressBackBarView.frame.height)
             .isActive = true
-        let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
-        progressBarView.widthAnchor.constraint(equalToConstant: progressGage)
-            .isActive = true
+            
+        progreesBarConstraint = progressBarView.widthAnchor.constraint(equalToConstant: progressGage)
+        progreesBarConstraint?.isActive = true
+        
         progressBarView.layer.cornerRadius = progressBackBarView.frame.height/2
         
         //MARK:- 진행률 백그라운드 바 뷰
@@ -44,10 +51,14 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         
     }
 
-    func updateProgress() {
+    //MARK:- progressValue 값이 들어오면 호출되는 함수. progressBar를 진행률 만큼 그리기
+    func setProgressBar() {
+
         let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
-        progressBarView.widthAnchor.constraint(equalToConstant: progressGage)
-            .isActive = true
+    
+        progreesBarConstraint?.isActive = false
+        progreesBarConstraint = progressBarView.widthAnchor.constraint(equalToConstant: progressGage)
+        progreesBarConstraint?.isActive = true
         
         progressValueLabel.text = "\(String(Int(progressValue)))%"
     }
