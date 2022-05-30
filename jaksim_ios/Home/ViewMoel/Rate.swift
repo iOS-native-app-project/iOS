@@ -8,9 +8,9 @@
 import Foundation
 
 struct Rate {
-    var progess: Int
+    var progress: Int
     
     init(_ item: RateItem) {
-        progess = item.data
+        progress = item.data
     }
 }

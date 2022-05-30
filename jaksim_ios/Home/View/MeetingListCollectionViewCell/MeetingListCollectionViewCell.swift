@@ -22,6 +22,7 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thirdProgressBar: UIView!
     @IBOutlet weak var fourthProgressBar: UIView!
     
+    var progressValue = 0.0
     var progressBar = [UIView]()
 
     override func awakeFromNib() {
@@ -66,6 +67,32 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         numberOfpeopleLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
         numberOfpeopleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 12)
         numberOfpeopleLabel.textAlignment = .center
+    }
+    
+    //MARK:- progressValue 값이 들어오면 호출되는 함수. progressBar를 진행률 만큼 그리기
+    func setProgressBar() {
+        //0~25%
+        if (0...25).contains(self.progressValue) {
+            bannerImageView.image = K.Image.bannerImageList[0]
+        }
+        //26~50%
+        else if (26...50).contains(self.progressValue) {
+            bannerImageView.image = K.Image.bannerImageList[1]
+            secondProgressBar.backgroundColor = .white
+        }
+        //51~75%
+        else if (51...75).contains(self.progressValue) {
+            bannerImageView.image = K.Image.bannerImageList[2]
+            secondProgressBar.backgroundColor = .white
+            thirdProgressBar.backgroundColor = .white
+        }
+        //76~100%
+        else {
+            bannerImageView.image = K.Image.bannerImageList[3]
+            secondProgressBar.backgroundColor = .white
+            thirdProgressBar.backgroundColor = .white
+            fourthProgressBar.backgroundColor = .white
+        }
     }
 
 }

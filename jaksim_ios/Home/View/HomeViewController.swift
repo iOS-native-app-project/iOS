@@ -29,8 +29,9 @@ class HomeViewController: UIViewController {
     private let meetingListViewModel = MeetingListViewModel()
     private var meetingList = [Meeting]()
     private var meetingListCount = 0
+    private var meetingLoadCount = 0
     
-    private var rateViewModel = RateViewModel()
+    //private var rateViewModel = RateViewModel()
     private var progressList = [Int]()
     private var reloadFlag = true
     
@@ -41,11 +42,11 @@ class HomeViewController: UIViewController {
     private var disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            
-            navigationController?.setNavigationBarHidden(true, animated: animated)
-        }
-
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,36 +68,23 @@ class HomeViewController: UIViewController {
             .do(onNext: { list in
                 self.meetingList = list
                 self.meetingListCount = list.count
-                self.progressList = Array(repeating: 100, count: self.meetingListCount)
+                self.progressList = Array(repeating: 0, count: self.meetingListCount)
             })
             .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.nameLabel.text = item.name
                 cell.dDayLabel.text = "디데이 업데이트 필요"
-                cell.progressValueLabel.text = "\(self.progressList[index])%"
                 cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
                 
-                //0~25%
-                if (0...25).contains(self.progressList[index]) {
-                    cell.bannerImageView.image = K.Image.bannerImageList[0]
-                }
-                //26~50%
-                else if (26...50).contains(self.progressList[index]) {
-                    cell.bannerImageView.image = K.Image.bannerImageList[1]
-                    cell.secondProgressBar.backgroundColor = .white
-                }
-                //51~75%
-                else if (51...75).contains(self.progressList[index]) {
-                    cell.bannerImageView.image = K.Image.bannerImageList[2]
-                    cell.secondProgressBar.backgroundColor = .white
-                    cell.thirdProgressBar.backgroundColor = .white
-                }
-                //76~100%
-                else {
-                    cell.bannerImageView.image = K.Image.bannerImageList[3]
-                    cell.secondProgressBar.backgroundColor = .white
-                    cell.thirdProgressBar.backgroundColor = .white
-                    cell.fourthProgressBar.backgroundColor = .white
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValueLabel.text = "\(self.progressList[index])%"
+                
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValue = Double(self.progressList[index])
+                
+                //달성률 데이터를 다 가져오면 progressBar view 업데이트
+                if !self.reloadFlag{
+                    cell.setProgressBar()
                 }
                 
                 if self.reloadFlag {
@@ -155,35 +143,39 @@ class HomeViewController: UIViewController {
         recommendedMeetingTitleLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
         recommendedMeetingShollAllButton.titleLabel!.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
         recommendedMeetingShollAllButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal)
-       
+        
         recommendedMeetingListCollectionView.delegate = self
         recommendedMeetingListCollectionView.register(UINib(nibName: K.Home.Name.RecommendedMeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.Home.Id.RecommendedMeetingListCollectionViewCellId)
     }
-}
-
-//MARK:- CollectionView Delegate
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    //MARK:- 참여중인 모임 리스트의 달성률 업데이트
+    //MARK:- 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
     private func getProgress() {
+        //달성률 api를 참여중인 모임 개수만큼 호출
         for (index, meeting) in meetingList.enumerated() {
+            let rateViewModel = RateViewModel()
             let meetingId = meeting.meetingId
             rateViewModel.updateMeetingId(meetingId: String(meetingId))
-            rateViewModel.updateProgress()
+            rateViewModel.fetchProgress()
             rateViewModel.rateSubject
                 .subscribe(onNext: { rate in
-                    self.progressList[index] = rate.progess
+                    self.meetingLoadCount += 1
+                    self.progressList[index] = rate.progress
                     
-                    if index == self.meetingList.count-1 {
+                    //참여중인 '마지막' 모임에 대한 달성률 가져왔을 때 reloadData
+                    if self.meetingLoadCount == self.meetingList.count {
                         self.meetingListCollectionView.reloadData()
                     }
                 })
                 .disposed(by: disposeBag)
         }
     }
+}
 
+//MARK:- CollectionView Delegate
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        
         if collectionView == categoryListCollectionView{
             return K.Home.Text.CategoryList.count
         }
@@ -193,7 +185,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == categoryListCollectionView {

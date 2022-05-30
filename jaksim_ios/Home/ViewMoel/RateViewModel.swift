@@ -19,7 +19,7 @@ class RateViewModel {
         self.url = "https://jaksim.app/api/meeting/\(meetingId)/my/rate"
     }
     
-    func updateProgress() {
+    func fetchProgress() {
         HomeService.getRate(from: url)
             .subscribe(onNext: {
                 self.rateSubject.onNext(Rate($0))

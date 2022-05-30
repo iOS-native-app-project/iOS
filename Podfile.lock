@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.1)
+  - DropDown (2.3.13)
   - Firebase/CoreOnly (8.15.0):
     - FirebaseCore (= 8.15.0)
   - Firebase/Messaging (8.15.0):
@@ -99,6 +100,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - DropDown
   - Firebase/Messaging
   - KakaoSDK
   - Kingfisher (~> 7.0)
@@ -110,6 +112,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DropDown
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -137,6 +140,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
@@ -162,6 +166,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 752bf37bc580d24090364ddfa7bafa49c4703253
+PODFILE CHECKSUM: 6bf8745939143e051f21d297a597d4bbceb800a5
 
 COCOAPODS: 1.11.3
