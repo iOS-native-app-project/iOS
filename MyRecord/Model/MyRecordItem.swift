@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct RecordDataItem: Decodable {
+struct MyRecordDataItem: Decodable {
     var success: Bool
     var statusCode: Int
-    var data: [RecordItem]?
+    var data: [MyRecordItem]?
 }
 
-struct RecordItem: Decodable {
+struct MyRecordItem: Decodable {
     var id: Int
     var meetingUserId: Int
     var meetingId: Int

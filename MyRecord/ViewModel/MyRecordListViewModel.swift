@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-class RecordListViewModel {
+class MyRecordListViewModel {
     let disposeBag = DisposeBag()
-    var recordListSubject = BehaviorSubject<[Record]>(value: [])
+    var recordListSubject = BehaviorSubject<[MyRecord]>(value: [])
     var url = ""
     
     func fetchRecord(meetingId: Int, year: Int, month: Int) {
@@ -19,7 +19,7 @@ class RecordListViewModel {
         MyRecordService.getRecordList(from: url, meetingId: meetingId, year: year, month: month)
             .map { recordList in
                 recordList.map {
-                    Record($0)
+                    MyRecord($0)
                 }
             }
             .subscribe(onNext: {

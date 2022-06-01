@@ -39,8 +39,8 @@ class MyRecordViewController: UIViewController {
     private var meetingIndex = 0
     private var meetingLoadCount = 0
     
-    private let recordListViewModel = RecordListViewModel()
-    private var recordList = [Record]()
+    private let recordListViewModel = MyRecordListViewModel()
+    private var recordList = [MyRecord]()
     private var recordIndex = 0
     
     private var progressList = [Int]()
@@ -53,10 +53,10 @@ class MyRecordViewController: UIViewController {
         
         //MARK:- 참여중인 모임 컬렉션 뷰
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: K.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: Constant.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.MeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
             let imageView = UIImageView()
-            imageView.image = K.Image.Background
+            imageView.image = Constant.Image.Background
             imageView.contentMode = .scaleAspectFill
             return imageView
         }()
@@ -83,7 +83,7 @@ class MyRecordViewController: UIViewController {
                 self.progressList = Array(repeating: 0, count: self.meetingList.count)
                 self.calculation()
             })
-            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: K.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
                 
@@ -107,7 +107,7 @@ class MyRecordViewController: UIViewController {
         //MARK:- 캘린더 컬렉션 뷰
         self.calendarCollectionView.dataSource = self
         self.calendarCollectionView.delegate = self
-        self.calendarCollectionView.register(UINib(nibName: K.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId)
+        self.calendarCollectionView.register(UINib(nibName: Constant.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.CalendarCollectionViewCellId)
         self.initView()
         
         //MARK:- 나의 기록(1달 단위) api binding
@@ -122,14 +122,14 @@ class MyRecordViewController: UIViewController {
             .disposed(by: disposeBag)
         
         //MARK:- 이전 달, 다음 달 버튼
-        prevMonthButton.setImage(K.Image.PrevIcon, for: .normal)
-        prevMonthButton.tintColor = K.Color.Black66
+        prevMonthButton.setImage(Constant.Image.PrevIcon, for: .normal)
+        prevMonthButton.tintColor = Constant.Color.Black66
         
-        nextMonthButton.setImage(K.Image.NextIcon, for: .normal)
-        nextMonthButton.tintColor = K.Color.Black66
+        nextMonthButton.setImage(Constant.Image.NextIcon, for: .normal)
+        nextMonthButton.tintColor = Constant.Color.Black66
         
         //MARK:- 진행률 정보 뷰
-        progressInfoView.backgroundColor = K.Color.Gray250
+        progressInfoView.backgroundColor = Constant.Color.Gray250
         progressInfoView.layer.cornerRadius = 4
         
         circle1View.layer.cornerRadius = circle1View.bounds.height/2
@@ -137,10 +137,10 @@ class MyRecordViewController: UIViewController {
         circle3View.layer.cornerRadius = circle3View.bounds.height/2
         circle4View.layer.cornerRadius = circle4View.bounds.height/2
         
-        circle1View.backgroundColor = K.Color.Puple1
-        circle2View.backgroundColor = K.Color.Puple2
-        circle3View.backgroundColor = K.Color.Puple3
-        circle4View.backgroundColor = K.Color.MainPuple
+        circle1View.backgroundColor = Constant.Color.Puple1
+        circle2View.backgroundColor = Constant.Color.Puple2
+        circle3View.backgroundColor = Constant.Color.Puple3
+        circle4View.backgroundColor = Constant.Color.MainPuple
         
     }
     
@@ -202,7 +202,7 @@ class MyRecordViewController: UIViewController {
     private func getProgress() {
         //달성률 api를 참여중인 모임 개수만큼 호출
         for (index, meeting) in meetingList.enumerated() {
-            let rateViewModel = RateViewModel()
+            let rateViewModel = MyRateViewModel()
             let meetingId = meeting.meetingId
             rateViewModel.updateMeetingId(meetingId: String(meetingId))
             rateViewModel.fetchProgress()
@@ -258,7 +258,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         
         //MARK:- 캘린더 컬렉션뷰 셀 dataSoruce
         if collectionView == calendarCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
             
             switch indexPath.section {
             case 0:

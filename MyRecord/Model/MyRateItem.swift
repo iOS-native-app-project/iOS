@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RateItem: Decodable {
+struct MyRateItem: Decodable {
     var success: Bool
     var statusCode: Int
     var data: Int

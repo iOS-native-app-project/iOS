@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		180745F8282C1357001299C7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745F7282C1357001299C7 /* Service.swift */; };
+		180745F8282C1357001299C7 /* MyRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745F7282C1357001299C7 /* MyRecordService.swift */; };
 		180745FA282C1367001299C7 /* MeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745F9282C1367001299C7 /* MeetingItem.swift */; };
-		180745FC282C1373001299C7 /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FB282C1373001299C7 /* RecordItem.swift */; };
+		180745FC282C1373001299C7 /* MyRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FB282C1373001299C7 /* MyRecordItem.swift */; };
 		180745FE282C141E001299C7 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FD282C141E001299C7 /* Meeting.swift */; };
-		18074600282C1427001299C7 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FF282C1427001299C7 /* Record.swift */; };
+		18074600282C1427001299C7 /* MyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FF282C1427001299C7 /* MyRecord.swift */; };
 		18074603282C1445001299C7 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074602282C1445001299C7 /* MeetingListViewModel.swift */; };
-		18074605282C144E001299C7 /* RecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074604282C144E001299C7 /* RecordListViewModel.swift */; };
+		18074605282C144E001299C7 /* MyRecordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18074604282C144E001299C7 /* MyRecordListViewModel.swift */; };
 		180C4F7B27E34BB400168B04 /* MyRecord.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180C4F7A27E34BB400168B04 /* MyRecord.storyboard */; };
 		180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */; };
 		1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1816B66B27E8B41700FBDFA8 /* Constant.swift */; };
@@ -25,9 +25,9 @@
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
 		1878A50E27E8D8360015A63E /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */; };
-		18B21B8B283D4C860012DF8C /* RateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8A283D4C860012DF8C /* RateItem.swift */; };
-		18B21B8D283D4CAC0012DF8C /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8C283D4CAC0012DF8C /* RateViewModel.swift */; };
-		18B21B8F283D4CB80012DF8C /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8E283D4CB80012DF8C /* Rate.swift */; };
+		18B21B8B283D4C860012DF8C /* MyRateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8A283D4C860012DF8C /* MyRateItem.swift */; };
+		18B21B8D283D4CAC0012DF8C /* MyRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8C283D4CAC0012DF8C /* MyRateViewModel.swift */; };
+		18B21B8F283D4CB80012DF8C /* MyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B8E283D4CB80012DF8C /* MyRate.swift */; };
 		18EEAEA82823B5B200EC0786 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EEAEA62823B5B200EC0786 /* CalendarCollectionViewCell.swift */; };
 		18EEAEA92823B5B200EC0786 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EEAEA72823B5B200EC0786 /* CalendarCollectionViewCell.xib */; };
 		18EEAEAF2823C98900EC0786 /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EEAEAE2823C98900EC0786 /* MeetingListCollectionViewCell.xib */; };
@@ -35,13 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		180745F7282C1357001299C7 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		180745F7282C1357001299C7 /* MyRecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordService.swift; sourceTree = "<group>"; };
 		180745F9282C1367001299C7 /* MeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItem.swift; sourceTree = "<group>"; };
-		180745FB282C1373001299C7 /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
+		180745FB282C1373001299C7 /* MyRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordItem.swift; sourceTree = "<group>"; };
 		180745FD282C141E001299C7 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
-		180745FF282C1427001299C7 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		180745FF282C1427001299C7 /* MyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecord.swift; sourceTree = "<group>"; };
 		18074602282C1445001299C7 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
-		18074604282C144E001299C7 /* RecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModel.swift; sourceTree = "<group>"; };
+		18074604282C144E001299C7 /* MyRecordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordListViewModel.swift; sourceTree = "<group>"; };
 		180C4F7A27E34BB400168B04 /* MyRecord.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyRecord.storyboard; sourceTree = "<group>"; };
 		180C4F7C27E34BD300168B04 /* MyRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordViewController.swift; sourceTree = "<group>"; };
 		1816B66B27E8B41700FBDFA8 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -55,9 +55,9 @@
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1878A50C27E8D8360015A63E /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
-		18B21B8A283D4C860012DF8C /* RateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItem.swift; sourceTree = "<group>"; };
-		18B21B8C283D4CAC0012DF8C /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
-		18B21B8E283D4CB80012DF8C /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		18B21B8A283D4C860012DF8C /* MyRateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRateItem.swift; sourceTree = "<group>"; };
+		18B21B8C283D4CAC0012DF8C /* MyRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRateViewModel.swift; sourceTree = "<group>"; };
+		18B21B8E283D4CB80012DF8C /* MyRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRate.swift; sourceTree = "<group>"; };
 		18EEAEA62823B5B200EC0786 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EEAEA72823B5B200EC0786 /* CalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarCollectionViewCell.xib; sourceTree = "<group>"; };
 		18EEAEAE2823C98900EC0786 /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -94,10 +94,10 @@
 		180745F5282C04D9001299C7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				180745F7282C1357001299C7 /* Service.swift */,
+				180745F7282C1357001299C7 /* MyRecordService.swift */,
 				180745F9282C1367001299C7 /* MeetingItem.swift */,
-				180745FB282C1373001299C7 /* RecordItem.swift */,
-				18B21B8A283D4C860012DF8C /* RateItem.swift */,
+				180745FB282C1373001299C7 /* MyRecordItem.swift */,
+				18B21B8A283D4C860012DF8C /* MyRateItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,10 +107,10 @@
 			children = (
 				180745FD282C141E001299C7 /* Meeting.swift */,
 				18074602282C1445001299C7 /* MeetingListViewModel.swift */,
-				180745FF282C1427001299C7 /* Record.swift */,
-				18074604282C144E001299C7 /* RecordListViewModel.swift */,
-				18B21B8C283D4CAC0012DF8C /* RateViewModel.swift */,
-				18B21B8E283D4CB80012DF8C /* Rate.swift */,
+				180745FF282C1427001299C7 /* MyRecord.swift */,
+				18074604282C144E001299C7 /* MyRecordListViewModel.swift */,
+				18B21B8C283D4CAC0012DF8C /* MyRateViewModel.swift */,
+				18B21B8E283D4CB80012DF8C /* MyRate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -326,18 +326,18 @@
 				180745FE282C141E001299C7 /* Meeting.swift in Sources */,
 				1816B66C27E8B41700FBDFA8 /* Constant.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
-				18B21B8D283D4CAC0012DF8C /* RateViewModel.swift in Sources */,
-				18B21B8B283D4C860012DF8C /* RateItem.swift in Sources */,
+				18B21B8D283D4CAC0012DF8C /* MyRateViewModel.swift in Sources */,
+				18B21B8B283D4C860012DF8C /* MyRateItem.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				180745FA282C1367001299C7 /* MeetingItem.swift in Sources */,
 				180C4F7D27E34BD300168B04 /* MyRecordViewController.swift in Sources */,
-				18074600282C1427001299C7 /* Record.swift in Sources */,
-				180745FC282C1373001299C7 /* RecordItem.swift in Sources */,
-				180745F8282C1357001299C7 /* Service.swift in Sources */,
-				18074605282C144E001299C7 /* RecordListViewModel.swift in Sources */,
+				18074600282C1427001299C7 /* MyRecord.swift in Sources */,
+				180745FC282C1373001299C7 /* MyRecordItem.swift in Sources */,
+				180745F8282C1357001299C7 /* MyRecordService.swift in Sources */,
+				18074605282C144E001299C7 /* MyRecordListViewModel.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
-				18B21B8F283D4CB80012DF8C /* Rate.swift in Sources */,
+				18B21B8F283D4CB80012DF8C /* MyRate.swift in Sources */,
 				18074603282C1445001299C7 /* MeetingListViewModel.swift in Sources */,
 				1878A50E27E8D8360015A63E /* MeetingListCollectionViewCell.swift in Sources */,
 			);

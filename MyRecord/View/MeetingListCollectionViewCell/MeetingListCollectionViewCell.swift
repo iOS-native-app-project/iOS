@@ -27,7 +27,7 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
 
         let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
 
-        progressBarView.backgroundColor = K.Color.MainPuple
+        progressBarView.backgroundColor = Constant.Color.MainPuple
 
         progressBarView.translatesAutoresizingMaskIntoConstraints = false
         progressBarView.leadingAnchor.constraint(equalTo: progressBackBarView.leadingAnchor).isActive = true
@@ -43,7 +43,7 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         
         //MARK:- 진행률 백그라운드 바 뷰
         progressBackBarView.layer.cornerRadius = progressBackBarView.bounds.height/2
-        progressBackBarView.backgroundColor = K.Color.Puple1
+        progressBackBarView.backgroundColor = Constant.Color.Puple1
         
         //MARK:- 진행률 수치 라벨
         progressValueLabel.text = "\(String(Int(progressValue)))%"

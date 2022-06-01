@@ -8,9 +8,9 @@
 import Foundation
 import RxSwift
 
-class RateViewModel {
+class MyRateViewModel {
     let disposeBag = DisposeBag()
-    var rateSubject = PublishSubject<Rate>()
+    var rateSubject = PublishSubject<MyRate>()
     var url = ""
     
     func updateMeetingId(meetingId: String) {
@@ -20,7 +20,7 @@ class RateViewModel {
     func fetchProgress() {
         MyRecordService.getRate(from: url)
             .subscribe(onNext: {
-                self.rateSubject.onNext(Rate($0))
+                self.rateSubject.onNext(MyRate($0))
             },
             onError: { error in
                 print(error)

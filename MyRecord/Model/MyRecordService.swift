@@ -47,7 +47,7 @@ struct MyRecordService {
         }
     }
     
-    static func getRecordList(from url: String, meetingId: Int, year: Int, month: Int) -> Observable<[RecordItem]> {
+    static func getRecordList(from url: String, meetingId: Int, year: Int, month: Int) -> Observable<[MyRecordItem]> {
         return Observable.create { emitter in
             let urlString = url
             let header: HTTPHeaders = [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibmlja25hbWUiOiLspJHqt5wiLCJpYXQiOjE2NTI4NTk4NTgsImV4cCI6MTY1NTQ1MjA0NX0.2Nk1vgKsFetnyybZ9JnUl-djXXfAxdFXTSyaJbkBfqg")]
@@ -63,8 +63,8 @@ struct MyRecordService {
                 case .success:
                     if let data = response.data {
                         do {
-                            let responseDecoded = try JSONDecoder().decode(RecordDataItem.self, from: data).data
-                            emitter.onNext(responseDecoded ?? [RecordItem]())
+                            let responseDecoded = try JSONDecoder().decode(MyRecordDataItem.self, from: data).data
+                            emitter.onNext(responseDecoded ?? [MyRecordItem]())
                         } catch let error as NSError{
                             emitter.onError(error)
                             print("catch error: \(error)")
@@ -83,7 +83,7 @@ struct MyRecordService {
         }
     }
     
-    static func getRate(from url: String) -> Observable<RateItem> {
+    static func getRate(from url: String) -> Observable<MyRateItem> {
             return Observable.create { emitter in
                 
                 let urlString = url
@@ -99,7 +99,7 @@ struct MyRecordService {
                     case .success:
                         if let data = response.data {
                             do {
-                                let responseDecoded = try JSONDecoder().decode(RateItem.self, from: data)
+                                let responseDecoded = try JSONDecoder().decode(MyRateItem.self, from: data)
                                 emitter.onNext(responseDecoded)
                             }catch let error as NSError{
                                 emitter.onError(error)

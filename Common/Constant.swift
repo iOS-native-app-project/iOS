@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-struct K {
+struct Constant {
     
     struct MyRecord {
         struct Id{

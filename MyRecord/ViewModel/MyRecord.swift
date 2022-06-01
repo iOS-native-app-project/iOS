@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Record {
+struct MyRecord {
     var recordId : Int
     var meetingId: Int
     var userId: Int
@@ -19,7 +19,7 @@ struct Record {
     var value: Int
     var descript: String
     
-    init(_ item: RecordItem) {
+    init(_ item: MyRecordItem) {
         let date = item.date.split(separator: "-")
         recordId = item.id
         meetingId = item.meetingId

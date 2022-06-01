@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Rate {
+struct MyRate {
     var progress: Int
     
-    init(_ item: RateItem) {
+    init(_ item: MyRateItem) {
         progress = item.data
     }
 }
