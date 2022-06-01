@@ -53,7 +53,7 @@ class MyRecordViewController: UIViewController {
         
         //MARK:- 참여중인 모임 컬렉션 뷰
         meetingListCollectionView.delegate = self
-        meetingListCollectionView.register(UINib(nibName: Constant.MyRecord.Name.MeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.MeetingListCollectionViewCellId)
+        meetingListCollectionView.register(UINib(nibName: Constant.MyRecord.Name.MyRecordMeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.MyRecordMeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
             let imageView = UIImageView()
             imageView.image = Constant.Image.Background
@@ -83,7 +83,7 @@ class MyRecordViewController: UIViewController {
                 self.progressList = Array(repeating: 0, count: self.meetingList.count)
                 self.calculation()
             })
-            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.MyRecord.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.MyRecord.Id.MyRecordMeetingListCollectionViewCellId, cellType: MyRecordMeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
                 
@@ -342,7 +342,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if collectionView == meetingListCollectionView {
-            let cell = cell as! MeetingListCollectionViewCell
+            let cell = cell as! MyRecordMeetingListCollectionViewCell
             cell.setProgressBar()
         }
     }

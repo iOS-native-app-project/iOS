@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MeetingListCollectionViewCell: UICollectionViewCell {
+class MyRecordMeetingListCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var meetingNameLabel: UILabel!    
     @IBOutlet weak var progressValueLabel: UILabel!

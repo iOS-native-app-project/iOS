@@ -103,8 +103,20 @@ struct Constant {
             }
         }
     }
-
-    //MARK:- 기타
+    
+    //MARK: - 나의기록(400)
+    struct MyRecord {
+        struct Id{
+            static let MyRecordMeetingListCollectionViewCellId = "MyRecordMeetingListCollectionViewCell"
+            static let CalendarCollectionViewCellId = "CalendarCollectionViewCell"
+        }
+        struct Name {
+            static let MyRecordMeetingListCollectionViewCelNibName = "MyRecordMeetingListCollectionViewCell"
+            static let CalendarCollectionViewCellNibName = "CalendarCollectionViewCell"
+        }
+    }
+    
+    //MARK: - 기타
     struct Color {
         static let Black33 = UIColor(red: 33.0/255.0, green: 33.0/255.0, blue: 33.0/255.0, alpha: 1.0)
         static let Black66 = UIColor(red: 66.0/255.0, green: 66.0/255.0, blue: 66.0/255.0, alpha: 1.0)
@@ -115,12 +127,20 @@ struct Constant {
         static let Gray224 = UIColor(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1.0)
         static let Gray238 = UIColor(red: 238.0/255.0, green: 238.0/255.0, blue: 238.0/255.0, alpha: 1.0)
         static let Gray245 = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1.0)
-        static let MainPuple = UIColor(red: 85.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1)
+        static let Gray250 = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1.0)
         
+        static let Puple1 = UIColor(red: 227.0/255.0, green: 232.0/255.0, blue: 255.0/255.0, alpha: 1)
+        static let Puple2 = UIColor(red: 187.0/255.0, green: 201.0/255.0, blue: 255.0/255.0, alpha: 1)
+        static let Puple3 = UIColor(red: 136.0/255.0, green: 160.0/255.0, blue: 255.0/255.0, alpha: 1)
+        static let MainPuple = UIColor(red: 85.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1)
     }
     
     
     struct Image {
+        static let PrevIcon = UIImage(named: "prev.png")?.withRenderingMode(.alwaysTemplate)
+        static let NextIcon = UIImage(named: "next.png")?.withRenderingMode(.alwaysTemplate)
+        static let Background = UIImage(named: "background.png")
+        
         static let CloseIcon = UIImage(named: "close.png")
         static let BackIcon = UIImage(named: "back.png")
         static let UpIcon = UIImage(named: "up.png")?.withRenderingMode(.alwaysTemplate)

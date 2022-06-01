@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0s-bW-ytD">
-                                <rect key="frame" x="53" y="638" width="37" height="31"/>
+                                <rect key="frame" x="20" y="638" width="37" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="홈"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9w-jk-jdI">
-                                <rect key="frame" x="104" y="638" width="85" height="31"/>
+                                <rect key="frame" x="65" y="638" width="85" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="모임리스트"/>
@@ -82,12 +82,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lT1-FW-ngx">
-                                <rect key="frame" x="207" y="638" width="73" height="31"/>
+                                <rect key="frame" x="171" y="638" width="73" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="모임생성"/>
                                 <connections>
                                     <segue destination="5X9-oI-RgT" kind="show" id="Zg2-C2-AQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-3X-5eT">
+                                <rect key="frame" x="249" y="638" width="73" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="나의기록"/>
+                                <connections>
+                                    <segue destination="YW6-AF-2wP" kind="show" id="uHc-op-Xph"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,6 +153,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDp-39-sUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="104" y="502"/>
+        </scene>
+        <!--MyRecord-->
+        <scene sceneID="N0K-Hu-QwK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyRecord" id="YW6-AF-2wP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GK6-UZ-MOt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gGP-ft-SlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="503"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="ahJ-Rp-E4F">
