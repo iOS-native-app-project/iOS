@@ -38,6 +38,7 @@
 		189B2FC52818618500F66C31 /* MeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC42818618500F66C31 /* MeetingItem.swift */; };
 		189B2FC7281861D600F66C31 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC6281861D600F66C31 /* MeetingListViewModel.swift */; };
 		189B2FC9281861F300F66C31 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC8281861F300F66C31 /* Meeting.swift */; };
+		189D29232847C8CE004F302D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189D29222847C8CE004F302D /* Home.storyboard */; };
 		189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */; };
 		18B21B85283CE52F0012DF8C /* RateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B84283CE52F0012DF8C /* RateItem.swift */; };
 		18B21B87283CE58B0012DF8C /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B86283CE58B0012DF8C /* RateViewModel.swift */; };
@@ -106,6 +107,7 @@
 		189B2FC42818618500F66C31 /* MeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItem.swift; sourceTree = "<group>"; };
 		189B2FC6281861D600F66C31 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
 		189B2FC8281861F300F66C31 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		189D29222847C8CE004F302D /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		18B21B84283CE52F0012DF8C /* RateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItem.swift; sourceTree = "<group>"; };
 		18B21B86283CE58B0012DF8C /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
@@ -163,8 +165,8 @@
 				1802AE2528185F50001AD85B /* CategoryListCollectionViewCell */,
 				1802AE2428185F2A001AD85B /* MeetingListCollectionViewCell */,
 				186B1F4C27C35EE10007C506 /* HomeViewController.swift */,
+				189D29222847C8CE004F302D /* Home.storyboard */,
 				18579881281941220090EEC5 /* NotificationViewController.swift */,
-				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +277,7 @@
 				B89C822028321ADD00D07202 /* RecordInput */,
 				18EB2AF627C80928004ABE3A /* Home */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
+				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F5427C35EE40007C506 /* Assets.xcassets */,
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
@@ -504,6 +507,7 @@
 				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,
 				183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */,
 				183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */,
+				189D29232847C8CE004F302D /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
