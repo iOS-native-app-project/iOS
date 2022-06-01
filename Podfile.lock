@@ -32,6 +32,7 @@ PODS:
     - GoogleUtilities/Reachability (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - nanopb (~> 2.30908.0)
+  - FSCalendar (2.8.4)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -105,6 +106,7 @@ DEPENDENCIES:
   - Alamofire
   - DropDown
   - Firebase/Messaging
+  - FSCalendar
   - KakaoSDK
   - Kingfisher (~> 7.0)
   - naveridlogin-sdk-ios
@@ -122,6 +124,7 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseInstallations
     - FirebaseMessaging
+    - FSCalendar
     - GoogleDataTransport
     - GoogleUtilities
     - KakaoSDK
@@ -151,6 +154,7 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: 5b8f4f2e2970a4cb9bd1cf7ada16c8ba69a29530
   FirebaseInstallations: e693c0dfe404af44afbd553de42498b2ca1ca189
   FirebaseMessaging: 411a61cde991cbd00b5b11c7a25e0c8f28c44990
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   KakaoSDK: 863b75c045a01065faf1dd67393b62dfe2b4ce3a
@@ -171,6 +175,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 6bf8745939143e051f21d297a597d4bbceb800a5
+PODFILE CHECKSUM: 184e758fbd532f0101a94749ca9379c6f6ec5494
 
 COCOAPODS: 1.11.3

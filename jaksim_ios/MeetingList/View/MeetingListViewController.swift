@@ -39,10 +39,10 @@ class MeetingListViewController: UIViewController {
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height/2 - 10
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.delegate = self
-        searchBar.searchTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 16)
+        //searchBar.searchTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 16)
         
         //MARK:- 추천검색어 컬렉션뷰
-        collectionViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        //collectionViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
         
         searchTermsCollectionView.dataSource = self
         searchTermsCollectionView.delegate = self
@@ -50,7 +50,7 @@ class MeetingListViewController: UIViewController {
         searchTermsCollectionView.register(UINib(nibName: K.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.MeetingList.Id.SearchTermsCollectionViewCellId)
         
         //MARK:- 전체모임리스트 컬렉션뷰
-        tableViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        //tableViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
         

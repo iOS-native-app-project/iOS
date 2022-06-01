@@ -19,10 +19,10 @@ class MeetingListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        meetingNameLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        //meetingNameLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
         meetingNameLabel.textColor = K.Color.Black66
         
-        numberOfPeopleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        //numberOfPeopleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
         numberOfPeopleLabel.textColor = K.Color.Gray117
         
         personImageView.image = K.Image.personIcon
@@ -34,7 +34,7 @@ class MeetingListTableViewCell: UITableViewCell {
         
         entranceButton.backgroundColor = K.Color.Gray245
         entranceButton.layer.cornerRadius = entranceButton.bounds.height/2
-        entranceButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        //entranceButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
         entranceButton.setTitleColor(K.Color.MainPuple, for: .normal)
         
         lockImageView.image = K.Image.lockIcon

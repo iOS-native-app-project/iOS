@@ -19,17 +19,9 @@
 		1841A50C2805BB75009CD78E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841A50B2805BB75009CD78E /* Constant.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
-		186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* ViewController.swift */; };
-		186B1F5027C35EE10007C506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F4E27C35EE10007C506 /* Main.storyboard */; };
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
-		186CD27C2805C3C500B150A3 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD2762805C3C400B150A3 /* Pretendard-ExtraBold.otf */; };
-		186CD27D2805C3C500B150A3 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD2772805C3C400B150A3 /* Pretendard-Regular.otf */; };
-		186CD27E2805C3C500B150A3 /* S-CoreDream-6Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD2782805C3C400B150A3 /* S-CoreDream-6Bold.otf */; };
-		186CD27F2805C3C500B150A3 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD2792805C3C400B150A3 /* Pretendard-SemiBold.otf */; };
-		186CD2802805C3C500B150A3 /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD27A2805C3C500B150A3 /* S-CoreDream-4Regular.otf */; };
-		186CD2812805C3C500B150A3 /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 186CD27B2805C3C500B150A3 /* S-CoreDream-5Medium.otf */; };
 		18A1639028104506001668D9 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1638F28104506001668D9 /* MeetingListViewModel.swift */; };
 		18A163922810542B001668D9 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A163912810542B001668D9 /* Meeting.swift */; };
 		18A1639428105701001668D9 /* MeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1639328105701001668D9 /* MeetingItem.swift */; };
@@ -56,18 +48,10 @@
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B1F4A27C35EE10007C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		186B1F4C27C35EE10007C506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		186B1F4F27C35EE10007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		186B1F5227C35EE10007C506 /* jaksim_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jaksim_ios.xcdatamodel; sourceTree = "<group>"; };
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		186CD2762805C3C400B150A3 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
-		186CD2772805C3C400B150A3 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		186CD2782805C3C400B150A3 /* S-CoreDream-6Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-6Bold.otf"; sourceTree = "<group>"; };
-		186CD2792805C3C400B150A3 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		186CD27A2805C3C500B150A3 /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
-		186CD27B2805C3C500B150A3 /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
 		18A1638F28104506001668D9 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
 		18A163912810542B001668D9 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		18A1639328105701001668D9 /* MeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItem.swift; sourceTree = "<group>"; };
@@ -116,23 +100,9 @@
 		1841A50A2805BB66009CD78E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				1841A50D2805BB8C009CD78E /* Font */,
 				1841A50B2805BB75009CD78E /* Constant.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		1841A50D2805BB8C009CD78E /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				186CD2762805C3C400B150A3 /* Pretendard-ExtraBold.otf */,
-				186CD2772805C3C400B150A3 /* Pretendard-Regular.otf */,
-				186CD2792805C3C400B150A3 /* Pretendard-SemiBold.otf */,
-				186CD27A2805C3C500B150A3 /* S-CoreDream-4Regular.otf */,
-				186CD27B2805C3C500B150A3 /* S-CoreDream-5Medium.otf */,
-				186CD2782805C3C400B150A3 /* S-CoreDream-6Bold.otf */,
-			);
-			path = Font;
 			sourceTree = "<group>";
 		};
 		186B1F3C27C35EE10007C506 = {
@@ -160,8 +130,6 @@
 				1841A4FD28056039009CD78E /* MeetingList */,
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
-				186B1F4C27C35EE10007C506 /* ViewController.swift */,
-				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 				186B1F5427C35EE40007C506 /* Assets.xcassets */,
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
@@ -302,17 +270,10 @@
 			files = (
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				1841A50928056779009CD78E /* MeetingListTableViewCell.xib in Resources */,
-				186CD27C2805C3C500B150A3 /* Pretendard-ExtraBold.otf in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				1841A4FF2805604E009CD78E /* MeetingList.storyboard in Resources */,
-				186CD27D2805C3C500B150A3 /* Pretendard-Regular.otf in Resources */,
-				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
-				186CD27F2805C3C500B150A3 /* Pretendard-SemiBold.otf in Resources */,
-				186CD27E2805C3C500B150A3 /* S-CoreDream-6Bold.otf in Resources */,
 				1841A5052805675D009CD78E /* SearchTermsCollectionViewCell.xib in Resources */,
-				186CD2802805C3C500B150A3 /* S-CoreDream-4Regular.otf in Resources */,
 				1825B2B02806A2D800272397 /* EntranceInfoView.xib in Resources */,
-				186CD2812805C3C500B150A3 /* S-CoreDream-5Medium.otf in Resources */,
 				18D921402834DFC700D734B0 /* PasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +331,6 @@
 				18A163922810542B001668D9 /* Meeting.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
 				18A1639728105732001668D9 /* Service.swift in Sources */,
-				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
 				18D9213F2834DFC700D734B0 /* PasswordViewController.swift in Sources */,
 				18D921482834F8CF00D734B0 /* PasswordResponse.swift in Sources */,
 				1841A5042805675D009CD78E /* SearchTermsCollectionViewCell.swift in Sources */,
@@ -390,14 +350,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		186B1F4E27C35EE10007C506 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				186B1F4F27C35EE10007C506 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

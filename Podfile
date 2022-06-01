@@ -15,4 +15,5 @@ target 'jaksim_ios' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'DropDown'
+    pod 'FSCalendar'
 end
