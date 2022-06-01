@@ -39,49 +39,49 @@ class CreationSecondSection: UIView {
         loadView()
     }
     private func loadView(){
-        let view = Bundle.main.loadNibNamed(K.MeetingCreation.Name.CreationSecondSectionXibName, owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationSecondSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
         //MARK:- '인원수와 비밀번호를 설정해주세요.' 라벨
-        titleLabel.text = K.MeetingCreation.Text.CreationSecondSection.Title
-        titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        titleLabel.textColor = K.Color.Black66
+        titleLabel.text = Constant.MeetingCreation.Text.CreationSecondSection.Title
+        //titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        titleLabel.textColor = Constant.Color.Black66
         
         //MARK:- 인원수 지정
         firstContainerView.layer.borderWidth = 1
-        firstContainerView.layer.borderColor = K.Color.Gray224.cgColor
+        firstContainerView.layer.borderColor = Constant.Color.Gray224.cgColor
         firstContainerView.layer.cornerRadius = 8
         firstContainerView.backgroundColor = .white
         
-        firstContainerTitleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        firstContainerTitleLabel.textColor = K.Color.Black66
+        //firstContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        firstContainerTitleLabel.textColor = Constant.Color.Black66
         
-        numberLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        numberLabel.textColor = K.Color.Black66
+        //numberLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        numberLabel.textColor = Constant.Color.Black66
         numberLabel.text = "\(numberOfPeople)명"
         
         //MARK:- 비밀번호 지정
         secondContainerView.layer.borderWidth = 1
-        secondContainerView.layer.borderColor = K.Color.Gray224.cgColor
+        secondContainerView.layer.borderColor = Constant.Color.Gray224.cgColor
         secondContainerView.layer.cornerRadius = 8
         secondContainerView.backgroundColor = .white
         
-        secondContainerTitleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        secondContainerTitleLabel.textColor = K.Color.Black66
+       // secondContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        secondContainerTitleLabel.textColor = Constant.Color.Black66
         
-        passwordTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        passwordTextField.textColor = K.Color.Gray189
+       // passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        passwordTextField.textColor = Constant.Color.Gray189
         passwordTextField.setPadding(left: 0, right: 0)
-        passwordTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        passwordTextField.textColor = K.Color.Black33
+        //passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        passwordTextField.textColor = Constant.Color.Black33
         passwordTextField.isUserInteractionEnabled = true
         passwordTextField.delegate = self
         
-        noneLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        noneLabel.textColor = K.Color.Black97
+        //noneLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        noneLabel.textColor = Constant.Color.Black97
         
-        passwordButton.setImage(K.Image.UncheckedIcon, for: .normal)
-        passwordButton.tintColor = K.Color.Gray224
+        passwordButton.setImage(Constant.Image.UncheckedIcon, for: .normal)
+        passwordButton.tintColor = Constant.Color.Gray224
         
         
         self.addSubview(view)
@@ -105,16 +105,16 @@ class CreationSecondSection: UIView {
     @IBAction func passwordButtonDidTap(_ sender: UIButton) {
         if passwordFlag {
             passwordFlag = false
-            passwordButton.setImage(K.Image.CheckedIcon, for: .normal)
-            passwordButton.tintColor = K.Color.MainPuple
+            passwordButton.setImage(Constant.Image.CheckedIcon, for: .normal)
+            passwordButton.tintColor = Constant.Color.MainPuple
             passwordTextField.text = ""
             passwordTextField.isUserInteractionEnabled = false
             delegate?.checkData()
         }
         else {
             passwordFlag = true
-            passwordButton.setImage(K.Image.UncheckedIcon, for: .normal)
-            passwordButton.tintColor = K.Color.Gray224
+            passwordButton.setImage(Constant.Image.UncheckedIcon, for: .normal)
+            passwordButton.tintColor = Constant.Color.Gray224
             passwordTextField.isUserInteractionEnabled = true
             delegate?.checkData()
         }

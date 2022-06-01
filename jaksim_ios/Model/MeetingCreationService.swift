@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct MeetingService {
+struct MeetingCreationService {
     static func postMeeting(from url: String, item: MeetingCreationItem) -> Void {
         
         let urlString = url

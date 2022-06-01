@@ -17,11 +17,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         didSet{
             if isSelected {
                 containerView.backgroundColor = UIColor(red: 238.0/255.0, green: 241.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-                containerView.layer.borderColor = K.Color.MainPuple.cgColor
+                containerView.layer.borderColor = Constant.Color.MainPuple.cgColor
             }
             else {
-                containerView.backgroundColor = K.Color.Gray245
-                containerView.layer.borderColor = K.Color.Gray245.cgColor
+                containerView.backgroundColor = Constant.Color.Gray245
+                containerView.layer.borderColor = Constant.Color.Gray245.cgColor
             }
         }
     }
@@ -30,12 +30,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         containerView.layer.cornerRadius = 12
-        containerView.backgroundColor = K.Color.Gray245
+        containerView.backgroundColor = Constant.Color.Gray245
         containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = K.Color.Gray245.cgColor
+        containerView.layer.borderColor = Constant.Color.Gray245.cgColor
         
-        label.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        label.textColor = K.Color.Black33
+        //label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        label.textColor = Constant.Color.Black33
     }
 
 }

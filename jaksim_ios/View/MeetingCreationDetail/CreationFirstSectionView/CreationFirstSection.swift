@@ -39,7 +39,7 @@ class CreationFirstSection: UIView {
         loadView()
     }
     private func loadView(){
-        let view = Bundle.main.loadNibNamed(K.MeetingCreation.Name.CreationFirstSectionXibName, owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationFirstSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
         //MARK:- 사용자가 업로드하는 이미지
@@ -48,48 +48,48 @@ class CreationFirstSection: UIView {
         cameraImageContainerView.layer.borderWidth = 1
         cameraImageContainerView.layer.borderColor = UIColor.white.cgColor
         cameraImageContainerView.layer.cornerRadius = cameraImageContainerView.bounds.height/2
-        cameraImageContainerView.backgroundColor = K.Color.Gray224
+        cameraImageContainerView.backgroundColor = Constant.Color.Gray224
         
-        cameraImageView.tintColor = K.Color.Black97
+        cameraImageView.tintColor = Constant.Color.Black97
         
         //MARK:- '모임을 입력해주세요' 라벨
-        firstTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        firstTitleLabel.textColor = K.Color.Black66
-        firstTitleLabel.text = K.MeetingCreation.Text.CreationFirstSection.FirstTitle
+        //firstTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        firstTitleLabel.textColor = Constant.Color.Black66
+        firstTitleLabel.text = Constant.MeetingCreation.Text.CreationFirstSection.FirstTitle
         
         //MARK:- '모임을 입력해주세요' 텍스트 카운트 라벨
-        firstCountLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        firstCountLabel.textColor = K.Color.Gray158
+        //firstCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        firstCountLabel.textColor = Constant.Color.Gray158
         
         //MARK:- '모임을 입력해주세요' TextView
-        firstTextView.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        firstTextView.textColor = K.Color.Gray158
+        //firstTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        firstTextView.textColor = Constant.Color.Gray158
         firstTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         firstTextView.backgroundColor = .clear
-        firstTextView.text = K.MeetingCreation.Text.CreationFirstSection.FirstTextViewPlaceHolder
+        firstTextView.text = Constant.MeetingCreation.Text.CreationFirstSection.FirstTextViewPlaceHolder
         firstTextView.delegate = self
         
-        firstTextViewContainerView.backgroundColor = K.Color.Gray245
+        firstTextViewContainerView.backgroundColor = Constant.Color.Gray245
         firstTextViewContainerView.layer.cornerRadius = 8
         
         //MARK:- '간단하게 모임을 소개해주세요' 라벨
-        secondTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        secondTitleLabel.textColor = K.Color.Black66
-        secondTitleLabel.text = K.MeetingCreation.Text.CreationFirstSection.SecondTitle
+        //secondTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        secondTitleLabel.textColor = Constant.Color.Black66
+        secondTitleLabel.text = Constant.MeetingCreation.Text.CreationFirstSection.SecondTitle
         
         //MARK:- '간단하게 모임을 소개해주세요' 텍스트 카운트 라벨
-        secondCountLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        secondCountLabel.textColor = K.Color.Gray158
+        //secondCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        secondCountLabel.textColor = Constant.Color.Gray158
         
         //MARK:- '간단하게 모임을 소개해주세요' TextView
-        secondTextView.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        secondTextView.textColor = K.Color.Gray158
+        //secondTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        secondTextView.textColor = Constant.Color.Gray158
         secondTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         secondTextView.backgroundColor = .clear
-        secondTextView.text = K.MeetingCreation.Text.CreationFirstSection.SecondTextViewPlaceHolder
+        secondTextView.text = Constant.MeetingCreation.Text.CreationFirstSection.SecondTextViewPlaceHolder
         secondTextView.delegate = self
         
-        secondTextViewContainerView.backgroundColor = K.Color.Gray245
+        secondTextViewContainerView.backgroundColor = Constant.Color.Gray245
         secondTextViewContainerView.layer.cornerRadius = 8
         
         self.addSubview(view)
@@ -99,9 +99,9 @@ class CreationFirstSection: UIView {
 //MARK:- TextView Delegate
 extension CreationFirstSection: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == K.Color.Gray158 {
+        if textView.textColor == Constant.Color.Gray158 {
             textView.text = nil
-            textView.textColor = K.Color.Black33
+            textView.textColor = Constant.Color.Black33
         }
         
     }
@@ -109,8 +109,8 @@ extension CreationFirstSection: UITextViewDelegate {
         if textView == firstTextView {
             if textView.text.isEmpty {
                 meetingNameFlag = false
-                textView.text = K.MeetingCreation.Text.CreationFirstSection.FirstTextViewPlaceHolder
-                textView.textColor = K.Color.Gray158
+                textView.text = Constant.MeetingCreation.Text.CreationFirstSection.FirstTextViewPlaceHolder
+                textView.textColor = Constant.Color.Gray158
                 delegate?.checkData()
             }
             else {
@@ -121,8 +121,8 @@ extension CreationFirstSection: UITextViewDelegate {
         else if textView == secondTextView {
             if textView.text.isEmpty {
                 meetingDescriptionFlag = false
-                textView.text = K.MeetingCreation.Text.CreationFirstSection.SecondTextViewPlaceHolder
-                textView.textColor = K.Color.Gray158
+                textView.text = Constant.MeetingCreation.Text.CreationFirstSection.SecondTextViewPlaceHolder
+                textView.textColor = Constant.Color.Gray158
                 delegate?.checkData()
             }
             else {

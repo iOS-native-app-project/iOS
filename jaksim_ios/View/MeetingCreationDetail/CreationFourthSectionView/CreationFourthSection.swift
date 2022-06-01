@@ -49,45 +49,45 @@ class CreationFourthSection: UIView {
         loadView()
     }
     private func loadView(){
-        let view = Bundle.main.loadNibNamed(K.MeetingCreation.Name.CreationFourthSectionXibName, owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationFourthSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
         //MARK:- '목표치를 입력해주세요.' 라벨
-        titleLabel.text = K.MeetingCreation.Text.CreationFourthSection.Title
-        titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        titleLabel.textColor = K.Color.Black66
+        titleLabel.text = Constant.MeetingCreation.Text.CreationFourthSection.Title
+        //titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        titleLabel.textColor = Constant.Color.Black66
         
         //MARK:- '단위' 라벨
-        firstSubtitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        firstSubtitleLabel.textColor = K.Color.Black97
+        //firstSubtitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        firstSubtitleLabel.textColor = Constant.Color.Black97
         
         //MARK:- 단위 버튼(횟수, 거리, 시간)
-        countButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        countButton.setTitleColor(K.Color.MainPuple, for: .normal)
+       // countButton.titleLabel?.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        countButton.setTitleColor(Constant.Color.MainPuple, for: .normal)
         countButton.layer.borderWidth = 1
-        countButton.layer.borderColor = K.Color.MainPuple.cgColor
+        countButton.layer.borderColor = Constant.Color.MainPuple.cgColor
         countButton.layer.cornerRadius = 8
         countButton.backgroundColor = UIColor(red: 238.0/255.0, green: 241.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
-        distanceButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        distanceButton.setTitleColor(K.Color.Black66, for: .normal)
+        //distanceButton.titleLabel?.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        distanceButton.setTitleColor(Constant.Color.Black66, for: .normal)
         distanceButton.layer.borderWidth = 1
-        distanceButton.layer.borderColor = K.Color.Gray224.cgColor
+        distanceButton.layer.borderColor = Constant.Color.Gray224.cgColor
         distanceButton.layer.cornerRadius = 8
         
-        timeButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        timeButton.setTitleColor(K.Color.Black66, for: .normal)
+        //timeButton.titleLabel?.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        timeButton.setTitleColor(Constant.Color.Black66, for: .normal)
         timeButton.layer.borderWidth = 1
-        timeButton.layer.borderColor = K.Color.Gray224.cgColor
+        timeButton.layer.borderColor = Constant.Color.Gray224.cgColor
         timeButton.layer.cornerRadius = 8
         
         //MARK:- '상세 수치' 라벨
-        secondSubtitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 14)
-        secondSubtitleLabel.textColor = K.Color.Black97
+        //secondSubtitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        secondSubtitleLabel.textColor = Constant.Color.Black97
         
         //MARK:- 수치 입력 텍스트 필드
         detailFigureTextField.layer.borderWidth = 1
-        detailFigureTextField.layer.borderColor = K.Color.Gray224.cgColor
+        detailFigureTextField.layer.borderColor = Constant.Color.Gray224.cgColor
         detailFigureTextField.layer.cornerRadius = 8
         detailFigureTextField.setPadding(left: 20, right: 0)
         detailFigureTextField.delegate = self
@@ -96,20 +96,20 @@ class CreationFourthSection: UIView {
         
         unitDropDownView.layer.cornerRadius = 8
         unitDropDownView.layer.borderWidth = 1
-        unitDropDownView.layer.borderColor = K.Color.Gray224.cgColor
+        unitDropDownView.layer.borderColor = Constant.Color.Gray224.cgColor
         
-        DropDown.appearance().textFont = UIFont(name: K.FontName.PretendardRegular, size: 14)!
-        DropDown.appearance().textColor = K.Color.Black33
+        //DropDown.appearance().textFont = UIFont(name: Constant.FontName.PretendardRegular, size: 14)!
+        DropDown.appearance().textColor = Constant.Color.Black33
         DropDown.appearance().backgroundColor = .white
-        DropDown.appearance().selectionBackgroundColor = K.Color.Gray245
+        DropDown.appearance().selectionBackgroundColor = Constant.Color.Gray245
         DropDown.appearance().setupCornerRadius(8)
         
-        updownImageView.image = K.Image.DownIcon
+        updownImageView.image = Constant.Image.DownIcon
         updownImageView.image!.withRenderingMode(.alwaysTemplate)
-        updownImageView.tintColor = K.Color.Black33
+        updownImageView.tintColor = Constant.Color.Black33
         
-        unitLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        unitLabel.textColor = K.Color.Black33
+       // unitLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        unitLabel.textColor = Constant.Color.Black33
         
         dropDown.dismissMode = .automatic
         dropDown.anchorView = self.unitDropDownView
@@ -117,12 +117,12 @@ class CreationFourthSection: UIView {
         
         dropDown.selectionAction = { [weak self] (index, item) in
             self!.unitLabel.text = item
-            self!.updownImageView.image = K.Image.DownIcon
+            self!.updownImageView.image = Constant.Image.DownIcon
             self!.unit = item
         }
         
         dropDown.cancelAction = { [weak self] in
-            self!.updownImageView.image = K.Image.DownIcon
+            self!.updownImageView.image = Constant.Image.DownIcon
         }
         setDropBox(countUnitList)
         
@@ -140,7 +140,7 @@ class CreationFourthSection: UIView {
     //MARK:- 단위 선택 박스 클릭 시 액션
     @IBAction func unitDropBoxDidTap(_ sender: UIButton) {
         dropDown.show()
-        updownImageView.image = K.Image.UpIcon
+        updownImageView.image = Constant.Image.UpIcon
     }
     
     //MARK:- 주기 버튼 클릭 시 액션
@@ -160,13 +160,13 @@ class CreationFourthSection: UIView {
     func setButtonColor (_ sender: UIButton) {
         for button in buttonList {
             if sender == button {
-                button.setTitleColor(K.Color.MainPuple, for: .normal)
-                button.layer.borderColor = K.Color.MainPuple.cgColor
+                button.setTitleColor(Constant.Color.MainPuple, for: .normal)
+                button.layer.borderColor = Constant.Color.MainPuple.cgColor
                 button.backgroundColor = UIColor(red: 238.0/255.0, green: 241.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
             else {
-                button.setTitleColor(K.Color.Black66, for: .normal)
-                button.layer.borderColor = K.Color.Gray224.cgColor
+                button.setTitleColor(Constant.Color.Black66, for: .normal)
+                button.layer.borderColor = Constant.Color.Gray224.cgColor
                 button.backgroundColor = .white
             }
         }

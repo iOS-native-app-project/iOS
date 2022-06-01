@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct K {
+struct Constant {
     
     struct MeetingCreation {
         struct Id {
@@ -64,10 +64,10 @@ struct K {
         static let MainPuple = UIColor(red: 85.0/255.0, green: 120.0/255.0, blue: 255.0/255.0, alpha: 1)
     }
     
-    struct FontName {
-        static let PretendardSemiBold = "Pretendard-SemiBold"
-        static let PretendardRegular = "Pretendard-Regular"
-    }
+//    struct FontName {
+//        static let PretendardSemiBold = "Pretendard-SemiBold"
+//        static let PretendardRegular = "Pretendard-Regular"
+//    }
     
     struct Image {
         static let CloseIcon = UIImage(named: "close.png")
