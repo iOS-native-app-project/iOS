@@ -7,13 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */; };
+		183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */; };
+		183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */; };
+		183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */; };
+		18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */; };
+		18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */; };
+		18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */; };
+		18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */; };
+		1857987328191FA20090EEC5 /* RecommendedMeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857987228191FA20090EEC5 /* RecommendedMeetingItem.swift */; };
+		185798762819209F0090EEC5 /* RecommendedMeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185798752819209F0090EEC5 /* RecommendedMeetingListViewModel.swift */; };
+		18579878281920AD0090EEC5 /* RecommendedMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579877281920AD0090EEC5 /* RecommendedMeeting.swift */; };
+		1857987A281932A40090EEC5 /* SayingOfTodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579879281932A40090EEC5 /* SayingOfTodayItem.swift */; };
+		1857987C281932C00090EEC5 /* SayingOfToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857987B281932C00090EEC5 /* SayingOfToday.swift */; };
+		1857987E281932CA0090EEC5 /* SayingOfTodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857987D281932CA0090EEC5 /* SayingOfTodayViewModel.swift */; };
+		18579882281941220090EEC5 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579881281941220090EEC5 /* NotificationViewController.swift */; };
+		18579886281944960090EEC5 /* NotificationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579884281944960090EEC5 /* NotificationListTableViewCell.swift */; };
+		18579887281944960090EEC5 /* NotificationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18579885281944960090EEC5 /* NotificationListTableViewCell.xib */; };
+		18579889281947BD0090EEC5 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18579888281947BD0090EEC5 /* NotificationItem.swift */; };
+		1857988B281947C70090EEC5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857988A281947C70090EEC5 /* Notification.swift */; };
+		1857988D281947D40090EEC5 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857988C281947D40090EEC5 /* NotificationViewModel.swift */; };
 		186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4827C35EE10007C506 /* AppDelegate.swift */; };
 		186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4A27C35EE10007C506 /* SceneDelegate.swift */; };
-		186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* ViewController.swift */; };
+		186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F4C27C35EE10007C506 /* HomeViewController.swift */; };
 		186B1F5027C35EE10007C506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F4E27C35EE10007C506 /* Main.storyboard */; };
 		186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */; };
 		186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5427C35EE40007C506 /* Assets.xcassets */; };
 		186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */; };
+		189B2FC32818613D00F66C31 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC22818613D00F66C31 /* Service.swift */; };
+		189B2FC52818618500F66C31 /* MeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC42818618500F66C31 /* MeetingItem.swift */; };
+		189B2FC7281861D600F66C31 /* MeetingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC6281861D600F66C31 /* MeetingListViewModel.swift */; };
+		189B2FC9281861F300F66C31 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B2FC8281861F300F66C31 /* Meeting.swift */; };
+		189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */; };
+		18B21B85283CE52F0012DF8C /* RateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B84283CE52F0012DF8C /* RateItem.swift */; };
+		18B21B87283CE58B0012DF8C /* RateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B86283CE58B0012DF8C /* RateViewModel.swift */; };
+		18B21B89283CE5930012DF8C /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B88283CE5930012DF8C /* Rate.swift */; };
+		18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */; };
+		18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */; };
+		18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AFB27CFCD9C004ABE3A /* Constant.swift */; };
 		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
 		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
@@ -43,15 +74,46 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
+		183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "S-CoreDream-2ExtraLight.otf"; sourceTree = "<group>"; };
+		18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryListCollectionViewCell.xib; sourceTree = "<group>"; };
+		18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendedMeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
+		1857987228191FA20090EEC5 /* RecommendedMeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingItem.swift; sourceTree = "<group>"; };
+		185798752819209F0090EEC5 /* RecommendedMeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeetingListViewModel.swift; sourceTree = "<group>"; };
+		18579877281920AD0090EEC5 /* RecommendedMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedMeeting.swift; sourceTree = "<group>"; };
+		18579879281932A40090EEC5 /* SayingOfTodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayingOfTodayItem.swift; sourceTree = "<group>"; };
+		1857987B281932C00090EEC5 /* SayingOfToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayingOfToday.swift; sourceTree = "<group>"; };
+		1857987D281932CA0090EEC5 /* SayingOfTodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SayingOfTodayViewModel.swift; sourceTree = "<group>"; };
+		18579881281941220090EEC5 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		18579884281944960090EEC5 /* NotificationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTableViewCell.swift; sourceTree = "<group>"; };
+		18579885281944960090EEC5 /* NotificationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTableViewCell.xib; sourceTree = "<group>"; };
+		18579888281947BD0090EEC5 /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
+		1857988A281947C70090EEC5 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		1857988C281947D40090EEC5 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		186B1F4527C35EE10007C506 /* jaksim_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jaksim_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B1F4827C35EE10007C506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B1F4A27C35EE10007C506 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		186B1F4C27C35EE10007C506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		186B1F4C27C35EE10007C506 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		186B1F4F27C35EE10007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		186B1F5227C35EE10007C506 /* jaksim_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jaksim_ios.xcdatamodel; sourceTree = "<group>"; };
 		186B1F5427C35EE40007C506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		186B1F5727C35EE40007C506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		186B1F5927C35EE40007C506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189B2FC22818613D00F66C31 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		189B2FC42818618500F66C31 /* MeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItem.swift; sourceTree = "<group>"; };
+		189B2FC6281861D600F66C31 /* MeetingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListViewModel.swift; sourceTree = "<group>"; };
+		189B2FC8281861F300F66C31 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		18B21B84283CE52F0012DF8C /* RateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateItem.swift; sourceTree = "<group>"; };
+		18B21B86283CE58B0012DF8C /* RateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewModel.swift; sourceTree = "<group>"; };
+		18B21B88283CE5930012DF8C /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
+		18EB2AFB27CFCD9C004ABE3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +157,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1802AE2028185E80001AD85B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				185798832819446E0090EEC5 /* NotificationListTableViewCell */,
+				1802AE2628185F60001AD85B /* RecommendedMeetingListCollectionViewCell */,
+				1802AE2528185F50001AD85B /* CategoryListCollectionViewCell */,
+				1802AE2428185F2A001AD85B /* MeetingListCollectionViewCell */,
+				186B1F4C27C35EE10007C506 /* HomeViewController.swift */,
+				18579881281941220090EEC5 /* NotificationViewController.swift */,
+				186B1F4E27C35EE10007C506 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1802AE2128185E86001AD85B /* ViewMoel */ = {
+			isa = PBXGroup;
+			children = (
+				189B2FC6281861D600F66C31 /* MeetingListViewModel.swift */,
+				189B2FC8281861F300F66C31 /* Meeting.swift */,
+				185798752819209F0090EEC5 /* RecommendedMeetingListViewModel.swift */,
+				18579877281920AD0090EEC5 /* RecommendedMeeting.swift */,
+				1857987B281932C00090EEC5 /* SayingOfToday.swift */,
+				1857987D281932CA0090EEC5 /* SayingOfTodayViewModel.swift */,
+				1857988A281947C70090EEC5 /* Notification.swift */,
+				1857988C281947D40090EEC5 /* NotificationViewModel.swift */,
+				18B21B86283CE58B0012DF8C /* RateViewModel.swift */,
+				18B21B88283CE5930012DF8C /* Rate.swift */,
+			);
+			path = ViewMoel;
+			sourceTree = "<group>";
+		};
+		1802AE2228185E8D001AD85B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				189B2FC22818613D00F66C31 /* Service.swift */,
+				18B21B84283CE52F0012DF8C /* RateItem.swift */,
+				189B2FC42818618500F66C31 /* MeetingItem.swift */,
+				1857987228191FA20090EEC5 /* RecommendedMeetingItem.swift */,
+				18579879281932A40090EEC5 /* SayingOfTodayItem.swift */,
+				18579888281947BD0090EEC5 /* NotificationItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1802AE2428185F2A001AD85B /* MeetingListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */,
+				18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */,
+			);
+			path = MeetingListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1802AE2528185F50001AD85B /* CategoryListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18453A5327E0C39900333D49 /* CategoryListCollectionViewCell.swift */,
+				18453A5427E0C39900333D49 /* CategoryListCollectionViewCell.xib */,
+			);
+			path = CategoryListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1802AE2628185F60001AD85B /* RecommendedMeetingListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18453A5727E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift */,
+				18453A5827E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib */,
+			);
+			path = RecommendedMeetingListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		18453A5227E087A800333D49 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				183F56C027E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf */,
+				183F56BE27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf */,
+				183F56BC27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf */,
+				189EB20327E2059000DF054F /* Pretendard-ExtraBold.otf */,
+				183F56BA27E0EA3300BDAFF4 /* Pretendard-Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		185798832819446E0090EEC5 /* NotificationListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				18579884281944960090EEC5 /* NotificationListTableViewCell.swift */,
+				18579885281944960090EEC5 /* NotificationListTableViewCell.xib */,
+			);
+			path = NotificationListTableViewCell;
+			sourceTree = "<group>";
+		};
 		186B1F3C27C35EE10007C506 = {
 			isa = PBXGroup;
 			children = (
@@ -116,21 +270,43 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				B89C822928321CED00D07202 /* Configuration */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				A55A71EA27C766EC007A0DDC /* Login */,
 				B89C820828320E8D00D07202 /* Member */,
 				B89C822028321ADD00D07202 /* RecordInput */,
+=======
+				189B2FC028185FF400F66C31 /* Common */,
+				18EB2AF627C80928004ABE3A /* Home */,
+>>>>>>> feature_Home
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
-				186B1F4C27C35EE10007C506 /* ViewController.swift */,
-				186B1F4E27C35EE10007C506 /* Main.storyboard */,
 				186B1F5427C35EE40007C506 /* Assets.xcassets */,
 				186B1F5627C35EE40007C506 /* LaunchScreen.storyboard */,
 				186B1F5927C35EE40007C506 /* Info.plist */,
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
 			);
 			path = jaksim_ios;
+			sourceTree = "<group>";
+		};
+		189B2FC028185FF400F66C31 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				18EB2AFB27CFCD9C004ABE3A /* Constant.swift */,
+				18453A5227E087A800333D49 /* Font */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		18EB2AF627C80928004ABE3A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1802AE2228185E8D001AD85B /* Model */,
+				1802AE2128185E86001AD85B /* ViewMoel */,
+				1802AE2028185E80001AD85B /* View */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		25F4D27B27D96585C56D6E4A /* Pods */ = {
@@ -331,8 +507,20 @@
 				186B1F5827C35EE40007C506 /* LaunchScreen.storyboard in Resources */,
 				B89C821428320E8D00D07202 /* MemberStoryboard.storyboard in Resources */,
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
+				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
+<<<<<<< HEAD
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
+=======
+				18579887281944960090EEC5 /* NotificationListTableViewCell.xib in Resources */,
+				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
+				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
+				18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */,
+				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
+				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,
+				183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */,
+				183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */,
+>>>>>>> feature_Home
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +573,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
 				B89C821628320E8D00D07202 /* UserGoodBadRequest.swift in Sources */,
 				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
@@ -396,6 +585,32 @@
 				A55C140E27E770C80053F81F /* SignUpRequest.swift in Sources */,
 				B89C821C28320F8200D07202 /* Constant.swift in Sources */,
 				B89C821928320E8D00D07202 /* MemberViewController.swift in Sources */,
+=======
+				1857987C281932C00090EEC5 /* SayingOfToday.swift in Sources */,
+				18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */,
+				18579889281947BD0090EEC5 /* NotificationItem.swift in Sources */,
+				189B2FC9281861F300F66C31 /* Meeting.swift in Sources */,
+				1857987A281932A40090EEC5 /* SayingOfTodayItem.swift in Sources */,
+				18579886281944960090EEC5 /* NotificationListTableViewCell.swift in Sources */,
+				18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */,
+				18579878281920AD0090EEC5 /* RecommendedMeeting.swift in Sources */,
+				1857988B281947C70090EEC5 /* Notification.swift in Sources */,
+				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
+				18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */,
+				1857988D281947D40090EEC5 /* NotificationViewModel.swift in Sources */,
+				18B21B85283CE52F0012DF8C /* RateItem.swift in Sources */,
+				1857987E281932CA0090EEC5 /* SayingOfTodayViewModel.swift in Sources */,
+				189B2FC52818618500F66C31 /* MeetingItem.swift in Sources */,
+				18B21B87283CE58B0012DF8C /* RateViewModel.swift in Sources */,
+				185798762819209F0090EEC5 /* RecommendedMeetingListViewModel.swift in Sources */,
+				189B2FC7281861D600F66C31 /* MeetingListViewModel.swift in Sources */,
+				18579882281941220090EEC5 /* NotificationViewController.swift in Sources */,
+				18B21B89283CE5930012DF8C /* Rate.swift in Sources */,
+				1857987328191FA20090EEC5 /* RecommendedMeetingItem.swift in Sources */,
+				18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
+				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
+				189B2FC32818613D00F66C31 /* Service.swift in Sources */,
+>>>>>>> feature_Home
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				B89C822828321C3500D07202 /* MyRecordResponse.swift in Sources */,
 				B89C821828320E8D00D07202 /* MemberAlertViewController.swift in Sources */,
