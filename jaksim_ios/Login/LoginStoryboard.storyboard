@@ -73,12 +73,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9w-jk-jdI">
-                                <rect key="frame" x="153" y="638" width="85" height="31"/>
+                                <rect key="frame" x="104" y="638" width="85" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="모임리스트"/>
                                 <connections>
                                     <segue destination="Cm9-2q-A38" kind="show" id="IVu-AK-V8H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lT1-FW-ngx">
+                                <rect key="frame" x="207" y="638" width="73" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="모임생성"/>
+                                <connections>
+                                    <segue destination="5X9-oI-RgT" kind="show" id="Zg2-C2-AQC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,7 +133,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCr-y3-v37" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="502"/>
+            <point key="canvasLocation" x="-152" y="502"/>
+        </scene>
+        <!--MeetingCreation-->
+        <scene sceneID="VzM-Qg-vir">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MeetingCreation" id="5X9-oI-RgT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="I4Z-oN-I2y"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDp-39-sUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104" y="502"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="ahJ-Rp-E4F">

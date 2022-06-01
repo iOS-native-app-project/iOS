@@ -56,7 +56,7 @@ class MeetingEntranceViewController: UIViewController {
         entranceInfoView.updateData()
         
         //MARK:- 닫기 버튼
-        let closeButtonImage = Constant.Image.CloseButton?.withRenderingMode(.alwaysTemplate)
+        let closeButtonImage = Constant.Image.CloseIcon?.withRenderingMode(.alwaysTemplate)
         closeButton.tintColor = .white
         closeButton.setImage(closeButtonImage, for: .normal)
         

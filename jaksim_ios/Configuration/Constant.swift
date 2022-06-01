@@ -16,7 +16,7 @@ struct Constant {
     let BASE_URL = "https://jaksim.app/api/"
     //let
 
-    //MARK:- 홈(200)
+    //MARK: - 홈(200)
     struct Home {
         struct Name {
             static let MeetingListCollectionViewCellXibName = "MeetingListCollectionViewCell"
@@ -37,7 +37,7 @@ struct Constant {
         
     }
     
-    //MARK:- 모임리스트(300)
+    //MARK: - 모임리스트(300)
     struct MeetingList {
         struct Name {
             static let SearchTermsCollectionViewCellXibName = "SearchTermsCollectionViewCell"
@@ -59,6 +59,50 @@ struct Constant {
             ]
         }
     }
+    
+    //MARK: - 모임생성(303)
+    struct MeetingCreation {
+        struct Id {
+            static let MeetingCreationDetailViewControllerId = "MeetingCreationDetailViewController"
+            static let CategoryCollectionViewCellId = "CategoryCollectionViewCell"
+        }
+        struct Name {
+            static let CategoryCollectionViewCellName = "CategoryCollectionViewCell"
+            static let CreationFirstSectionXibName = "CreationFirstSection"
+            static let CreationSecondSectionXibName = "CreationSecondSection"
+            static let CreationThirdSectionXibName = "CreationThirdSection"
+            static let CreationFourthSectionXibName = "CreationFourthSection"
+        }
+        struct Text {
+            static let Category = [
+                ("미라클모닝", "miracleMorning"),
+                ("공부", "study"),
+                ("시험", "exam"),
+                ("글쓰기", "writing"),
+                ("독서", "reading"),
+                ("건강", "health"),
+                ("다이어트", "diet"),
+                ("달리기", "running")]
+            
+            static let Title = "모임 카테고리를 선택해주세요."
+            
+            struct CreationFirstSection {
+                static let FirstTitle = "모임명을 입력해주세요."
+                static let SecondTitle = "간단하게 모임을 소개해주세요."
+                static let FirstTextViewPlaceHolder = "운동할 사람?"
+                static let SecondTextViewPlaceHolder = "다같이 운동합시다."
+            }
+            struct CreationSecondSection {
+                static let Title = "인원수와 비밀번호를 설정해주세요."
+            }
+            struct CreationThirdSection {
+                static let Title = "주기를 선택해주세요."
+            }
+            struct CreationFourthSection {
+                static let Title = "목표치를 입력해주세요."
+            }
+        }
+    }
 
     //MARK:- 기타
     struct Color {
@@ -77,9 +121,15 @@ struct Constant {
     
     
     struct Image {
+        static let CloseIcon = UIImage(named: "close.png")
+        static let BackIcon = UIImage(named: "back.png")
+        static let UpIcon = UIImage(named: "up.png")?.withRenderingMode(.alwaysTemplate)
+        static let DownIcon = UIImage(named: "down.png")?.withRenderingMode(.alwaysTemplate)
+        static let UncheckedIcon = UIImage(named: "unchecked.png")?.withRenderingMode(.alwaysTemplate)
+        static let CheckedIcon = UIImage(named: "checked.png")?.withRenderingMode(.alwaysTemplate)
+        
         static let LockIcon = UIImage(named: "lock.png")
         static let CreationButton = UIImage(named: "creation.png")
-        static let CloseButton = UIImage(named: "close.png")
         static let PersonIcon = UIImage(named: "person.png")
         static let NoficationIcon = UIImage(named: "notification.png")
         static let HomeLogo = UIImage(named: "homeLogo.png")
