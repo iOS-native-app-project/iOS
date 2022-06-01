@@ -19,10 +19,10 @@ class CategoryListCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .none
         
         //MARK:- 카테고리
-        containerView.backgroundColor = K.Color.Gray245
+        containerView.backgroundColor = Constant.Color.Gray245
         containerView.layer.cornerRadius = 12
         
-        cateoryNameLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
+        cateoryNameLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 13)
     }
 
 }

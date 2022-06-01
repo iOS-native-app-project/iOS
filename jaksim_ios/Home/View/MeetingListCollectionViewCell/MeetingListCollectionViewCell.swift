@@ -34,16 +34,16 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         dDayLabel.layer.cornerRadius = 2
         dDayLabel.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
         dDayLabel.textColor = UIColor(red: (85/255.0), green: (120/255.0), blue: (255/255.0), alpha: 1.0)
-        dDayLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        dDayLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         dDayLabel.textAlignment = .center
         
         //MARK:- 모임 이름
         nameLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        nameLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 18)
+        nameLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
         
         //MARK:- 진행률
         progressLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        progressLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 12)
+        progressLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 12)
         
         //MARK:- 진행률 바
         progressBar.append(firstProgressBar)
@@ -53,19 +53,19 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
         
         for bar in progressBar{
             bar.layer.cornerRadius = bar.frame.height/2
-            bar.backgroundColor = K.Color.Black33
+            bar.backgroundColor = Constant.Color.Black33
         }
         firstProgressBar.backgroundColor = .white
         
         progressValueLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        progressValueLabel.font = UIFont(name: K.FontName.PretendardExtraBold, size: 32)
+        progressValueLabel.font = UIFont(name: Constant.FontName.PretendardExtraBold, size: 32)
         
         //MARK:- 인원수
         numberOfpeopleLabel.clipsToBounds = true
         numberOfpeopleLabel.layer.cornerRadius = numberOfpeopleLabel.frame.height/2
         numberOfpeopleLabel.backgroundColor = UIColor(red: (0/255.0), green: (0/255.0), blue: (0/255.0), alpha: 0.5)
         numberOfpeopleLabel.textColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 1.0)
-        numberOfpeopleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 12)
+        numberOfpeopleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 12)
         numberOfpeopleLabel.textAlignment = .center
     }
     
@@ -73,22 +73,22 @@ class MeetingListCollectionViewCell: UICollectionViewCell {
     func setProgressBar() {
         //0~25%
         if (0...25).contains(self.progressValue) {
-            bannerImageView.image = K.Image.bannerImageList[0]
+            bannerImageView.image = Constant.Image.bannerImageList[0]
         }
         //26~50%
         else if (26...50).contains(self.progressValue) {
-            bannerImageView.image = K.Image.bannerImageList[1]
+            bannerImageView.image = Constant.Image.bannerImageList[1]
             secondProgressBar.backgroundColor = .white
         }
         //51~75%
         else if (51...75).contains(self.progressValue) {
-            bannerImageView.image = K.Image.bannerImageList[2]
+            bannerImageView.image = Constant.Image.bannerImageList[2]
             secondProgressBar.backgroundColor = .white
             thirdProgressBar.backgroundColor = .white
         }
         //76~100%
         else {
-            bannerImageView.image = K.Image.bannerImageList[3]
+            bannerImageView.image = Constant.Image.bannerImageList[3]
             secondProgressBar.backgroundColor = .white
             thirdProgressBar.backgroundColor = .white
             fourthProgressBar.backgroundColor = .white

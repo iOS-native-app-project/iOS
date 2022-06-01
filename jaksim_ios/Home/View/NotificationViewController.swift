@@ -22,27 +22,27 @@ class NotificationViewController: UIViewController {
         super.viewDidLoad()
 
         //MARK:- 타이틀
-        titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 18)
-        titleLabel.textColor = K.Color.Black33
+        titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
+        titleLabel.textColor = Constant.Color.Black33
         
         //MARK:- 뒤로가기 버튼
-        backButton.setImage(K.Image.backButtonIcon, for: .normal)
-        backButton.tintColor = K.Color.Black33
+        backButton.setImage(Constant.Image.backButtonIcon, for: .normal)
+        backButton.tintColor = Constant.Color.Black33
         
         //MARK:- 알림 목록
         notificationListViewModel.notificationListSubject
             .observe(on: MainScheduler.instance)
-            .bind(to: notificationListTableView.rx.items(cellIdentifier: K.Home.Id.NotificationListTableViewCellId, cellType: NotificationListTableViewCell.self)) { index, item, cell in
+            .bind(to: notificationListTableView.rx.items(cellIdentifier: Constant.Home.Id.NotificationListTableViewCellId, cellType: NotificationListTableViewCell.self)) { index, item, cell in
                 
                 cell.notificationContentLabel.text = item.content
                 cell.notificationDateLabel.text = item.date
         
                 if item.noti == 0 { // siren
-                    cell.notificationImageView.image = K.Image.SirenIcon
+                    cell.notificationImageView.image = Constant.Image.SirenIcon
                     cell.notificationImageView.tintColor = UIColor(red: 255.0/255.0, green: 55.0/255.0, blue: 43.0/255.0, alpha: 1.0)
                 }
                 else { // thumbs up
-                    cell.notificationImageView.image = K.Image.ThumbsUpIcon
+                    cell.notificationImageView.image = Constant.Image.ThumbsUpIcon
                     cell.notificationImageView.tintColor = UIColor(red: 55.0/255.0, green: 141.0/255.0, blue: 240.0/255.0, alpha: 1.0)
                 }
                 cell.notificationImageView.image = cell.notificationImageView.image?.withRenderingMode(.alwaysTemplate)
@@ -51,7 +51,7 @@ class NotificationViewController: UIViewController {
             .disposed(by: disposeBag)
         
         notificationListTableView.delegate = self
-        notificationListTableView.register(UINib(nibName: K.Home.Name.NotificationListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: K.Home.Id.NotificationListTableViewCellId)
+        notificationListTableView.register(UINib(nibName: Constant.Home.Name.NotificationListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: Constant.Home.Id.NotificationListTableViewCellId)
     }
 
     //MARK:- 뒤로가기 버튼 action

@@ -44,8 +44,7 @@
 		18B21B89283CE5930012DF8C /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B21B88283CE5930012DF8C /* Rate.swift */; };
 		18EB2AF927CFBB81004ABE3A /* MeetingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */; };
 		18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */; };
-		18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB2AFB27CFCD9C004ABE3A /* Constant.swift */; };
-		7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */; };
+		60D74397100172205D3E5F49 /* Pods_jaksim_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7069DEFAB79B6B646945500 /* Pods_jaksim_ios.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C572027E218DA00FAF4DE /* SignupViewController.swift */; };
 		A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */; };
 		A55A71EE27C76854007A0DDC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A71ED27C76854007A0DDC /* LoginViewController.swift */; };
@@ -113,9 +112,6 @@
 		18B21B88283CE5930012DF8C /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		18EB2AF727CFBB81004ABE3A /* MeetingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListCollectionViewCell.swift; sourceTree = "<group>"; };
 		18EB2AF827CFBB81004ABE3A /* MeetingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingListCollectionViewCell.xib; sourceTree = "<group>"; };
-		18EB2AFB27CFCD9C004ABE3A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
-		87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A54C572027E218DA00FAF4DE /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		A55A71EB27C76711007A0DDC /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		A55A71ED27C76854007A0DDC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +120,6 @@
 		A55C140927E767A50053F81F /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		A55C140D27E770C80053F81F /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
-		A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89C820628320DB500D07202 /* KeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		B89C820A28320E8D00D07202 /* MemberDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDataManager.swift; sourceTree = "<group>"; };
 		B89C820B28320E8D00D07202 /* MemberStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MemberStoryboard.storyboard; sourceTree = "<group>"; };
@@ -143,6 +138,9 @@
 		B89C822F28322B9800D07202 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		B89C823128322BB100D07202 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
 		B89C823428322FCA00D07202 /* API Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Protocol.swift"; sourceTree = "<group>"; };
+		D7069DEFAB79B6B646945500 /* Pods_jaksim_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jaksim_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7A070220B4C07CA69DF53B6 /* Pods-jaksim_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.debug.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		D949869E7AF1B81ADDE1F0F6 /* Pods-jaksim_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jaksim_ios.release.xcconfig"; path = "Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE031A795F24756010341BD /* Pods_jaksim_ios.framework in Frameworks */,
+				60D74397100172205D3E5F49 /* Pods_jaksim_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +253,7 @@
 				186B1F4727C35EE10007C506 /* jaksim_ios */,
 				186B1F4627C35EE10007C506 /* Products */,
 				25F4D27B27D96585C56D6E4A /* Pods */,
-				CF52FEFEFBC80C97E40134D7 /* Frameworks */,
+				FF721ACB276F40AFE109EEDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,16 +268,12 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				B89C822928321CED00D07202 /* Configuration */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				A55A71EA27C766EC007A0DDC /* Login */,
 				B89C820828320E8D00D07202 /* Member */,
 				B89C822028321ADD00D07202 /* RecordInput */,
-=======
-				189B2FC028185FF400F66C31 /* Common */,
 				18EB2AF627C80928004ABE3A /* Home */,
->>>>>>> feature_Home
 				186B1F4827C35EE10007C506 /* AppDelegate.swift */,
 				186B1F4A27C35EE10007C506 /* SceneDelegate.swift */,
 				186B1F5427C35EE40007C506 /* Assets.xcassets */,
@@ -288,15 +282,6 @@
 				186B1F5127C35EE10007C506 /* jaksim_ios.xcdatamodeld */,
 			);
 			path = jaksim_ios;
-			sourceTree = "<group>";
-		};
-		189B2FC028185FF400F66C31 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				18EB2AFB27CFCD9C004ABE3A /* Constant.swift */,
-				18453A5227E087A800333D49 /* Font */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		18EB2AF627C80928004ABE3A /* Home */ = {
@@ -312,8 +297,8 @@
 		25F4D27B27D96585C56D6E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */,
-				4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */,
+				D7A070220B4C07CA69DF53B6 /* Pods-jaksim_ios.debug.xcconfig */,
+				D949869E7AF1B81ADDE1F0F6 /* Pods-jaksim_ios.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -413,6 +398,7 @@
 		B89C822928321CED00D07202 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				18453A5227E087A800333D49 /* Font */,
 				B89C822A28321D0C00D07202 /* Extension */,
 				B89C821B28320F8200D07202 /* Constant.swift */,
 				B89C820628320DB500D07202 /* KeyCenter.swift */,
@@ -436,10 +422,10 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		CF52FEFEFBC80C97E40134D7 /* Frameworks */ = {
+		FF721ACB276F40AFE109EEDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8C16EF45541D84F59DEF2D7 /* Pods_jaksim_ios.framework */,
+				D7069DEFAB79B6B646945500 /* Pods_jaksim_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -451,11 +437,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 186B1F5C27C35EE40007C506 /* Build configuration list for PBXNativeTarget "jaksim_ios" */;
 			buildPhases = (
-				F7E696D7BBD255A491443592 /* [CP] Check Pods Manifest.lock */,
+				12934E68CB910199CEEFC4E6 /* [CP] Check Pods Manifest.lock */,
 				186B1F4127C35EE10007C506 /* Sources */,
 				186B1F4227C35EE10007C506 /* Frameworks */,
 				186B1F4327C35EE10007C506 /* Resources */,
-				3C03027F73D3A1A0D77FA7FC /* [CP] Embed Pods Frameworks */,
+				37AB33BAA2BA7D565A0D9F26 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -473,7 +459,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					186B1F4427C35EE10007C506 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -509,9 +495,7 @@
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
 				186B1F5027C35EE10007C506 /* Main.storyboard in Resources */,
-<<<<<<< HEAD
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
-=======
 				18579887281944960090EEC5 /* NotificationListTableViewCell.xib in Resources */,
 				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
 				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
@@ -520,31 +504,13 @@
 				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,
 				183F56BD27E0EA6500BDAFF4 /* Pretendard-SemiBold.otf in Resources */,
 				183F56C127E0EF7300BDAFF4 /* S-CoreDream-2ExtraLight.otf in Resources */,
->>>>>>> feature_Home
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C03027F73D3A1A0D77FA7FC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F7E696D7BBD255A491443592 /* [CP] Check Pods Manifest.lock */ = {
+		12934E68CB910199CEEFC4E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,6 +532,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		37AB33BAA2BA7D565A0D9F26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-jaksim_ios/Pods-jaksim_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -573,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				A54C572127E218DA00FAF4DE /* SignupViewController.swift in Sources */,
 				B89C821628320E8D00D07202 /* UserGoodBadRequest.swift in Sources */,
 				A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */,
@@ -581,18 +563,16 @@
 				B89C822428321ADF00D07202 /* RecordInputViewController.swift in Sources */,
 				B89C821528320E8D00D07202 /* UserGoodBadResponse.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
-				186B1F4D27C35EE10007C506 /* ViewController.swift in Sources */,
+				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
 				A55C140E27E770C80053F81F /* SignUpRequest.swift in Sources */,
 				B89C821C28320F8200D07202 /* Constant.swift in Sources */,
 				B89C821928320E8D00D07202 /* MemberViewController.swift in Sources */,
-=======
 				1857987C281932C00090EEC5 /* SayingOfToday.swift in Sources */,
 				18453A5527E0C39900333D49 /* CategoryListCollectionViewCell.swift in Sources */,
 				18579889281947BD0090EEC5 /* NotificationItem.swift in Sources */,
 				189B2FC9281861F300F66C31 /* Meeting.swift in Sources */,
 				1857987A281932A40090EEC5 /* SayingOfTodayItem.swift in Sources */,
 				18579886281944960090EEC5 /* NotificationListTableViewCell.swift in Sources */,
-				18EB2AFC27CFCD9C004ABE3A /* Constant.swift in Sources */,
 				18579878281920AD0090EEC5 /* RecommendedMeeting.swift in Sources */,
 				1857988B281947C70090EEC5 /* Notification.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
@@ -610,7 +590,6 @@
 				18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
 				189B2FC32818613D00F66C31 /* Service.swift in Sources */,
->>>>>>> feature_Home
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				B89C822828321C3500D07202 /* MyRecordResponse.swift in Sources */,
 				B89C821828320E8D00D07202 /* MemberAlertViewController.swift in Sources */,
@@ -769,7 +748,7 @@
 		};
 		186B1F5D27C35EE40007C506 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87F910B37AEB2F34FBC3453C /* Pods-jaksim_ios.debug.xcconfig */;
+			baseConfigurationReference = D7A070220B4C07CA69DF53B6 /* Pods-jaksim_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -790,7 +769,7 @@
 		};
 		186B1F5E27C35EE40007C506 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FA6890FDC093618E4A5F3AE /* Pods-jaksim_ios.release.xcconfig */;
+			baseConfigurationReference = D949869E7AF1B81ADDE1F0F6 /* Pods-jaksim_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

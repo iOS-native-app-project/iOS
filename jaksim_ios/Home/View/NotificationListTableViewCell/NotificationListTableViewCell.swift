@@ -16,11 +16,11 @@ class NotificationListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        notificationContentLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 15)
-        notificationContentLabel.textColor = K.Color.Black66
+        notificationContentLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 15)
+        notificationContentLabel.textColor = Constant.Color.Black66
         
-        notificationDateLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
-        notificationDateLabel.textColor = K.Color.Gray158
+        notificationDateLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 13)
+        notificationDateLabel.textColor = Constant.Color.Gray158
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
