@@ -63,6 +63,24 @@
                                 <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0s-bW-ytD">
+                                <rect key="frame" x="53" y="638" width="37" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="홈"/>
+                                <connections>
+                                    <segue destination="ZjE-da-LXW" kind="show" id="yGa-qE-0Be"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9w-jk-jdI">
+                                <rect key="frame" x="153" y="638" width="85" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="모임리스트"/>
+                                <connections>
+                                    <segue destination="Cm9-2q-A38" kind="show" id="IVu-AK-V8H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,6 +105,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-23" y="72"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="gG8-OV-Zfk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="ZjE-da-LXW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cCc-aR-HFD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zY4-3i-vTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386" y="502"/>
+        </scene>
+        <!--MeetingList-->
+        <scene sceneID="TfF-JX-EJ3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MeetingList" id="Cm9-2q-A38" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sY1-cj-VQ3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCr-y3-v37" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="502"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="ahJ-Rp-E4F">

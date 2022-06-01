@@ -21,7 +21,7 @@ class MeetingListViewController: UIViewController {
     
     let meetingListViewModel = MeetingListViewModel()
     
-    var searchTermList = K.MeetingList.Text.CategoryList
+    var searchTermList = Constant.MeetingList.Text.CategoryList
     var meetingList = [Meeting]()
     var searchedMeetingList = [Meeting]()
     var searchText = ""
@@ -47,21 +47,21 @@ class MeetingListViewController: UIViewController {
         searchTermsCollectionView.dataSource = self
         searchTermsCollectionView.delegate = self
         
-        searchTermsCollectionView.register(UINib(nibName: K.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: K.MeetingList.Id.SearchTermsCollectionViewCellId)
+        searchTermsCollectionView.register(UINib(nibName: Constant.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.MeetingList.Id.SearchTermsCollectionViewCellId)
         
         //MARK:- 전체모임리스트 컬렉션뷰
         //tableViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
         
-        meetingListTableView.register(UINib(nibName: K.MeetingList.Name.MeetingListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: K.MeetingList.Id.MeetingListTableViewCellId)
+        meetingListTableView.register(UINib(nibName: Constant.MeetingList.Name.MeetingListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId)
         
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
             .do(onNext: { list in
                 self.meetingList = list
             })
-            .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+            .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 cell.entranceButton.tag = index
                 self.setForEntrace(cell: cell, item: item)
                 
@@ -78,11 +78,11 @@ class MeetingListViewController: UIViewController {
         cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
         
         if item.numberOfPeople == item.maximumNumber {
-            cell.entranceButton.setTitleColor(K.Color.Gray189, for: .normal)
+            cell.entranceButton.setTitleColor(Constant.Color.Gray189, for: .normal)
             cell.entranceButton.isEnabled = false
         }
         else {
-            cell.entranceButton.setTitleColor(K.Color.MainPuple, for: .normal)
+            cell.entranceButton.setTitleColor(Constant.Color.MainPuple, for: .normal)
             cell.entranceButton.isEnabled = true
         }
     }
@@ -97,7 +97,7 @@ extension MeetingListViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.MeetingList.Id.SearchTermsCollectionViewCellId, for: indexPath) as! SearchTermsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.MeetingList.Id.SearchTermsCollectionViewCellId, for: indexPath) as! SearchTermsCollectionViewCell
         
         cell.searchTermButton.setTitle(searchTermList[indexPath.row], for: .normal)
         cell.searchTermButton.addTarget(self, action: #selector(self.searchTermButtonDidTap(_:)), for: .touchUpInside)
@@ -142,7 +142,7 @@ extension MeetingListViewController: UITableViewDelegate {
     //MARK:- 입장 버튼 클릭 시 액션
     @objc func entranceButtonDidTap(_ sender: UIButton) {
         
-        guard let meetingEntranceVC = self.storyboard?.instantiateViewController(identifier: K.MeetingList.Id.MeetingEntranceViewControllerId) as? MeetingEntranceViewController else { return }
+        guard let meetingEntranceVC = self.storyboard?.instantiateViewController(identifier: Constant.MeetingList.Id.MeetingEntranceViewControllerId) as? MeetingEntranceViewController else { return }
         
         meetingEntranceVC.modalTransitionStyle = .coverVertical
         meetingEntranceVC.modalPresentationStyle = .fullScreen
@@ -198,7 +198,7 @@ extension MeetingListViewController: UISearchBarDelegate {
             .do(onNext: { list in
                 self.meetingList = list
             })
-            .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+            .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 cell.entranceButton.tag = index
                 self.setForEntrace(cell: cell, item: item)
             }
@@ -216,7 +216,7 @@ extension MeetingListViewController: UISearchBarDelegate {
                 .do(onNext: { list in
                     self.meetingList = list
                 })
-                .bind(to: meetingListTableView.rx.items(cellIdentifier: K.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+                .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                     cell.entranceButton.tag = index
                     self.setForEntrace(cell: cell, item: item)
                 }

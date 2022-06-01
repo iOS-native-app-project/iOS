@@ -26,8 +26,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var recommendedMeetingTitleLabel: UILabel!
     @IBOutlet weak var recommendedMeetingShollAllButton: UIButton!
     
-    private let meetingListViewModel = MeetingListViewModel()
-    private var meetingList = [Meeting]()
+    private let meetingListViewModel = AttendedMeetingListViewModel()
+    private var meetingList = [AttendedMeeting]()
     private var meetingListCount = 0
     private var meetingLoadCount = 0
     

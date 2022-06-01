@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Meeting {
+struct AttendedMeeting {
     var name: String
     //var dDay: Int
     var progess: Int
     var meetingId: Int
     
-    init(_ item: MeetingItem) {
+    init(_ item: AttendedMeetingItem) {
         name = item.name
         progess = 100
         meetingId = item.id

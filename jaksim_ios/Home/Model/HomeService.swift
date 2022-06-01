@@ -11,7 +11,7 @@ import RxSwift
 
 struct HomeService {
     
-    static func getAttendedMeetingList(from url: String) -> Observable<[MeetingItem]> {
+    static func getAttendedMeetingList(from url: String) -> Observable<[AttendedMeetingItem]> {
         return Observable.create { emitter in
             
             let urlString = url
@@ -27,7 +27,7 @@ struct HomeService {
                 case .success:
                     if let data = response.data {
                         do {
-                            let responseDecoded = try JSONDecoder().decode(MeetingDataItem.self, from: data).data
+                            let responseDecoded = try JSONDecoder().decode(AttendedMeetingDataItem.self, from: data).data
                             emitter.onNext(responseDecoded)
                         }catch let error as NSError{
                             emitter.onError(error)

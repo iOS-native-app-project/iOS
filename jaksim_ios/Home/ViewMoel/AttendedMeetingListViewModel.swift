@@ -8,16 +8,16 @@
 import Foundation
 import RxSwift
 
-class MeetingListViewModel {
+class AttendedMeetingListViewModel {
     let disposeBag = DisposeBag()
-    var meetingListSubject = BehaviorSubject<[Meeting]>(value: [])
+    var meetingListSubject = BehaviorSubject<[AttendedMeeting]>(value: [])
     let url = "https://jaksim.app/api/meeting/main"
     
     init() {
         HomeService.getAttendedMeetingList(from: url)
             .map { meetingList in
                 meetingList.map {
-                    Meeting($0)
+                    AttendedMeeting($0)
                 }
             }
             .subscribe(onNext: {

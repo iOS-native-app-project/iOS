@@ -40,7 +40,7 @@ class EntranceInfoView: UIView {
     }
     private func loadView(){
         
-        let view = Bundle.main.loadNibNamed(K.MeetingList.Name.EntranceInfoViewXibName, owner: self, options: nil)?.first as! UIView
+        let view = Bundle.main.loadNibNamed(Constant.MeetingList.Name.EntranceInfoViewXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         addSubview(view)
         
@@ -64,7 +64,7 @@ class EntranceInfoView: UIView {
         
         //MARK:- 사람수 라벨
         //numberOfPeopleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
-        numberOfPeopleLabel.textColor = K.Color.Gray189
+        numberOfPeopleLabel.textColor = Constant.Color.Gray189
         
         //MARK:- 프로필 이미지뷰
         profileImageView.layer.cornerRadius = profileImageView.bounds.height/2

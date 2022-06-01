@@ -15,12 +15,12 @@ class SearchTermsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.layer.borderWidth = 1
-        self.layer.borderColor = K.Color.Gray224.cgColor
+        self.layer.borderColor = Constant.Color.Gray224.cgColor
         self.layer.cornerRadius = self.bounds.height/2
         
         searchTermButton.layer.cornerRadius = searchTermButton.bounds.height/2
         //searchTermButton.titleLabel?.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
-        searchTermButton.setTitleColor(K.Color.Black33, for: .normal)
+        searchTermButton.setTitleColor(Constant.Color.Black33, for: .normal)
     }
 
 }

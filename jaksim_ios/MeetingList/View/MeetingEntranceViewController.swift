@@ -56,20 +56,20 @@ class MeetingEntranceViewController: UIViewController {
         entranceInfoView.updateData()
         
         //MARK:- 닫기 버튼
-        let closeButtonImage = K.Image.closeButton?.withRenderingMode(.alwaysTemplate)
+        let closeButtonImage = Constant.Image.CloseButton?.withRenderingMode(.alwaysTemplate)
         closeButton.tintColor = .white
         closeButton.setImage(closeButtonImage, for: .normal)
         
         //MARK:- 입장 버튼
         entranceButtonView.layer.cornerRadius = entranceButton.bounds.height/2
-        entranceButtonView.backgroundColor = K.Color.MainPuple
+        entranceButtonView.backgroundColor = Constant.Color.MainPuple
         
         //MARK:- 입장 버튼(라벨)
         entranceLabel.textColor = .white
         //entranceLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 16)
         
         //MARK:- 입장 버튼(자물쇠 이미지)
-        let lockImage = K.Image.lockIcon?.withRenderingMode(.alwaysTemplate)
+        let lockImage = Constant.Image.LockIcon?.withRenderingMode(.alwaysTemplate)
         lockImageView.tintColor = .white
         lockImageView.image = lockImage
         
@@ -93,7 +93,7 @@ class MeetingEntranceViewController: UIViewController {
     }
     @IBAction func entrancButtonDidTap(_ sender: UIButton) {
         if isLocked {
-            let passwordVC = PasswordViewController(nibName: K.MeetingList.Name.PasswordViewControllerNibName, bundle: nil)
+            let passwordVC = PasswordViewController(nibName: Constant.MeetingList.Name.PasswordViewControllerNibName, bundle: nil)
             passwordVC.modalPresentationStyle = .overCurrentContext
             
             passwordVC.meetingId = self.meetingId

@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct MeetingDataItem: Decodable {
+struct AttendedMeetingDataItem: Decodable {
     var success: Bool
     var statusCode: Int
-    var data: [MeetingItem]
+    var data: [AttendedMeetingItem]
 }
 
-struct MeetingItem: Decodable {
+struct AttendedMeetingItem: Decodable {
     var id: Int
     var created_at: String
     var updated_at: String

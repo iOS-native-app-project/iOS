@@ -41,7 +41,7 @@ class PasswordViewController: UIViewController {
         passwordTextField.delegate = self
         
         passwordContainerView.layer.cornerRadius = 8
-        passwordContainerView.backgroundColor = K.Color.Gray238
+        passwordContainerView.backgroundColor = Constant.Color.Gray238
         
         passwordViewModel.passwordSubject
             .subscribe(onNext: { passwordResponse in
