@@ -273,10 +273,10 @@ extension LoginViewController {
         KeyCenter.LOGIN_TOKEN = result.data.accessToken
         UserDefaults.standard.set(KeyCenter.LOGIN_TOKEN, forKey: "Token")
         
-        let memberVC = UIStoryboard(name: "MemberStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
+        let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         
-        memberVC.modalPresentationStyle = .fullScreen
-        self.present(memberVC, animated: false, completion: nil)
+        homeVC.modalPresentationStyle = .fullScreen
+        self.present(homeVC, animated: false, completion: nil)
     }
     
     func goToSignup() {
