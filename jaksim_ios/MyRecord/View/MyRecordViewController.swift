@@ -24,7 +24,7 @@ class MyRecordViewController: UIViewController {
     @IBOutlet weak var circle4View: UIView!
     
     
-    //MARK:- 캘린더을 위한 변수
+    //MARK: - 캘린더을 위한 변수
     private let now = Date()
     private var cal = Calendar.current
     private let dateFormatter = DateFormatter()
@@ -34,8 +34,8 @@ class MyRecordViewController: UIViewController {
     private var daysCountInMonth = 0
     private var weekdayAdding = 0
     
-    private let meetingListViewModel = MeetingListViewModel()
-    private var meetingList = [Meeting]()
+    private let attendedMeetingListViewModel = AttendedMeetingListViewModel()
+    private var meetingList = [AttendedMeeting]()
     private var meetingIndex = 0
     private var meetingLoadCount = 0
     
@@ -51,7 +51,13 @@ class MyRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK:- 참여중인 모임 컬렉션 뷰
+        //MARK: - 캘린더 컬렉션 뷰
+        self.calendarCollectionView.dataSource = self
+        self.calendarCollectionView.delegate = self
+        self.calendarCollectionView.register(UINib(nibName: Constant.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.CalendarCollectionViewCellId)
+        self.initView()
+        
+        //MARK: - 참여중인 모임 컬렉션 뷰
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: Constant.MyRecord.Name.MyRecordMeetingListCollectionViewCelNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.MyRecordMeetingListCollectionViewCellId)
         let backgroundImageView : UIImageView = {
@@ -76,7 +82,7 @@ class MyRecordViewController: UIViewController {
         meetingListCollectionView.setCollectionViewLayout(meetingCollectionViewLayout, animated: true)
         
         //참여중인 모임 api binding
-        meetingListViewModel.meetingListSubject
+        attendedMeetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
             .do(onNext: { list in
                 self.meetingList = list
@@ -103,14 +109,7 @@ class MyRecordViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        
-        //MARK:- 캘린더 컬렉션 뷰
-        self.calendarCollectionView.dataSource = self
-        self.calendarCollectionView.delegate = self
-        self.calendarCollectionView.register(UINib(nibName: Constant.MyRecord.Name.CalendarCollectionViewCellNibName, bundle: nil), forCellWithReuseIdentifier: Constant.MyRecord.Id.CalendarCollectionViewCellId)
-        self.initView()
-        
-        //MARK:- 나의 기록(1달 단위) api binding
+        //MARK: - 나의 기록(1달 단위) api binding
         recordListViewModel.recordListSubject
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { recordList in
@@ -121,14 +120,14 @@ class MyRecordViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        //MARK:- 이전 달, 다음 달 버튼
+        //MARK: - 이전 달, 다음 달 버튼
         prevMonthButton.setImage(Constant.Image.PrevIcon, for: .normal)
         prevMonthButton.tintColor = Constant.Color.Black66
         
         nextMonthButton.setImage(Constant.Image.NextIcon, for: .normal)
         nextMonthButton.tintColor = Constant.Color.Black66
         
-        //MARK:- 진행률 정보 뷰
+        //MARK: - 진행률 정보 뷰
         progressInfoView.backgroundColor = Constant.Color.Gray250
         progressInfoView.layer.cornerRadius = 4
         
@@ -144,7 +143,7 @@ class MyRecordViewController: UIViewController {
         
     }
     
-    //MARK:- 캘린더 컬렉션 뷰 초기 세팅
+    //MARK: - 캘린더 컬렉션 뷰 초기 세팅
     private func initView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -156,7 +155,7 @@ class MyRecordViewController: UIViewController {
         components.day = 1
     }
     
-    //MARK:- 캘린더 계산 함수
+    //MARK: - 캘린더 계산 함수
     private func calculation(){
         let firstDayOfMonth = cal.date(from: components)
         let firstWeekday = cal.component(.weekday, from: firstDayOfMonth!)
@@ -182,14 +181,14 @@ class MyRecordViewController: UIViewController {
         }
     }
     
-    //MARK:- 달력 이전 달 버튼 클릭 시 액션
+    //MARK: - 달력 이전 달 버튼 클릭 시 액션
     @IBAction func prevMonthButtonDidTap(_ sender: UIButton) {
         
         components.month = components.month! - 1
         self.calculation()
         self.calendarCollectionView.reloadData()
     }
-    //MARK:- 달력 다음 달 버튼 클릭 시 액션
+    //MARK: - 달력 다음 달 버튼 클릭 시 액션
     @IBAction func nextMonthButtonDidTap(_ sender: UIButton) {
         
         components.month = components.month! + 1
@@ -198,7 +197,7 @@ class MyRecordViewController: UIViewController {
     }
     
     
-    //MARK:- 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
+    //MARK: - 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
     private func getProgress() {
         //달성률 api를 참여중인 모임 개수만큼 호출
         for (index, meeting) in meetingList.enumerated() {
@@ -220,16 +219,16 @@ class MyRecordViewController: UIViewController {
         }
     }
     
-    //MARK:- api를 통해 기록 요청
+    //MARK: - api를 통해 기록 요청
     private func getRecord(meetingId: Int, year: Int, month: Int){
         recordListViewModel.fetchRecord(meetingId: meetingId, year: year, month: month)
     }
 }
 
-//MARK:- CollectionView Delegate
+//MARK: - CollectionView Delegate
 extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    //MARK:- 컬렉션뷰 섹션 수
+    //MARK: - 컬렉션뷰 섹션 수
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == calendarCollectionView {
             return 2
@@ -237,7 +236,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         else { return 1 }
     }
     
-    //MARK:- 컬렉션뷰 섹션 당 셀개수
+    //MARK: - 컬렉션뷰 섹션 당 셀개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == calendarCollectionView {
@@ -256,7 +255,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //MARK:- 캘린더 컬렉션뷰 셀 dataSoruce
+        //MARK: - 캘린더 컬렉션뷰 셀 dataSoruce
         if collectionView == calendarCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.MyRecord.Id.CalendarCollectionViewCellId, for: indexPath) as! CalendarCollectionViewCell
             
@@ -307,7 +306,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         
     }
     
-    //MARK:- 컬렉션뷰 셀 크기
+    //MARK: - 컬렉션뷰 셀 크기
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == meetingListCollectionView{
@@ -326,12 +325,12 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    //MARK:- 컬렉션뷰 셀 간격
+    //MARK: - 컬렉션뷰 셀 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    //MARK:- 캘린더 컬렉션뷰 셀 클릭 시 액션
+    //MARK: - 캘린더 컬렉션뷰 셀 클릭 시 액션
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == calendarCollectionView {
             print(components.year ?? "year 출력 오류")
@@ -348,7 +347,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
     }
 }
 
-//MARK:- 참여중인 모임 리스트 페이징 세팅(한 장 넘길 때마다 가운데 오도록)
+//MARK: - 참여중인 모임 리스트 페이징 세팅(한 장 넘길 때마다 가운데 오도록)
 extension MyRecordViewController: UIScrollViewDelegate {
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

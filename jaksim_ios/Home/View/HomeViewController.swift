@@ -11,7 +11,6 @@ import RxCocoa
 
 class HomeViewController: UIViewController {
     
-    //***개수 고정하고 스크롤 잠궈야함
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var notificationButton: UIButton!
     @IBOutlet weak var notiVisitedMarkView: UIView!
@@ -24,7 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var sayingOfTodayContaierView: UIView!
     
     @IBOutlet weak var recommendedMeetingTitleLabel: UILabel!
-    @IBOutlet weak var recommendedMeetingShollAllButton: UIButton!
+    @IBOutlet weak var showAllButton: UIButton!
     
     private let meetingListViewModel = AttendedMeetingListViewModel()
     private var meetingList = [AttendedMeeting]()
@@ -72,10 +71,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK:- 로고
+        //MARK: - 로고
         logoImageView.image = Constant.Image.HomeLogo
         
-        //MARK:- 알림
+        //MARK: - 알림
         notificationButton.layer.cornerRadius = notificationButton.bounds.height/2
         notificationButton.backgroundColor = Constant.Color.Gray245
         notificationButton.setImage(Constant.Image.NoficationIcon, for: .normal)
@@ -84,7 +83,7 @@ class HomeViewController: UIViewController {
         notiVisitedMarkView.layer.cornerRadius = notiVisitedMarkView.bounds.height/2
         notiVisitedMarkView.backgroundColor = Constant.Color.MainPuple
         
-        //MARK:- 참여중인 모임 리스트
+        //MARK: - 참여중인 모임 리스트
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
             .do(onNext: { list in
@@ -119,7 +118,7 @@ class HomeViewController: UIViewController {
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: Constant.Home.Name.MeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId)
         
-        //MARK:- 오늘의 한마디
+        //MARK: - 오늘의 한마디
         sayingOfTodayLabel.layer.shadowColor = UIColor.black.cgColor
         sayingOfTodayLabel.layer.shadowRadius = 5
         sayingOfTodayLabel.layer.masksToBounds = false
@@ -144,12 +143,12 @@ class HomeViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        //MARK:- 카테고리 리스트
+        //MARK: - 카테고리 리스트
         categoryListCollectionView.dataSource = self
         categoryListCollectionView.delegate = self
         categoryListCollectionView.register(UINib(nibName: Constant.Home.Name.CategoryListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.CategoryListCollectionViewCellId)
         
-        //MARK:- 추천모임 리스트
+        //MARK: - 추천모임 리스트
         recommendedMeetingListViewModel.recommendedMeetingListSubject
             .observe(on: MainScheduler.instance)
             .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
@@ -163,14 +162,14 @@ class HomeViewController: UIViewController {
         
         recommendedMeetingTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 16)
         recommendedMeetingTitleLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
-        recommendedMeetingShollAllButton.titleLabel!.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
-        recommendedMeetingShollAllButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal)
+        showAllButton.titleLabel!.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        showAllButton.setTitleColor(UIColor(red: 117/255.0, green: 117/255.0, blue: 117/255.0, alpha: 1), for: .normal)
         
         recommendedMeetingListCollectionView.delegate = self
         recommendedMeetingListCollectionView.register(UINib(nibName: Constant.Home.Name.RecommendedMeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId)
     }
     
-    //MARK:- 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
+    //MARK: - 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
     private func getProgress() {
         //달성률 api를 참여중인 모임 개수만큼 호출
         for (index, meeting) in meetingList.enumerated() {
@@ -191,9 +190,15 @@ class HomeViewController: UIViewController {
                 .disposed(by: disposeBag)
         }
     }
+    
+    //MARK: - 전체보기 버튼 클릭 시
+    @IBAction func showAllButtonDidTap(_ sender: UIButton) {
+        self.tabBarController?.selectedIndex = 1
+    }
+    
 }
 
-//MARK:- CollectionView Delegate
+//MARK: - CollectionView Delegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

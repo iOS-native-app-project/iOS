@@ -67,14 +67,18 @@ struct Constant {
         struct Id {
             static let MeetingCreationDetailViewControllerId = "MeetingCreationDetailViewController"
             static let CategoryCollectionViewCellId = "CategoryCollectionViewCell"
+            static let MeetingCreationViewControllerId = "MeetingCreationViewController"
         }
+            
         struct Name {
             static let CategoryCollectionViewCellName = "CategoryCollectionViewCell"
             static let CreationFirstSectionXibName = "CreationFirstSection"
             static let CreationSecondSectionXibName = "CreationSecondSection"
             static let CreationThirdSectionXibName = "CreationThirdSection"
             static let CreationFourthSectionXibName = "CreationFourthSection"
+            static let MeetingCreationStoryBoardName = "MeetingCreation"
         }
+        
         struct Text {
             static let Category = [
                 ("미라클모닝", "miracleMorning"),

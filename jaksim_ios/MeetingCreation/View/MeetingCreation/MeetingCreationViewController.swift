@@ -25,28 +25,31 @@ class MeetingCreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK:- 네비게이션바 타이틀 라벨
+        //MARK: - 네비게이션바 타이틀 라벨
         navigationTitleLabel.text = "모임 개설 (1/2)"
-        //navigationTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
+        navigationTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
         navigationTitleLabel.textColor = Constant.Color.Black33
         
-        //MARK:- 닫기 버튼
+        //MARK: - 닫기 버튼
         closeButton.setImage(Constant.Image.CloseIcon, for: .normal)
         closeButton.tintColor = Constant.Color.Black33
         
-        //MARK:- '모임 카테고리를 선택해주세요' 라벨
-        //titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        //MARK: - '모임 카테고리를 선택해주세요' 라벨
+        titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         titleLabel.textColor = Constant.Color.Black66
         titleLabel.text = Constant.MeetingCreation.Text.Title
         
-        //MARK:- 카테고리 컬렉션뷰
+        //MARK: - 카테고리 컬렉션뷰
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
         categoryCollectionView.register(UINib(nibName: Constant.MeetingCreation.Name.CategoryCollectionViewCellName, bundle: nil), forCellWithReuseIdentifier: Constant.MeetingCreation.Id.CategoryCollectionViewCellId)
     }
+    @IBAction func closeButtonDidTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
-//MARK:- CollectionView Delegate
+//MARK: - CollectionView Delegate
 extension MeetingCreationViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // 셀 개수

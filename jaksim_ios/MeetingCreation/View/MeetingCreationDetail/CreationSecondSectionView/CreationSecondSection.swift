@@ -42,42 +42,42 @@ class CreationSecondSection: UIView {
         let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationSecondSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
-        //MARK:- '인원수와 비밀번호를 설정해주세요.' 라벨
+        //MARK: - '인원수와 비밀번호를 설정해주세요.' 라벨
         titleLabel.text = Constant.MeetingCreation.Text.CreationSecondSection.Title
-        //titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         titleLabel.textColor = Constant.Color.Black66
         
-        //MARK:- 인원수 지정
+        //MARK: - 인원수 지정
         firstContainerView.layer.borderWidth = 1
         firstContainerView.layer.borderColor = Constant.Color.Gray224.cgColor
         firstContainerView.layer.cornerRadius = 8
         firstContainerView.backgroundColor = .white
         
-        //firstContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        firstContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         firstContainerTitleLabel.textColor = Constant.Color.Black66
         
-        //numberLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        numberLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         numberLabel.textColor = Constant.Color.Black66
         numberLabel.text = "\(numberOfPeople)명"
         
-        //MARK:- 비밀번호 지정
+        //MARK: - 비밀번호 지정
         secondContainerView.layer.borderWidth = 1
         secondContainerView.layer.borderColor = Constant.Color.Gray224.cgColor
         secondContainerView.layer.cornerRadius = 8
         secondContainerView.backgroundColor = .white
         
-       // secondContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        secondContainerTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         secondContainerTitleLabel.textColor = Constant.Color.Black66
         
-       // passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         passwordTextField.textColor = Constant.Color.Gray189
         passwordTextField.setPadding(left: 0, right: 0)
-        //passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        passwordTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         passwordTextField.textColor = Constant.Color.Black33
         passwordTextField.isUserInteractionEnabled = true
         passwordTextField.delegate = self
         
-        //noneLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        noneLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         noneLabel.textColor = Constant.Color.Black97
         
         passwordButton.setImage(Constant.Image.UncheckedIcon, for: .normal)
@@ -87,7 +87,7 @@ class CreationSecondSection: UIView {
         self.addSubview(view)
     }
 
-    //MARK:- 인원수 조정 버튼 클릭 시 액션
+    //MARK: - 인원수 조정 버튼 클릭 시 액션
     @IBAction func upButtonDidTap(_ sender: UIButton) {
         if numberOfPeople != 10 {
             numberOfPeople += 1
@@ -101,7 +101,7 @@ class CreationSecondSection: UIView {
         }
     }
     
-    //MARK:- 비밀번호 버튼 클릭시 액션
+    //MARK: - 비밀번호 버튼 클릭시 액션
     @IBAction func passwordButtonDidTap(_ sender: UIButton) {
         if passwordFlag {
             passwordFlag = false
@@ -121,9 +121,9 @@ class CreationSecondSection: UIView {
     }
 }
 
-//MARK:- UITextFieldDelegate
+//MARK: - UITextFieldDelegate
 extension CreationSecondSection: UITextFieldDelegate {
-    //MARK:- '비밀 번호'칸에 숫자만 입력 가능하게 만들기
+    //MARK: - '비밀 번호'칸에 숫자만 입력 가능하게 만들기
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.passwordTextField {
             let allowedCharacters = CharacterSet.decimalDigits

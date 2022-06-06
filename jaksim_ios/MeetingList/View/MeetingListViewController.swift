@@ -39,10 +39,10 @@ class MeetingListViewController: UIViewController {
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height/2 - 10
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.delegate = self
-        //searchBar.searchTextField.font = UIFont(name: K.FontName.PretendardRegular, size: 16)
+        searchBar.searchTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 16)
         
         //MARK:- 추천검색어 컬렉션뷰
-        //collectionViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        collectionViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         searchTermsCollectionView.dataSource = self
         searchTermsCollectionView.delegate = self
@@ -50,7 +50,7 @@ class MeetingListViewController: UIViewController {
         searchTermsCollectionView.register(UINib(nibName: Constant.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.MeetingList.Id.SearchTermsCollectionViewCellId)
         
         //MARK:- 전체모임리스트 컬렉션뷰
-        //tableViewTitleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 13)
+        tableViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
         
@@ -85,6 +85,14 @@ class MeetingListViewController: UIViewController {
             cell.entranceButton.setTitleColor(Constant.Color.MainPuple, for: .normal)
             cell.entranceButton.isEnabled = true
         }
+    }
+    
+    //MARK: - 모임 생성 버튼 클릭 시
+    @IBAction func meetingCreationButtonDidTap(_ sender: UIButton) {
+        
+        guard let meetringCreationVC = UIStoryboard.init(name: Constant.MeetingCreation.Name.MeetingCreationStoryBoardName, bundle: nil).instantiateViewController(identifier: Constant.MeetingCreation.Id.MeetingCreationViewControllerId) as? MeetingCreationViewController else {return}
+    
+        self.navigationController?.pushViewController(meetringCreationVC, animated: true)
     }
 }
 
@@ -161,7 +169,13 @@ extension MeetingListViewController: UITableViewDelegate {
         default:
             meetingEntranceVC.period = ""
         }
-        meetingEntranceVC.unit = meetingList[selectedMeetingIndex].unit
+        
+        if meetingList[selectedMeetingIndex].unit == "횟수" {
+            meetingEntranceVC.unit = "회"
+        }
+        else {
+            meetingEntranceVC.unit = meetingList[selectedMeetingIndex].unit
+        }
         meetingEntranceVC.figure = meetingList[selectedMeetingIndex].figure
         meetingEntranceVC.category = meetingList[selectedMeetingIndex].category
         meetingEntranceVC.nickname = meetingList[selectedMeetingIndex].nickname
@@ -198,11 +212,11 @@ extension MeetingListViewController: UISearchBarDelegate {
             .do(onNext: { list in
                 self.meetingList = list
             })
-            .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
-                cell.entranceButton.tag = index
-                self.setForEntrace(cell: cell, item: item)
-            }
-            .disposed(by: disposeBag)
+                .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+                    cell.entranceButton.tag = index
+                    self.setForEntrace(cell: cell, item: item)
+                }
+                .disposed(by: disposeBag)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -216,11 +230,11 @@ extension MeetingListViewController: UISearchBarDelegate {
                 .do(onNext: { list in
                     self.meetingList = list
                 })
-                .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
-                    cell.entranceButton.tag = index
-                    self.setForEntrace(cell: cell, item: item)
-                }
-                .disposed(by: disposeBag)
+                    .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+                        cell.entranceButton.tag = index
+                        self.setForEntrace(cell: cell, item: item)
+                    }
+                    .disposed(by: disposeBag)
             
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()

@@ -47,23 +47,23 @@ class EntranceInfoView: UIView {
         //MARK:- 태그 라벨
         tagContainerView.layer.cornerRadius = 2
         
-        //tagLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 14)
+        tagLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         tagLabel.textColor = .white
         
         //MARK:- 모임이름라벨
-        //titleLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 26)
+        titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 26)
         titleLabel.textColor = .white
         
         //MARK:- 모임설명 라벨
-        //descriptionLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 15)
+        descriptionLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 15)
         descriptionLabel.textColor = .white
         
         //MARK:- 닉네임 라벨
-        //nicknameLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
+        nicknameLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 13)
         nicknameLabel.textColor = .white
         
         //MARK:- 사람수 라벨
-        //numberOfPeopleLabel.font = UIFont(name: K.FontName.PretendardRegular, size: 13)
+        numberOfPeopleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 13)
         numberOfPeopleLabel.textColor = Constant.Color.Gray189
         
         //MARK:- 프로필 이미지뷰
