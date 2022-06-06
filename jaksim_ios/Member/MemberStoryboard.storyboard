@@ -10,6 +10,17 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+        <array key="Pretendard-SemiBold.otf">
+            <string>Pretendard-SemiBold</string>
+        </array>
+        <array key="S-CoreDream-4Regular.otf">
+            <string>S-CoreDream-4Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Member View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -25,32 +36,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQT-ok-8R2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-dC-jAf">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unsplash__dAnK9GJvdY" translatesAutoresizingMaskIntoConstraints="NO" id="nQ9-dC-jAf">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
-                                                <color key="backgroundColor" red="0.99607843139999996" green="0.8980392157" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="FVU-Ax-6YU"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-jB-3Ev">
-                                                <rect key="frame" x="20" y="140" width="374" height="66.5"/>
+                                                <rect key="frame" x="20" y="140" width="374" height="61"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snl-FC-iYC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일이삼사오육칠팔구십 일이삼사오육칠팔구십 일이삼사오육한줄소개" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSg-fY-9wy">
-                                                        <rect key="frame" x="0.0" y="25.5" width="374" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일이삼사오육칠팔구십 일이삼사오육칠팔구십 일이삼사오육한줄소개" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSg-fY-9wy">
+                                                        <rect key="frame" x="0.0" y="24.5" width="374" height="36.5"/>
+                                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rQu-CP-ZaC">
-                                                <rect key="frame" x="0.0" y="262.5" width="414" height="56"/>
+                                                <rect key="frame" x="0.0" y="257" width="414" height="56"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3w-Wo-sVk">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
@@ -59,21 +69,21 @@
                                                                 <rect key="frame" x="20" y="16" width="374" height="20"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모임 누적 달성치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LC-jz-kvB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="20"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
                                                                         <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-O9-xB3">
-                                                                        <rect key="frame" x="135" y="0.0" width="180" height="20"/>
+                                                                        <rect key="frame" x="128" y="0.0" width="180" height="20"/>
                                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="180" id="UbM-OT-Nkw"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-4b-Kuc">
-                                                                        <rect key="frame" x="337.5" y="0.0" width="36.5" height="20"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <rect key="frame" x="344.5" y="0.0" width="29.5" height="20"/>
+                                                                        <fontDescription key="fontDescription" name="S-CoreDream-4Regular" family="S-Core Dream" pointSize="14"/>
                                                                         <color key="textColor" red="0.33333333333333331" green="0.47058823529411764" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -99,19 +109,19 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 랭킹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcQ-Jf-V5z">
-                                                <rect key="frame" x="20" y="338.5" width="63.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="20" y="333" width="59.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                                                 <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.01.11~2022.01.21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgZ-xJ-uLS">
-                                                <rect key="frame" x="221.5" y="338.5" width="172.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="263" y="333" width="131" height="16"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
                                                 <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lVz-mw-fFt">
-                                                <rect key="frame" x="20" y="379" width="374" height="621"/>
+                                                <rect key="frame" x="20" y="372.5" width="374" height="627.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberTableViewCell" rowHeight="49" id="1FP-AI-q3s" customClass="MemberTableViewCell" customModule="jaksim_ios" customModuleProvider="target">
@@ -122,16 +132,16 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zua-Os-VDk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="67.5" height="49"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="49"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tq1-aX-MgM">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="7.5" height="49"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="9" height="49"/>
+                                                                            <fontDescription key="fontDescription" name="S-CoreDream-4Regular" family="S-Core Dream" pointSize="14"/>
                                                                             <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nue-z0-4Gq">
-                                                                            <rect key="frame" x="19.5" y="0.0" width="48" height="49"/>
+                                                                            <rect key="frame" x="21" y="0.0" width="48" height="49"/>
                                                                             <color key="backgroundColor" name="AccentColor"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="48" id="GVR-9b-K2n"/>
@@ -143,19 +153,19 @@
                                                                     </constraints>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일이삼사오육칠팔구십" textAlignment="justified" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJX-vE-2iI">
-                                                                    <rect key="frame" x="83.5" y="0.0" width="147.5" height="25"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="85" y="0.0" width="130" height="25"/>
+                                                                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
                                                                     <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="92%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-eT-vyv">
-                                                                    <rect key="frame" x="338" y="14.5" width="36" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="336" y="14" width="38" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="S-CoreDream-4Regular" family="S-Core Dream" pointSize="18"/>
                                                                     <color key="textColor" red="0.33333333329999998" green="0.47058823529999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="J4n-rL-6ik">
-                                                                    <rect key="frame" x="83.5" y="29" width="82" height="20"/>
+                                                                    <rect key="frame" x="85" y="29" width="82" height="20"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJg-Z5-ubF">
                                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="20"/>
@@ -163,10 +173,13 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="39" id="7vW-hR-d5a"/>
                                                                             </constraints>
+                                                                            <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                                                                            <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                            <state key="normal" title="99">
+                                                                            <state key="normal" title="99" image="goodB">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
+                                                                            <state key="selected" image="good"/>
                                                                             <connections>
                                                                                 <action selector="goodButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="a9m-ok-YB7"/>
                                                                             </connections>
@@ -177,10 +190,13 @@
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="39" id="rD1-QN-Uiz"/>
                                                                             </constraints>
+                                                                            <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                                                                            <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                            <state key="normal" title="99">
+                                                                            <state key="normal" title="99" image="badB">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
+                                                                            <state key="selected" image="bad"/>
                                                                             <connections>
                                                                                 <action selector="badButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="b4s-0i-MHh"/>
                                                                             </connections>
@@ -215,7 +231,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GdF-ZI-B6f">
-                                                <rect key="frame" x="20" y="218.5" width="374" height="24"/>
+                                                <rect key="frame" x="20" y="213" width="374" height="24"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zXZ-ov-c3C">
                                                     <size key="itemSize" width="64" height="24"/>
@@ -232,9 +248,9 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#하루" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjC-mF-1xS">
-                                                                    <rect key="frame" x="3.5" y="2" width="40" height="20.5"/>
+                                                                    <rect key="frame" x="8.5" y="4" width="30.5" height="16"/>
                                                                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -405,6 +421,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bad" width="16" height="16"/>
+        <image name="badB" width="12" height="12"/>
+        <image name="good" width="16" height="16"/>
+        <image name="goodB" width="12" height="12"/>
+        <image name="unsplash__dAnK9GJvdY" width="375" height="120"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

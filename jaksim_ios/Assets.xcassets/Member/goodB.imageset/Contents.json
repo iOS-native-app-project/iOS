@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "비활성화.png",
+      "filename" : "icon_3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icon_3-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icon_3-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
