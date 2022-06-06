@@ -10,6 +10,8 @@ import UIKit
 class MemberViewController: UIViewController {
 
     @IBOutlet var topImageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var percentLabel: UILabel!
     @IBOutlet var tagCollectionView: UICollectionView!
     @IBOutlet var memberTableView: UITableView!
     

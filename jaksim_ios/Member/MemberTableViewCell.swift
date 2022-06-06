@@ -20,7 +20,10 @@ class MemberTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        userImageView.layer.cornerRadius = userImageView.frame.height/2
+        goodButton.layer.cornerRadius = 10
+        badButton.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

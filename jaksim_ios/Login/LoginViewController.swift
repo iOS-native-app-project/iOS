@@ -38,7 +38,6 @@ class LoginViewController: UIViewController {
     }
     
     func layoutSetup() {
-        
         logoTextLabel.text = "다같이 작심삼일 \n 동기부여 뿜뿜"
         
         let buttonList = [kakaoLoginButton, appleLoginButton, naverLoginButton]
@@ -53,10 +52,11 @@ class LoginViewController: UIViewController {
     func autoLogin() {
         if UserDefaults.standard.string(forKey: "Token") != nil {
             print("자동로그인")
-//            let memberVC = UIStoryboard(name: "MemberStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemberViewController") as! MemberViewController
-//
-//            memberVC.modalPresentationStyle = .fullScreen
-//            self.present(memberVC, animated: false, completion: nil)
+            
+            let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            
+            homeVC.modalPresentationStyle = .fullScreen
+            self.present(homeVC, animated: false, completion: nil)
         }
     }
     
@@ -277,6 +277,8 @@ extension LoginViewController {
         
         homeVC.modalPresentationStyle = .fullScreen
         self.present(homeVC, animated: false, completion: nil)
+        
+        print(result.data.accessToken)
     }
     
     func goToSignup() {
