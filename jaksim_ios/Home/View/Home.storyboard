@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Item-->
         <scene sceneID="2bT-0h-hno">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="kl2-x8-dQf" customClass="HomeViewController" customModule="jaksim_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUW-JD-eRh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="750"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="701"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AV0-vq-nCU">
                                         <rect key="frame" x="354" y="16" width="40" height="40"/>
@@ -199,6 +199,7 @@
                             <constraint firstItem="ApO-3q-CJL" firstAttribute="top" secondItem="XUW-JD-eRh" secondAttribute="top" id="wNz-SB-gmM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="YzR-Ym-L7e"/>
                     <navigationItem key="navigationItem" id="hfP-9e-eIO"/>
                     <connections>
                         <outlet property="categoryListCollectionView" destination="zyT-Dk-fq6" id="ozs-K5-wWZ"/>
@@ -216,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuR-VZ-3xq" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050.7246376811595" y="93.75"/>
+            <point key="canvasLocation" x="2960.8695652173915" y="93.75"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="ppO-n4-PGU">
@@ -307,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZT-gI-2XG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2798.5507246376815" y="93.75"/>
+            <point key="canvasLocation" x="3708.6956521739135" y="93.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BXf-L2-Kfj">
@@ -321,12 +322,30 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kl2-x8-dQf" kind="relationship" relationship="rootViewController" id="m6U-HQ-n2C"/>
+                        <segue destination="qXg-D2-kCe" kind="relationship" relationship="rootViewController" id="m6U-HQ-n2C"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Td7-dZ-SPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140.5797101449277" y="93.75"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="1Hx-b1-ItT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-Lf-w8M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qXg-D2-kCe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="XI8-B7-rNg"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FE7-sq-c3V">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kl2-x8-dQf" kind="relationship" relationship="viewControllers" id="Jma-jb-rzM"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="2050.7246376811595" y="93.75"/>
         </scene>
     </scenes>
     <resources>

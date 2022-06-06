@@ -76,8 +76,4 @@ class LoginDataManager: LoginDataManagerDelegate {
                 
             }
     }
-    
-    
-    
-    
 }

@@ -276,7 +276,7 @@ extension LoginViewController {
         let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         
         homeVC.modalPresentationStyle = .fullScreen
-        self.present(homeVC, animated: false, completion: nil)
+        self.present(homeVC, animated: true, completion: nil)
     }
     
     func goToSignup() {

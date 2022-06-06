@@ -11,6 +11,7 @@ target 'jaksim_ios' do
     pod 'KakaoSDK'
     pod 'Kingfisher', '~> 7.0'
     pod 'SwiftKeychainWrapper'
+    pod 'Firebase/Analytics'
     pod 'Firebase/Messaging'
     pod 'RxSwift'
     pod 'RxCocoa'

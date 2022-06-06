@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1806F801284DECEC009B5D49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1806F800284DECEC009B5D49 /* GoogleService-Info.plist */; };
 		180745F8282C1357001299C7 /* MyRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745F7282C1357001299C7 /* MyRecordService.swift */; };
 		180745FC282C1373001299C7 /* MyRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FB282C1373001299C7 /* MyRecordItem.swift */; };
 		18074600282C1427001299C7 /* MyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FF282C1427001299C7 /* MyRecord.swift */; };
@@ -122,6 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1806F800284DECEC009B5D49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		180745F7282C1357001299C7 /* MyRecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordService.swift; sourceTree = "<group>"; };
 		180745FB282C1373001299C7 /* MyRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordItem.swift; sourceTree = "<group>"; };
 		180745FF282C1427001299C7 /* MyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecord.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
+				1806F800284DECEC009B5D49 /* GoogleService-Info.plist */,
 				B89C822928321CED00D07202 /* Configuration */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				180C4F7927E34B9D00168B04 /* MyRecord */,
@@ -840,6 +843,7 @@
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
 				186B1F5027C35EE10007C506 /* (null) in Resources */,
+				1806F801284DECEC009B5D49 /* GoogleService-Info.plist in Resources */,
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
 				18579887281944960090EEC5 /* NotificationListTableViewCell.xib in Resources */,
 				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
@@ -1154,7 +1158,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = jaksim_ios/jaksim_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3YTL39LSBC;
 				INFOPLIST_FILE = jaksim_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1175,7 +1179,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = jaksim_ios/jaksim_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3YTL39LSBC;
 				INFOPLIST_FILE = jaksim_ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
