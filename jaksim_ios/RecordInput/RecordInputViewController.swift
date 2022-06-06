@@ -11,16 +11,21 @@ import FSCalendar
 class RecordInputViewController: UIViewController {
 
     @IBOutlet var calendarView: FSCalendar!
-    @IBOutlet var imageStackView: UIStackView!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var memoTextView: UITextView!
+    @IBOutlet var photoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageStackView.isHidden = true
-        imageView.layer.cornerRadius = 20
+        
+        setupLayout()
+        
     }
     
+    func setupLayout() {
+        memoTextView.layer.cornerRadius = 8
+        photoView.layer.cornerRadius = 8
+        photoView.layer.borderWidth = 1
+    }
 
 
 }
