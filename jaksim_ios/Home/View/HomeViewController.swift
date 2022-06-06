@@ -41,10 +41,32 @@ class HomeViewController: UIViewController {
     
     private var disposeBag = DisposeBag()
     
+    //MARK: - 탭바 컨트롤러 세팅
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.isNavigationBarHidden = true
+        
+        if let tabBarItems = self.tabBarController?.tabBar.items
+        {
+            tabBarItems[0].title = "홈"
+            tabBarItems[1].title = "검색"
+            tabBarItems[2].title = "기록"
+            tabBarItems[3].title = "프로필"
+            
+            for tabBarItem in tabBarItems {
+                tabBarItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont(name: Constant.FontName.PretendardRegular, size: 11)!], for: .normal)
+            }
+        }
+        
+        self.tabBarController?.tabBar.items![0].image =  UIImage(named: "home_tabBar.png")?.withRenderingMode(.alwaysTemplate)
+        self.tabBarController?.tabBar.items![1].image = UIImage(named: "search_tabBar.png")?.withRenderingMode(.alwaysTemplate)
+        self.tabBarController?.tabBar.items![2].image = UIImage(named: "record_tabBar.png")?.withRenderingMode(.alwaysTemplate)
+        self.tabBarController?.tabBar.items![3].image = UIImage(named: "profile_tabBar.png")?.withRenderingMode(.alwaysTemplate)
+
+        self.tabBarController?.tabBar.tintColor = Constant.Color.MainPuple
+        self.tabBarController?.tabBar.unselectedItemTintColor = Constant.Color.Gray158
+        
     }
     
     override func viewDidLoad() {

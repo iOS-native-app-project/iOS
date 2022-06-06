@@ -23,6 +23,7 @@ struct Constant {
             static let CategoryListCollectionViewCellXibName = "CategoryListCollectionViewCell"
             static let RecommendedMeetingListCollectionViewCellXibName = "RecommendedMeetingListCollectionViewCell"
             static let NotificationListTableViewCellXibName = "NotificationListTableViewCell"
+            static let HomeStoryBoardName = "Home"
             
         }
         struct Id {
@@ -30,6 +31,7 @@ struct Constant {
             static let CategoryListCollectionViewCellId = "CategoryListCollectionViewCell"
             static let RecommendedMeetingListCollectionViewCellId = "RecommendedMeetingListCollectionViewCell"
             static let NotificationListTableViewCellId = "NotificationListTableViewCell"
+            static let HomeTabBarControllerId = "HomeTabBarController"
         }
         struct Text {
             static let CategoryList = ["미라클모닝", "공부", "시험", "글쓰기", "건강", "독서", "다이어트", "달리기"]
