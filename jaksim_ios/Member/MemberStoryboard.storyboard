@@ -48,13 +48,13 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snl-FC-iYC">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일이삼사오육칠팔구십 일이삼사오육칠팔구십 일이삼사오육한줄소개" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSg-fY-9wy">
                                                         <rect key="frame" x="0.0" y="24.5" width="374" height="36.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -179,7 +179,9 @@
                                                                             <state key="normal" title="99" image="goodB">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
-                                                                            <state key="selected" image="good"/>
+                                                                            <state key="selected" image="good">
+                                                                                <color key="titleColor" red="0.21568627450980393" green="0.55294117647058827" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
                                                                             <connections>
                                                                                 <action selector="goodButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="a9m-ok-YB7"/>
                                                                             </connections>
@@ -196,7 +198,9 @@
                                                                             <state key="normal" title="99" image="badB">
                                                                                 <color key="titleColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
-                                                                            <state key="selected" image="bad"/>
+                                                                            <state key="selected" image="bad">
+                                                                                <color key="titleColor" red="1" green="0.21568627450980393" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
                                                                             <connections>
                                                                                 <action selector="badButtonAction:" destination="1FP-AI-q3s" eventType="touchUpInside" id="b4s-0i-MHh"/>
                                                                             </connections>
@@ -251,7 +255,7 @@
                                                                     <rect key="frame" x="8.5" y="4" width="30.5" height="16"/>
                                                                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
