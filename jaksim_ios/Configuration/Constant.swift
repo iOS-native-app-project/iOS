@@ -89,6 +89,32 @@ struct Constant {
                 ("건강", "health"),
                 ("다이어트", "diet"),
                 ("달리기", "running")]
+            static let CategoryKR: [String: String] = [
+                "miracleMorning": "미라클모닝",
+                "study": "공부",
+                "exam": "시험",
+                "writing": "글쓰기",
+                "reading": "독서",
+                "health": "건강",
+                "diet": "다이어트",
+                "running": "달리기"
+            ]
+            static let CategoryId: [String: Int] = [
+                "miracleMorning": 0,
+                "study": 1,
+                "exam": 2,
+                "writing": 3,
+                "reading": 4,
+                "health": 5,
+                "diet": 6,
+                "running": 7
+            ]
+            
+            static let Cycle: [String: Int] = [
+                "하루": 0,
+                "일주일": 1,
+                "한달": 2
+            ]
             
             static let Title = "모임 카테고리를 선택해주세요."
             
@@ -182,7 +208,8 @@ struct Constant {
         static let PretendardSemiBold = "Pretendard-SemiBold"
         static let PretendardRegular = "Pretendard-Regular"
         static let PretendardExtraBold = "Pretendard-ExtraBold"
-        static let SCDreamRegular = "S-CoreDream-4Regular"
-        static let SCDreamExtraLight = "S-CoreDream-2ExtraLight"
+        static let SCDream4Regular = "S-CoreDream-4Regular"
+        static let SCDream2ExtraLight = "S-CoreDream-2ExtraLight"
+        static let SCDream6Bold = "S-CoreDream-6Bold"
     }
 }

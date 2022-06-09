@@ -73,8 +73,9 @@ extension MeetingCreationViewController: UICollectionViewDelegate, UICollectionV
     
     //터치업 액션
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let MeetingCreationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Constant.MeetingCreation.Id.MeetingCreationDetailViewControllerId)
-        self.navigationController?.pushViewController(MeetingCreationDetailVC!, animated: true)
+        let MeetingCreationDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Constant.MeetingCreation.Id.MeetingCreationDetailViewControllerId) as! MeetingCreationDetailViewController
+        MeetingCreationDetailVC.category = category[indexPath.row].1
+        self.navigationController?.pushViewController(MeetingCreationDetailVC, animated: true)
     }
     
     // 셀 사이즈

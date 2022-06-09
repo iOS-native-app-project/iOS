@@ -23,7 +23,7 @@ class MeetingCreationDetailViewController: UIViewController {
     @IBOutlet weak var firstResultLabel: UILabel!
     @IBOutlet weak var secondResultLabel: UILabel!
     
-    var category: String = "달리기"
+    var category: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +32,10 @@ class MeetingCreationDetailViewController: UIViewController {
         creationSecondSection.delegate = self
         creationThirdSection.delegate = self
         creationFourthSection.delegate = self
+        
+        //MARK: - 카테고리 이미지 세팅
+        creationFirstSection.category = self.category
+        creationFirstSection.setCategoryImage()
         
         //MARK: - 네비게이션바 타이틀 라벨
         navigationTitleLabel.text = "모임 개설 (2/2)"
@@ -63,31 +67,48 @@ class MeetingCreationDetailViewController: UIViewController {
         checkData()
     }
     
-    //MARK: - 뒤로가기 버튼 action
+    //MARK: - 뒤로가기 버튼 클릭 시
     @IBAction func backButtonDidTap(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     
-    //MARK: - 개설하기 버튼 action
+    //MARK: - 개설하기 버튼 클릭 시
     @IBAction func creationButtonDidTap(_ sender: UIButton) {
-        let meetingViewModel = MeetingCreationViewModel(
-            name: creationFirstSection.firstTextView.text,
-            image: "",
-            categoryId: 1,
-            descript: creationFirstSection.secondTextView.text,
-            limit: creationSecondSection.numberOfPeople,
-            password: creationSecondSection.passwordTextField.text ?? "",
-            cycle: 1,
-            unit: creationFourthSection.unit,
-            targetAmount: creationFourthSection.detailFigure)
+        let storage = FBStorage()
+        let hashPath = String(UserDefaults.standard.string(forKey: "Token")!.hashValue)
+        storage.upLoadImage(img: creationFirstSection.categoryImageView.image!,
+                            path: hashPath) { [weak self] in
         
-        meetingViewModel.createMeeting()
+            let meetingViewModel = MeetingCreationViewModel(
+                name: self!.creationFirstSection.firstTextView.text,
+                image: "gs://jaksim-ios.appspot.com/\(hashPath)",
+                categoryId: Constant.MeetingCreation.Text.CategoryId[self!.category]!,
+                descript: self!.creationFirstSection.secondTextView.text,
+                limit: self!.creationSecondSection.numberOfPeople,
+                password: self!.creationSecondSection.passwordTextField.text ?? "",
+                cycle: Constant.MeetingCreation.Text.Cycle[self!.creationThirdSection.period]!,
+                unit: self!.creationFourthSection.unit,
+                targetAmount: self!.creationFourthSection.detailFigure)
+            
+            meetingViewModel.createMeeting()
+            
+            guard let viewControllerStack = self?.navigationController?.viewControllers else { return }
+            
+            for viewController in viewControllerStack {
+                if let tabBarCotroller = viewController as? UITabBarController {
+                    self?.navigationController?.popToViewController(tabBarCotroller, animated: true)
+                }
+            }
+        }
     }
+    
+    //MARK: - 닫기 버튼 클릭 시
     @IBAction func closeButtonDidTap(_ sender: UIButton) {
         guard let viewControllerStack = self.navigationController?.viewControllers else { return }
         
         for viewController in viewControllerStack {
+            print(viewController)
             if let tabBarCotroller = viewController as? UITabBarController {
                 self.navigationController?.popToViewController(tabBarCotroller, animated: true)
             }
@@ -96,23 +117,25 @@ class MeetingCreationDetailViewController: UIViewController {
 }
 
 extension MeetingCreationDetailViewController: CreationSectionDelegate {
+    
     //MARK: - 모임 정보 체크
     func checkData () {
-        print("***")
-        print("creationSecondSection.passwordFlag:\(creationSecondSection.passwordFlag)")
-        print("creationSecondSection.passwordBoundFlag:\(creationSecondSection.passwordBoundFlag)")
-        print("---")
-        print("creationFirstSection.meetingNameFlag:\(creationFirstSection.meetingNameFlag)")
-        print("creationFirstSection.meetingDescriptionFlag:\(creationFirstSection.meetingDescriptionFlag)")
-        print("creationFourthSection.detailFigureFlag:\(creationFourthSection.detailFigureFlag)")
-        print("***")
+//        print("***")
+//        print("creationSecondSection.passwordFlag:\(creationSecondSection.passwordFlag)")
+//        print("creationSecondSection.passwordBoundFlag:\(creationSecondSection.passwordBoundFlag)")
+//        print("---")
+//        print("creationFirstSection.meetingNameFlag:\(creationFirstSection.meetingNameFlag)")
+//        print("creationFirstSection.meetingDescriptionFlag:\(creationFirstSection.meetingDescriptionFlag)")
+//        print("creationFourthSection.detailFigureFlag:\(creationFourthSection.detailFigureFlag)")
+//        print("***")
         if creationSecondSection.passwordFlag {
             if creationSecondSection.passwordBoundFlag {
                 if creationFirstSection.meetingNameFlag
                     && creationFirstSection.meetingDescriptionFlag
                     && creationFourthSection.detailFigureFlag {
                     
-                    firstResultLabel.text = "\(creationThirdSection.period)에 \(creationFourthSection.detailFigure)\(creationFourthSection.unit) \(self.category)을(를)"
+                    firstResultLabel.text = "\(creationThirdSection.period)에 \(creationFourthSection.detailFigure)\(creationFourthSection.unit) \(Constant.MeetingCreation.Text.CategoryKR[self.category]!)을(를)"
+
                     secondResultLabel.text = "모임의 목표로 등록하시겠습니까?"
                     
                     guard let text = self.firstResultLabel.text else { return }
@@ -121,7 +144,7 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
                     attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: creationThirdSection.period))
                     attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: String(creationFourthSection.detailFigure)))
                     attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: creationFourthSection.unit))
-                    attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: self.category))
+                    attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: Constant.MeetingCreation.Text.CategoryKR[self.category]!))
                     
                     self.firstResultLabel.attributedText = attributeString
                     
@@ -149,7 +172,7 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
             if creationFirstSection.meetingNameFlag
                 && creationFirstSection.meetingDescriptionFlag
                 && creationFourthSection.detailFigureFlag{
-                firstResultLabel.text = "\(creationThirdSection.period)에 \(creationFourthSection.detailFigure)\(creationFourthSection.unit) \(self.category)을(를)"
+                firstResultLabel.text = "\(creationThirdSection.period)에 \(creationFourthSection.detailFigure)\(creationFourthSection.unit) \(Constant.MeetingCreation.Text.CategoryKR[self.category]!)을(를)"
                 secondResultLabel.text = "모임의 목표로 등록하시겠습니까?"
                 
                 guard let text = self.firstResultLabel.text else { return }
@@ -157,7 +180,7 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
                 
                 attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: creationThirdSection.period))
                 attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: String(creationFourthSection.detailFigure)))
-                attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: self.category))
+                attributeString.addAttribute(.foregroundColor, value: Constant.Color.MainPuple, range: (text as NSString).range(of: Constant.MeetingCreation.Text.CategoryKR[self.category]!))
                 
                 self.firstResultLabel.attributedText = attributeString
                 
@@ -175,3 +198,4 @@ extension MeetingCreationDetailViewController: CreationSectionDelegate {
         
     }
 }
+

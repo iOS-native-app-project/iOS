@@ -7,7 +7,7 @@
 
 import Foundation
 import RxSwift
-//MARK: - hi
+
 class MeetingCreationViewModel {
     var url = "https://jaksim.app/api/meeting"
     var meetingItem: MeetingCreationItem

@@ -23,6 +23,12 @@ class MyRecordViewController: UIViewController {
     @IBOutlet weak var circle3View: UIView!
     @IBOutlet weak var circle4View: UIView!
     
+    @IBOutlet weak var circle1Label: UILabel!
+    @IBOutlet weak var circle2Label: UILabel!
+    @IBOutlet weak var circle3Label: UILabel!
+    @IBOutlet weak var circle4Label: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     //MARK: - 캘린더을 위한 변수
     private let now = Date()
@@ -48,8 +54,61 @@ class MyRecordViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+     
+        //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
+        meetingListCollectionView.dataSource = nil
+        attendedMeetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.meetingList = list
+                self.progressList = Array(repeating: 0, count: self.meetingList.count)
+                self.calculation()
+            })
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.MyRecord.Id.MyRecordMeetingListCollectionViewCellId, cellType: MyRecordMeetingListCollectionViewCell.self)) { index, item, cell in
+                
+                cell.meetingNameLabel.text = item.name
+                
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValue = Double(self.progressList[index])
+                
+                //달성률 데이터를 다 가져오면 progressBar view 업데이트
+                if !self.reloadFlag{
+                    cell.setProgressBar()
+                }
+                
+                //참여중인 모임을 가져온 후 달성률 api 호출
+                if self.reloadFlag {
+                    self.reloadFlag = false
+                    self.getProgress()
+                }
+            }
+            .disposed(by: disposeBag)
+     
+        attendedMeetingListViewModel.updateMeetingList()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: - 디자인 세팅
+        titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
+        titleLabel.textColor = .white
+        
+        yearMonthLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
+        yearMonthLabel.textColor = Constant.Color.Black33
+        
+        circle1Label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 11)
+        circle1Label.textColor = Constant.Color.Gray158
+        
+        circle2Label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 11)
+        circle2Label.textColor = Constant.Color.Gray158
+        
+        circle3Label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 11)
+        circle3Label.textColor = Constant.Color.Gray158
+        
+        circle4Label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 11)
+        circle4Label.textColor = Constant.Color.Gray158
         
         //MARK: - 캘린더 컬렉션 뷰
         self.calendarCollectionView.dataSource = self
@@ -262,13 +321,21 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
             switch indexPath.section {
             case 0:
                 cell.dateLabel.text = weeks[indexPath.row]
+                cell.dateLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 13)
+                cell.dateLabel.textColor = Constant.Color.Black97
+                
                 cell.imageView = .none
                 cell.progressView.backgroundColor = .none
+                cell.borderLayer.strokeColor = UIColor.clear.cgColor
+        
             default:
                 cell.progressView.backgroundColor = .none
                 cell.dateLabel.text = days[indexPath.row]
                 cell.year = components.year
                 cell.month = components.month
+                
+                cell.dateLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 15)
+                cell.dateLabel.textColor = Constant.Color.Black66
                 if days[indexPath.row] == "" {
                     cell.day = -1
                 }
@@ -280,7 +347,21 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                     if self.recordIndex < self.recordList.count {
                         let record = self.recordList[recordIndex]
                         if record.day == Int(days[indexPath.row])! {
-                            cell.progressView.backgroundColor = .systemPink
+                            //cell.progressView.backgroundColor = .systemPink
+                            let dayProgress = Double(record.value) / Double(meetingList[meetingIndex].target_amount)
+                            if (0...25).contains(Int(dayProgress)) {
+                                cell.progressView.backgroundColor = Constant.Color.Puple1
+                            }
+                            else if (26...50).contains(Int(dayProgress)) {
+                                cell.progressView.backgroundColor = Constant.Color.Puple2
+                            }
+                            else if (51...75).contains(Int(dayProgress))  {
+                                cell.progressView.backgroundColor = Constant.Color.Puple3
+                            }
+                            else if (76...100).contains(Int(dayProgress)) {
+                                cell.progressView.backgroundColor = Constant.Color.MainPuple
+                            }
+                            cell.dateLabel.textColor = .white
                             recordIndex += 1
                         }
                     }
@@ -291,7 +372,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                         cell.borderLayer.strokeColor = UIColor.black.cgColor
                     }
                     else {
-                        cell.borderLayer.strokeColor = .none
+                        cell.borderLayer.strokeColor = UIColor.clear.cgColor
                     }
                 }
             }

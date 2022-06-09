@@ -27,6 +27,8 @@ class CreationFirstSection: UIView {
     var meetingNameFlag = false
     var meetingDescriptionFlag = false
     
+    var category: String = ""
+    
     var delegate: CreationSectionDelegate?
     
     override init(frame: CGRect) {
@@ -38,6 +40,7 @@ class CreationFirstSection: UIView {
         super.init(coder: coder)
         loadView()
     }
+
     private func loadView(){
         let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationFirstSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
@@ -93,6 +96,13 @@ class CreationFirstSection: UIView {
         secondTextViewContainerView.layer.cornerRadius = 8
         
         self.addSubview(view)
+    }
+    
+    //MARK: - 카테고리 이미지 세팅 함수
+    func setCategoryImage() {
+        let imageIndex = Int.random(in: 0...8)
+        print(self.category)
+        self.categoryImageView.image = UIImage(named: "\(self.category)0\(imageIndex).png")!
     }
 }
 

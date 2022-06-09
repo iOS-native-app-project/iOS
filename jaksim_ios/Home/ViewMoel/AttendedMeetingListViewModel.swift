@@ -28,4 +28,20 @@ class AttendedMeetingListViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func updateMeetingList() {
+        HomeService.getAttendedMeetingList(from: url)
+            .map { meetingList in
+                meetingList.map {
+                    AttendedMeeting($0)
+                }
+            }
+            .subscribe(onNext: {
+                self.meetingListSubject.onNext($0)
+            },
+            onError: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
 }

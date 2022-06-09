@@ -32,16 +32,35 @@ class MeetingListViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
+        meetingListTableView.dataSource = nil
+        meetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.meetingList = list
+            })
+                .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
+                    cell.entranceButton.tag = index
+                    self.setForEntrace(cell: cell, item: item)
+                }
+                .disposed(by: disposeBag)
+     
+        meetingListViewModel.updateMeetingList()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK:- 서치바
+        //MARK: - 서치바
         searchBar.searchTextField.layer.cornerRadius = searchBar.bounds.height/2 - 10
         searchBar.searchTextField.layer.masksToBounds = true
         searchBar.delegate = self
         searchBar.searchTextField.font = UIFont(name: Constant.FontName.PretendardRegular, size: 16)
         
-        //MARK:- 추천검색어 컬렉션뷰
+        //MARK: - 추천검색어 컬렉션뷰
         collectionViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         searchTermsCollectionView.dataSource = self
@@ -49,7 +68,7 @@ class MeetingListViewController: UIViewController {
         
         searchTermsCollectionView.register(UINib(nibName: Constant.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.MeetingList.Id.SearchTermsCollectionViewCellId)
         
-        //MARK:- 전체모임리스트 컬렉션뷰
+        //MARK: - 전체모임리스트 컬렉션뷰
         tableViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
@@ -69,7 +88,7 @@ class MeetingListViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    //MARK:- 모임 리스트 데이터 세팅
+    //MARK: - 모임 리스트 데이터 세팅
     func setForEntrace(cell: MeetingListTableViewCell, item: Meeting) {
         cell.meetingNameLabel.text = item.name
         cell.numberOfPeopleLabel.text = "\(item.numberOfPeople)/\(item.maximumNumber)"
@@ -77,7 +96,8 @@ class MeetingListViewController: UIViewController {
         
         cell.entranceButton.addTarget(self, action: #selector(self.entranceButtonDidTap(_:)), for: .touchUpInside)
         
-        if item.numberOfPeople == item.maximumNumber {
+        if item.numberOfPeople == item.maximumNumber
+            || item.join {
             cell.entranceButton.setTitleColor(Constant.Color.Gray189, for: .normal)
             cell.entranceButton.isEnabled = false
         }
@@ -97,7 +117,7 @@ class MeetingListViewController: UIViewController {
 }
 
 
-//MARK:- CollectionView Delegate
+//MARK: - CollectionView Delegate
 extension MeetingListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchTermList.count
@@ -135,7 +155,7 @@ extension MeetingListViewController: UICollectionViewDataSource, UICollectionVie
     }
 }
 
-//MARK:- TableView Delegate
+//MARK: - TableView Delegate
 extension MeetingListViewController: UITableViewDelegate {
     
     
@@ -147,7 +167,7 @@ extension MeetingListViewController: UITableViewDelegate {
         return 68
     }
     
-    //MARK:- 입장 버튼 클릭 시 액션
+    //MARK: - 입장 버튼 클릭 시 액션
     @objc func entranceButtonDidTap(_ sender: UIButton) {
         
         guard let meetingEntranceVC = self.storyboard?.instantiateViewController(identifier: Constant.MeetingList.Id.MeetingEntranceViewControllerId) as? MeetingEntranceViewController else { return }

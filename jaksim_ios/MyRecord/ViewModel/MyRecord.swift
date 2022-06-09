@@ -14,9 +14,8 @@ struct MyRecord {
     var year: Int
     var month: Int
     var day: Int
-    // var progress: Int
-    var image: String
     var value: Int
+    var image: String
     var descript: String
     
     init(_ item: MyRecordItem) {
@@ -28,9 +27,8 @@ struct MyRecord {
         month = Int(date[1]) ?? 0
         let arrForDay = Array(String(date[2])).map{String($0)}
         day = Int(arrForDay[0]+arrForDay[1]) ?? 0
-        // progress = 100
-        image = item.image ?? ""
         value = item.value
+        image = item.image ?? ""
         descript = item.descript ?? ""
     }
 }

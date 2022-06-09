@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instance?.consumerSecret = "8Zkx5q0kj0" // pw
         instance?.appName = "작심" // app name
         
-        //MARK: - FCM 초기화
+        //MARK: - Firebase 초기화
         FirebaseApp.configure()
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)

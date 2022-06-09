@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var notificationButton: UIButton!
@@ -30,11 +30,14 @@ class HomeViewController: UIViewController {
     private var meetingListCount = 0
     private var meetingLoadCount = 0
     
-    //private var rateViewModel = RateViewModel()
+    
     private var progressList = [Int]()
     private var reloadFlag = true
     
     private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
+    private var recommendedMeetingList = [RecommendedMeeting]()
+    private var imageSet = [UIImage]()
+    private var imageSetIndex = 0
     
     private let sayingOfTodayViewModel = SayingOfTodayViewModel()
     
@@ -57,7 +60,7 @@ class HomeViewController: UIViewController {
                 tabBarItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont(name: Constant.FontName.PretendardRegular, size: 11)!], for: .normal)
             }
         }
-        
+
         self.tabBarController?.tabBar.items![0].image =  UIImage(named: "home_tabBar.png")?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items![1].image = UIImage(named: "search_tabBar.png")?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items![2].image = UIImage(named: "record_tabBar.png")?.withRenderingMode(.alwaysTemplate)
@@ -66,6 +69,45 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.tintColor = Constant.Color.MainPuple
         self.tabBarController?.tabBar.unselectedItemTintColor = Constant.Color.Gray158
         
+        //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
+        meetingListCollectionView.dataSource = nil
+        meetingListViewModel.meetingListSubject
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.meetingList = list
+            })
+                .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+                   
+                    cell.nameLabel.text = item.name
+                    cell.dDayLabel.text = "디데이 업데이트 필요"
+                    cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
+                    
+                    //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                    cell.progressValueLabel.text = "\(self.progressList[index])%"
+                    
+                    //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                    cell.progressValue = Double(self.progressList[index])
+                    
+                    //달성률 데이터를 다 가져오면 progressBar view 업데이트
+                    if !self.reloadFlag{
+                        cell.setProgressBar()
+                    }
+                    
+                    if self.reloadFlag {
+                        self.reloadFlag = false
+                        self.getProgress()
+                    }
+                }
+                .disposed(by: disposeBag)
+     
+        meetingListViewModel.updateMeetingList()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.tabBarController?.delegate = self
     }
     
     override func viewDidLoad() {
@@ -128,7 +170,7 @@ class HomeViewController: UIViewController {
         sayingOfTodayTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         
         sayingOfTodayLabel.textColor = UIColor(red: 66/255.0, green: 66/255.0, blue: 66/255.0, alpha: 1)
-        sayingOfTodayLabel.font = UIFont(name: Constant.FontName.SCDreamRegular, size: 16)
+        sayingOfTodayLabel.font = UIFont(name: Constant.FontName.SCDream4Regular, size: 16)
         sayingOfTodayLabel.numberOfLines = 0
         
         sayingOfTodayContaierView.layer.cornerRadius = 12
@@ -149,14 +191,25 @@ class HomeViewController: UIViewController {
         categoryListCollectionView.register(UINib(nibName: Constant.Home.Name.CategoryListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.CategoryListCollectionViewCellId)
         
         //MARK: - 추천모임 리스트
+        
         recommendedMeetingListViewModel.recommendedMeetingListSubject
             .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.recommendedMeetingList = list
+            })
             .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
                 cell.descriptLabel.text = item.descript
+                if self.imageSet.count > self.imageSetIndex {
+                    cell.meetingImageView.image = self.imageSet[self.imageSetIndex]
+                    self.imageSetIndex += 1
+                }
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
                 
+                if index == self.recommendedMeetingList.count - 1 {
+                    self.setImages()
+                }
             }
             .disposed(by: disposeBag)
         
@@ -167,7 +220,10 @@ class HomeViewController: UIViewController {
         
         recommendedMeetingListCollectionView.delegate = self
         recommendedMeetingListCollectionView.register(UINib(nibName: Constant.Home.Name.RecommendedMeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId)
+        
+        
     }
+
     
     //MARK: - 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
     private func getProgress() {
@@ -196,6 +252,26 @@ class HomeViewController: UIViewController {
         self.tabBarController?.selectedIndex = 1
     }
     
+    //MARK: - 추천모임 이미지 세팅
+    func setImages() {
+        Task {
+            do {
+                let storage = FBStorage()
+                for recommendedMeeting in recommendedMeetingList {
+                    if recommendedMeeting.image != "" && recommendedMeeting.image != nil {
+                        let _ = try? await storage.downLoadImage(path: recommendedMeeting.image!)
+                        imageSet.append(storage.setImage()!)
+                    }
+                    else {
+                        imageSet.append(UIImage())
+                    }
+                }
+                
+                self.recommendedMeetingListCollectionView.reloadData()
+            }
+        }
+        
+    }
 }
 
 //MARK: - CollectionView Delegate

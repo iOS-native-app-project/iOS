@@ -28,4 +28,20 @@ class MeetingListViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func updateMeetingList() {
+        MeetingListService.getMeetingList(from: url)
+            .map { meetingList in
+                meetingList.map {
+                    Meeting($0)
+                }
+            }
+            .subscribe(onNext: {
+                self.meetingListSubject.onNext($0)
+            },
+            onError: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
 }
