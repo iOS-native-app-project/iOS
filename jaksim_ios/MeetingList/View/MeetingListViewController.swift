@@ -22,8 +22,6 @@ class MeetingListViewController: UIViewController {
     private let meetingListViewModel = MeetingListViewModel()
     private var meetingList = [Meeting]()
     private var meetingListFlag = true
-    private var imageSet = [Int: UIImage]()
-    private var imageSetIndex = 0
     
     private var searchTermList = Constant.MeetingList.Text.CategoryList
     private var searchedMeetingList = [Meeting]()
@@ -48,16 +46,12 @@ class MeetingListViewController: UIViewController {
                 .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                     cell.entranceButton.tag = index
                     self.setForEntrace(cell: cell, item: item)
-                    
-                    if self.imageSet.count > self.imageSetIndex {
-                        
-                        cell.categoryImageView.image = self.imageSet[self.imageSetIndex]
-                        self.imageSetIndex += 1
+                    FBStorage.shared.downLoadImage(path: item.image!) { image in
+                        cell.categoryImageView.image = image
                     }
                     
                     if index == self.meetingList.count - 1 && self.meetingListFlag{
                         self.meetingListFlag = false
-                        self.fetchImages()
                     }
                 }
                 .disposed(by: disposeBag)
@@ -99,14 +93,8 @@ class MeetingListViewController: UIViewController {
             .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 cell.entranceButton.tag = index
                 self.setForEntrace(cell: cell, item: item)
-                
-                if self.imageSet.count > self.imageSetIndex {
-                    
-                    cell.categoryImageView.image = self.imageSet[self.imageSetIndex]
-                    self.imageSetIndex += 1
-                }
-                if index == self.meetingList.count - 1 && self.meetingListFlag{
-                    self.fetchImages()
+                FBStorage.shared.downLoadImage(path: item.image!) { image in
+                    cell.categoryImageView.image = image
                 }
                 
             }
@@ -129,30 +117,6 @@ class MeetingListViewController: UIViewController {
         else {
             cell.entranceButton.setTitleColor(Constant.Color.MainPuple, for: .normal)
             cell.entranceButton.isEnabled = true
-        }
-    }
-    
-    //MARK: - 모임 이미지 가져오기
-    private func fetchImages() {
-        let storage = FBStorage()
-        for (i,meeting) in meetingList.enumerated() {
-            if meeting.image != "" && meeting.image != nil {
-                
-                let _ = storage.downLoadImage(path: meeting.image!) {
-                    self.imageSet[i] = storage.downloadImage!
-                    
-                    if i == self.meetingList.count-1 {
-                        self.meetingListTableView.reloadData()
-                    }
-                }
-            }
-            else {
-                self.imageSet[i] = UIImage()
-                
-                if i == self.meetingList.count-1 {
-                    self.meetingListTableView.reloadData()
-                }
-            }
         }
     }
     

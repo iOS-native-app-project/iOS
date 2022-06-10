@@ -31,9 +31,7 @@ class MyRecordViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     private let calendarSecondLineView = UIView()
-    
-    private var recordImageSet = [Int: UIImage]()
-    private var recordImageSetIndex = 0
+
     
     //MARK: - 캘린더을 위한 변수
     private let now = Date()
@@ -53,7 +51,7 @@ class MyRecordViewController: UIViewController {
     private let recordListViewModel = MyRecordListViewModel()
     private var recordList = [MyRecord]()
     private var recordIndex = 0
-    private var recordImageFetchFlag = false
+    
     private var progressList = [Int]()
     private var reloadFlag = true
     
@@ -91,7 +89,7 @@ class MyRecordViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        attendedMeetingListViewModel.updateMeetingList()
+        attendedMeetingListViewModel.fetchMeetingList()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,8 +182,7 @@ class MyRecordViewController: UIViewController {
                 //기록 가져온 후 progress View 세팅을 위한 reloadData
                 self.calendarCollectionView.reloadData()
                 
-                //기록 가져온 후 기록 이미지 가져오기
-                self.fetchRecordImages()
+                
             })
             .disposed(by: disposeBag)
         
@@ -290,33 +287,6 @@ class MyRecordViewController: UIViewController {
         }
     }
     
-    //MARK: - 기록 이미지 가져오기
-    private func fetchRecordImages() {
-        let storage = FBStorage()
-        for (i, record) in recordList.enumerated() {
-            if record.image != "" && record.image != nil {
-                
-                let _ = storage.downLoadImage(path: record.image!) {
-                    self.recordImageSet[i] = storage.downloadImage!
-                    
-                    if i == self.meetingList.count-1 {
-                        self.recordIndex = 0
-                        self.recordImageFetchFlag = true
-                        self.calendarCollectionView.reloadData()
-                    }
-                }
-            }
-            else {
-                self.recordImageSet[i] = UIImage()
-                
-                if i == self.meetingList.count-1 {
-                    self.recordIndex = 0
-                    self.recordImageFetchFlag = true
-                    self.calendarCollectionView.reloadData()
-                }
-            }
-        }
-    }
     
     //MARK: - api를 통해 기록 요청
     private func getRecord(meetingId: Int, year: Int, month: Int){
@@ -387,12 +357,12 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                     if self.recordIndex < self.recordList.count {
                         let record = self.recordList[recordIndex]
                         if record.day == Int(days[indexPath.row])! {
-                            if recordImageFetchFlag {
                                 if record.image != "" && record.image != nil {
-                                    cell.imageView.image = recordImageSet[recordImageSetIndex]
+                                    FBStorage.shared.downLoadImage(path: record.image!) { image in
+                                        cell.imageView.image = image
+                                    }
                                 }
                                 else {
-                                    //cell.progressView.backgroundColor = .systemPink
                                     let dayProgress = Double(record.value) / Double(meetingList[meetingIndex].target_amount)
                                     if (0...25).contains(Int(dayProgress)) {
                                         cell.progressView.backgroundColor = Constant.Color.Puple1
@@ -408,9 +378,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                                     }
                                     cell.dateLabel.textColor = .white
                                 }
-                                recordImageSetIndex += 1
                                 recordIndex += 1
-                            }
                         }
                     }
                     

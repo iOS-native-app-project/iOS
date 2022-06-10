@@ -76,10 +76,9 @@ class MeetingCreationDetailViewController: UIViewController {
     //MARK: - 개설하기 버튼 클릭 시
     @IBAction func creationButtonDidTap(_ sender: UIButton) {
         creationButton.isEnabled = false
-        
-        let storage = FBStorage()
+    
         let hashPath = String(UserDefaults.standard.string(forKey: "Token")!.hashValue)
-        storage.upLoadImage(img: creationFirstSection.categoryImageView.image!,
+        FBStorage.shared.upLoadImage(img: creationFirstSection.categoryImageView.image!,
                             path: hashPath) { [weak self] in
         
             let meetingViewModel = MeetingCreationViewModel(

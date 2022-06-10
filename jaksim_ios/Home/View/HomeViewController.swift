@@ -30,26 +30,24 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
     private var meetingListCount = 0
     private var meetingLoadCount = 0
     
-    
     private var progressList = [Int]()
     private var progressFlag = true
     
     private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
     private var recommendedMeetingList = [RecommendedMeeting]()
     private var recommendedMeetingListFlag = true
-    private var imageSet = [Int: UIImage]()
-    private var imageSetIndex = 0
     
     private let sayingOfTodayViewModel = SayingOfTodayViewModel()
     
     private var disposeBag = DisposeBag()
     
-    //MARK: - 탭바 컨트롤러 세팅
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
         
+        //MARK: - 탭바 컨트롤러 세팅
         if let tabBarItems = self.tabBarController?.tabBar.items
         {
             tabBarItems[0].title = "홈"
@@ -70,7 +68,7 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         self.tabBarController?.tabBar.tintColor = Constant.Color.MainPuple
         self.tabBarController?.tabBar.unselectedItemTintColor = Constant.Color.Gray158
         
-        //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
+        //MARK: - 참여중인 모임 리스트
         meetingListCollectionView.dataSource = nil
         meetingListViewModel.meetingListSubject
             .observe(on: MainScheduler.instance)
@@ -101,8 +99,33 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 }
                 .disposed(by: disposeBag)
         
-        meetingListViewModel.updateMeetingList()
+        meetingListViewModel.fetchMeetingList()
         
+        //MARK: - 추천모임 리스트
+        recommendedMeetingListCollectionView.dataSource = nil
+        recommendedMeetingListViewModel.recommendedMeetingListSubject
+            .observe(on: MainScheduler.instance)
+            .do(onNext: { list in
+                self.recommendedMeetingList = list
+            })
+            .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
+
+                cell.meetingNameLabel.text = item.name
+                cell.numberOfPeopleLabel.text = String(item.numberOfpeople)
+                cell.descriptLabel.text = item.descript
+                FBStorage.shared.downLoadImage(path: item.image!) { image in
+                    cell.meetingImageView.image = image
+                }
+
+                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
+
+                if index == self.recommendedMeetingList.count - 1 && self.recommendedMeetingListFlag{
+                    self.recommendedMeetingListFlag = false
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        recommendedMeetingListViewModel.fetchRecommendedMeetingList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -135,22 +158,22 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 self.progressList = Array(repeating: 0, count: self.meetingListCount)
             })
             .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-                
+
                 cell.nameLabel.text = item.name
                 cell.dDayLabel.text = "디데이 업데이트 필요"
                 cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
-                
+
                 //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
                 cell.progressValueLabel.text = "\(self.progressList[index])%"
-                
+
                 //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
                 cell.progressValue = Double(self.progressList[index])
-                
+
                 //달성률 데이터를 다 가져오면 progressBar view 업데이트
                 if !self.progressFlag{
                     cell.setProgressBar()
                 }
-                
+
                 if self.progressFlag {
                     self.progressFlag = false
                     self.getProgress()
@@ -203,17 +226,14 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 cell.meetingNameLabel.text = item.name
                 cell.numberOfPeopleLabel.text = String(item.numberOfpeople)
                 cell.descriptLabel.text = item.descript
-            
-                if self.imageSet.count > self.imageSetIndex {
-                    
-                    cell.meetingImageView.image = self.imageSet[self.imageSetIndex]
-                    self.imageSetIndex += 1
+                FBStorage.shared.downLoadImage(path: item.image!) { image in
+                    cell.meetingImageView.image = image
                 }
+                
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
                 
                 if index == self.recommendedMeetingList.count - 1 && self.recommendedMeetingListFlag{
                     self.recommendedMeetingListFlag = false
-                    self.fetchImages()
                 }
             }
             .disposed(by: disposeBag)
@@ -256,30 +276,6 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
     @IBAction func showAllButtonDidTap(_ sender: UIButton) {
         self.tabBarController?.selectedIndex = 1
     }
-    
-    //MARK: - 추천모임 이미지 가져오기
-    private func fetchImages() {
-        let storage = FBStorage()
-        for (i,recommendedMeeting) in recommendedMeetingList.enumerated() {
-            if recommendedMeeting.image != "" && recommendedMeeting.image != nil {
-                
-                let _ = storage.downLoadImage(path: recommendedMeeting.image!) {
-                    self.imageSet[i] = storage.downloadImage!
-                    
-                    if i == self.recommendedMeetingList.count-1 {
-                        self.recommendedMeetingListCollectionView.reloadData()
-                    }
-                }
-            }
-            else {
-                self.imageSet[i] = UIImage()
-                
-                if i == self.recommendedMeetingList.count-1 {
-                    self.recommendedMeetingListCollectionView.reloadData()
-                }
-            }
-        }
-    }
 }
 
 //MARK: - CollectionView Delegate
@@ -316,15 +312,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         
     }
-    
-    // 터치업 액션
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
-    //        guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
-    //        let item = trackManager.tracks[indexPath.item]
-    //        playerVC.simplePlayer.replaceCurrentItem(with: item)
-    //        present(playerVC, animated: true, completion: nil)
-    //    }
     
     // 셀 사이즈
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

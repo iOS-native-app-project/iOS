@@ -8,10 +8,12 @@
 import Foundation
 import FirebaseStorage
 
-class FBStorage {
+struct FBStorage {
+    static var shared: FBStorage = FBStorage()
+    
+    private init() {}
     
     let storage = Storage.storage() //인스턴스 생성
-    var downloadImage: UIImage?
     
     func upLoadImage(img: UIImage, path: String, completion: @escaping () -> Void){
         var data = Data()
@@ -30,13 +32,12 @@ class FBStorage {
         }
     }
     
-    func downLoadImage(path: String, setImage: @escaping () -> Void) {
+    func downLoadImage(path: String, setImage: @escaping (UIImage) -> Void) {
         storage.reference(forURL: path).downloadURL(completion: { (url, error) in
             let data = NSData(contentsOf: url!)
             let image = UIImage(data: data! as Data)
                                     
-            self.downloadImage = image
-            setImage()
+            setImage(image!)
         })
     }
 }
