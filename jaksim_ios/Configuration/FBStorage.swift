@@ -30,16 +30,13 @@ class FBStorage {
         }
     }
     
-    func downLoadImage(path: String) async throws -> Void {
+    func downLoadImage(path: String, setImage: @escaping () -> Void) {
         storage.reference(forURL: path).downloadURL(completion: { (url, error) in
             let data = NSData(contentsOf: url!)
             let image = UIImage(data: data! as Data)
-                                                    
+                                    
             self.downloadImage = image
+            setImage()
         })
-    }
-    
-    func setImage() -> UIImage? {
-        return downloadImage
     }
 }

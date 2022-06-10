@@ -32,11 +32,12 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
     
     
     private var progressList = [Int]()
-    private var reloadFlag = true
+    private var progressFlag = true
     
     private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
     private var recommendedMeetingList = [RecommendedMeeting]()
-    private var imageSet = [UIImage]()
+    private var recommendedMeetingListFlag = true
+    private var imageSet = [Int: UIImage]()
     private var imageSetIndex = 0
     
     private let sayingOfTodayViewModel = SayingOfTodayViewModel()
@@ -60,12 +61,12 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 tabBarItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue): UIFont(name: Constant.FontName.PretendardRegular, size: 11)!], for: .normal)
             }
         }
-
+        
         self.tabBarController?.tabBar.items![0].image =  UIImage(named: "home_tabBar.png")?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items![1].image = UIImage(named: "search_tabBar.png")?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items![2].image = UIImage(named: "record_tabBar.png")?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items![3].image = UIImage(named: "profile_tabBar.png")?.withRenderingMode(.alwaysTemplate)
-
+        
         self.tabBarController?.tabBar.tintColor = Constant.Color.MainPuple
         self.tabBarController?.tabBar.unselectedItemTintColor = Constant.Color.Gray158
         
@@ -77,7 +78,7 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 self.meetingList = list
             })
                 .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-                   
+                    
                     cell.nameLabel.text = item.name
                     cell.dDayLabel.text = "디데이 업데이트 필요"
                     cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
@@ -89,24 +90,24 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                     cell.progressValue = Double(self.progressList[index])
                     
                     //달성률 데이터를 다 가져오면 progressBar view 업데이트
-                    if !self.reloadFlag{
+                    if !self.progressFlag{
                         cell.setProgressBar()
                     }
                     
-                    if self.reloadFlag {
-                        self.reloadFlag = false
+                    if self.progressFlag {
+                        self.progressFlag = false
                         self.getProgress()
                     }
                 }
                 .disposed(by: disposeBag)
-     
+        
         meetingListViewModel.updateMeetingList()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         self.tabBarController?.delegate = self
     }
     
@@ -146,12 +147,12 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
                 cell.progressValue = Double(self.progressList[index])
                 
                 //달성률 데이터를 다 가져오면 progressBar view 업데이트
-                if !self.reloadFlag{
+                if !self.progressFlag{
                     cell.setProgressBar()
                 }
                 
-                if self.reloadFlag {
-                    self.reloadFlag = false
+                if self.progressFlag {
+                    self.progressFlag = false
                     self.getProgress()
                 }
             }
@@ -200,15 +201,19 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
             .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
                 
                 cell.meetingNameLabel.text = item.name
+                cell.numberOfPeopleLabel.text = String(item.numberOfpeople)
                 cell.descriptLabel.text = item.descript
+            
                 if self.imageSet.count > self.imageSetIndex {
+                    
                     cell.meetingImageView.image = self.imageSet[self.imageSetIndex]
                     self.imageSetIndex += 1
                 }
                 cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
                 
-                if index == self.recommendedMeetingList.count - 1 {
-                    self.setImages()
+                if index == self.recommendedMeetingList.count - 1 && self.recommendedMeetingListFlag{
+                    self.recommendedMeetingListFlag = false
+                    self.fetchImages()
                 }
             }
             .disposed(by: disposeBag)
@@ -223,7 +228,7 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         
         
     }
-
+    
     
     //MARK: - 참여중인 모임 리스트의 달성률 업데이트 -> 참여중인 모임을 모두 가져온 후 호출된다.
     private func getProgress() {
@@ -252,25 +257,28 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         self.tabBarController?.selectedIndex = 1
     }
     
-    //MARK: - 추천모임 이미지 세팅
-    func setImages() {
-        Task {
-            do {
-                let storage = FBStorage()
-                for recommendedMeeting in recommendedMeetingList {
-                    if recommendedMeeting.image != "" && recommendedMeeting.image != nil {
-                        let _ = try? await storage.downLoadImage(path: recommendedMeeting.image!)
-                        imageSet.append(storage.setImage()!)
-                    }
-                    else {
-                        imageSet.append(UIImage())
+    //MARK: - 추천모임 이미지 가져오기
+    private func fetchImages() {
+        let storage = FBStorage()
+        for (i,recommendedMeeting) in recommendedMeetingList.enumerated() {
+            if recommendedMeeting.image != "" && recommendedMeeting.image != nil {
+                
+                let _ = storage.downLoadImage(path: recommendedMeeting.image!) {
+                    self.imageSet[i] = storage.downloadImage!
+                    
+                    if i == self.recommendedMeetingList.count-1 {
+                        self.recommendedMeetingListCollectionView.reloadData()
                     }
                 }
+            }
+            else {
+                self.imageSet[i] = UIImage()
                 
-                self.recommendedMeetingListCollectionView.reloadData()
+                if i == self.recommendedMeetingList.count-1 {
+                    self.recommendedMeetingListCollectionView.reloadData()
+                }
             }
         }
-        
     }
 }
 

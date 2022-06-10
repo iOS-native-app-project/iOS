@@ -15,7 +15,7 @@ struct MyRecord {
     var month: Int
     var day: Int
     var value: Int
-    var image: String
+    var image: String?
     var descript: String
     
     init(_ item: MyRecordItem) {

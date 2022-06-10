@@ -19,18 +19,21 @@ class MeetingListViewController: UIViewController {
     @IBOutlet weak var collectionViewTitleLabel: UILabel!
     @IBOutlet weak var tableViewTitleLabel: UILabel!
     
-    let meetingListViewModel = MeetingListViewModel()
+    private let meetingListViewModel = MeetingListViewModel()
+    private var meetingList = [Meeting]()
+    private var meetingListFlag = true
+    private var imageSet = [Int: UIImage]()
+    private var imageSetIndex = 0
     
-    var searchTermList = Constant.MeetingList.Text.CategoryList
-    var meetingList = [Meeting]()
-    var searchedMeetingList = [Meeting]()
-    var searchText = ""
-    var isSearchMode = false
+    private var searchTermList = Constant.MeetingList.Text.CategoryList
+    private var searchedMeetingList = [Meeting]()
+    private var searchText = ""
+    private var isSearchMode = false
     
-    var selectedSearchTermIndex = -1
-    var selectedMeetingIndex = -1
+    private var selectedSearchTermIndex = -1
+    private var selectedMeetingIndex = -1
     
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,10 +48,23 @@ class MeetingListViewController: UIViewController {
                 .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                     cell.entranceButton.tag = index
                     self.setForEntrace(cell: cell, item: item)
+                    
+                    if self.imageSet.count > self.imageSetIndex {
+                        
+                        cell.categoryImageView.image = self.imageSet[self.imageSetIndex]
+                        self.imageSetIndex += 1
+                    }
+                    
+                    if index == self.meetingList.count - 1 && self.meetingListFlag{
+                        self.meetingListFlag = false
+                        self.fetchImages()
+                    }
                 }
                 .disposed(by: disposeBag)
      
         meetingListViewModel.updateMeetingList()
+        
+        
     }
     
     override func viewDidLoad() {
@@ -68,7 +84,7 @@ class MeetingListViewController: UIViewController {
         
         searchTermsCollectionView.register(UINib(nibName: Constant.MeetingList.Name.SearchTermsCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.MeetingList.Id.SearchTermsCollectionViewCellId)
         
-        //MARK: - 전체모임리스트 컬렉션뷰
+        //MARK: - 전체모임리스트 테이블뷰
         tableViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
@@ -83,6 +99,15 @@ class MeetingListViewController: UIViewController {
             .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
                 cell.entranceButton.tag = index
                 self.setForEntrace(cell: cell, item: item)
+                
+                if self.imageSet.count > self.imageSetIndex {
+                    
+                    cell.categoryImageView.image = self.imageSet[self.imageSetIndex]
+                    self.imageSetIndex += 1
+                }
+                if index == self.meetingList.count - 1 && self.meetingListFlag{
+                    self.fetchImages()
+                }
                 
             }
             .disposed(by: disposeBag)
@@ -104,6 +129,30 @@ class MeetingListViewController: UIViewController {
         else {
             cell.entranceButton.setTitleColor(Constant.Color.MainPuple, for: .normal)
             cell.entranceButton.isEnabled = true
+        }
+    }
+    
+    //MARK: - 모임 이미지 가져오기
+    private func fetchImages() {
+        let storage = FBStorage()
+        for (i,meeting) in meetingList.enumerated() {
+            if meeting.image != "" && meeting.image != nil {
+                
+                let _ = storage.downLoadImage(path: meeting.image!) {
+                    self.imageSet[i] = storage.downloadImage!
+                    
+                    if i == self.meetingList.count-1 {
+                        self.meetingListTableView.reloadData()
+                    }
+                }
+            }
+            else {
+                self.imageSet[i] = UIImage()
+                
+                if i == self.meetingList.count-1 {
+                    self.meetingListTableView.reloadData()
+                }
+            }
         }
     }
     

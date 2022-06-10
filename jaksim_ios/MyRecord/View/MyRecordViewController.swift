@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class MyRecordViewController: UIViewController {
-
+    
     @IBOutlet weak var meetingListCollectionView: UICollectionView!
     @IBOutlet weak var yearMonthLabel: UILabel!
     @IBOutlet weak var prevMonthButton: UIButton!
@@ -30,6 +30,11 @@ class MyRecordViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    private let calendarSecondLineView = UIView()
+    
+    private var recordImageSet = [Int: UIImage]()
+    private var recordImageSetIndex = 0
+    
     //MARK: - 캘린더을 위한 변수
     private let now = Date()
     private var cal = Calendar.current
@@ -48,7 +53,7 @@ class MyRecordViewController: UIViewController {
     private let recordListViewModel = MyRecordListViewModel()
     private var recordList = [MyRecord]()
     private var recordIndex = 0
-    
+    private var recordImageFetchFlag = false
     private var progressList = [Int]()
     private var reloadFlag = true
     
@@ -56,7 +61,7 @@ class MyRecordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     
+        
         //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
         meetingListCollectionView.dataSource = nil
         attendedMeetingListViewModel.meetingListSubject
@@ -85,11 +90,13 @@ class MyRecordViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
-     
+        
         attendedMeetingListViewModel.updateMeetingList()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         
         //MARK: - 디자인 세팅
         titleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 18)
@@ -176,6 +183,9 @@ class MyRecordViewController: UIViewController {
                 
                 //기록 가져온 후 progress View 세팅을 위한 reloadData
                 self.calendarCollectionView.reloadData()
+                
+                //기록 가져온 후 기록 이미지 가져오기
+                self.fetchRecordImages()
             })
             .disposed(by: disposeBag)
         
@@ -199,6 +209,8 @@ class MyRecordViewController: UIViewController {
         circle2View.backgroundColor = Constant.Color.Puple2
         circle3View.backgroundColor = Constant.Color.Puple3
         circle4View.backgroundColor = Constant.Color.MainPuple
+        
+    
         
     }
     
@@ -231,7 +243,7 @@ class MyRecordViewController: UIViewController {
                 self.days.append(String(day))
             }
         }
-    
+        
         //캘린더 세팅 후 meeting id를 통해 나의 기록 api 요청
         if meetingList.count > 0 {
             self.recordList.removeAll()
@@ -275,6 +287,34 @@ class MyRecordViewController: UIViewController {
                     }
                 })
                 .disposed(by: disposeBag)
+        }
+    }
+    
+    //MARK: - 기록 이미지 가져오기
+    private func fetchRecordImages() {
+        let storage = FBStorage()
+        for (i, record) in recordList.enumerated() {
+            if record.image != "" && record.image != nil {
+                
+                let _ = storage.downLoadImage(path: record.image!) {
+                    self.recordImageSet[i] = storage.downloadImage!
+                    
+                    if i == self.meetingList.count-1 {
+                        self.recordIndex = 0
+                        self.recordImageFetchFlag = true
+                        self.calendarCollectionView.reloadData()
+                    }
+                }
+            }
+            else {
+                self.recordImageSet[i] = UIImage()
+                
+                if i == self.meetingList.count-1 {
+                    self.recordIndex = 0
+                    self.recordImageFetchFlag = true
+                    self.calendarCollectionView.reloadData()
+                }
+            }
         }
     }
     
@@ -327,7 +367,7 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                 cell.imageView = .none
                 cell.progressView.backgroundColor = .none
                 cell.borderLayer.strokeColor = UIColor.clear.cgColor
-        
+                
             default:
                 cell.progressView.backgroundColor = .none
                 cell.dateLabel.text = days[indexPath.row]
@@ -347,28 +387,37 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
                     if self.recordIndex < self.recordList.count {
                         let record = self.recordList[recordIndex]
                         if record.day == Int(days[indexPath.row])! {
-                            //cell.progressView.backgroundColor = .systemPink
-                            let dayProgress = Double(record.value) / Double(meetingList[meetingIndex].target_amount)
-                            if (0...25).contains(Int(dayProgress)) {
-                                cell.progressView.backgroundColor = Constant.Color.Puple1
+                            if recordImageFetchFlag {
+                                if record.image != "" && record.image != nil {
+                                    cell.imageView.image = recordImageSet[recordImageSetIndex]
+                                }
+                                else {
+                                    //cell.progressView.backgroundColor = .systemPink
+                                    let dayProgress = Double(record.value) / Double(meetingList[meetingIndex].target_amount)
+                                    if (0...25).contains(Int(dayProgress)) {
+                                        cell.progressView.backgroundColor = Constant.Color.Puple1
+                                    }
+                                    else if (26...50).contains(Int(dayProgress)) {
+                                        cell.progressView.backgroundColor = Constant.Color.Puple2
+                                    }
+                                    else if (51...75).contains(Int(dayProgress))  {
+                                        cell.progressView.backgroundColor = Constant.Color.Puple3
+                                    }
+                                    else if (76...100).contains(Int(dayProgress)) {
+                                        cell.progressView.backgroundColor = Constant.Color.MainPuple
+                                    }
+                                    cell.dateLabel.textColor = .white
+                                }
+                                recordImageSetIndex += 1
+                                recordIndex += 1
                             }
-                            else if (26...50).contains(Int(dayProgress)) {
-                                cell.progressView.backgroundColor = Constant.Color.Puple2
-                            }
-                            else if (51...75).contains(Int(dayProgress))  {
-                                cell.progressView.backgroundColor = Constant.Color.Puple3
-                            }
-                            else if (76...100).contains(Int(dayProgress)) {
-                                cell.progressView.backgroundColor = Constant.Color.MainPuple
-                            }
-                            cell.dateLabel.textColor = .white
-                            recordIndex += 1
                         }
                     }
+                    
                     //오늘 날짜에 점선 테두리 그리기
                     if cell.year == cal.component(.year, from: now)
-                    && cell.month == cal.component(.month, from: now)
-                    && cell.day == cal.component(.day, from: now) {
+                        && cell.month == cal.component(.month, from: now)
+                        && cell.day == cal.component(.day, from: now) {
                         cell.borderLayer.strokeColor = UIColor.black.cgColor
                     }
                     else {
@@ -403,6 +452,21 @@ extension MyRecordViewController: UICollectionViewDelegate, UICollectionViewData
         else {
             print("CollectionView Delegate error - 셀 사이즈")
             return CGSize(width: 0, height: 0)
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == calendarCollectionView {
+            //MARK: - 달력 디자인 두번째 선
+            
+            calendarSecondLineView.backgroundColor = Constant.Color.Gray238
+            view.addSubview(calendarSecondLineView)
+            
+            calendarSecondLineView.translatesAutoresizingMaskIntoConstraints = false
+            calendarSecondLineView.centerXAnchor.constraint(equalTo: calendarCollectionView.centerXAnchor).isActive = true
+            calendarSecondLineView.topAnchor.constraint(equalTo:
+                                                            calendarCollectionView.topAnchor, constant: calendarCollectionView.bounds.height/7).isActive = true
+            calendarSecondLineView.widthAnchor.constraint(equalToConstant: calendarCollectionView.bounds.width).isActive = true
+            calendarSecondLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         }
     }
     

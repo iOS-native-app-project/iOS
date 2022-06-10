@@ -175,6 +175,20 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pM-pV-III">
+                                <rect key="frame" x="20" y="312" width="374" height="1"/>
+                                <color key="backgroundColor" red="0.74117647058823533" green="0.74117647058823533" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="8Ps-Nd-dCV"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWY-BO-05z">
+                                <rect key="frame" x="20" y="787" width="374" height="1"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="oJB-8h-0fh"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ra-rk-4GS">
                                 <rect key="frame" x="184.5" y="61" width="45" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
@@ -187,9 +201,11 @@
                         <constraints>
                             <constraint firstItem="h62-Mb-sBy" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BUb-0R-2C4"/>
                             <constraint firstItem="WKO-dK-MkG" firstAttribute="top" secondItem="MFE-Fq-jUS" secondAttribute="bottom" constant="24" id="DcC-ge-akd"/>
+                            <constraint firstItem="vWY-BO-05z" firstAttribute="width" secondItem="WKO-dK-MkG" secondAttribute="width" id="GPg-C9-hTU"/>
                             <constraint firstItem="E9y-cg-bpY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Haw-Bd-lST"/>
                             <constraint firstItem="7ra-rk-4GS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="17" id="K4R-UM-pjE"/>
                             <constraint firstItem="h62-Mb-sBy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Kln-iG-KOy"/>
+                            <constraint firstItem="vWY-BO-05z" firstAttribute="bottom" secondItem="WKO-dK-MkG" secondAttribute="bottom" id="M7y-p7-ZHD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="u6m-Ic-J42" secondAttribute="trailing" id="MCi-je-GQt"/>
                             <constraint firstItem="E9y-cg-bpY" firstAttribute="bottom" secondItem="u6m-Ic-J42" secondAttribute="bottom" constant="30" id="QUC-Yv-DMv"/>
                             <constraint firstItem="7ra-rk-4GS" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="RcL-oK-R9b"/>
@@ -197,11 +213,15 @@
                             <constraint firstItem="u6m-Ic-J42" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="bIq-2X-qby"/>
                             <constraint firstItem="MFE-Fq-jUS" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="cS9-Py-lxJ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="h62-Mb-sBy" secondAttribute="trailing" constant="20" id="ccy-n9-k4U"/>
+                            <constraint firstItem="4pM-pV-III" firstAttribute="width" secondItem="WKO-dK-MkG" secondAttribute="width" id="eID-1l-Ego"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="h62-Mb-sBy" secondAttribute="bottom" constant="18" id="eNT-iu-WZu"/>
+                            <constraint firstItem="4pM-pV-III" firstAttribute="top" secondItem="WKO-dK-MkG" secondAttribute="top" id="ey9-nH-bbZ"/>
                             <constraint firstItem="h62-Mb-sBy" firstAttribute="top" secondItem="WKO-dK-MkG" secondAttribute="bottom" constant="24" id="ez5-LR-EfQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WKO-dK-MkG" secondAttribute="trailing" constant="20" id="i8I-e8-eaS"/>
+                            <constraint firstItem="vWY-BO-05z" firstAttribute="centerX" secondItem="WKO-dK-MkG" secondAttribute="centerX" id="iU4-4K-1XP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="E9y-cg-bpY" secondAttribute="leading" id="k2m-cq-DBf"/>
                             <constraint firstItem="WKO-dK-MkG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="khZ-5B-x7g"/>
+                            <constraint firstItem="4pM-pV-III" firstAttribute="centerX" secondItem="WKO-dK-MkG" secondAttribute="centerX" id="rjN-to-yL7"/>
                             <constraint firstItem="E9y-cg-bpY" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yZ8-zd-uaM"/>
                             <constraint firstItem="MFE-Fq-jUS" firstAttribute="top" secondItem="E9y-cg-bpY" secondAttribute="bottom" constant="32" id="ydP-up-xT6"/>
                         </constraints>

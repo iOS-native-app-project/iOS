@@ -29,7 +29,6 @@ class MeetingListTableViewCell: UITableViewCell {
         personImageView.image = personImageView.image?.withRenderingMode(.alwaysTemplate)
         personImageView.tintColor = Constant.Color.Gray117
         
-        categoryImageView.image = UIImage(named: "tmpImage.png")
         categoryImageView.layer.cornerRadius = 4
         
         entranceButton.backgroundColor = Constant.Color.Gray245
