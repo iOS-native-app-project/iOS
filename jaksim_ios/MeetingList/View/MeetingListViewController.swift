@@ -21,7 +21,6 @@ class MeetingListViewController: UIViewController {
     
     private let meetingListViewModel = MeetingListViewModel()
     private var meetingList = [Meeting]()
-    private var meetingListFlag = true
     
     private var searchTermList = Constant.MeetingList.Text.CategoryList
     private var searchedMeetingList = [Meeting]()
@@ -33,9 +32,16 @@ class MeetingListViewController: UIViewController {
     
     private var disposeBag = DisposeBag()
     
+    var newMeetingFlag = false
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
+        if newMeetingFlag {
+            newMeetingFlag = false
+            meetingListTableView.reloadData()
+        }
+        
         //MARK: - 화면에 나타날 때 마다 모임리스트 업데이트
         meetingListTableView.dataSource = nil
         meetingListViewModel.meetingListSubject
@@ -44,19 +50,16 @@ class MeetingListViewController: UIViewController {
                 self.meetingList = list
             })
                 .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
-                    cell.entranceButton.tag = index
-                    self.setForEntrace(cell: cell, item: item)
-                    FBStorage.shared.downLoadImage(path: item.image!) { image in
-                        cell.categoryImageView.image = image
-                    }
                     
-                    if index == self.meetingList.count - 1 && self.meetingListFlag{
-                        self.meetingListFlag = false
-                    }
+                    cell.entranceButton.tag = index
+                    self.setForEntrace(cell: cell, item: self.meetingList[index])
+                    cell.categoryImageView.setImage(path: self.meetingList[index].image!)
+                    
+                    
                 }
                 .disposed(by: disposeBag)
-     
-        meetingListViewModel.updateMeetingList()
+        
+        meetingListViewModel.fetchMeetingList()
         
         
     }
@@ -82,23 +85,9 @@ class MeetingListViewController: UIViewController {
         tableViewTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 13)
         
         meetingListTableView.delegate = self
-        
         meetingListTableView.register(UINib(nibName: Constant.MeetingList.Name.MeetingListTableViewCellXibName, bundle: nil), forCellReuseIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId)
         
-        meetingListViewModel.meetingListSubject
-            .observe(on: MainScheduler.instance)
-            .do(onNext: { list in
-                self.meetingList = list
-            })
-            .bind(to: meetingListTableView.rx.items(cellIdentifier: Constant.MeetingList.Id.MeetingListTableViewCellId, cellType: MeetingListTableViewCell.self)) { index, item, cell in
-                cell.entranceButton.tag = index
-                self.setForEntrace(cell: cell, item: item)
-                FBStorage.shared.downLoadImage(path: item.image!) { image in
-                    cell.categoryImageView.image = image
-                }
-                
-            }
-            .disposed(by: disposeBag)
+        
     }
     
     //MARK: - 모임 리스트 데이터 세팅
@@ -124,7 +113,7 @@ class MeetingListViewController: UIViewController {
     @IBAction func meetingCreationButtonDidTap(_ sender: UIButton) {
         
         guard let meetringCreationVC = UIStoryboard.init(name: Constant.MeetingCreation.Name.MeetingCreationStoryBoardName, bundle: nil).instantiateViewController(identifier: Constant.MeetingCreation.Id.MeetingCreationViewControllerId) as? MeetingCreationViewController else {return}
-    
+        
         self.navigationController?.pushViewController(meetringCreationVC, animated: true)
     }
 }

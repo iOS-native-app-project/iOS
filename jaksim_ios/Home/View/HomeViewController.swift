@@ -35,9 +35,10 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
     
     private let recommendedMeetingListViewModel = RecommendedMeetingListViewModel()
     private var recommendedMeetingList = [RecommendedMeeting]()
-    private var recommendedMeetingListFlag = true
     
     private let sayingOfTodayViewModel = SayingOfTodayViewModel()
+    
+    var newMeetingFlag = false
     
     private var disposeBag = DisposeBag()
     
@@ -46,6 +47,11 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+        
+        if newMeetingFlag {
+            newMeetingFlag = false
+            recommendedMeetingListCollectionView.reloadData()
+        }
         
         //MARK: - 탭바 컨트롤러 세팅
         if let tabBarItems = self.tabBarController?.tabBar.items
@@ -74,30 +80,32 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
             .observe(on: MainScheduler.instance)
             .do(onNext: { list in
                 self.meetingList = list
+                self.meetingListCount = list.count
+                self.progressList = Array(repeating: 0, count: self.meetingListCount)
             })
-                .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-                    
-                    cell.nameLabel.text = item.name
-                    cell.dDayLabel.text = "디데이 업데이트 필요"
-                    cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
-                    
-                    //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
-                    cell.progressValueLabel.text = "\(self.progressList[index])%"
-                    
-                    //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
-                    cell.progressValue = Double(self.progressList[index])
-                    
-                    //달성률 데이터를 다 가져오면 progressBar view 업데이트
-                    if !self.progressFlag{
-                        cell.setProgressBar()
-                    }
-                    
-                    if self.progressFlag {
-                        self.progressFlag = false
-                        self.getProgress()
-                    }
+            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
+                
+                cell.nameLabel.text = item.name
+                cell.dDayLabel.text = "디데이 업데이트 필요"
+                cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
+                
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValueLabel.text = "\(self.progressList[index])%"
+                
+                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
+                cell.progressValue = Double(self.progressList[index])
+                
+                //달성률 데이터를 다 가져오면 progressBar view 업데이트
+                if !self.progressFlag{
+                    cell.setProgressBar()
                 }
-                .disposed(by: disposeBag)
+                
+                if self.progressFlag {
+                    self.progressFlag = false
+                    self.getProgress()
+                }
+            }
+            .disposed(by: disposeBag)
         
         meetingListViewModel.fetchMeetingList()
         
@@ -108,34 +116,29 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
             .do(onNext: { list in
                 self.recommendedMeetingList = list
             })
-            .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
-
-                cell.meetingNameLabel.text = item.name
-                cell.numberOfPeopleLabel.text = String(item.numberOfpeople)
-                cell.descriptLabel.text = item.descript
-                FBStorage.shared.downLoadImage(path: item.image!) { image in
-                    cell.meetingImageView.image = image
+                .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
+                    
+                    
+                    cell.meetingNameLabel.text = self.recommendedMeetingList[index].name
+                    
+                    cell.numberOfPeopleLabel.text = String(self.recommendedMeetingList[index].numberOfpeople)
+                    cell.descriptLabel.text = self.recommendedMeetingList[index].descript
+                    cell.meetingImageView.setImage(path: self.recommendedMeetingList[index].image!)
+                    
+                    cell.numberOfPeopleLabel.text = "\(self.recommendedMeetingList[index].numberOfpeople)"
+                    
+                    
                 }
-
-                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
-
-                if index == self.recommendedMeetingList.count - 1 && self.recommendedMeetingListFlag{
-                    self.recommendedMeetingListFlag = false
-                }
-            }
-            .disposed(by: disposeBag)
+                .disposed(by: disposeBag)
         
         recommendedMeetingListViewModel.fetchRecommendedMeetingList()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.tabBarController?.delegate = self
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.delegate = self
         
         //MARK: - 로고
         logoImageView.image = Constant.Image.HomeLogo
@@ -150,36 +153,6 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         notiVisitedMarkView.backgroundColor = Constant.Color.MainPuple
         
         //MARK: - 참여중인 모임 리스트
-        meetingListViewModel.meetingListSubject
-            .observe(on: MainScheduler.instance)
-            .do(onNext: { list in
-                self.meetingList = list
-                self.meetingListCount = list.count
-                self.progressList = Array(repeating: 0, count: self.meetingListCount)
-            })
-            .bind(to: meetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId, cellType: MeetingListCollectionViewCell.self)) { index, item, cell in
-
-                cell.nameLabel.text = item.name
-                cell.dDayLabel.text = "디데이 업데이트 필요"
-                cell.numberOfpeopleLabel.text = "참여중인 방 \(index+1)/\(self.meetingListCount)"
-
-                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
-                cell.progressValueLabel.text = "\(self.progressList[index])%"
-
-                //달성률 데이터를 다 가져오면 정상적인 달성률 값이 들어감
-                cell.progressValue = Double(self.progressList[index])
-
-                //달성률 데이터를 다 가져오면 progressBar view 업데이트
-                if !self.progressFlag{
-                    cell.setProgressBar()
-                }
-
-                if self.progressFlag {
-                    self.progressFlag = false
-                    self.getProgress()
-                }
-            }
-            .disposed(by: disposeBag)
         
         meetingListCollectionView.delegate = self
         meetingListCollectionView.register(UINib(nibName: Constant.Home.Name.MeetingListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.MeetingListCollectionViewCellId)
@@ -215,28 +188,6 @@ class HomeViewController: UIViewController, UITabBarControllerDelegate {
         categoryListCollectionView.register(UINib(nibName: Constant.Home.Name.CategoryListCollectionViewCellXibName, bundle: nil), forCellWithReuseIdentifier: Constant.Home.Id.CategoryListCollectionViewCellId)
         
         //MARK: - 추천모임 리스트
-        
-        recommendedMeetingListViewModel.recommendedMeetingListSubject
-            .observe(on: MainScheduler.instance)
-            .do(onNext: { list in
-                self.recommendedMeetingList = list
-            })
-            .bind(to: recommendedMeetingListCollectionView.rx.items(cellIdentifier: Constant.Home.Id.RecommendedMeetingListCollectionViewCellId, cellType: RecommendedMeetingListCollectionViewCell.self)) { index, item, cell in
-                
-                cell.meetingNameLabel.text = item.name
-                cell.numberOfPeopleLabel.text = String(item.numberOfpeople)
-                cell.descriptLabel.text = item.descript
-                FBStorage.shared.downLoadImage(path: item.image!) { image in
-                    cell.meetingImageView.image = image
-                }
-                
-                cell.numberOfPeopleLabel.text = "\(item.numberOfpeople)"
-                
-                if index == self.recommendedMeetingList.count - 1 && self.recommendedMeetingListFlag{
-                    self.recommendedMeetingListFlag = false
-                }
-            }
-            .disposed(by: disposeBag)
         
         recommendedMeetingTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 16)
         recommendedMeetingTitleLabel.textColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)

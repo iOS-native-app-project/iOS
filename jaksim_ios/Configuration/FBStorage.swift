@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import Kingfisher
 import FirebaseStorage
 
 struct FBStorage {
     static var shared: FBStorage = FBStorage()
     
     private init() {}
-    
-    let storage = Storage.storage() //인스턴스 생성
+
+    let storage = Storage.storage()
     
     func upLoadImage(img: UIImage, path: String, completion: @escaping () -> Void){
         var data = Data()
@@ -34,10 +35,39 @@ struct FBStorage {
     
     func downLoadImage(path: String, setImage: @escaping (UIImage) -> Void) {
         storage.reference(forURL: path).downloadURL(completion: { (url, error) in
+            
+            print()
             let data = NSData(contentsOf: url!)
             let image = UIImage(data: data! as Data)
-                                    
+            
             setImage(image!)
         })
+    }
+}
+
+extension UIImageView {
+    func setImage(path: String) {
+        let cache = ImageCache.default
+        cache.retrieveImage(forKey: path, options: nil) { result in
+            switch result {
+            case .success(let value):
+                if let image = value.image {
+                    self.image = image
+                } else {
+                    FBStorage.shared.storage.reference(forURL: path).downloadURL(completion: { (url, error) in
+                        if let error = error {
+                            print("An error has occured: \(error.localizedDescription)")
+                            return
+                        }
+                        guard let url = url else {
+                            return
+                        }
+                        self.kf.setImage(with: url)
+                    })
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

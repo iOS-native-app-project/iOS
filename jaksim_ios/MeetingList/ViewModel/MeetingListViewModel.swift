@@ -29,7 +29,7 @@ class MeetingListViewModel {
             .disposed(by: disposeBag)
     }
     
-    func updateMeetingList() {
+    func fetchMeetingList() {
         MeetingListService.getMeetingList(from: url)
             .map { meetingList in
                 meetingList.map {

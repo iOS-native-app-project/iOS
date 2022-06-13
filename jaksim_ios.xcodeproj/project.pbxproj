@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1806F801284DECEC009B5D49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1806F800284DECEC009B5D49 /* GoogleService-Info.plist */; };
 		180745F8282C1357001299C7 /* MyRecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745F7282C1357001299C7 /* MyRecordService.swift */; };
 		180745FC282C1373001299C7 /* MyRecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FB282C1373001299C7 /* MyRecordItem.swift */; };
 		18074600282C1427001299C7 /* MyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180745FF282C1427001299C7 /* MyRecord.swift */; };
@@ -63,6 +62,7 @@
 		18A163922810542B001668D9 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A163912810542B001668D9 /* Meeting.swift */; };
 		18A1639428105701001668D9 /* MeetingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1639328105701001668D9 /* MeetingItem.swift */; };
 		18A1639728105732001668D9 /* MeetingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1639628105732001668D9 /* MeetingListService.swift */; };
+		18AC4C092854690A003DEF24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18AC4C082854690A003DEF24 /* GoogleService-Info.plist */; };
 		18AE754A27FB4E3700FF28BA /* MeetingCreationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */; };
 		18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */; };
 		18AE754E27FB5BC800FF28BA /* CreationSecondSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */; };
@@ -125,7 +125,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1806F800284DECEC009B5D49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		180745F7282C1357001299C7 /* MyRecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordService.swift; sourceTree = "<group>"; };
 		180745FB282C1373001299C7 /* MyRecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordItem.swift; sourceTree = "<group>"; };
 		180745FF282C1427001299C7 /* MyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecord.swift; sourceTree = "<group>"; };
@@ -182,6 +181,7 @@
 		18A163912810542B001668D9 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		18A1639328105701001668D9 /* MeetingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingItem.swift; sourceTree = "<group>"; };
 		18A1639628105732001668D9 /* MeetingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingListService.swift; sourceTree = "<group>"; };
+		18AC4C082854690A003DEF24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18AE754927FB4E3700FF28BA /* MeetingCreationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingCreationDetailViewController.swift; sourceTree = "<group>"; };
 		18AE754B27FB5BBF00FF28BA /* CreationSecondSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSecondSection.swift; sourceTree = "<group>"; };
 		18AE754D27FB5BC800FF28BA /* CreationSecondSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreationSecondSection.xib; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 		186B1F4727C35EE10007C506 /* jaksim_ios */ = {
 			isa = PBXGroup;
 			children = (
-				1806F800284DECEC009B5D49 /* GoogleService-Info.plist */,
+				18AC4C082854690A003DEF24 /* GoogleService-Info.plist */,
 				B89C822928321CED00D07202 /* Configuration */,
 				A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */,
 				180C4F7927E34B9D00168B04 /* MyRecord */,
@@ -850,11 +850,11 @@
 				1897CD8C2851EA2700A38766 /* S-CoreDream-6Bold.otf in Resources */,
 				189EB20427E2059000DF054F /* Pretendard-ExtraBold.otf in Resources */,
 				186B1F5027C35EE10007C506 /* (null) in Resources */,
-				1806F801284DECEC009B5D49 /* GoogleService-Info.plist in Resources */,
 				A55A71EC27C76711007A0DDC /* LoginStoryboard.storyboard in Resources */,
 				18579887281944960090EEC5 /* NotificationListTableViewCell.xib in Resources */,
 				183F56BB27E0EA3300BDAFF4 /* Pretendard-Regular.otf in Resources */,
 				18453A5627E0C39900333D49 /* CategoryListCollectionViewCell.xib in Resources */,
+				18AC4C092854690A003DEF24 /* GoogleService-Info.plist in Resources */,
 				18453A5A27E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.xib in Resources */,
 				18EB2AFA27CFBB81004ABE3A /* MeetingListCollectionViewCell.xib in Resources */,
 				183F56BF27E0EA9700BDAFF4 /* S-CoreDream-4Regular.otf in Resources */,

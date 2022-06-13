@@ -77,13 +77,13 @@ class MeetingCreationDetailViewController: UIViewController {
     @IBAction func creationButtonDidTap(_ sender: UIButton) {
         creationButton.isEnabled = false
     
-        let hashPath = String(UserDefaults.standard.string(forKey: "Token")!.hashValue)
+        let hashPath = String((String(Date().millisecondsSince1970) + String(UserDefaults.standard.string(forKey: "Token")!)).hashValue)
         FBStorage.shared.upLoadImage(img: creationFirstSection.categoryImageView.image!,
                             path: hashPath) { [weak self] in
         
             let meetingViewModel = MeetingCreationViewModel(
                 name: self!.creationFirstSection.firstTextView.text,
-                image: "gs://jaksim-ios.appspot.com/\(hashPath)",
+                image: "gs://jaksim-ios-native.appspot.com/\(hashPath)",
                 categoryId: Constant.MeetingCreation.Text.CategoryId[self!.category]!,
                 descript: self!.creationFirstSection.secondTextView.text,
                 limit: self!.creationSecondSection.numberOfPeople,
@@ -97,7 +97,15 @@ class MeetingCreationDetailViewController: UIViewController {
             guard let viewControllerStack = self?.navigationController?.viewControllers else { return }
             
             for viewController in viewControllerStack {
+
                 if let tabBarCotroller = viewController as? UITabBarController {
+                    let NavController = tabBarCotroller.viewControllers![0] as! UINavigationController
+                    let HomeVC = NavController.topViewController as! HomeViewController
+                    let MeetingListVC = tabBarCotroller.viewControllers![1] as! MeetingListViewController
+                    
+                    HomeVC.newMeetingFlag = true
+                    MeetingListVC.newMeetingFlag = true
+                    
                     self?.navigationController?.popToViewController(tabBarCotroller, animated: true)
                 }
             }
@@ -114,6 +122,12 @@ class MeetingCreationDetailViewController: UIViewController {
                 self.navigationController?.popToViewController(tabBarCotroller, animated: true)
             }
         }
+    }
+}
+
+extension Date {
+    var millisecondsSince1970: Int64 {
+        Int64((self.timeIntervalSince1970 * 1000.0).rounded())
     }
 }
 
