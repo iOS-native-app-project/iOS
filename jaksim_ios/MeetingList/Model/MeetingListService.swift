@@ -14,7 +14,7 @@ struct MeetingListService {
     static func getMeetingList(from url: String) -> Observable<[MeetingItem]> {
         return Observable.create { emitter in
             let urlString = url
-            let header: HTTPHeaders = [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibmlja25hbWUiOiLspJHqt5wiLCJpYXQiOjE2NTI4NTk4NTgsImV4cCI6MTY1NTQ1MjA0NX0.2Nk1vgKsFetnyybZ9JnUl-djXXfAxdFXTSyaJbkBfqg")]
+            let header: HTTPHeaders = [.authorization(bearerToken: UserDefaults.standard.string(forKey: "Token")!)]
                 
             
             let request = AF.request(urlString,
@@ -51,7 +51,7 @@ struct MeetingListService {
     static func postPassword(from url: String, item: PasswordRequestItem) -> Observable<PasswordResponseItem> {
         return Observable.create { emitter in
             let urlString = url
-            let header: HTTPHeaders = [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibmlja25hbWUiOiLspJHqt5wiLCJpYXQiOjE2NTI4NTk4NTgsImV4cCI6MTY1NTQ1MjA0NX0.2Nk1vgKsFetnyybZ9JnUl-djXXfAxdFXTSyaJbkBfqg")]
+            let header: HTTPHeaders = [.authorization(bearerToken: UserDefaults.standard.string(forKey: "Token")!)]
                 
             
             let request = AF.request(urlString,

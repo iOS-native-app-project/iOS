@@ -27,6 +27,8 @@ class CreationFirstSection: UIView {
     var meetingNameFlag = false
     var meetingDescriptionFlag = false
     
+    var category: String = ""
+    
     var delegate: CreationSectionDelegate?
     
     override init(frame: CGRect) {
@@ -38,11 +40,12 @@ class CreationFirstSection: UIView {
         super.init(coder: coder)
         loadView()
     }
+
     private func loadView(){
         let view = Bundle.main.loadNibNamed(Constant.MeetingCreation.Name.CreationFirstSectionXibName, owner: self, options: nil)?.first as! UIView
         view.frame = self.bounds
         
-        //MARK:- 사용자가 업로드하는 이미지
+        //MARK: - 사용자가 업로드하는 이미지
         categoryImageView.layer.cornerRadius = 6
         
         cameraImageContainerView.layer.borderWidth = 1
@@ -52,17 +55,17 @@ class CreationFirstSection: UIView {
         
         cameraImageView.tintColor = Constant.Color.Black97
         
-        //MARK:- '모임을 입력해주세요' 라벨
-        //firstTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        //MARK: - '모임을 입력해주세요' 라벨
+        firstTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         firstTitleLabel.textColor = Constant.Color.Black66
         firstTitleLabel.text = Constant.MeetingCreation.Text.CreationFirstSection.FirstTitle
         
-        //MARK:- '모임을 입력해주세요' 텍스트 카운트 라벨
-        //firstCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        //MARK: - '모임을 입력해주세요' 텍스트 카운트 라벨
+        firstCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         firstCountLabel.textColor = Constant.Color.Gray158
         
-        //MARK:- '모임을 입력해주세요' TextView
-        //firstTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        //MARK: - '모임을 입력해주세요' TextView
+        firstTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         firstTextView.textColor = Constant.Color.Gray158
         firstTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         firstTextView.backgroundColor = .clear
@@ -72,17 +75,17 @@ class CreationFirstSection: UIView {
         firstTextViewContainerView.backgroundColor = Constant.Color.Gray245
         firstTextViewContainerView.layer.cornerRadius = 8
         
-        //MARK:- '간단하게 모임을 소개해주세요' 라벨
-        //secondTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
+        //MARK: - '간단하게 모임을 소개해주세요' 라벨
+        secondTitleLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 14)
         secondTitleLabel.textColor = Constant.Color.Black66
         secondTitleLabel.text = Constant.MeetingCreation.Text.CreationFirstSection.SecondTitle
         
-        //MARK:- '간단하게 모임을 소개해주세요' 텍스트 카운트 라벨
-        //secondCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        //MARK: - '간단하게 모임을 소개해주세요' 텍스트 카운트 라벨
+        secondCountLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         secondCountLabel.textColor = Constant.Color.Gray158
         
-        //MARK:- '간단하게 모임을 소개해주세요' TextView
-        //secondTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        //MARK: - '간단하게 모임을 소개해주세요' TextView
+        secondTextView.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         secondTextView.textColor = Constant.Color.Gray158
         secondTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         secondTextView.backgroundColor = .clear
@@ -94,9 +97,16 @@ class CreationFirstSection: UIView {
         
         self.addSubview(view)
     }
+    
+    //MARK: - 카테고리 이미지 세팅 함수
+    func setCategoryImage() {
+        let imageIndex = Int.random(in: 0...8)
+        print(self.category)
+        self.categoryImageView.image = UIImage(named: "\(self.category)0\(imageIndex).png")!
+    }
 }
 
-//MARK:- TextView Delegate
+//MARK: - TextView Delegate
 extension CreationFirstSection: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == Constant.Color.Gray158 {

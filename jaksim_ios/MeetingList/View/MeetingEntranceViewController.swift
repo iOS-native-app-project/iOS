@@ -66,7 +66,7 @@ class MeetingEntranceViewController: UIViewController {
         
         //MARK:- 입장 버튼(라벨)
         entranceLabel.textColor = .white
-        //entranceLabel.font = UIFont(name: K.FontName.PretendardSemiBold, size: 16)
+        entranceLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 16)
         
         //MARK:- 입장 버튼(자물쇠 이미지)
         let lockImage = Constant.Image.LockIcon?.withRenderingMode(.alwaysTemplate)

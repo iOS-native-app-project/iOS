@@ -113,6 +113,9 @@
                                     <constraint firstAttribute="height" constant="56" id="vW4-78-PGJ"/>
                                 </constraints>
                                 <state key="normal" image="creation"/>
+                                <connections>
+                                    <action selector="meetingCreationButtonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N5f-ey-5ih"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

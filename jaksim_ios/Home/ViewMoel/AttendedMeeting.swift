@@ -10,12 +10,14 @@ import Foundation
 struct AttendedMeeting {
     var name: String
     //var dDay: Int
-    var progess: Int
+    var progress: Int
     var meetingId: Int
+    var target_amount: Int
     
     init(_ item: AttendedMeetingItem) {
         name = item.name
-        progess = 100
+        progress = 100
         meetingId = item.id
+        target_amount = 0
     }
 }

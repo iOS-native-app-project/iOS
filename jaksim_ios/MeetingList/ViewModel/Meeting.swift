@@ -20,6 +20,8 @@ struct Meeting {
     var nickname: String
     var userImage: String
     var numberOfPeople: Int
+    var join: Bool
+    var image: String?
     
     init(_ item: MeetingItem) {
         meetingId = String(item.id)
@@ -34,5 +36,7 @@ struct Meeting {
         nickname = item.users.nickname
         userImage = item.users.imagePath ?? ""
         numberOfPeople = item.memberCount
+        join = item.join
+        image = item.image ?? ""
     }
 }

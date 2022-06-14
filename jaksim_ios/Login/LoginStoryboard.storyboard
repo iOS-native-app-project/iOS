@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GlK-YY-yEt">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="M83-sL-jD8">
-                                <rect key="frame" x="153.5" y="189" width="107.5" height="140.5"/>
+                                <rect key="frame" x="153.5" y="233" width="107.5" height="140.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="AHL-Ks-eLc">
                                         <rect key="frame" x="0.0" y="0.0" width="107.5" height="100"/>
@@ -32,7 +32,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-AO-XNX">
-                                <rect key="frame" x="20" y="434" width="374" height="164"/>
+                                <rect key="frame" x="20" y="478" width="374" height="164"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVi-7m-F4M">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -58,47 +58,11 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="간편로그인으로 이용해 보세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIg-Bs-vlJ">
-                                <rect key="frame" x="104.5" y="393.5" width="205" height="20.5"/>
+                                <rect key="frame" x="104.5" y="437.5" width="205" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0s-bW-ytD">
-                                <rect key="frame" x="20" y="638" width="37" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="홈"/>
-                                <connections>
-                                    <segue destination="ZjE-da-LXW" kind="show" id="yGa-qE-0Be"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9w-jk-jdI">
-                                <rect key="frame" x="65" y="638" width="85" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="모임리스트"/>
-                                <connections>
-                                    <segue destination="Cm9-2q-A38" kind="show" id="IVu-AK-V8H"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lT1-FW-ngx">
-                                <rect key="frame" x="171" y="638" width="73" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="모임생성"/>
-                                <connections>
-                                    <segue destination="5X9-oI-RgT" kind="show" id="Zg2-C2-AQC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7V0-3X-5eT">
-                                <rect key="frame" x="249" y="638" width="73" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="나의기록"/>
-                                <connections>
-                                    <segue destination="YW6-AF-2wP" kind="show" id="uHc-op-Xph"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,6 +77,7 @@
                             <constraint firstItem="M83-sL-jD8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="145" id="ycH-n5-FuX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Flk-9j-ZX7"/>
                     <connections>
                         <outlet property="appleLoginButton" destination="QYa-yn-cpd" id="Bju-1h-epD"/>
                         <outlet property="kakaoLoginButton" destination="CVi-7m-F4M" id="yST-4g-tqM"/>
@@ -122,47 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="72"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="gG8-OV-Zfk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="ZjE-da-LXW" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cCc-aR-HFD"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zY4-3i-vTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-386" y="502"/>
-        </scene>
-        <!--MeetingList-->
-        <scene sceneID="TfF-JX-EJ3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MeetingList" id="Cm9-2q-A38" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="sY1-cj-VQ3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zCr-y3-v37" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-152" y="502"/>
-        </scene>
-        <!--MeetingCreation-->
-        <scene sceneID="VzM-Qg-vir">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MeetingCreation" id="5X9-oI-RgT" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="I4Z-oN-I2y"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oDp-39-sUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="104" y="502"/>
-        </scene>
-        <!--MyRecord-->
-        <scene sceneID="N0K-Hu-QwK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyRecord" id="YW6-AF-2wP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="GK6-UZ-MOt"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gGP-ft-SlE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="343" y="503"/>
+            <point key="canvasLocation" x="2707.2463768115945" y="71.651785714285708"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="ahJ-Rp-E4F">
@@ -365,7 +290,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTr-Jx-tAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="72"/>
+            <point key="canvasLocation" x="3455.072463768116" y="71.651785714285708"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="lbO-vg-vfB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsP-qd-Vmh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GlK-YY-yEt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ege-93-Tqq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8mF-p0-hte">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="kcC-io-gDt"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1797.1014492753625" y="71.651785714285708"/>
         </scene>
     </scenes>
     <resources>

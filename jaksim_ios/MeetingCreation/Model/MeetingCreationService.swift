@@ -12,7 +12,7 @@ struct MeetingCreationService {
     static func postMeeting(from url: String, item: MeetingCreationItem) -> Void {
         
         let urlString = url
-        let header: HTTPHeaders = [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywibmlja25hbWUiOiLspJHqt5wiLCJpYXQiOjE2NTIxOTUzNzAsImV4cCI6MTY1MjE5NzE3MH0.eg6ZSECHHzSaCyADN8XfJXCZxALu774k_nfZHIocCvM")]
+        let header: HTTPHeaders = [.authorization(bearerToken: UserDefaults.standard.string(forKey: "Token")!)]
         
         let request = AF.request(urlString,
                                  method: .post,

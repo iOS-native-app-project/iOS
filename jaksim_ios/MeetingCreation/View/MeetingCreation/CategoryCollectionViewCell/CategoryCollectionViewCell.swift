@@ -34,7 +34,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = Constant.Color.Gray245.cgColor
         
-        //label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        label.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
         label.textColor = Constant.Color.Black33
     }
 

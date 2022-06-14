@@ -28,5 +28,21 @@ class RecommendedMeetingListViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func fetchRecommendedMeetingList() {
+        HomeService.getRecommendedMeetingList(from: url)
+            .map { recommendedMeetingList in
+                recommendedMeetingList.map {
+                    RecommendedMeeting($0)
+                }
+            }
+            .subscribe(onNext: {
+                self.recommendedMeetingListSubject.onNext($0)
+            },
+            onError: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 

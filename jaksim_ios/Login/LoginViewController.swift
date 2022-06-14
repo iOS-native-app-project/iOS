@@ -37,6 +37,13 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     func layoutSetup() {
         logoTextLabel.text = "다같이 작심삼일 \n 동기부여 뿜뿜"
         
@@ -273,12 +280,11 @@ extension LoginViewController {
         KeyCenter.LOGIN_TOKEN = result.data.accessToken
         UserDefaults.standard.set(KeyCenter.LOGIN_TOKEN, forKey: "Token")
         
-        let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        
-        homeVC.modalPresentationStyle = .fullScreen
-        self.present(homeVC, animated: false, completion: nil)
-        
-        print(result.data.accessToken)
+        let home = UIStoryboard.init(name: Constant.Home.Name.HomeStoryBoardName, bundle: nil)
+         guard let tabBarController = home.instantiateViewController(withIdentifier: Constant.Home.Id.HomeTabBarControllerId)as? UITabBarController else {return}
+                
+        self.navigationController?.pushViewController(tabBarController, animated: true)
+
     }
     
     func goToSignup() {

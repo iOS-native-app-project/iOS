@@ -21,8 +21,18 @@ class MyRecordMeetingListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 12
         
-        //MARK:- 진행률 바 뷰
+        //MARK: - 디자인 세팅
+        meetingNameLabel.font = UIFont(name: Constant.FontName.PretendardSemiBold, size: 16)
+        meetingNameLabel.textColor = Constant.Color.Black66
         
+        progressTitleLabel.font = UIFont(name: Constant.FontName.PretendardRegular, size: 14)
+        progressTitleLabel.textColor = Constant.Color.Black66
+        
+        progressValueLabel.font = UIFont(name: Constant.FontName.SCDream6Bold, size: 14)
+        progressValueLabel.textColor = Constant.Color.MainPuple
+        
+        
+        //MARK: - 진행률 바 뷰
         self.progressBackBarView.addSubview(progressBarView)
 
         let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
@@ -41,16 +51,16 @@ class MyRecordMeetingListCollectionViewCell: UICollectionViewCell {
         
         progressBarView.layer.cornerRadius = progressBackBarView.frame.height/2
         
-        //MARK:- 진행률 백그라운드 바 뷰
+        //MARK: - 진행률 백그라운드 바 뷰
         progressBackBarView.layer.cornerRadius = progressBackBarView.bounds.height/2
         progressBackBarView.backgroundColor = Constant.Color.Puple1
         
-        //MARK:- 진행률 수치 라벨
+        //MARK: - 진행률 수치 라벨
         progressValueLabel.text = "\(String(Int(progressValue)))%"
         
     }
 
-    //MARK:- progressValue 값이 들어오면 호출되는 함수. progressBar를 진행률 만큼 그리기
+    //MARK: - progressValue 값이 들어오면 호출되는 함수. progressBar를 진행률 만큼 그리기
     func setProgressBar() {
 
         let progressGage = CGFloat(progressValue / 100.0 * Double(progressBackBarView.frame.width))
