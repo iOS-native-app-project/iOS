@@ -104,6 +104,9 @@
 		A55C140727E765D30053F81F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140627E765D30053F81F /* LoginResponse.swift */; };
 		A55C140A27E767A50053F81F /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140927E767A50053F81F /* LoginDataManager.swift */; };
 		A55C140E27E770C80053F81F /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C140D27E770C80053F81F /* SignUpRequest.swift */; };
+		A55F1176287017F300018397 /* MemberRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F1175287017F300018397 /* MemberRateResponse.swift */; };
+		A55F117828701AF600018397 /* MemberHomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F117728701AF600018397 /* MemberHomeResponse.swift */; };
+		A55F117A28701D0C00018397 /* MeetingRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F117928701D0C00018397 /* MeetingRateResponse.swift */; };
 		B89C820728320DB500D07202 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C820628320DB500D07202 /* KeyCenter.swift */; };
 		B89C821328320E8D00D07202 /* MemberDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C820A28320E8D00D07202 /* MemberDataManager.swift */; };
 		B89C821428320E8D00D07202 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89C820B28320E8D00D07202 /* MemberStoryboard.storyboard */; };
@@ -226,6 +229,9 @@
 		A55C140627E765D30053F81F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		A55C140927E767A50053F81F /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		A55C140D27E770C80053F81F /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
+		A55F1175287017F300018397 /* MemberRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRateResponse.swift; sourceTree = "<group>"; };
+		A55F117728701AF600018397 /* MemberHomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHomeResponse.swift; sourceTree = "<group>"; };
+		A55F117928701D0C00018397 /* MeetingRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRateResponse.swift; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		B89C820628320DB500D07202 /* KeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		B89C820A28320E8D00D07202 /* MemberDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDataManager.swift; sourceTree = "<group>"; };
@@ -717,6 +723,9 @@
 			children = (
 				B89C820D28320E8D00D07202 /* UserGoodBadResponse.swift */,
 				B89C820E28320E8D00D07202 /* UserGoodBadRequest.swift */,
+				A55F1175287017F300018397 /* MemberRateResponse.swift */,
+				A55F117728701AF600018397 /* MemberHomeResponse.swift */,
+				A55F117928701D0C00018397 /* MeetingRateResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -964,6 +973,7 @@
 				18579882281941220090EEC5 /* NotificationViewController.swift in Sources */,
 				18B21B89283CE5930012DF8C /* Rate.swift in Sources */,
 				1857987328191FA20090EEC5 /* RecommendedMeetingItem.swift in Sources */,
+				A55F1176287017F300018397 /* MemberRateResponse.swift in Sources */,
 				18453A5927E0C3B400333D49 /* RecommendedMeetingListCollectionViewCell.swift in Sources */,
 				186B1F4D27C35EE10007C506 /* HomeViewController.swift in Sources */,
 				189B2FC32818613D00F66C31 /* HomeService.swift in Sources */,
@@ -990,6 +1000,7 @@
 				18D921482834F8CF00D734B0 /* PasswordResponse.swift in Sources */,
 				1841A5042805675D009CD78E /* SearchTermsCollectionViewCell.swift in Sources */,
 				1825B2AD2806A2B200272397 /* EntranceInfoView.swift in Sources */,
+				A55F117A28701D0C00018397 /* MeetingRateResponse.swift in Sources */,
 				18A1639028104506001668D9 /* MeetingListViewModel.swift in Sources */,
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				18A1639428105701001668D9 /* MeetingItem.swift in Sources */,
@@ -999,6 +1010,7 @@
 				1841A50828056779009CD78E /* MeetingListTableViewCell.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
 				18D921442834F41E00D734B0 /* PasswordItem.swift in Sources */,
+				A55F117828701AF600018397 /* MemberHomeResponse.swift in Sources */,
 				18AE755427FC381200FF28BA /* CreationFourthSection.swift in Sources */,
 				18AE755027FC314B00FF28BA /* CreationThirdSection.swift in Sources */,
 				186B1F5327C35EE10007C506 /* jaksim_ios.xcdatamodeld in Sources */,
