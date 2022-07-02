@@ -107,6 +107,8 @@
 		A55F1176287017F300018397 /* MemberRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F1175287017F300018397 /* MemberRateResponse.swift */; };
 		A55F117828701AF600018397 /* MemberHomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F117728701AF600018397 /* MemberHomeResponse.swift */; };
 		A55F117A28701D0C00018397 /* MeetingRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F117928701D0C00018397 /* MeetingRateResponse.swift */; };
+		A55F117E287037AF00018397 /* RecordInputCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F117C287037AF00018397 /* RecordInputCalendarCollectionViewCell.swift */; };
+		A55F117F287037AF00018397 /* RecordInputCalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55F117D287037AF00018397 /* RecordInputCalendarCollectionViewCell.xib */; };
 		B89C820728320DB500D07202 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C820628320DB500D07202 /* KeyCenter.swift */; };
 		B89C821328320E8D00D07202 /* MemberDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C820A28320E8D00D07202 /* MemberDataManager.swift */; };
 		B89C821428320E8D00D07202 /* MemberStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B89C820B28320E8D00D07202 /* MemberStoryboard.storyboard */; };
@@ -232,6 +234,8 @@
 		A55F1175287017F300018397 /* MemberRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRateResponse.swift; sourceTree = "<group>"; };
 		A55F117728701AF600018397 /* MemberHomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberHomeResponse.swift; sourceTree = "<group>"; };
 		A55F117928701D0C00018397 /* MeetingRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRateResponse.swift; sourceTree = "<group>"; };
+		A55F117C287037AF00018397 /* RecordInputCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInputCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		A55F117D287037AF00018397 /* RecordInputCalendarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordInputCalendarCollectionViewCell.xib; sourceTree = "<group>"; };
 		A5D2FB6627C7D4E300592ADB /* jaksim_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = jaksim_ios.entitlements; sourceTree = "<group>"; };
 		B89C820628320DB500D07202 /* KeyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
 		B89C820A28320E8D00D07202 /* MemberDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDataManager.swift; sourceTree = "<group>"; };
@@ -744,6 +748,8 @@
 				B89C822628321BDF00D07202 /* Entity */,
 				B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */,
 				B89C822228321ADD00D07202 /* RecordInputViewController.swift */,
+				A55F117C287037AF00018397 /* RecordInputCalendarCollectionViewCell.swift */,
+				A55F117D287037AF00018397 /* RecordInputCalendarCollectionViewCell.xib */,
 			);
 			path = RecordInput;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				186B1F5527C35EE40007C506 /* Assets.xcassets in Resources */,
 				186B1F5027C35EE10007C506 /* (null) in Resources */,
 				18AE755627FC381F00FF28BA /* CreationFourthSection.xib in Resources */,
+				A55F117F287037AF00018397 /* RecordInputCalendarCollectionViewCell.xib in Resources */,
 				18F1D94227F44AC800E51BDB /* MeetingCreation.storyboard in Resources */,
 				18AE755227FC317800FF28BA /* CreationThirdSection.xib in Resources */,
 				18AE754E27FB5BC800FF28BA /* CreationSecondSection.xib in Resources */,
@@ -1028,6 +1035,7 @@
 				186B1F4927C35EE10007C506 /* AppDelegate.swift in Sources */,
 				18EEAEB5282AA08900EC0786 /* MeetingCreationViewModel.swift in Sources */,
 				186B1F4B27C35EE10007C506 /* SceneDelegate.swift in Sources */,
+				A55F117E287037AF00018397 /* RecordInputCalendarCollectionViewCell.swift in Sources */,
 				18AE754C27FB5BBF00FF28BA /* CreationSecondSection.swift in Sources */,
 				18EEAEB9282AA30700EC0786 /* MeetingCreationService.swift in Sources */,
 				18EEAEB7282AA2FC00EC0786 /* MeetingCreationItem.swift in Sources */,

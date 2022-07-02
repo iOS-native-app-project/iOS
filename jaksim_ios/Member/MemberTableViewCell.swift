@@ -21,7 +21,6 @@ class MemberTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         userImageView.layer.cornerRadius = userImageView.frame.height/2
         goodButton.layer.cornerRadius = 10
         badButton.layer.cornerRadius = 10
