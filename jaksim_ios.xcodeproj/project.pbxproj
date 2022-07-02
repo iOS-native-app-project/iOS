@@ -695,6 +695,13 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		A55F117B28701ED600018397 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		B89C820828320E8D00D07202 /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,19 +740,12 @@
 		B89C822028321ADD00D07202 /* RecordInput */ = {
 			isa = PBXGroup;
 			children = (
+				A55F117B28701ED600018397 /* DataManager */,
 				B89C822628321BDF00D07202 /* Entity */,
-				B89C822528321BD000D07202 /* DataManager */,
 				B89C822128321ADD00D07202 /* RecordInputStoryboard.storyboard */,
 				B89C822228321ADD00D07202 /* RecordInputViewController.swift */,
 			);
 			path = RecordInput;
-			sourceTree = "<group>";
-		};
-		B89C822528321BD000D07202 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataManager;
 			sourceTree = "<group>";
 		};
 		B89C822628321BDF00D07202 /* Entity */ = {

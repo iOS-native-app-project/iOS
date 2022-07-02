@@ -17,6 +17,7 @@ class MemberTableViewCell: UITableViewCell {
     
     var goToAlert: (()->())?
     var isGood: Bool?
+    var userId = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()

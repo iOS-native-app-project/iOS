@@ -15,7 +15,7 @@ struct MemeberRateResponse: Decodable {
 
 struct MemeberRateResult: Decodable {
     var memberRate: [MemeberRateLists]?
-    var meetingDate: String
+    var meetingDate: MemberMeetingDate?
 }
 
 struct MemeberRateLists: Decodable {

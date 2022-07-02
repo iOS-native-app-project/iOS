@@ -20,10 +20,10 @@ struct MemberHomeResult: Decodable {
     var meeting_image: String
     var meeting_descript: String
     var meeting_limit: Int
-    "meeting_cycle": 1,
-    "meeting_unit": "시간",
-    "meeting_target_amount": 20,
-    "meeting_round": 3,
+    //"meeting_cycle": 1,
+    //"meeting_unit": "시간",
+    //"meeting_target_amount": 20,
+    //"meeting_round": 3,
     
           // 모임 주최자 정보
     //"user_id": 2, // 모임 주최자 id

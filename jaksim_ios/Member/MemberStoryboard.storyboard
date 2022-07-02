@@ -319,6 +319,7 @@
                     <connections>
                         <outlet property="memberTableView" destination="lVz-mw-fFt" id="1Ht-zQ-3ai"/>
                         <outlet property="percentLabel" destination="Ohm-4b-Kuc" id="aqB-xU-oV4"/>
+                        <outlet property="rateDateLabel" destination="dgZ-xJ-uLS" id="4xZ-k1-JT1"/>
                         <outlet property="tagCollectionView" destination="GdF-ZI-B6f" id="Jpg-sh-OWB"/>
                         <outlet property="titleLabel" destination="pSg-fY-9wy" id="vq4-g5-GO7"/>
                         <outlet property="topImageView" destination="nQ9-dC-jAf" id="ziE-3y-hU4"/>
