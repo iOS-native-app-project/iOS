@@ -253,6 +253,7 @@
                         <outlet property="memoTextField" destination="aa1-lC-9Sc" id="2qF-3y-Pfg"/>
                         <outlet property="memoTextView" destination="2BF-bs-De0" id="sRI-4f-fW5"/>
                         <outlet property="photoView" destination="BDL-qG-7fY" id="ONH-xG-fQX"/>
+                        <outlet property="recordImageView" destination="UkY-nI-kzp" id="FCk-Lo-Vhh"/>
                         <outlet property="spaceView" destination="U5O-gT-MB2" id="Ijt-yj-Nud"/>
                         <outlet property="valueTextField" destination="7eI-kA-z4G" id="ROM-8r-iIL"/>
                     </connections>

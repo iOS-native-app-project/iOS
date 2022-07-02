@@ -18,10 +18,11 @@ class RecordInputViewController: UIViewController {
     @IBOutlet var spaceView: UIView!
     @IBOutlet var calendarCollectionView: UICollectionView!
     @IBOutlet var editButton: UIButton!
+    @IBOutlet var recordImageView: UIImageView!
     
     //lazy var dataManager =
     
-    var recordData: [MyRecordResult]?
+    var recordData: [MyRecordResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class RecordInputViewController: UIViewController {
     }
     
     func setupLayout() {
-        if recordData?.count == 0 {
+        if recordData.count == 0 {
             self.navigationItem.title = "나의 기록"
             memoTextField.isHidden = false
             spaceView.isHidden = false
@@ -76,6 +77,7 @@ extension RecordInputViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = calendarCollectionView.dequeueReusableCell(withReuseIdentifier: "RecordInputCalendarCollectionViewCell", for: indexPath) as! RecordInputCalendarCollectionViewCell
         
         let titleArray = ["일", "월", "화", "수", "목", "금", "토"]
+        
         cell.titleLabel.text = titleArray[indexPath.row]
         
         return cell
@@ -101,5 +103,15 @@ extension RecordInputViewController: UICollectionViewDelegate, UICollectionViewD
 
 //MARK: - API
 extension RecordInputViewController {
-    
+    func successMyRecordData(_ result: MyRecordResponse) {
+        recordData = result.data!
+        
+        if recordData.count != 0 {
+            valueTextField.text = "\(recordData[0].value)"
+            memoTextField.text = recordData[0].descript
+            //recordImageView.image = recordData[0].image
+        }
+       
+        calendarCollectionView.reloadData()
+    }
 }
