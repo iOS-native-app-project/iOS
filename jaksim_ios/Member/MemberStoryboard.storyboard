@@ -65,37 +65,35 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3w-Wo-sVk">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-q5-B2s">
-                                                                <rect key="frame" x="20" y="16" width="374" height="20"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모임 누적 달성치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LC-jz-kvB">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="20"/>
-                                                                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
-                                                                        <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-O9-xB3">
-                                                                        <rect key="frame" x="128" y="0.0" width="180" height="20"/>
-                                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="180" id="UbM-OT-Nkw"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-4b-Kuc">
-                                                                        <rect key="frame" x="344.5" y="0.0" width="29.5" height="20"/>
-                                                                        <fontDescription key="fontDescription" name="S-CoreDream-4Regular" family="S-Core Dream" pointSize="14"/>
-                                                                        <color key="textColor" red="0.33333333333333331" green="0.47058823529411764" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모임 누적 달성치" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LC-jz-kvB">
+                                                                <rect key="frame" x="20" y="17.5" width="91.5" height="17"/>
+                                                                <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
+                                                                <color key="textColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohm-4b-Kuc">
+                                                                <rect key="frame" x="365.5" y="18" width="29.5" height="16.5"/>
+                                                                <fontDescription key="fontDescription" name="S-CoreDream-4Regular" family="S-Core Dream" pointSize="14"/>
+                                                                <color key="textColor" red="0.33333333333333331" green="0.47058823529411764" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gT-O9-xB3">
+                                                                <rect key="frame" x="128.5" y="22" width="223" height="8"/>
+                                                                <color key="backgroundColor" red="0.8901960784313725" green="0.90980392156862744" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="8" id="DLR-r1-LCM"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="yIr-q5-B2s" secondAttribute="bottom" constant="16" id="1hB-2p-puq"/>
-                                                            <constraint firstAttribute="trailing" secondItem="yIr-q5-B2s" secondAttribute="trailing" constant="20" id="7hG-ux-18A"/>
-                                                            <constraint firstItem="yIr-q5-B2s" firstAttribute="leading" secondItem="C3w-Wo-sVk" secondAttribute="leading" constant="20" id="PDK-k1-WsD"/>
-                                                            <constraint firstItem="yIr-q5-B2s" firstAttribute="top" secondItem="C3w-Wo-sVk" secondAttribute="top" constant="16" id="Vfy-xS-d7p"/>
+                                                            <constraint firstItem="Ohm-4b-Kuc" firstAttribute="centerY" secondItem="C3w-Wo-sVk" secondAttribute="centerY" id="H3U-e1-p9Z"/>
+                                                            <constraint firstItem="0gT-O9-xB3" firstAttribute="centerY" secondItem="C3w-Wo-sVk" secondAttribute="centerY" id="Js2-hj-o7w"/>
+                                                            <constraint firstItem="0gT-O9-xB3" firstAttribute="leading" secondItem="3LC-jz-kvB" secondAttribute="trailing" constant="17" id="MTe-ss-Vnk"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Ohm-4b-Kuc" secondAttribute="trailing" constant="19" id="g6s-kW-NaT"/>
+                                                            <constraint firstItem="Ohm-4b-Kuc" firstAttribute="leading" secondItem="0gT-O9-xB3" secondAttribute="trailing" constant="14" id="iqY-Ie-4C6"/>
+                                                            <constraint firstItem="3LC-jz-kvB" firstAttribute="leading" secondItem="C3w-Wo-sVk" secondAttribute="leading" constant="20" id="lL8-x3-Jop"/>
+                                                            <constraint firstItem="3LC-jz-kvB" firstAttribute="centerY" secondItem="C3w-Wo-sVk" secondAttribute="centerY" id="qec-tE-x9V"/>
                                                             <constraint firstAttribute="height" constant="52" id="x5i-dQ-1Bl"/>
                                                         </constraints>
                                                     </view>
@@ -317,6 +315,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backGraphView" destination="0gT-O9-xB3" id="1wy-yl-qKN"/>
                         <outlet property="memberTableView" destination="lVz-mw-fFt" id="1Ht-zQ-3ai"/>
                         <outlet property="percentLabel" destination="Ohm-4b-Kuc" id="aqB-xU-oV4"/>
                         <outlet property="rateDateLabel" destination="dgZ-xJ-uLS" id="4xZ-k1-JT1"/>
@@ -448,9 +447,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

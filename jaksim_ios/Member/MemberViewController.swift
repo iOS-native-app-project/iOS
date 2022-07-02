@@ -13,13 +13,14 @@ class MemberViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var percentLabel: UILabel!
     @IBOutlet var rateDateLabel: UILabel!
+    @IBOutlet var backGraphView: UIView!
     @IBOutlet var tagCollectionView: UICollectionView!
     @IBOutlet var memberTableView: UITableView!
     
     lazy var dataManager = MemberDataManager()
     
-    var memberHomeResult: MemberHomeResult?
     var memberRateLists: [MemeberRateLists] = []
+    var memberHomeResult: MemberHomeResult?
     var meetingDate: MemberMeetingDate?
 
     var meetingTitle = ""
@@ -33,9 +34,14 @@ class MemberViewController: UIViewController {
 
         self.navigationItem.title = "\(meetingTitle)"
         
+        setupLayout()
         setupCollecitonView()
         setupTableView()
         
+    }
+    
+    func setupLayout() {
+        backGraphView.layer.cornerRadius = 999
         
     }
 
@@ -121,7 +127,7 @@ extension MemberViewController {
         
     }
     func successMeetingRate(_ result: MeetingRateResponse) {
-        
+        percentLabel.text = "\(result.data)"
     }
     
     func successMemberRate(_ result: MemeberRateResponse) {
